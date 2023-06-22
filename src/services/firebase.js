@@ -14,15 +14,6 @@ export async function uploadImg( nameFolder, nameImg, imgBase64 ){
             .putString(imgBase64, "data_url");
         
     return await response.ref.getDownloadURL();
-    // try {
-    //     let response = await storageRef.child( nameFolder+"/"+nameImg )
-    //         .putString(imgBase64, "data_url");
-        
-    //     return await response.ref.getDownloadURL();
-    // } catch (error) {
-    //     console.log("Service upload img error: ", error);
-    //     return error;
-    // }
 }
 
 export async function deleteImg( url ){

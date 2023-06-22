@@ -11,7 +11,10 @@ export const uploadImgs = async( req, res ) => {
         
         try {
             const urlImg = await uploadImg( nombreCarpeta, img.nombre, img.base64 );
-            urlImgs.push(urlImg);
+            urlImgs.push( {
+                nombre: img.nombre,
+                url: urlImg
+            } );
 
         } catch (error) {
             //si ocurre un error antes de subir todas las imagenes eliminar las que ya se subieron

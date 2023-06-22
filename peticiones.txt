@@ -1,0 +1,10 @@
+subir imagenes
+{
+    "nombreCarpeta": "string",
+    "imgs": [
+        {
+        "nombre": "string",
+        "base64": "string"
+        }
+    ]
+}
