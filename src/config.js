@@ -1,3 +1,6 @@
+import { config } from 'dotenv';
+config();
+
 export const firebaseConfig = {
     apiKey: process.env.firebaseApiKey || "",
     authDomain: process.env.firebaseAuthDomain || "",

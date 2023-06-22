@@ -9,6 +9,7 @@ const storageRef = firebase.app().storage().ref();
 const storage = getStorage();
 
 export async function uploadImg( nameFolder, nameImg, imgBase64 ){
+    
     let response = await storageRef.child( nameFolder+"/"+nameImg )
             .putString(imgBase64, "data_url");
         
