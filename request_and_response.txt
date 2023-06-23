@@ -1,4 +1,5 @@
 subir imagenes
+REQUEST
 {
     "nombreCarpeta": "string",
     "imgs": [
@@ -9,6 +10,7 @@ subir imagenes
     ]
 }
 
+RESPONSE
 {
     "success": "boolean",
     "data": [
