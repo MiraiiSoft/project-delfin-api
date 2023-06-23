@@ -10,14 +10,21 @@ export const uploadImgs = async( req, res ) => {
     for( let img of imgs ){
         
         try {
-            const urlImg = await uploadImg( nombreCarpeta, img.nombre, img.base64 );
+            const nameImage = img.nombre + "_" + Date.now();
+
+            const urlImg = await uploadImg( nombreCarpeta, nameImage, img.base64 );
             urlImgs.push( {
-                nombre: img.nombre,
+                nombre: nameImage,
                 url: urlImg
             } );
 
         } catch (error) {
             //si ocurre un error antes de subir todas las imagenes eliminar las que ya se subieron
+            for( let img of urlImgs ){
+                await deleteImg( img.url )
+                    .catch((error) => { return error; });
+
+            }
             console.log("Error al subir imagen:", error)
             return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
                 success: false,
@@ -32,8 +39,20 @@ export const uploadImgs = async( req, res ) => {
 }
 
 export const deleteImgs = async( req, res ) => {
-    res.json({
+
+    const { url } = req.query;
+    
+    try {
+        await deleteImg( url );
+    } catch (error) {
+        return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success: false,
+            message: "Error al eliminar imagen firebase: " + error
+        });
+    }
+
+    res.status(CODES_HTTP.OK).json({
         success: true,
         message: "delete img"
-    })
+    });
 }

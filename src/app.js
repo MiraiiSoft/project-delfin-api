@@ -1,5 +1,3 @@
-import * as url from "url";
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 import express from "express"
 import morgan from "morgan"
 import { config } from 'dotenv';

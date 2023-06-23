@@ -8,3 +8,13 @@ subir imagenes
         }
     ]
 }
+
+{
+    "success": "boolean",
+    "data": [
+        {
+        "nombre": "string",
+        "url": "string"
+        }
+    ]
+}

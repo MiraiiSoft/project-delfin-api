@@ -19,11 +19,6 @@ export async function uploadImg( nameFolder, nameImg, imgBase64 ){
 export async function deleteImg( url ){
     const httpReference = await ref( storage, url );
 
-    try {
-        await deleteObject( httpReference );
-    } catch (error) {
-        console.log("ERROR delete img:", error);
-        return error;
-    }
+    return await deleteObject( httpReference );
 
 }
