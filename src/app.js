@@ -4,7 +4,6 @@ import { config } from 'dotenv';
 config();
 
 import uploadRouter from "./routes/upload.routes.js";
-import { generateToken, verifyToken } from "./helpers/JWT.js";
 
 const app = express();
 
