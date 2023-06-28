@@ -20,3 +20,15 @@ RESPONSE
         }
     ]
 }
+
+payment
+REQUEST
+{
+    "payservice": "string",
+    "idcarrito": number,
+    "productos": [ {
+        "idproducto": number,
+        "cantidad": number
+    } ]
+
+}
