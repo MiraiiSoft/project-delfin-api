@@ -1,4 +1,4 @@
-import { createOrder } from "../services/mercadopago";
+import { createOrder } from "../services/mercadopago.js";
 import { CODES_HTTP } from "../constants/global.js"
 
 export const payment = async ( req, res ) => {
