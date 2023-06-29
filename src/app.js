@@ -14,15 +14,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 
-app.get('/', async (req, res) => {
-    try {
-        console.log("Hola");
-        const all = await getCarritoProductos();
-        res.send(all); 
-    } catch (error) {
-        console.log(error);
-        await prisma.$disconnect();
-    }
-});
+
 
 export default app;
