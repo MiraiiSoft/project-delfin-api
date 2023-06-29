@@ -1,0 +1,22 @@
+subir imagenes
+REQUEST
+{
+    "nombreCarpeta": "string",
+    "imgs": [
+        {
+        "nombre": "string",
+        "base64": "string"
+        }
+    ]
+}
+
+RESPONSE
+{
+    "success": "boolean",
+    "data": [
+        {
+        "nombre": "string",
+        "url": "string"
+        }
+    ]
+}
