@@ -2,64 +2,52 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export async function getPaises() {
-    try {
-        return await prisma.pais.findMany()
-    } catch (error) {
+        const paises = await prisma.pais.findMany()
         console.log(error);
-        return error
-    }
+        return paises;
 }
 
 export async function createPais(data){
-    try {
-        return await prisma.pais.create({
+        const newPais = await prisma.pais.create({
             data:{
-                name:data.name
+                pais:data.pais
             }
         });
-    } catch (error) {
         await prisma.$disconnect();
-        
-    }
+        return newPais;
 }
 
-export async function getPaisByName(name){
-    try {
-        return await prisma.pais.findFirst({
+export async function getPaisByName(pais){
+        const pais = await prisma.pais.findFirst({
             where:{
-                name:name
+                pais:pais
             }
         });
-    } catch (error) {
         await prisma.$disconnect();
-    }
+        return pais;
 }
 
 export async function updatePais(id,data){
-    try {
-        return await prisma.pais.update({
+        const updatedPais = await prisma.pais.update({
             where:{
                 id_pais:id
             },
             data:{
-                name:data.name
+                pais:data.pais
             }
         });
-    } catch (error) {
         await prisma.$disconnect();
-    }
+        return updatedPais;
 }
 
 export async function deletePais(id){
-    try {
-        return await prisma.pais.delete({
+        const paisDeleted = await prisma.pais.delete({
             where:{
                 id_pais:id
             }
         });
-    } catch (error) {
         await prisma.$disconnect();
-    }
+        return paisDeleted; 
 }
 
 

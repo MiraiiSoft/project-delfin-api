@@ -3,65 +3,48 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export async function getFacturas() {
-  try {
-    return await prisma.factura.findMany();
-  } catch (error) {
-    await prisma.$disconnect();
-    return error;
-  }
+  const facturas = await prisma.factura.findMany();
+  await prisma.$disconnect();
+  return facturas;
 }
 
 export async function getFacturaByNumero(numero) {
-  try {
-    return await prisma.factura.findUnique({
-      where: {
-        num_factura: numero,
-      },
-    });
-  } catch (error) {
-    await prisma.$disconnect();
-    return error;
-  }
+  const factura = await prisma.factura.findUnique({
+    where: {
+      num_factura: numero,
+    },
+  });
+  await prisma.$disconnect();
+  return factura;
 }
 
 export async function createFactura(numero) {
-  try {
-    return await prisma.factura.create({
-      data: {
-        num_factura: numero,
-      },
-    });
-  } catch (error) {
-    await prisma.$disconnect();
-    return error;
-  }
+  const newFactura = await prisma.factura.create({
+    data: {
+      num_factura: numero,
+    },
+  });
+  await prisma.$disconnect();
+  return newFactura;
 }
 
 export async function updateFactura(numero, data) {
-  try {
-    return await prisma.factura.update({
-      where: {
-        num_factura: numero,
-      },
-      data: {
-        
-      },
-    });
-  } catch (error) {
-    await prisma.$disconnect();
-    return error;
-  }
+  const updatedFactura = await prisma.factura.update({
+    where: {
+      num_factura: numero,
+    },
+    data: {},
+  });
+  await prisma.$disconnect();
+  return updatedFactura;
 }
 
 export async function deleteFacturaByNumero(numero) {
-  try {
-    return await prisma.factura.delete({
-      where: {
-        num_factura: numero,
-      },
-    });
-  } catch (error) {
-    await prisma.$disconnect();
-    return error;
-  }
+  const facturaDeleted = await prisma.factura.delete({
+    where: {
+      num_factura: numero,
+    },
+  });
+  await prisma.$disconnect();
+  return facturaDeleted;
 }
