@@ -3,6 +3,7 @@ import morgan from "morgan"
 import { config } from 'dotenv';
 config();
 
+
 import uploadRouter from "./routes/upload.routes.js";
 import authRouter from "./routes/auth.routes.js";
 import carritoRouter from "./routes/carrito.routes.js";
@@ -15,13 +16,12 @@ import rolRouter from "./routes/rol.routes.js";
 import usuarioRouter from "./routes/usuario.routes.js";
 import ventaRouter from "./routes/venta.routes.js";
 
-
 const app = express();
 
 app.set('port',process.env.PORT||3000)
 
 app.use(express.json());
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 
 app.use( '/api/file', uploadRouter);
