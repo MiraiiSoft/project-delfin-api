@@ -75,3 +75,31 @@ export async function deleteLoginById(id) {
     return error;
   }
 }
+
+
+export async function getLoginByUser(usuario){
+  try {
+    return await prisma.login.findUnique({
+      where:{
+        usuario:usuario
+      }
+    })
+  } catch (error) {
+    await prisma.$disconnect();
+    return error;
+  }
+}
+
+
+export async function getLoginByEmail(correo){
+  try {
+    return await prisma.login.findUnique({
+      where:{
+        correo:correo
+      }
+    })
+  } catch (error) {
+    await prisma.$disconnect();
+    return error;
+  }
+}
