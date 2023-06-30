@@ -1,3 +1,4 @@
+import { CODES_HTTP } from "../constants/global.js";
 import { createRol, deleteRolById, getRolById, getRoles } from "../DAO/roll.dao.js";
 
 export const getAllRoles = async ( req, res ) => {
