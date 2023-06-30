@@ -32,3 +32,15 @@ REQUEST
     } ]
 
 }
+
+
+register
+REQUEST
+{
+    "nombre": "erick",
+    "apellido": "arevalo",
+    "telefono": "5567568641",
+    "correo": "wadavap435@extemer.com",
+    "usuario": "prueba1",
+    "contraseña": "prueba123"
+}
