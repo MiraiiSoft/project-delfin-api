@@ -57,4 +57,6 @@ export async function getRolByNombre(nombre){
       roll: nombre
     }
   })
+  await prisma.$disconnect();
+  return rolNombre;
 }
