@@ -62,7 +62,7 @@ export async function deleteLoginById(id) {
 }
 
 export async function getLoginByUser(usuario) {
-  const loginUser = await prisma.login.findUnique({
+  const loginUser = await prisma.login.findFirst({
     where: {
       usuario: usuario,
     },
@@ -72,7 +72,7 @@ export async function getLoginByUser(usuario) {
 }
 
 export async function getLoginByEmail(correo) {
-  const loginEmail = await prisma.login.findUnique({
+  const loginEmail = await prisma.login.findFirst({
     where: {
       correo: correo,
     },
