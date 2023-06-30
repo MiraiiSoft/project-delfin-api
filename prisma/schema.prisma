@@ -122,7 +122,7 @@ model login {
   correo        String          @db.VarChar(25)
   usuario       String?         @db.VarChar(45)
   contrase_a    String?         @map("contraseña") @db.VarChar(20)
-  is_verified   String?         @db.VarChar(45)
+  is_verified   Boolean?        @default(false)
   id_persona    Int
   id_roll       Int
   carrito       carrito[]
