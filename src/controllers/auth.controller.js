@@ -2,6 +2,7 @@ import { CODES_HTTP } from "../constants/global.js";
 import { createDirecciones } from "../DAO/direccion.dao.js";
 import { createPersona } from "../DAO/persona.dao.js";
 import { createLogin } from "../DAO/login.dao.js";
+import { getRolByNombre } from "../DAO/roll.dao.js";
 import { hashPass, comparePass } from "../helpers/hashPass.js";
 
 export const register = async ( req, res ) => {
@@ -29,6 +30,7 @@ export const register = async ( req, res ) => {
         });
 
         //buscar rol 
+        const rol = await getRolByNombre('cliente');
 
         //se guarda datos de login
         const login = await createLogin({
@@ -37,8 +39,10 @@ export const register = async ( req, res ) => {
             contraseña: await hashPass(contraseña),
             is_verified: false,
             id_persona: persona.id_persona,
-            id_roll: 4,
-        })
+            id_roll: rol.id_roll,
+        });
+
+        //enviar email de confirmacion
 
         res.status(CODES_HTTP.OK).json({
             success: true,
