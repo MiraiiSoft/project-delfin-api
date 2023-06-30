@@ -9,22 +9,34 @@ export const register = async ( req, res ) => {
         
         const { nombre, apellido, telefono, correo, usuario, contraseña } = req.body;
         
-        // const direccion = await createDirecciones({
-        //     codigo_postal: "0",
-        //     calle: "",
-        //     colonia: "",
-        //     num: "",
-        //     telefono,
-        //     referencia: "",
-        //     id_ciudad: 1
-        // });
+        //se crea una direccion
+        const direccion = await createDirecciones({
+            codigo_postal: "0",
+            calle: "",
+            colonia: "",
+            num: "",
+            telefono,
+            referencia: "",
+            id_ciudad: 1
+        });
 
-        // const persona = createPersona({
-        //     nombre,
-        //     apellido,
-        //     telefono,
-        //     id_direccion: direccion.id_direccion
-        // });
+        //se guarda una persona
+        const persona = createPersona({
+            nombre,
+            apellido,
+            telefono,
+            id_direccion: direccion.id_direccion
+        });
+
+        //se guarda datos de login
+        const login = await createLogin({
+            correo,
+            usuario,
+            contraseña: await hashPass(contraseña),
+            is_verified: false,
+            id_persona: persona.id_persona,
+            id_roll: 1,
+        })
 
         res.status(CODES_HTTP.OK).json({
             success: true,
