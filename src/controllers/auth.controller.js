@@ -22,13 +22,13 @@ export const register = async ( req, res ) => {
         });
 
         //se guarda una persona
-        const persona = createPersona({
+        const persona = await createPersona({
             nombre,
             apellido,
             telefono,
             id_direccion: direccion.id_direccion
         });
-
+        
         //buscar rol 
         const rol = await getRolByNombre('cliente');
         
