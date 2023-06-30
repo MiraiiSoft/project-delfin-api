@@ -23,7 +23,7 @@ export async function createLogin(data) {
     data: {
       correo: data.correo,
       usuario: data.usuario,
-      contraseña: data.contraseña,
+      contrase_a : data.contraseña,
       is_verified: data.is_verified,
       id_persona: data.id_persona,
       id_roll: data.id_roll,
