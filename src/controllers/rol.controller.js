@@ -21,7 +21,7 @@ export const getAllRoles = async ( req, res ) => {
 
 export const getOneRol = async ( req, res ) => {
     try {
-        const oneRol = await getRolById(req.params.rolID)
+        const oneRol = await getRolById(parseInt(req.params.rolID))
         console.log("Peticion exitosa")
         res.status(CODES_HTTP.OK).json({
             success: true,
@@ -57,13 +57,9 @@ export const addRol = async ( req, res ) => {
 
 export const updateRol = async ( req, res ) => {
     try {
-        const updatedRol = await updateRol(req.params.rolID, req.body)
+        const updatedRol = await updateRol(parseInt(req.params.rolID), req.body)
         console.log("Peticion exitosa")
-        res.status(CODES_HTTP.OK).json({
-            success: true,
-            message: "Peticion exitosa:",
-            data: updateRol
-        });
+       
     } catch (error) {
         console.log("Error al actualizar rol:", error)
         return res.status(CODES_HTTP.NO_FOUND).json({
@@ -75,12 +71,12 @@ export const updateRol = async ( req, res ) => {
 
 export const deleteRol = async ( req, res ) => {
     try {
-        const deletedRol = await deleteRolById(req.params.rolID)
+        const deletedRol = await deleteRolById(parseInt(req.params.rolID))
         console.log("Peticion exitosa")
         res.status(CODES_HTTP.OK).json({
             success: true,
             message: "Peticion exitosa:",
-            data: deleteRol
+            data: deletedRol
         });
     } catch (error) {
         console.log("Error al eliminar rol:", error)
