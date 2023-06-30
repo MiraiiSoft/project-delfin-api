@@ -52,7 +52,7 @@ export async function deleteRolById(id) {
 }
 
 export async function getRolByNombre(nombre){
-  const rolNombre = await prisma.roll.findUnique({
+  const rolNombre = await prisma.roll.findFirst({
     where:{
       roll: nombre
     }
