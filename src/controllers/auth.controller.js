@@ -11,36 +11,36 @@ export const register = async ( req, res ) => {
         const { nombre, apellido, telefono, correo, usuario, contraseña } = req.body;
         
         //se crea una direccion
-        const direccion = await createDirecciones({
-            codigo_postal: "0",
-            calle: "",
-            colonia: "",
-            num: "",
-            telefono,
-            referencia: "",
-            id_ciudad: 1
-        });
+        // const direccion = await createDirecciones({
+        //     codigo_postal: "0",
+        //     calle: "",
+        //     colonia: "",
+        //     num: "",
+        //     telefono,
+        //     referencia: "",
+        //     id_ciudad: 1
+        // });
 
         //se guarda una persona
-        const persona = createPersona({
-            nombre,
-            apellido,
-            telefono,
-            id_direccion: direccion.id_direccion
-        });
+        // const persona = createPersona({
+        //     nombre,
+        //     apellido,
+        //     telefono,
+        //     id_direccion: direccion.id_direccion
+        // });
 
         //buscar rol 
         const rol = await getRolByNombre('cliente');
-
+        console.log(rol)
         //se guarda datos de login
-        const login = await createLogin({
-            correo,
-            usuario,
-            contraseña: await hashPass(contraseña),
-            is_verified: false,
-            id_persona: persona.id_persona,
-            id_roll: rol.id_roll,
-        });
+        // const login = await createLogin({
+        //     correo,
+        //     usuario,
+        //     contraseña: await hashPass(contraseña),
+        //     is_verified: false,
+        //     id_persona: persona.id_persona,
+        //     id_roll: rol.id_roll,
+        // });
 
         //enviar email de confirmacion
 
@@ -49,6 +49,7 @@ export const register = async ( req, res ) => {
             message: "Registro exictoso"
         });
     } catch (error) {
+        console.log(error)
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
             message: "A ocurrido un error: " + error
