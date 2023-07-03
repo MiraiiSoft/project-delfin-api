@@ -5,6 +5,7 @@ import { createLogin, getLoginByEmail, getLoginByUser } from "../DAO/login.dao.j
 import { getRolByNombre } from "../DAO/roll.dao.js";
 import { hashPass, comparePass } from "../helpers/hashPass.js";
 import { generateToken } from "../helpers/JWT.js";
+import sendEmail from "../helpers/sendEmail.js";
 
 export const register = async ( req, res ) => {
     try {
@@ -43,6 +44,13 @@ export const register = async ( req, res ) => {
         });
 
         //enviar email de confirmacion
+        const body = "<p>Confirma la creacion de tu cuenta. Tiene 1 hora para poder confirmar.";
+        const resSendMail = await sendEmail( login.correo, "Confirmacion cuenta", body, true );
+        console.log(resSendMail)
+        if( resSendMail.success === false ) return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success: false,
+            message: "Problemas al enviar email: " + resSendMail.message
+        });
 
         res.status(CODES_HTTP.OK).json({
             success: true,
