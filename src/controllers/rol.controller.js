@@ -59,7 +59,11 @@ export const updateRol = async ( req, res ) => {
     try {
         const updatedRol = await updateRol(parseInt(req.params.rolID), req.body)
         console.log("Peticion exitosa")
-       
+        res.status*(CODES_HTTP.OK).json({
+            success: true,
+            message: "Peticion exitosa:",
+            data: updatedRol
+        });
     } catch (error) {
         console.log("Error al actualizar rol:", error)
         return res.status(CODES_HTTP.NO_FOUND).json({
