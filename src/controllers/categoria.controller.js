@@ -47,10 +47,10 @@ export const addCategoria = async ( req, res ) => {
             data: newCategoria
         });
     }catch(error){
-        console.log("Error al obtener la categoria:", error)
+        console.log("Error al crear la categoria:", error)
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
-            message: "Error al obtener la categoria: " + error 
+            message: "Error al crear la categoria: " + error 
         });
     }
 }
@@ -65,10 +65,10 @@ export const updateCategoria = async ( req, res ) => {
             data: updateCategoria
         });
     }catch(error){
-        console.log("Error al obtener la categoria:", error);
+        console.log("Error al actualizar la categoria:", error);
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
-            message: "Error al obtener la categoria: " + error 
+            message: "Error al actualizar la categoria: " + error 
         });
     }
 }
@@ -83,10 +83,10 @@ export const deleteCategoria = async ( req, res ) => {
             data: deleteCategoria
         });
     }catch(error){
-        console.log("Error al borrar la categoria:", error)
+        console.log("Error al eliminar la categoria:", error)
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
-            message: "Error al borrar la categoria: " + error 
+            message: "Error al eliminar la categoria: " + error 
         });
     }
 }
