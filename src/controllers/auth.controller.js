@@ -1,10 +1,10 @@
 import { CODES_HTTP } from "../constants/global.js";
 import { createDirecciones } from "../DAO/direccion.dao.js";
 import { createPersona } from "../DAO/persona.dao.js";
-import { createLogin, getLoginByEmail, getLoginByUser } from "../DAO/login.dao.js";
+import { createLogin, getLoginByEmail, getLoginByUser, updateLogin } from "../DAO/login.dao.js";
 import { getRolByNombre } from "../DAO/roll.dao.js";
 import { hashPass, comparePass } from "../helpers/hashPass.js";
-import { generateToken } from "../helpers/JWT.js";
+import { generateToken, verifyToken } from "../helpers/JWT.js";
 import sendEmail from "../helpers/sendEmail.js";
 
 export const register = async ( req, res ) => {
@@ -46,7 +46,7 @@ export const register = async ( req, res ) => {
         //enviar email de confirmacion
         const body = "<p>Confirma la creacion de tu cuenta. Tiene 1 hora para poder confirmar.";
         const resSendMail = await sendEmail( login.correo, "Confirmacion cuenta", body, true );
-        console.log(resSendMail)
+        
         if( resSendMail.success === false ) return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
             message: "Problemas al enviar email: " + resSendMail.message
@@ -120,5 +120,47 @@ export const login = async ( req, res ) => {
 }
 
 export const confirmAccount = async ( req, res ) => {
-    
+    const { token } = req.params;
+
+    const confirm = async (token) => {
+        const verify = verifyToken(token);
+
+        if( verify.success === false ){
+            const err = verify.message;
+            throw new Error(err);
+        }
+
+        return await getLoginByEmail( verify.message )
+            .then( async userLogin => {
+                if( !userLogin ) throw new Error('No se a encontrado la cuenta');
+
+                if( userLogin.is_verified === true ) throw new Error('La cuenta ya esta confirmada');
+
+                userLogin.is_verified = true;
+                console.log(userLogin)
+                return await updateLogin( userLogin.id_login, userLogin );
+
+            } )
+    };
+
+    try {
+        confirm( token )
+            .then( () => {
+                res.status(CODES_HTTP.OK).json({
+                    success: true,
+                    message: "Confirmacion de cuenta exitosa"
+                });
+            } )
+            .catch( err => {
+                return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+                    success: false,
+                    message: err
+                })
+            })
+    } catch (error) {
+        return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success: false,
+            message: error
+        })
+    }
 }

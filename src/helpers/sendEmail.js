@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import { generateToken } from "./JWT.js";
 
-function sendEmail (email, title, body, generateToke = false) {
+function sendEmail(email, title, body, generateToke = false) {
     let error;
     let res;
 
@@ -34,7 +34,7 @@ function sendEmail (email, title, body, generateToke = false) {
             res = response;
         };
     });
-
+    
     if (error) {
         return Promise.reject({
             success: false,
@@ -42,11 +42,10 @@ function sendEmail (email, title, body, generateToke = false) {
         });
     }
 
-    if (res) {
-        return Promise.resolve({
-            success: true,
-            message: res
-        });
-    }
+    return Promise.resolve({
+        success: true,
+        message: res
+    });
+
 }
 export default sendEmail;
