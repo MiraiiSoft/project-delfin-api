@@ -44,3 +44,10 @@ REQUEST
     "usuario": "prueba1",
     "contraseña": "prueba123"
 }
+
+
+login
+{
+    "user": "prueba1",
+    "pass": "prueba123"
+}

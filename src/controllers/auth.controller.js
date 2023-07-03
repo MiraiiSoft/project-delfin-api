@@ -1,7 +1,7 @@
 import { CODES_HTTP } from "../constants/global.js";
 import { createDirecciones } from "../DAO/direccion.dao.js";
 import { createPersona } from "../DAO/persona.dao.js";
-import { createLogin } from "../DAO/login.dao.js";
+import { createLogin, getLoginByEmail, getLoginByUser } from "../DAO/login.dao.js";
 import { getRolByNombre } from "../DAO/roll.dao.js";
 import { hashPass, comparePass } from "../helpers/hashPass.js";
 
@@ -37,7 +37,6 @@ export const register = async ( req, res ) => {
             correo,
             usuario,
             contraseña: await hashPass(contraseña),
-            is_verified: false,
             id_persona: persona.id_persona,
             id_roll: rol.id_roll,
         });
@@ -58,6 +57,31 @@ export const register = async ( req, res ) => {
 }
 
 export const login = async ( req, res ) => {
+    const { user, pass } = req.body;
+
+    const validEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+
+    let dataUser;
+    if( validEmail.test(user) ){
+        dataUser = await getLoginByEmail(user);
+    }else{
+        dataUser = await getLoginByUser(user);
+    }
+
+    //comprobar existe usuario
+    if( !dataUser ) return res.status(CODES_HTTP.BAD_REQUEST).json({
+        success: false,
+        message: "El usuario no se encuentra registrado"
+    });
+
+    //comprobar verificacion de la cuenta
+    if( !dataUser.is_verified ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
+        success: false,
+        message: "No se a verificado la cuenta"
+    });
+
+    //validar contraseña
+    const validatePass = await comparePass(pass);
 
 }
 
