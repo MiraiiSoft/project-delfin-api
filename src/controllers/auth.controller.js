@@ -4,6 +4,7 @@ import { createPersona } from "../DAO/persona.dao.js";
 import { createLogin, getLoginByEmail, getLoginByUser } from "../DAO/login.dao.js";
 import { getRolByNombre } from "../DAO/roll.dao.js";
 import { hashPass, comparePass } from "../helpers/hashPass.js";
+import { generateToken } from "../helpers/JWT.js";
 
 export const register = async ( req, res ) => {
     try {
@@ -62,10 +63,17 @@ export const login = async ( req, res ) => {
     const validEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
     let dataUser;
-    if( validEmail.test(user) ){
-        dataUser = await getLoginByEmail(user);
-    }else{
-        dataUser = await getLoginByUser(user);
+    try {
+        if( validEmail.test(user) ){
+            dataUser = await getLoginByEmail(user);
+        }else{
+            dataUser = await getLoginByUser(user);
+        }        
+    } catch (error) {
+        return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success: false,
+            message: "A ocurrido un error:" + error
+        });
     }
 
     //comprobar existe usuario
@@ -75,16 +83,30 @@ export const login = async ( req, res ) => {
     });
 
     //comprobar verificacion de la cuenta
-    if( !dataUser.is_verified ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
-        success: false,
-        message: "No se a verificado la cuenta"
-    });
+    // if( !dataUser.is_verified ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
+    //     success: false,
+    //     message: "No se a verificado la cuenta"
+    // });
 
     //validar contraseña
-    const validatePass = await comparePass(pass);
-    if( !validatePass ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
-        success: false,
-        message: "Contraseña incorrecta"
+    try {
+        const validatePass = await comparePass(pass, dataUser.password);
+        if( !validatePass ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
+            success: false,
+            message: "Contraseña incorrecta"
+        });        
+    } catch (error) {
+        return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success: false,
+            message: "A ocurrido un error:" + error
+        })
+    }
+
+    const token = generateToken( dataUser.id_login, "24h" );
+
+    res.status(CODES_HTTP.OK).header('token', token).json({
+        success: true,
+        message: "Inicio de sesion correcto"
     });
 
 }
