@@ -121,10 +121,10 @@ model login {
   id_login      Int             @id @default(autoincrement())
   correo        String          @db.VarChar(25)
   usuario       String?         @db.VarChar(45)
-  contrase_a    String?         @map("contraseña") @db.VarChar(20)
-  is_verified   Boolean?        @default(false)
   id_persona    Int
   id_roll       Int
+  is_verified   Boolean?
+  password      String?         @db.VarChar(150)
   carrito       carrito[]
   detalle_venta detalle_venta[]
   envio         envio[]

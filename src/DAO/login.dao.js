@@ -23,7 +23,7 @@ export async function createLogin(data) {
     data: {
       correo: data.correo,
       usuario: data.usuario,
-      contraseña: data.contraseña,
+      password : data.password,
       is_verified: data.is_verified,
       id_persona: data.id_persona,
       id_roll: data.id_roll,
@@ -41,7 +41,7 @@ export async function updateLogin(id, data) {
     data: {
       correo: data.correo,
       usuario: data.usuario,
-      contraseña: data.contraseña,
+      password: data.password,
       is_verified: data.is_verified,
       id_persona: data.id_persona,
       id_roll: data.id_roll,
