@@ -27,7 +27,7 @@ export async function createCategoria(data) {
   return newCategoria;
 }
 
-export async function updateCategoria(id, data) {
+export async function updateCategoriaById(id, data) {
   const updateCategoria = await prisma.categoria.update({
     where: {
       id_categoria: id,
@@ -40,7 +40,7 @@ export async function updateCategoria(id, data) {
   return updateCategoria;
 }
 
-export async function deleteCategoria(id) {
+export async function deleteCategoriaById(id) {
   const categoriaDeleted = await prisma.categoria.delete({
     where: {
       id_categoria: id,

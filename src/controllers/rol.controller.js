@@ -1,5 +1,5 @@
 import { CODES_HTTP } from "../constants/global.js";
-import { createRol, deleteRolById, getRolById, getRoles } from "../DAO/roll.dao.js";
+import { createRol, deleteRolById, getRolById, getRoles, updateRolById } from "../DAO/roll.dao.js";
 
 export const getAllRoles = async ( req, res ) => {
     try {
@@ -57,12 +57,12 @@ export const addRol = async ( req, res ) => {
 
 export const updateRol = async ( req, res ) => {
     try {
-        const updatedRol = await updateRol(parseInt(req.params.rolID), req.body)
+        const updateRol = await updateRolById(parseInt(req.params.rolID), req.body)
         console.log("Peticion exitosa")
-        res.status*(CODES_HTTP.OK).json({
+        res.status(CODES_HTTP.OK).json({
             success: true,
             message: "Peticion exitosa:",
-            data: updatedRol
+            data: updateRol
         });
     } catch (error) {
         console.log("Error al actualizar rol:", error)
