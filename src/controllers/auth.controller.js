@@ -36,7 +36,7 @@ export const register = async ( req, res ) => {
         const login = await createLogin({
             correo,
             usuario,
-            contraseña: await hashPass(contraseña),
+            password: await hashPass(contraseña),
             id_persona: persona.id_persona,
             id_roll: rol.id_roll,
         });
@@ -82,6 +82,10 @@ export const login = async ( req, res ) => {
 
     //validar contraseña
     const validatePass = await comparePass(pass);
+    if( !validatePass ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
+        success: false,
+        message: "Contraseña incorrecta"
+    });
 
 }
 
