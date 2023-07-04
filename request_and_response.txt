@@ -79,4 +79,3 @@ REQUEST
     "is_verified": true,
     "password": "erick123"
 }
-"$2b$10$jVFDbBzuKiJA7/B8AOKrc.ledKxN8BCL60mlos0crZj0kDR1uzdSe

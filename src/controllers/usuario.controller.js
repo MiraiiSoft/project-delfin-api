@@ -1,8 +1,8 @@
 import { CODES_HTTP } from "../constants/global.js";
-import { getPersonaById, createPersona, updatePersona } from "../DAO/persona.dao.js";
-import { getLoginById, getLogins, createLogin, updateLogin } from "../DAO/login.dao.js";
+import { getPersonaById, createPersona, updatePersona, deletePersonaById } from "../DAO/persona.dao.js";
+import { getLoginById, getLogins, createLogin, updateLogin, deleteLoginById } from "../DAO/login.dao.js";
 import { getRolById } from "../DAO/roll.dao.js";
-import { createDirecciones } from "../DAO/direccion.dao.js";
+import { createDirecciones, deleteCiudadById } from "../DAO/direccion.dao.js";
 import sendEmail from "../helpers/sendEmail.js";
 import { hashPass, comparePass } from "../helpers/hashPass.js";
 
@@ -178,5 +178,23 @@ export const updateUser = async ( req, res ) => {
 }
 
 export const deleteUser = async ( req, res ) => {
-    
+    const { userID } = req.params;
+    //cambiar el estado de la cuenta y no eliminarla totalmente
+    try {
+        // const userLogin = await getLoginById( parseInt(userID) );
+        // const user = await getPersonaById( parseInt(userLogin.id_persona) );
+
+        // await deleteCiudadById( user.id_direccion );
+        // await deletePersonaById( userLogin.id_persona );
+        // await deleteLoginById( parseInt(userID) );
+
+        res.status(CODES_HTTP.NO_CONTENT).json();
+    } catch (error) {
+        console.log("error: ", error)
+        return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success: false,
+            message: "A ocurrio un error:" + error
+        });
+    }
+
 }
