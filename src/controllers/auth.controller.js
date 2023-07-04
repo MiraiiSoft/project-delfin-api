@@ -39,6 +39,7 @@ export const register = async ( req, res ) => {
             correo,
             usuario,
             password: await hashPass(contraseña),
+            is_verified: false,
             id_persona: persona.id_persona,
             id_roll: rol.id_roll,
         });
