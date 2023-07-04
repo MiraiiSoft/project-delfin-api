@@ -79,3 +79,10 @@ REQUEST
     "is_verified": true,
     "password": "erick123"
 }
+
+payment
+REQUEST
+{
+    "payservice": "mercadopago",
+    
+}

@@ -1,5 +1,6 @@
 import { createOrder } from "../services/mercadopago.js";
 import { CODES_HTTP } from "../constants/global.js"
+import { getFacturas, updateFactura } from "../DAO/factura.dao.js";
 
 export const payment = async ( req, res ) => {
     const reqpayment = req.body;
@@ -9,16 +10,21 @@ export const payment = async ( req, res ) => {
             
             //agregar numero de fatura
             let numfactura;
+            const facturaArray = await getFacturas();
+            for( let numFac of facturaArray ){
+                numfactura = numFac.num_factura + 1;
+            }
+            await updateFactura(numfactura)
 
             //crear objeto para enviar data para crear la orden
             let payment;
 
-            //crear orden mrcado pago
-            const result = await createOrder( payment );
+            //crear orden mercado pago
+            // const result = await createOrder( payment );
 
             return res.status(CODES_HTTP.OK).json({
                 success: true,
-                message: result.body
+                message: "result.body"
             });
 
         } catch (error) {
