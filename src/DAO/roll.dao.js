@@ -28,7 +28,7 @@ export async function createRol(data) {
   return newRol;
 }
 
-export async function updateRol(id, data) {
+export async function updateRolById(id, data) {
   const updatedRol = await prisma.roll.update({
     where: {
       id_roll: id,
