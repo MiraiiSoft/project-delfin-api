@@ -92,10 +92,10 @@ export const login = async ( req, res ) => {
     });
 
     //comprobar verificacion de la cuenta
-    // if( !dataUser.is_verified ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
-    //     success: false,
-    //     message: "No se a verificado la cuenta"
-    // });
+    if( !dataUser.is_verified ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
+        success: false,
+        message: "No se a verificado la cuenta"
+    });
 
     //validar contraseña
     try {
