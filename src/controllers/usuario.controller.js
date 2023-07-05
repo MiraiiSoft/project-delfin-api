@@ -1,8 +1,8 @@
 import { CODES_HTTP } from "../constants/global.js";
-import { getPersonaById, createPersona, updatePersona, deletePersonaById } from "../DAO/persona.dao.js";
-import { getLoginById, getLogins, createLogin, updateLogin, deleteLoginById } from "../DAO/login.dao.js";
+import { getPersonaById, createPersona, updatePersona } from "../DAO/persona.dao.js";
+import { getLoginById, getLogins, createLogin, updateLogin } from "../DAO/login.dao.js";
 import { getRolById } from "../DAO/roll.dao.js";
-import { createDirecciones, deleteCiudadById } from "../DAO/direccion.dao.js";
+import { createDirecciones } from "../DAO/direccion.dao.js";
 import sendEmail from "../helpers/sendEmail.js";
 import { hashPass, comparePass } from "../helpers/hashPass.js";
 
