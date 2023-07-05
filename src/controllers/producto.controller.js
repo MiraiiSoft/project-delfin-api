@@ -1,5 +1,5 @@
 import { CODES_HTTP } from "../constants/global.js"
-import { getProductoById, getProductos } from "../DAO/producto.dao.js"
+import { createProducto, deleteProductoById, getProductoById, getProductos } from "../DAO/producto.dao.js"
 
 export const getAllProducts = async ( req, res ) => {
     try {
@@ -21,7 +21,7 @@ export const getAllProducts = async ( req, res ) => {
 
 export const getOneProducts = async ( req, res ) => {
     try {
-        const producto = await getProductoById();
+        const producto = await getProductoById(parseInt(req.params.productoID));
         console.log("Peticion Exitosa")
         res.status(CODES_HTTP.OK).json({
             success: true,
@@ -38,13 +38,55 @@ export const getOneProducts = async ( req, res ) => {
 }
 
 export const addProducts = async ( req, res ) => {
-
+    try {
+        const agregaProducto = await createProducto (req.body);
+        console.log("El producto fue agregado con exito")
+        res.status(CODES_HTTP.OK).json({
+            success:true,
+            message: "El producto fue agregado con exito",
+            data: agregaProducto
+        });
+    } catch (error) {
+        console.log("Error al agregar producto ".error)
+        return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success:false,
+            message: "Error al agregar producto "+ error
+        });
+    }
 }
 
 export const updateProducts = async ( req, res ) => {
-
+    try {
+        const actualizarProducto = await updateProducts(parseInt(req.params.productoID), req.body)
+        console.log("El producto fue actualizado con exito")
+        res.status(CODES_HTTP.OK).json({
+            success: true,
+            message: "El producto fue actualizado con exito",
+            data: actualizarProducto
+        });
+    } catch (error) {
+        console.log("Error al actualizar producto ".error)
+        res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success:false,
+            message: "Error al actualizar producto "+error
+        });
+    }
 }
 
 export const deleteProducts = async ( req, res ) => {
-    
+    try {
+        const eliminarProducto = await deleteProductoById(parseInt(req.params.productoID))
+        console.log("El producto fue eliminado con exito")
+        res.status(CODES_HTTP.OK).json({
+            success: true,
+            message: "El producto fue eliminado con exito",
+            data: eliminarProducto
+        });
+    } catch (error) {
+        console.log("Error al eliminar producto ".error)
+        res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success:false,
+            message:"Error al eliminar producto "+error
+        });
+    }
 }

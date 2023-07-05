@@ -27,6 +27,7 @@ export async function createDetalleVenta(data) {
       id_login: data.id_login,
       id_venta: data.id_venta,
       num_factura: data.num_factura,
+      id_venta:data.id_venta
     },
   });
   await prisma.$disconnect();
@@ -50,4 +51,14 @@ export async function updateDetalleVenta(id, data) {
   });
   await prisma.$disconnect();
   return updatedDetalleVenta;
+}
+
+export async function deleteDetalleVenta (id){
+  const detalleVentaDeleted = await prisma.detalle_venta.delete({
+    where:{
+      id_detalle_venta:id
+    }
+  })
+  await prisma.$disconnect()
+  return detalleVentaDeleted;
 }

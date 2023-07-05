@@ -32,3 +32,57 @@ REQUEST
     } ]
 
 }
+
+
+register
+REQUEST
+{
+    "nombre": "erick",
+    "apellido": "arevalo",
+    "telefono": "5567568641",
+    "correo": "wadavap435@extemer.com",
+    "usuario": "prueba1",
+    "contraseña": "prueba123"
+}
+
+
+login
+REQUEST
+{
+    "user": "prueba1",
+    "pass": "prueba123"
+}
+
+addUser
+REQUEST
+{
+    "nombre": "erick",
+    "apellido": "arevalo",
+    "telefono": "5567568641",
+    "correo": "wadavap435@extemer.com",
+    "rol": 1,
+    "usuario": "prueba1",
+    "password": "prueba123"
+}
+
+update data user
+REQUEST 
+{
+    "correo": 'redig47794@edulena.com',
+    "usuario": 'prueba1',
+    "id_persona": 29,
+    "nombre": 'erick',
+    "apellido": 'arevalo',
+    "telefono": '5567568641',
+    "id_direccion": 36,
+    "id_roll": 3,
+    "is_verified": true,
+    "password": "erick123"
+}
+
+payment
+REQUEST
+{
+    "payservice": "mercadopago",
+    
+}
