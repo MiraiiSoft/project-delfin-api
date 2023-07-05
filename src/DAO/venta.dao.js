@@ -2,11 +2,53 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function getVentas() {
-  const ventas = await prisma.venta.findMany();
+export const getVentas = async () => {
+  const detallesVentas = await prisma.detalle_venta.findMany({
+    include: {
+      venta: {
+        include: {
+          pago: true,
+          envio: true
+        }
+      },
+      login: {
+        include: {
+          persona: true
+        }
+      },
+      producto: true
+    }
+  });
+
+  const groupedVentas = detallesVentas.reduce((result, detalle) => {
+    const ventaId = detalle.id_venta;
+
+    // Buscar si la venta ya está en el resultado
+    const existingVenta = result.find((venta) => venta.id === ventaId);
+
+    if (existingVenta) {
+      // Agregar el producto al array de productos existente
+      existingVenta.producto.push(detalle.producto);
+    } else {
+      // Crear una nueva venta con el producto
+      const nuevaVenta = {
+        id: ventaId,
+        venta: detalle.venta,
+        login: detalle.login,
+        producto: [detalle.producto]
+      };
+      result.push(nuevaVenta);
+    }
+
+    return result;
+  }, []);
+
   await prisma.$disconnect();
-  return ventas;
-}
+  return groupedVentas;
+};
+
+
+
 
 export async function getVentaById(id) {
   const venta = await prisma.venta.findUnique({
@@ -32,7 +74,7 @@ export async function createVenta(data) {
   return newVenta;
 }
 
-export async function updateVenta(id, data) {
+export async function actualizarVenta(id, data) {
   const updatedVenta = await prisma.venta.update({
     where: {
       id_venta: id,
