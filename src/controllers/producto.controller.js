@@ -1,8 +1,6 @@
 import { CODES_HTTP } from "../constants/global.js"
 import { getProductoById, getProductos } from "../DAO/producto.dao.js"
 
-
-
 export const getAllProducts = async ( req, res ) => {
     try {
         const productos = await getProductos();

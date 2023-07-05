@@ -24,7 +24,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(morgan('dev'));
 
-app.use( '/api/file', uploadRouter);
+
+app.use( '/api/file', uploadRouter );
 app.use( '/api/auth', authRouter );
 app.use( '/api/shoppingcart', carritoRouter );
 app.use( '/api/categoria', categoriaRouter );
