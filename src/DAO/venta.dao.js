@@ -2,74 +2,101 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function getVentas() {
-  try {
-    return await prisma.venta.findMany();
-  } catch (error) {
-    await prisma.$disconnect();
-    return error;
-  }
-}
+export const getVentas = async () => {
+  const detallesVentas = await prisma.detalle_venta.findMany({
+    include: {
+      venta: {
+        include: {
+          pago: true,
+          envio: true
+        }
+      },
+      login: {
+        include: {
+          persona: true
+        }
+      },
+      producto: true
+    }
+  });
+
+  const groupedVentas = detallesVentas.reduce((result, detalle) => {
+    const ventaId = detalle.id_venta;
+
+    // Buscar si la venta ya está en el resultado
+    const existingVenta = result.find((venta) => venta.id === ventaId);
+
+    if (existingVenta) {
+      // Agregar el producto al array de productos existente
+      existingVenta.producto.push(detalle.producto);
+    } else {
+      // Crear una nueva venta con el producto
+      const nuevaVenta = {
+        id: ventaId,
+        venta: detalle.venta,
+        login: detalle.login,
+        producto: [detalle.producto]
+      };
+      result.push(nuevaVenta);
+    }
+
+    return result;
+  }, []);
+
+  await prisma.$disconnect();
+  return groupedVentas;
+};
+
+
+
 
 export async function getVentaById(id) {
-  try {
-    return await prisma.venta.findUnique({
-      where: {
-        id_venta: id,
-      },
-    });
-  } catch (error) {
-    await prisma.$disconnect();
-    return error;
-  }
+  const venta = await prisma.venta.findUnique({
+    where: {
+      id_venta: id,
+    },
+  });
+  await prisma.$disconnect();
+  return venta;
 }
 
 export async function createVenta(data) {
-  try {
-    return await prisma.venta.create({
-      data: {
-        fecha_venta: data.fecha_venta,
-        status_venta: data.status_venta,
-        id_envio: data.id_envio,
-        id_pago: data.id_pago,
-        id_detalle_venta: data.id_detalle_venta,
-      },
-    });
-  } catch (error) {
-    await prisma.$disconnect();
-    return error;
-  }
+  const newVenta = await prisma.venta.create({
+    data: {
+      fecha_venta: data.fecha_venta,
+      status_venta: data.status_venta,
+      id_envio: data.id_envio,
+      id_pago: data.id_pago,
+      id_detalle_venta: data.id_detalle_venta,
+    },
+  });
+  await prisma.$disconnect();
+  return newVenta;
 }
 
-export async function updateVenta(id, data) {
-  try {
-    return await prisma.venta.update({
-      where: {
-        id_venta: id,
-      },
-      data: {
-        fecha_venta: data.fecha_venta,
-        status_venta: data.status_venta,
-        id_envio: data.id_envio,
-        id_pago: data.id_pago,
-        id_detalle_venta: data.id_detalle_venta,
-      },
-    });
-  } catch (error) {
-    await prisma.$disconnect();
-    return error;
-  }
+export async function actualizarVenta(id, data) {
+  const updatedVenta = await prisma.venta.update({
+    where: {
+      id_venta: id,
+    },
+    data: {
+      fecha_venta: data.fecha_venta,
+      status_venta: data.status_venta,
+      id_envio: data.id_envio,
+      id_pago: data.id_pago,
+      id_detalle_venta: data.id_detalle_venta,
+    },
+  });
+  await prisma.$disconnect();
+  return updatedVenta;
 }
 
 export async function deleteVentaById(id) {
-  try {
-    return await prisma.venta.delete({
-      where: {
-        id_venta: id,
-      },
-    });
-  } catch (error) {
-    await prisma.$disconnect();
-    return error;
-  }
+  const ventaDeleted = await prisma.venta.delete({
+    where: {
+      id_venta: id,
+    },
+  });
+  await prisma.$disconnect();
+  return ventaDeleted;
 }

@@ -35,5 +35,4 @@ app.use( '/api/producto', productoRouter );
 app.use( '/api/rol', rolRouter );
 app.use( '/api/user', usuarioRouter );
 app.use( '/api/venta', ventaRouter );
-
 export default app;
