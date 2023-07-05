@@ -10,11 +10,11 @@ export const payment = async ( req, res ) => {
             
             //agregar numero de fatura
             let numfactura;
-            const facturaArray = await getFacturas();
-            for( let numFac of facturaArray ){
-                numfactura = numFac.num_factura + 1;
-            }
-            await updateFactura(numfactura)
+            // const facturaArray = await getFacturas();
+            // for( let numFac of facturaArray ){
+            //     numfactura = numFac.num_factura + 1;
+            // }
+            // await updateFactura(numfactura)
 
             //crear objeto para enviar data para crear la orden
             let payment;

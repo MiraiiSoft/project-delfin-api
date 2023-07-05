@@ -5,7 +5,8 @@ const prisma = new PrismaClient();
 export async function getLogins() {
   const logins = await prisma.login.findMany({
     include:{
-      persona:true
+      persona:true,
+      roll: true
     }
   });
   await prisma.$disconnect();
@@ -17,6 +18,10 @@ export async function getLoginById(id) {
     where: {
       id_login: id,
     },
+    include: {
+      persona: true,
+      roll: true
+    }
   });
   await prisma.$disconnect();
   return login;
@@ -71,6 +76,10 @@ export async function getLoginByUser(usuario) {
     where: {
       usuario: usuario,
     },
+    include: {
+      persona: true,
+      roll: true
+    }
   });
   await prisma.$disconnect();
   return loginUser;
@@ -81,6 +90,10 @@ export async function getLoginByEmail(correo) {
     where: {
       correo: correo,
     },
+    include: {
+      persona: true,
+      roll: true
+    }
   });
   await prisma.$disconnect();
   return loginEmail;

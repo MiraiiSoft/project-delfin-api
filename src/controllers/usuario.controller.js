@@ -1,30 +1,23 @@
 import { CODES_HTTP } from "../constants/global.js";
-import { getPersonaById, createPersona, updatePersona } from "../DAO/persona.dao.js";
+import { createPersona, updatePersona } from "../DAO/persona.dao.js";
 import { getLoginById, getLogins, createLogin, updateLogin } from "../DAO/login.dao.js";
-import { getRolById } from "../DAO/roll.dao.js";
 import { createDirecciones } from "../DAO/direccion.dao.js";
 import sendEmail from "../helpers/sendEmail.js";
 import { hashPass, comparePass } from "../helpers/hashPass.js";
 
 export const getAllUser = async ( req, res ) => {
     try {
-        let users = [];
 
         const userLogins = await getLogins();
 
-        for( let userLogin of userLogins ){
-            const user = await getPersonaById( parseInt(userLogin.id_persona) );
-            const roll = await getRolById( userLogin.id_roll );
-
-            userLogin.id_persona = user;
-            userLogin.id_roll = roll;
-
-            users.push(userLogin);
-        }
+        if( !userLogins ) return res.status(CODES_HTTP.NO_FOUND).json({
+            success: false,
+            message: "No se han encontrado cuentas registradas"
+        });
     
         res.status(CODES_HTTP.OK).json({
             success: true,
-            data: users
+            data: userLogins
         });
     } catch (error) {
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
@@ -39,11 +32,11 @@ export const getOneUser = async ( req, res ) => {
     const { userID } = req.params;
     try {
         const userLogin = await getLoginById( parseInt(userID) );
-        const user = await getPersonaById( parseInt(userLogin.id_persona) );
-        const roll = await getRolById( parseInt(userLogin.id_roll) );
 
-        userLogin.id_persona = user;
-        userLogin.id_roll = roll;
+        if( !userLogin ) return res.status(CODES_HTTP.NO_FOUND).json({
+            success: false,
+            message: "No se encontro la cuenta"
+        })
 
         res.status(CODES_HTTP.OK).json({
             success: true,
