@@ -52,8 +52,8 @@ export async function updateDireccion(id, data) {
   return updatedDireccion;
 }
 
-export async function deleteCiudadById(id) {
-  const ciudadDeleted = await prisma.ciudad.delete({
+export async function deleteDireccionById(id) {
+  const ciudadDeleted = await prisma.direccion.delete({
     where: {
       id_direccion: id,
     },
