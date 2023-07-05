@@ -1,6 +1,6 @@
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
-
+import docs from "./docs/index.js";
 //Metadata info about out API
 
 const options = {
@@ -16,10 +16,10 @@ const options = {
     ]
 };
 
-const swaggerSpec = swaggerJSDoc(options);
+// const swaggerSpec = swaggerJSDoc(options);
 
 export const swaggerDocs = (app, port) => {
-    app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+    app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(docs));
 
     console.log(
         `📓 Version 1 Docs are available at http://localhost:${port}/api/docs`
