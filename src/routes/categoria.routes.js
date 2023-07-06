@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { getAllCategoria, getOneCategoria, addCategoria, updateCategoria, deleteCategoria } 
+import { getAllCategorias, getOneCategoria, addCategoria, updateCategoria, deleteCategoria } 
 from "../controllers/categoria.controller.js"
 
 const router = Router();
 
-router.get( '/', getAllCategoria );
+router.get( '/', getAllCategorias );
 router.get( '/:categoriaID', getOneCategoria );
 router.post( '/add', addCategoria );
 router.put( '/update/:categoriaID', updateCategoria );

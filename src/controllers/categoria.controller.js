@@ -1,7 +1,7 @@
 import { CODES_HTTP } from "../constants/global.js";
 import { createCategoria, deleteCategoriaById, getCategoriaById, getCategorias, updateCategoriaById } from "../DAO/categoria.dao.js";
 
-export const getAllCategoria = async ( req, res ) => {
+export const getAllCategorias = async ( req, res ) => {
     try{
         const categorias = await getCategorias()
         console.log("Peticion exitosa")

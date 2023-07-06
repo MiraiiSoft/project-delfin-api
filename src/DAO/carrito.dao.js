@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-export async function getCarrito() {
+export async function getCarritos() {
   const carrito = await prisma.carrito.findMany();
   await prisma.$disconnect();
   return carrito;
@@ -17,7 +17,7 @@ export async function createCarrito(data) {
   return carritoCreated;
 }
 
-export async function updateCarrito(id, data) {
+export async function updateCarritoById(id, data) {
   const updateCarrito = await prisma.carrito.update({
     where: {
       id_carrito: id,
