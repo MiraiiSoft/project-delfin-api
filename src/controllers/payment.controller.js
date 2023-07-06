@@ -1,6 +1,6 @@
 import { createOrder } from "../services/mercadopago.js";
 import { CODES_HTTP } from "../constants/global.js"
-import { getFacturas, updateFactura } from "../DAO/factura.dao.js";
+import { getCounterById, updateCounter } from "../DAO/counter.dao.js";
 
 export const payment = async ( req, res ) => {
     const reqpayment = req.body;
