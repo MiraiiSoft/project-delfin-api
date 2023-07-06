@@ -52,14 +52,6 @@ model color {
   producto producto[]
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model counter {
-  id        String? @db.VarChar(100)
-  seq_value Int?
-
-  @@ignore
-}
-
 model detalle_venta {
   id_detalle_venta  Int      @id @default(autoincrement())
   cantidad_producto Int?
@@ -78,7 +70,6 @@ model detalle_venta {
   @@index([id_login], map: "id_login")
   @@index([id_producto], map: "id_producto")
   @@index([id_venta], map: "id_venta")
-  @@index([num_factura], map: "num_factura")
 }
 
 model direccion {
@@ -111,7 +102,7 @@ model envio {
 }
 
 model inventario {
-  id_inventario   Int      @id
+  id_inventario   Int      @id @default(autoincrement())
   id_producto     Int
   existencias     Int?
   unidadesPaquete Int?
@@ -217,4 +208,10 @@ model venta {
 
   @@index([id_envio], map: "id_envio")
   @@index([id_pago], map: "id_pago")
+}
+
+model COUNER {
+  ID         Int     @id @default(autoincrement())
+  ID_COUNTER String? @unique(map: "ID_COUNTER") @db.VarChar(100)
+  SEQ_VALUE  Int
 }
