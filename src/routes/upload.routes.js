@@ -5,41 +5,116 @@ import { readRequest, validation } from "../middlewares/index.js";
 const router = Router();
 
 /**
-* @openapi
-*tags:
-*   - name: Upload
-*  description: Endpoint para subir archivos
-* paths:
-*  /api/file/upload-img
-*      post:
-*         tags:
-*            - Upload
-*         summary: Subir imagenes
-*         requestBody:
-*            required: true
-*            content:
-*              application/json:
-*                 schema:
-*                     type: Object
-*                     properties:
-*                         nombreCarpeta:
-*                              type: string
-*                              example: Lapiz
-*                         imgs:
-*                              type: array
-*                              itmes:
-*                                  type: object
-*                                  properties:
-*                                      nombre:
-*                                          type: string
-*                                          example: Lapiz b1
-*                                      base64:    
-*                                          type: string
-*                                          example: adafadadad
-*
-*/
-
-
+ * @openapi
+ * /api/file/upload-img:
+ *   post:
+ *     tags:
+ *       - Upload and delete files
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                 nombreCarpeta:
+ *                    type: string
+ *                    example: Lapiz
+ *                 imgs:
+ *                    type: array
+ *                    items:
+ *                      type: object
+ *                      properties:
+ *                         nombre: 
+ *                            type: string
+ *                            example: Lapiz b1
+ *                         base64:
+ *                            type: string
+ *                            example: zasdasdadadadasdasd
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties: 
+ *                       nombre:
+ *                          type: string
+ *                          example: Lapiz
+ *                       url:
+ *                          type: string
+ *       5XX:
+ *         description: FAILED
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: FAILED
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     error:
+ *                       type: string
+ *                       example: "Some error message"
+ * /api/file/delete-img?url=https://urlimagen.com:
+ *   delete:
+ *     tags:
+ *       - Upload and delete files
+ *     parameters:
+ *        - in: query
+ *          name: url
+ *          schema: 
+ *            type: string
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties: 
+ *                       nombre:
+ *                          type: string
+ *                          example: Lapiz
+ *                       url:
+ *                          type: string
+ *       5XX:
+ *         description: FAILED
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: FAILED
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     error:
+ *                       type: string
+ *                       example: "Some error message"
+ */
 
 router.post('/upload-img', [validation.dataUploadImg], uploadImgs);
 router.delete('/delete-img', [readRequest.readQueryUrl], deleteImgs);
