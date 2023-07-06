@@ -210,8 +210,8 @@ model venta {
   @@index([id_pago], map: "id_pago")
 }
 
-model COUNER {
-  ID         Int     @id @default(autoincrement())
-  ID_COUNTER String? @unique(map: "ID_COUNTER") @db.VarChar(100)
-  SEQ_VALUE  Int
+model counter {
+  id         Int     @id @default(autoincrement())
+  id_counter String? @unique(map: "id_counter") @db.VarChar(255)
+  seq_value  Int?
 }
