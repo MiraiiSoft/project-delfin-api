@@ -3,6 +3,7 @@ import {
   createVenta,
   deleteVentaById,
   getVentaById,
+  getVentaByIdLogin,
   getVentas,
 } from "../DAO/venta.dao.js";
 import { CODES_HTTP } from "../constants/global.js";
@@ -23,6 +24,7 @@ export const getAllVentas = async (req, res) => {
   }
 };
 
+
 export const getOneVenta = async (req, res) => {
   try {
     const ventaID = parseInt(req.params.ventaID); // Convertir el valor a un número entero
@@ -32,6 +34,7 @@ export const getOneVenta = async (req, res) => {
       data: venta,
     });
   } catch (error) {
+    console.log(error);
     return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
       success: false,
       message: error,
@@ -60,6 +63,26 @@ export const addVenta = async (req, res) => {
     console.log(error);
   }
 };
+
+
+export const getOneVentaByLogin = async (req, res) => {
+  try {
+    const ventaID = parseInt(req.params.ventaID); // Convertir el valor a un número entero
+    const venta = await getVentaByIdLogin(ventaID);
+    res.status(CODES_HTTP.OK).json({
+      success: true,
+      data: venta,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: error,
+    });
+  }
+};
+
+
 
 export const updateVenta = async (req, res) => {
   try {
