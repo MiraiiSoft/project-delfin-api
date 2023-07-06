@@ -44,6 +44,8 @@ export const register = async ( req, res ) => {
             id_roll: rol.id_roll,
         });
 
+        //crear carrito para la persona registrada
+
         //enviar email de confirmacion
         const body = "<p>Confirma la creacion de tu cuenta. Tiene 1 hora para poder confirmar.";
         const resSendMail = await sendEmail( login.correo, "Confirmacion cuenta", body, true );
