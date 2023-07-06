@@ -26,17 +26,3 @@ export const checkNoExistRoll = async ( req, res, next ) => {
     next()
 }
 
-/*
-export const checkBodyRoll = async (req, res, next) => {
-    const roll = req.body.roll
-    const type = Object.keys(req.body).toString()
-    
-    if  ( roll === "" || type !== 'roll' )
-        return res.status(CODES_HTTP.BAD_REQUEST).json({
-            success: false,
-            message: "Los datos " +type+ " no son correctos"
-        })
-    
-    next()
-}
-*/

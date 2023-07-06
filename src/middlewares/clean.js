@@ -1,12 +1,12 @@
 
-function clean( dataString[], req ){
-    const keys = Object.keys(req.body);
-    const clean: any = {};
+function clean( dataType, req ){
+    const keys = Object.keys(req.body)
+    const clean = {}
 
     for( let key of keys ){
-        for( let nameProperti of dataString ){
-            if( key === nameProperti ){
-                clean[key] = req.body[key];
+        for( let nameProperty of dataType ){
+            if( key === nameProperty ){
+                clean[key] = req.body[key]
             }
         }
     }
@@ -15,11 +15,9 @@ function clean( dataString[], req ){
 }
 
 export const cleanRoll = ( req, res, next ) => {
-    
-    const typeData = ["roll"];
+    const dataType = ["roll"]
+    const dataClean = clean(dataType, req )
 
-    const clean = clean(typeData, req);
-    req.body = clean;
-    
-    next();
+    req.body = dataClean
+    next()
 }

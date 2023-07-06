@@ -1,5 +1,5 @@
 import { CODES_HTTP } from "../constants/global.js"
-import { createProducto, deleteProductoById, getProductoById, getProductos } from "../DAO/producto.dao.js"
+import { createProducto, deleteProductoById, getProductoById, getProductos, updateProductoById } from "../DAO/producto.dao.js"
 
 export const getAllProducts = async ( req, res ) => {
     try {
@@ -57,7 +57,7 @@ export const addProducts = async ( req, res ) => {
 
 export const updateProducts = async ( req, res ) => {
     try {
-        const actualizarProducto = await updateProducts(parseInt(req.params.productoID), req.body)
+        const actualizarProducto = await updateProductoById(parseInt(req.params.productoID), req.body)
         console.log("El producto fue actualizado con exito")
         res.status(CODES_HTTP.OK).json({
             success: true,
@@ -83,7 +83,7 @@ export const deleteProducts = async ( req, res ) => {
             data: eliminarProducto
         });
     } catch (error) {
-        console.log("Error al eliminar producto ".error)
+        console.log("Error al eliminar producto ", error)
         res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success:false,
             message:"Error al eliminar producto "+error
