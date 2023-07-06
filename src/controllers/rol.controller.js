@@ -15,8 +15,8 @@ export const getAllRoles = async ( req, res ) => {
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
             message: "Error al obtener los roles: " + error 
-        });
-    }
+        });
+    }
 }
 
 export const getOneRol = async ( req, res ) => {
