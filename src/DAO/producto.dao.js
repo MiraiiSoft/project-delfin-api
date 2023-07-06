@@ -41,7 +41,7 @@ export async function createProducto(data) {
   return newProducto;
 }
 
-export async function updateProducto(id, data) {
+export async function updateProductoById(id, data) {
   const updatedProducto = await prisma.producto.update({
     where: {
       id_producto: id,

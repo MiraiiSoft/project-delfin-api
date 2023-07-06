@@ -40,10 +40,10 @@ export const getOneCategoria = async ( req, res ) => {
 export const addCategoria = async ( req, res ) => {
     try{
         const newCategoria = await createCategoria(req.body)
-        console.log("Peticion exitosa")
+        console.log("La categoria ha sido creada")
         res.status(CODES_HTTP.OK).json({
             success: true,
-            message: "Peticion exitosa:",
+            message: "La categoria ha sido creada:",
             data: newCategoria
         });
     }catch(error){
@@ -58,10 +58,10 @@ export const addCategoria = async ( req, res ) => {
 export const updateCategoria = async ( req, res ) => {
     try{
         const updateCategoria = await updateCategoriaById(parseInt(req.params.categoriaID), req.body)
-        console.log("Peticion exitosa")
+        console.log("La categoria ha sido actualizada")
         res.status(CODES_HTTP.OK).json({
             success: true,
-            message: "Peticion exitosa:",
+            message: "La categoria ha sido actualizada:",
             data: updateCategoria
         });
     }catch(error){
@@ -76,10 +76,10 @@ export const updateCategoria = async ( req, res ) => {
 export const deleteCategoria = async ( req, res ) => {
     try{
         const deleteCategoria = await deleteCategoriaById(parseInt(req.params.categoriaID))
-        console.log("Peticion exitosa")
+        console.log("La categoria ha sido eliminada")
         res.status(CODES_HTTP.OK).json({
             success: true,
-            message: "Peticion exitosa:",
+            message: "La categoria ha sido eliminada:",
             data: deleteCategoria
         });
     }catch(error){

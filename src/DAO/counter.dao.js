@@ -42,8 +42,10 @@ export const deleteCounter = async (id) => {
 export const updateCounter = async (id,seq) =>{
     const counterUpdated = await prisma.counter.update({
         data:{
-            id:id,
             seq_value:seq
+        },
+        where:{
+            id:id
         }
     });
     await prisma.$disconnect();
