@@ -83,5 +83,54 @@ payment
 REQUEST
 {
     "payservice": "mercadopago",
+    "items": [
+        {
+            "title": "Borrador",
+            "unit_price": 20,
+            "currency_id": "MXN",
+            "quantity": 1
+        }
+    ],
+    "products": [
+        {
+            "id_producto": 1,
+            "cantidad_producto": 1
+        }
+    ],
+    "monto_total": 20
     
 }
+
+tablas a llenar
+
+ENVIO
+required
+    id_login
+    fecha_envio
+    fecha_entrega
+    fecha_recoleccion
+    paqueteria
+    status_envio
+
+PAGO
+required
+    tocken_pago
+    monto
+
+VENTA
+required
+    fecha_venta
+    status_venta
+    id_envio
+    id_pago
+
+
+DETALLE VENTA
+required
+    cantidad_producto
+    monto_total
+    id_producto
+    id_carrito
+    id_login
+    num_factura
+    id_venta
