@@ -12,7 +12,8 @@ const options = {
         
     },
     apis: [
-        "src/routes/upload.routes.js"
+        "src/routes/upload.routes.js",
+        "src/routes/auth.routes.js"
     ]
 };
 
