@@ -32,7 +32,7 @@ export const register = async ( req, res ) => {
         });
         
         //buscar rol 
-        const rol = await getRolByNombre('cliente');
+        const rol = await getRolByNombre('Usuario');
         
         //se guarda datos de login
         const login = await createLogin({

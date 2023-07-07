@@ -8,16 +8,16 @@ export const payment = async ( req, res ) => {
 
     if( reqpayment.payservice == "mercadopago" ){
         try {
-            
+            console.log(req.userLogin)
             //agregar numero de fatura
-            let numfactura = await getNextSeqValue("compraid")
-            if( numfactura == null) throw new Error("Error al generar numero factura")
+            // let numfactura = await getNextSeqValue("compraid")
+            // if( numfactura == null) throw new Error("Error al generar numero factura")
             
             //crear objeto para enviar data para crear la orden
-            let payment = reqpayment.items;
+            // let payment = reqpayment.items;
 
             //crear orden mercado pago
-            const result = await createOrder( payment );
+            // const result = await createOrder( payment );
 
             //Llenar entidades para generar venta
 
