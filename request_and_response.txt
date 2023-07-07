@@ -68,15 +68,14 @@ REQUEST
 update data user
 REQUEST 
 {
-    "correo": 'redig47794@edulena.com',
-    "usuario": 'prueba1',
-    "id_persona": 29,
     "nombre": 'erick',
     "apellido": 'arevalo',
     "telefono": '5567568641',
-    "id_direccion": 36,
+    "correo": 'redig47794@edulena.com',
     "id_roll": 3,
-    "is_verified": true,
+    "id_persona": 29,
+    "id_direccion": 36,
+    "usuario": 'prueba1',
     "password": "erick123"
 }
 
