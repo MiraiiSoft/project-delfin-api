@@ -28,7 +28,7 @@ export async function createColor(data) {
   return newColor;
 }
 
-export async function updateColor(id, data) {
+export async function updateColorById(id, data) {
   const updatedColor = await prisma.color.update({
     where: {
       id_color: id,
@@ -42,7 +42,7 @@ export async function updateColor(id, data) {
   return updatedColor;
 }
 
-export async function eliminarColor(id, data) {
+export async function eliminarColorById(id, data) {
   const colorDeleted = await prisma.color.delete({
     where: {
       id_color: id,
