@@ -1,15 +1,21 @@
-import { actualizarVenta, createVenta, deleteVentaById, getVentaById, getVentaByIdLogin, getVentas } from "../DAO/venta.dao.js";
+import {
+  actualizarVenta,
+  createVenta,
+  deleteVentaById,
+  getVentaById,
+  getVentaByIdLogin,
+  getVentas,
+} from "../DAO/venta.dao.js";
 import { CODES_HTTP } from "../constants/global.js";
 
 export const getAllVentas = async (req, res) => {
   try {
-    const ventas = await getCarrito();
+    const ventas = await getVentas();
     res.status(CODES_HTTP.OK).json({
       success:true,
       data:ventas
     })
   } catch (error) {
-    console.log(error);
     return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
       success: false,
       message: error,

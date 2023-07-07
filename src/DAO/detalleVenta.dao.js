@@ -26,8 +26,7 @@ export async function createDetalleVenta(data) {
       id_carrito: data.id_carrito,
       id_login: data.id_login,
       id_venta: data.id_venta,
-      num_factura: data.num_factura,
-      id_venta:data.id_venta
+      num_factura: data.num_factura
     },
   });
   await prisma.$disconnect();
