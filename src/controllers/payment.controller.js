@@ -1,6 +1,7 @@
 import { createOrder } from "../services/mercadopago.js";
 import { CODES_HTTP } from "../constants/global.js"
 import getNextSeqValue from "../helpers/getNextSequenceValue.js";
+import { createEnvio } from "../DAO/envio.dao.js";
 
 export const payment = async ( req, res ) => {
     const reqpayment = req.body;
@@ -13,10 +14,12 @@ export const payment = async ( req, res ) => {
             if( numfactura == null) throw new Error("Error al generar numero factura")
             
             //crear objeto para enviar data para crear la orden
-            let payment;
+            let payment = reqpayment.items;
 
             //crear orden mercado pago
-            // const result = await createOrder( payment );
+            const result = await createOrder( payment );
+
+            //Llenar entidades para generar venta
 
             return res.status(CODES_HTTP.OK).json({
                 success: true,
