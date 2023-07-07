@@ -1,12 +1,4 @@
-import { getCarrito } from "../DAO/carrito.dao.js";
-import {
-  actualizarVenta,
-  createVenta,
-  deleteVentaById,
-  getVentaById,
-  getVentaByIdLogin,
-  getVentas,
-} from "../DAO/venta.dao.js";
+import { actualizarVenta, createVenta, deleteVentaById, getVentaById, getVentaByIdLogin, getVentas } from "../DAO/venta.dao.js";
 import { CODES_HTTP } from "../constants/global.js";
 
 export const getAllVentas = async (req, res) => {

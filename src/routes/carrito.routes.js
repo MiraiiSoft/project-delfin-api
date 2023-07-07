@@ -1,13 +1,13 @@
 import { Router } from "express";
-import { getOneShoppingCart, addShoppingCart, updateShoppingCart, deleteShoppingCart } 
-from "../controllers/carrito.controller.js"
+import { addCarrito, deleteCarrito, getAllCarritos, getOneCarrito, updateCarrito } from "../controllers/carrito.controller.js";
 
 const router = Router();
 
-router.get( '/', getOneShoppingCart );
-router.post( '/add', addShoppingCart );
-router.put( '/update/:cartID', updateShoppingCart );
-router.delete( '/delete/:cartID', deleteShoppingCart );
+router.get( '/', getAllCarritos );
+router.get('/:cartID', getOneCarrito);
+router.post( '/add', addCarrito );
+router.put( '/update/:cartID', updateCarrito );
+router.delete( '/delete/:cartID', deleteCarrito );
 
 const carritoRouter = router;
 

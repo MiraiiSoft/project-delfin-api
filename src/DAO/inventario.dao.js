@@ -31,7 +31,7 @@ export async function createInventario(data) {
   return newInventario;
 }
 
-export async function updateInventario(id, data) {
+export async function updateInventarioById(id, data) {
   const updatedInventario = await prisma.inventario.update({
     where: {
       id_inventario: id,

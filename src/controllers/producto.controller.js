@@ -47,7 +47,7 @@ export const addProducts = async ( req, res ) => {
             data: agregaProducto
         });
     } catch (error) {
-        console.log("Error al agregar producto ".error)
+        console.log("Error al agregar producto ", error)
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success:false,
             message: "Error al agregar producto "+ error
