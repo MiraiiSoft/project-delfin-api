@@ -154,8 +154,7 @@ export async function createVenta(data) {
       fecha_venta: data.fecha_venta,
       status_venta: data.status_venta,
       id_envio: data.id_envio,
-      id_pago: data.id_pago,
-      id_detalle_venta: data.id_detalle_venta,
+      id_pago: data.id_pago
     },
   });
   await prisma.$disconnect();
