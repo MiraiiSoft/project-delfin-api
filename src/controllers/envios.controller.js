@@ -1,5 +1,5 @@
 import { CODES_HTTP } from "../constants/global.js";
-import {} from "../DAO/carrito.dao.js"
+import { getEnvios, getEnvioById,createEnvio,updateEnvio, deleteEnvioById } from "../DAO/envio.dao.js";
 
 export const getAllEnvios = async ( req, res ) => {
     try {
@@ -21,7 +21,7 @@ export const getAllEnvios = async ( req, res ) => {
 
 export const getOneEnvios = async ( req, res ) => {
     try {
-        const envio = await getEnvioById(parseInt(req.params.EnviosID))
+        const envio = await getEnvioById(parseInt(req.params.envioID))
         console.log("Petición Exitosa")
         res.status(CODES_HTTP.OK).json({
             success: true,
@@ -57,7 +57,7 @@ export const addEnvios = async ( req, res ) => {
 
 export const updateEnvios = async ( req, res ) => {
     try {
-        const actEnvio = await updateEnvio(parseInt(req.params.EnviosID),req.body)
+        const actEnvio = await updateEnvio(parseInt(req.params.envioID),req.body)
         console.log("Envio actualizado con exito")
         res.status(CODES_HTTP.OK).json({
             success: true,
@@ -75,7 +75,7 @@ export const updateEnvios = async ( req, res ) => {
 
 export const deleteEnvios = async ( req, res ) => {
     try {
-        const deleteEnvio = await deleteEnvioById(parseInt(req.params.EnviosID))
+        const deleteEnvio = await deleteEnvioById(parseInt(req.params.envioID))
         console.log("Envio eliminado con exito")
         res.status(CODES_HTTP.OK).json({
             success: true,
