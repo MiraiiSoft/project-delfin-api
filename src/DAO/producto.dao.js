@@ -3,7 +3,11 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export async function getProductos() {
-  const productos = await prisma.producto.findMany();
+  const productos = await prisma.producto.findMany({
+    include:{
+      inventario:true
+    }
+  });
   await prisma.$disconnect();
   return productos;
 }

@@ -52,10 +52,6 @@ model color {
   producto producto[]
 }
 
-model counter {
-  num_factura Int @id
-}
-
 model detalle_venta {
   id_detalle_venta  Int      @id @default(autoincrement())
   cantidad_producto Int?
@@ -63,12 +59,12 @@ model detalle_venta {
   id_producto       Int
   id_carrito        Int
   id_login          Int
-  num_factura       Int?
+  num_factura       String?  @db.VarChar(100)
   id_venta          Int
   venta             venta    @relation(fields: [id_venta], references: [id_venta], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_1")
-  producto          producto @relation(fields: [id_producto], references: [id_producto], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_2")
-  carrito           carrito  @relation(fields: [id_carrito], references: [id_carrito], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_3")
-  login             login    @relation(fields: [id_login], references: [id_login], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_4")
+  producto          producto @relation(fields: [id_producto], references: [id_producto], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_3")
+  carrito           carrito  @relation(fields: [id_carrito], references: [id_carrito], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_4")
+  login             login    @relation(fields: [id_login], references: [id_login], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_5")
 
   @@index([id_carrito], map: "id_carrito")
   @@index([id_login], map: "id_login")
@@ -105,8 +101,8 @@ model envio {
   @@index([id_login], map: "id_login")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model inventario {
+  id_inventario   Int      @id @default(autoincrement())
   id_producto     Int
   existencias     Int?
   unidadesPaquete Int?
@@ -114,7 +110,6 @@ model inventario {
   producto        producto @relation(fields: [id_producto], references: [id_producto], onDelete: NoAction, onUpdate: NoAction, map: "inventario_ibfk_1")
 
   @@index([id_producto], map: "id_producto")
-  @@ignore
 }
 
 model login {
@@ -125,6 +120,7 @@ model login {
   is_verified   Boolean?        @default(false)
   id_persona    Int
   id_roll       Int
+  is_active     Boolean?        @default(true)
   carrito       carrito[]
   detalle_venta detalle_venta[]
   envio         envio[]
@@ -154,7 +150,6 @@ model persona {
   apellido     String?   @db.VarChar(45)
   telefono     String?   @db.VarChar(15)
   id_direccion Int
-  is_active    Boolean?  @default(true)
   login        login[]
   direccion    direccion @relation(fields: [id_direccion], references: [id_direccion], onDelete: NoAction, onUpdate: NoAction, map: "persona_ibfk_1")
 
@@ -179,7 +174,7 @@ model producto {
   id_tipo          Int
   carrito_producto carrito_producto[]
   detalle_venta    detalle_venta[]
-  inventario       inventario[]       @ignore
+  inventario       inventario[]
   color            color              @relation(fields: [id_color], references: [id_color], onDelete: NoAction, onUpdate: NoAction, map: "producto_ibfk_1")
   categoria        categoria          @relation(fields: [id_categoria], references: [id_categoria], onDelete: NoAction, onUpdate: NoAction, map: "producto_ibfk_2")
   tipo             tipo               @relation(fields: [id_tipo], references: [id_tipo], onDelete: NoAction, onUpdate: NoAction, map: "producto_ibfk_3")
@@ -213,4 +208,10 @@ model venta {
 
   @@index([id_envio], map: "id_envio")
   @@index([id_pago], map: "id_pago")
+}
+
+model counter {
+  id         Int     @id @default(autoincrement())
+  id_counter String? @unique(map: "id_counter") @db.VarChar(255)
+  seq_value  Int?
 }

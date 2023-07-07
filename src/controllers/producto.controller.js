@@ -7,14 +7,14 @@ export const getAllProducts = async ( req, res ) => {
         console.log("Peticion Exitosa");
         res.status(CODES_HTTP.OK).json({
             success: true,
-            message: "Peticion exitosa:",
+            message: "Peticion exitosa: ",
             data: productos
         });
     } catch (error) {
         console.log("Error al obtener los productos: ".error)
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
-            message: "Error al obtener los productos: "+ error
+            message: "Error al obtener el producto: "+ error
         });
     }   
 }
@@ -61,15 +61,15 @@ export const updateProducts = async ( req, res ) => {
         console.log("El producto fue actualizado con exito")
         res.status(CODES_HTTP.OK).json({
             success: true,
-            message: "El producto fue actualizado con exito",
-            data: actualizarProducto
+            message: "Producto actualizado con exito",
+            data: actualizaProducto
         });
     } catch (error) {
-        console.log("Error al actualizar producto ".error)
-        res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
-            success:false,
-            message: "Error al actualizar producto "+error
-        });
+        console.log("Error al actualizar producto: ".error)
+        return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success: false,
+            message: "Error al actualizar producto: "+ error
+        })
     }
 }
 
@@ -86,7 +86,7 @@ export const deleteProducts = async ( req, res ) => {
         console.log("Error al eliminar producto ", error)
         res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success:false,
-            message:"Error al eliminar producto "+error
+            message:"Error al eliminar producto "+ error
         });
     }
 }

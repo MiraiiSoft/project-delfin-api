@@ -44,6 +44,8 @@ export const register = async ( req, res ) => {
             id_roll: rol.id_roll,
         });
 
+        //crear carrito para la persona registrada
+
         //enviar email de confirmacion
         const body = "<p>Confirma la creacion de tu cuenta. Tiene 1 hora para poder confirmar.";
         const resSendMail = await sendEmail( login.correo, "Confirmacion cuenta", body, true );
@@ -92,10 +94,10 @@ export const login = async ( req, res ) => {
     });
 
     //comprobar verificacion de la cuenta
-    // if( !dataUser.is_verified ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
-    //     success: false,
-    //     message: "No se a verificado la cuenta"
-    // });
+    if( !dataUser.is_verified ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
+        success: false,
+        message: "No se a verificado la cuenta"
+    });
 
     //validar contraseña
     try {

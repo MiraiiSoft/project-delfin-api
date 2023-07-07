@@ -7,6 +7,7 @@ export async function getCarritos() {
   return carrito;
 }
 
+
 export async function createCarrito(data) {
   const carritoCreated = await prisma.carrito.create({
     data: {
