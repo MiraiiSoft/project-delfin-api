@@ -4,12 +4,19 @@ import { readRequest, validation } from "../middlewares/index.js";
 
 const router = Router();
 
+router.post('/upload-img', [validation.dataUploadImg], uploadImgs);
+router.delete('/delete-img', [readRequest.readQueryUrl], deleteImgs);
+
+const uploadRouter = router;
+
+export default uploadRouter;
+
 /**
  * @openapi
  * /api/file/upload-img:
  *   post:
  *     tags:
- *       - Upload and delete
+ *       - Upload and delete files
  *     requestBody:
  *       required: true
  *       content:
@@ -59,20 +66,48 @@ const router = Router();
  *             schema:
  *               type: object
  *               properties:
- *                 status:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
  *                   type: string
- *                   example: FAILED
- *                 data:
- *                   type: object
- *                   properties:
- *                     error:
- *                       type: string
- *                       example: "Some error message"
+ *                   example: Error al subir imagen
+ * 
+ * /api/file/delete-img?url=https://urlimagen.com:
+ *   delete:
+ *     tags:
+ *       - Upload and delete files
+ *     parameters:
+ *        - in: query
+ *          name: url
+ *          schema: 
+ *            type: string
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: delete img
+ *                   
+ *       5XX:
+ *         description: FAILED
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: Error al eliminar imagen firebase
  */
-
-router.post('/upload-img', [ validation.dataUploadImg ], uploadImgs);
-router.delete('/delete-img', [ readRequest.readQueryUrl ], deleteImgs);
-
-const uploadRouter = router;
-
-export default uploadRouter;
