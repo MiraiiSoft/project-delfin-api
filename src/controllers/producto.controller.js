@@ -2,7 +2,6 @@ import { CODES_HTTP } from "../constants/global.js"
 import { createProducto, deleteProductoById, getProductoById, getProductos, updateProductoById } from "../DAO/producto.dao.js"
 
 
-
 export const getAllProducts = async ( req, res ) => {
     try {
         const productos = await getProductos();
@@ -85,7 +84,7 @@ export const deleteProducts = async ( req, res ) => {
             data: eliminarProducto
         });
     } catch (error) {
-        console.log("Error al eliminar producto ".error)
+        console.log("Error al eliminar producto ", error)
         res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success:false,
             message:"Error al eliminar producto "+ error

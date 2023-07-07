@@ -40,10 +40,10 @@ export const getOneRol = async ( req, res ) => {
 export const addRol = async ( req, res ) => {
     try {
         const newRol = await createRol(req.body)
-        console.log("Peticion exitosa")
+        console.log("El roll ha sido creado")
         res.status(CODES_HTTP.CREATED).json({
             success: true,
-            message: "Peticion exitosa:",
+            message: "El roll ha sido creado:",
             data: newRol
         });
     } catch (error) {
@@ -57,11 +57,12 @@ export const addRol = async ( req, res ) => {
 
 export const updateRol = async ( req, res ) => {
     try {
-        const updateRol = await updateRolById(parseInt(req.params.rolID), req.body)
-        console.log("Peticion exitosa")
+        const rolID = parseInt(req.params.rolID)
+        const updateRol = await updateRolById(rolID, req.body)
+        console.log("El roll ha sido actualizado")
         res.status(CODES_HTTP.OK).json({
             success: true,
-            message: "Peticion exitosa:",
+            message: "El roll ha sido actualizado:",
             data: updateRol
         });
     } catch (error) {
@@ -76,10 +77,10 @@ export const updateRol = async ( req, res ) => {
 export const deleteRol = async ( req, res ) => {
     try {
         const deletedRol = await deleteRolById(parseInt(req.params.rolID))
-        console.log("Peticion exitosa")
+        console.log("El roll ha sido borrado")
         res.status(CODES_HTTP.OK).json({
             success: true,
-            message: "Peticion exitosa:",
+            message: "El roll ha sido borrado:",
             data: deletedRol
         });
     } catch (error) {

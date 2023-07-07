@@ -2,10 +2,24 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export async function getCarrito() {
-  const carrito = await prisma.carrito.findMany();
-  await prisma.$disconnect();
+  const carrito = await prisma.carrito.findMany({
+    include: {
+      carrito_producto: {
+        include: {
+          producto: true,
+        },
+      },
+      login: {
+        include: {
+          persona: true,
+        },
+      },
+    },
+  });
+
   return carrito;
 }
+
 
 export async function createCarrito(data) {
   const carritoCreated = await prisma.carrito.create({
