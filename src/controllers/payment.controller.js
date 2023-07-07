@@ -1,5 +1,6 @@
 import { createOrder } from "../services/mercadopago.js";
 import { CODES_HTTP } from "../constants/global.js"
+import getNextSeqValue from "../helpers/getNextSequenceValue.js";
 
 export const payment = async ( req, res ) => {
     const reqpayment = req.body;
@@ -8,7 +9,9 @@ export const payment = async ( req, res ) => {
         try {
             
             //agregar numero de fatura
-            let numfactura;
+            let numfactura = await getNextSeqValue("compraid")
+            if( numfactura == null) throw new Error("Error al generar numero factura")
+            console.log(numfactura)
             // const facturaArray = await getFacturas();
             // for( let numFac of facturaArray ){
             //     numfactura = numFac.num_factura + 1;
@@ -30,7 +33,7 @@ export const payment = async ( req, res ) => {
             console.log("Error al crear orden mercado pago:", error);
             return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
                 success: false,
-                message: "Algo va mal"
+                message: "Algo va mal:" + error
             });
         }
     }

@@ -10,7 +10,7 @@ export const getAllCounter = async () => {
 export const getCounterById = async (id) => {
   const counter = await prisma.counter.findFirst({
     where: {
-      id,
+      id_counter: id,
     },
   });
   await prisma.$disconnect();
@@ -20,7 +20,7 @@ export const getCounterById = async (id) => {
 export const createCounter = async (id, seq) => {
   const newCounter = await prisma.counter.create({
     data: {
-      id: id,
+      id_counter: id,
       seq_value: seq,
     },
   });
@@ -31,7 +31,7 @@ export const createCounter = async (id, seq) => {
 export const deleteCounter = async (id) => {
   const counterDeleted = await prisma.counter.delete({
     where:{
-        id:id
+      id_counter:id
     }
   });
   await prisma.$disconnect()
@@ -45,7 +45,7 @@ export const updateCounter = async (id,seq) =>{
             seq_value:seq
         },
         where:{
-            id:id
+          id_counter:id
         }
     });
     await prisma.$disconnect();
