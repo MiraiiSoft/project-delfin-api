@@ -94,10 +94,13 @@ REQUEST
     "products": [
         {
             "id_producto": 1,
-            "cantidad_producto": 1
+            "cantidad_producto": 1,
+            "monto_total": 30
         }
     ],
-    "monto_total": 20
+    "envio": {
+        "paqueteria": ""
+    }
     
 }
 
@@ -114,7 +117,7 @@ required
 
 PAGO
 required
-    tocken_pago
+    token_pago
     monto
 
 VENTA
