@@ -99,6 +99,12 @@ export const login = async ( req, res ) => {
         message: "No se a verificado la cuenta"
     });
 
+    //comprobar estado de la cuenta
+    if( !dataUser.is_active ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
+        success: false,
+        message: "La cuenta esta inactiva"
+    })
+
     //validar contraseña
     try {
         const validatePass = await comparePass(pass, dataUser.password);
