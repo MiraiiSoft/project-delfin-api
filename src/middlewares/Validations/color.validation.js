@@ -1,25 +1,25 @@
-import { getCategoriaById, getCategoriaByName } from "../../DAO/categoria.dao.js";
+import { getColorByColor, getColorById } from "../../DAO/color.dao.js";
 import { CODES_HTTP } from "../../constants/global.js";
 
 export const existName = async ( req, res, next ) => {
-    const name = req.body.categoria
-    const query = await getCategoriaByName(name)
+    const color = req.body.color
+    const query = await getColorByColor(color)
     if ( query )  
         return res.status(CODES_HTTP.BAD_REQUEST).json({
             success: false,
-            message: "La categoria " +name+ " ya esta registrado en la DB"
+            message: "El color " +color+ " ya esta registrado en la DB"
         })
     
     next()
 }
 
 export const noExistId = async ( req, res, next ) => {
-    const id = parseInt(req.params.categoriaID)
-    const query = await getCategoriaById(id)
+    const id = parseInt(req.params.colorID)
+    const query = await getColorById(id)
     if ( !query )  
         return res.status(CODES_HTTP.BAD_REQUEST).json({
             success: false,
-            message: "La categoria con id=" +id+ " no se encuentra en la DB"
+            message: "El color con id=" +id+ " no se encuentra en la DB"
         })
     
     next()

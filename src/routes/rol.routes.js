@@ -7,7 +7,7 @@ const router = Router();
 router.get( '/', getAllRoles );
 router.get( '/:rolID', [ validationRoll.noExistId ], getOneRol );
 router.post( '/add', [ validationRoll.existName, cleanerRequest.roll ], addRol );
-router.put( '/update/:rolID', [ validationRoll.noExistId, cleanerRequest.roll ], updateRol );
+router.put( '/update/:rolID', [ validationRoll.noExistId, validationRoll.existName, cleanerRequest.roll ], updateRol );
 router.delete( '/delete/:rolID', [ validationRoll.noExistId ] ,deleteRol );
 
 const rolRouter = router;

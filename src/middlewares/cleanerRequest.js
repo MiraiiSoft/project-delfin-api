@@ -64,7 +64,7 @@ export const payment = ( req, res, next ) => {
 
 export const product = ( req, res, next ) => {
     const dataType = [ "codigo_barras", "nombre", "marca", "descripcion", "imagen", "compra", "precio_unitario", "precio_mayoreo", "precio_caja", 
-                        "inicio_mayoreo", "inicio_caja", "id_color", "id_categoria", "id_caja" ]
+                        "inicio_mayoreo", "inicio_caja", "id_color", "id_categoria", "id_tipo" ]
     const dataClean = clean(dataType, req )
     req.body = dataClean
     next()
@@ -77,8 +77,15 @@ export const roll = ( req, res, next ) => {
     next()
 }
 
-export const user = ( req, res, next ) => {
-    const dataType = [ "correo", "usuario", "password", "is_verified", "is_active", "id_persona", "id_roll" ]
+export const createUser = ( req, res, next ) => {
+    const dataType = [ "nombre", "apellido", "telefono", "correo", "rol", "usuario", "password" ]
+    const dataClean = clean(dataType, req )
+    req.body = dataClean
+    next()
+}
+
+export const updateUser = ( req, res, next ) => {
+    const dataType = [ "nombre", "apellido", "telefono", "correo",  "id_roll", "id_persona", "id_direccion", "usuario", "password" ]
     const dataClean = clean(dataType, req )
     req.body = dataClean
     next()

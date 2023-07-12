@@ -7,8 +7,8 @@ const router = Router();
 
 router.get( '/', getAllProducts );
 router.get( '/:productoID', [ validationProduct.noExistId ], getOneProducts );
-router.post( '/add', [ validationProduct.existName ] , addProducts );
-router.put( '/update/:productoID', [ validationProduct.noExistId, cleanerRequest.product ], updateProducts );
+router.post( '/add', [ validationProduct.existName, cleanerRequest.product ] , addProducts );
+router.put( '/update/:productoID', [ validationProduct.noExistId, validationProduct.existName, cleanerRequest.product ], updateProducts );
 router.delete( '/delete/:productoID', [ validationProduct.noExistId ], deleteProducts );
 
 const productoRouter = router;

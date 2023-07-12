@@ -1,14 +1,16 @@
 import { Router } from "express";
 import { getAllUser, getOneUser, addUser, updateUser, deleteUser } 
 from "../controllers/usuario.controller.js";
+import { cleanerRequest, validationUser } from "../middlewares/index.js";
 
 const router = Router();
 
 router.get( '/', getAllUser );
-router.get( '/:userID', getOneUser );
-router.post( '/add', addUser );
-router.put( '/update/:userID', updateUser );
-router.delete( '/delete/:userID', deleteUser );
+router.get( '/:userID', [ validationUser.noExistId ], getOneUser );
+router.post( '/add', [ validationUser.existUser, validationUser.existMail, cleanerRequest.createUser ], addUser );
+router.put( '/update/:userID', [ validationUser.noExistId, validationUser.existUserUpdate, validationUser.existMailUpdate, validationUser.correctDataUpdate,
+    cleanerRequest.updateUser ], updateUser );
+router.delete( '/delete/:userID', [ validationUser.noExistId ], deleteUser );
 
 const usuarioRouter = router;
 

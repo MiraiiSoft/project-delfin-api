@@ -33,7 +33,7 @@ export async function createEnvio(data) {
   return newEnvio;
 }
 
-export async function updateEnvio(id, data) {
+export async function updateEnvioById(id, data) {
   const updatedEnvio = await prisma.envio.update({
     where: {
       id_envio: id,

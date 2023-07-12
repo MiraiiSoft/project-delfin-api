@@ -2,7 +2,7 @@ import { CODES_HTTP } from "../constants/global.js";
 import { createDirecciones } from "../DAO/direccion.dao.js";
 import { createPersona } from "../DAO/persona.dao.js";
 import { createLogin, getLoginByEmail, getLoginByUser, updateLogin } from "../DAO/login.dao.js";
-import { getRolByNombre } from "../DAO/roll.dao.js";
+import { getRolByName } from "../DAO/roll.dao.js";
 import { hashPass, comparePass } from "../helpers/hashPass.js";
 import { generateToken, verifyToken } from "../helpers/JWT.js";
 import sendEmail from "../helpers/sendEmail.js";
@@ -32,7 +32,7 @@ export const register = async ( req, res ) => {
         });
         
         //buscar rol 
-        const rol = await getRolByNombre('cliente');
+        const rol = await getRolByName('cliente');
         
         //se guarda datos de login
         const login = await createLogin({
@@ -63,7 +63,7 @@ export const register = async ( req, res ) => {
         console.log(error)
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
-            message: "A ocurrido un error: " + error
+            message: "Ha ocurrido un error: " + error
         })
     }
 }
@@ -83,7 +83,7 @@ export const login = async ( req, res ) => {
     } catch (error) {
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
-            message: "A ocurrido un error:" + error
+            message: "Ha ocurrido un error:" + error
         });
     }
 
@@ -96,7 +96,7 @@ export const login = async ( req, res ) => {
     //comprobar verificacion de la cuenta
     if( !dataUser.is_verified ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
         success: false,
-        message: "No se a verificado la cuenta"
+        message: "No se ha verificado la cuenta"
     });
 
     //validar contraseña
@@ -135,7 +135,7 @@ export const confirmAccount = async ( req, res ) => {
 
         return await getLoginByEmail( verify.message )
             .then( async userLogin => {
-                if( !userLogin ) throw new Error('No se a encontrado la cuenta');
+                if( !userLogin ) throw new Error('No se ha encontrado la cuenta');
 
                 if( userLogin.is_verified === true ) throw new Error('La cuenta ya esta confirmada');
 

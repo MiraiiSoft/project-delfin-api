@@ -1,4 +1,4 @@
-import { CODES_HTTP } from "../constants/global.js";
+import { CODES_HTTP } from "../../constants/global.js";
 
 export const dataUploadImg = ( req, res, next ) => {
     

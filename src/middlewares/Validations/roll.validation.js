@@ -1,13 +1,13 @@
 import { CODES_HTTP } from "../../constants/global.js";
-import {getRolById, getRolByNombre } from "../../DAO/roll.dao.js";
+import {getRolById, getRolByName } from "../../DAO/roll.dao.js";
 
 export const existName = async ( req, res, next ) => {
     const name = req.body.roll
-    const query = await getRolByNombre(name)
+    const query = await getRolByName(name)
     if ( query )  
         return res.status(CODES_HTTP.BAD_REQUEST).json({
             success: false,
-            message: "El rol con nombre=" +name+ " ya esta registrado en la DB"
+            message: "El rol " +name+ " ya esta registrado en la DB"
         })
     
     next()

@@ -8,7 +8,7 @@ const router = Router();
 router.get( '/', getAllCategorias );
 router.get( '/:categoriaID', [ validationCategory.noExistId ], getOneCategoria );
 router.post( '/add', [ validationCategory.existName, cleanerRequest.category ], addCategoria );
-router.put( '/update/:categoriaID', [ validationCategory.noExistId, cleanerRequest.category ], updateCategoria );
+router.put( '/update/:categoriaID', [ validationCategory.noExistId, validationCategory.existName, cleanerRequest.category ], updateCategoria );
 router.delete( '/delete/:categoriaID', [ validationCategory.noExistId ], deleteCategoria );
 
 const categoriaRouter = router;
