@@ -6,6 +6,7 @@ import { getRolByNombre } from "../DAO/roll.dao.js";
 import { hashPass, comparePass } from "../helpers/hashPass.js";
 import { generateToken, verifyToken } from "../helpers/JWT.js";
 import sendEmail from "../helpers/sendEmail.js";
+import { createCarrito } from "../DAO/carrito.dao.js";
 
 export const register = async ( req, res ) => {
     try {
@@ -32,7 +33,7 @@ export const register = async ( req, res ) => {
         });
         
         //buscar rol 
-        const rol = await getRolByNombre('cliente');
+        const rol = await getRolByNombre('Usuario');
         
         //se guarda datos de login
         const login = await createLogin({
@@ -45,6 +46,9 @@ export const register = async ( req, res ) => {
         });
 
         //crear carrito para la persona registrada
+        await createCarrito({
+            id_login: login.id_login
+        });
 
         //enviar email de confirmacion
         const body = "<p>Confirma la creacion de tu cuenta. Tiene 1 hora para poder confirmar.";
@@ -99,6 +103,12 @@ export const login = async ( req, res ) => {
         message: "No se a verificado la cuenta"
     });
 
+    //comprobar estado de la cuenta
+    if( !dataUser.is_active ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
+        success: false,
+        message: "La cuenta esta inactiva"
+    })
+
     //validar contraseña
     try {
         const validatePass = await comparePass(pass, dataUser.password);
@@ -140,7 +150,7 @@ export const confirmAccount = async ( req, res ) => {
                 if( userLogin.is_verified === true ) throw new Error('La cuenta ya esta confirmada');
 
                 userLogin.is_verified = true;
-                console.log(userLogin)
+                
                 return await updateLogin( userLogin.id_login, userLogin );
 
             } )

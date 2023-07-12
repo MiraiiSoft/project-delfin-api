@@ -54,6 +54,7 @@ export async function updateLogin(id, data) {
       is_verified: data.is_verified,
       id_persona: data.id_persona,
       id_roll: data.id_roll,
+      is_active: data.is_active
     },
   });
   await prisma.$disconnect();

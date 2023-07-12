@@ -198,7 +198,7 @@ model tipo {
 
 model venta {
   id_venta      Int             @id @default(autoincrement())
-  fecha_venta   DateTime?       @db.Date @default(now()) 
+  fecha_venta   DateTime?       @db.Date @default(now())
   status_venta  String?         @db.VarChar(45)
   id_envio      Int
   id_pago       Int

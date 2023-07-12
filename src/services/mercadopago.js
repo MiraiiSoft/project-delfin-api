@@ -6,8 +6,8 @@ mercadopago.configure({
 
 //PARAMETRO PARA CREATE ORDER
 // req => {
-//     numfactura: 1,
-//     products: [{
+//     venta: 1,
+//     items: [{
 //         title: "",
 //         unit_price: 0,
 //         currency_id: "MXN",
@@ -18,12 +18,12 @@ export const createOrder = async ( req ) => {
     //buscar usuario que realiza la compra
 
     const result = await mercadopago.preferences.create({
-        items: req.products,
+        items: req.items,
         payment_methods: {
             default_installments: 1,
             installments: 1
         },
-        notification_url: `${process.env.API_URL}/api/payment/webhook-mercadopago/${req.numfactura}`
+        notification_url: `${process.env.API_URL}/api/payment/webhook-mercadopago/${req.venta}`
     });
 
     return result;

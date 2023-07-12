@@ -174,12 +174,9 @@ export const deleteUser = async ( req, res ) => {
     const { userID } = req.params;
     //cambiar el estado de la cuenta y no eliminarla totalmente
     try {
-        // const userLogin = await getLoginById( parseInt(userID) );
-        // const user = await getPersonaById( parseInt(userLogin.id_persona) );
-
-        // await deleteCiudadById( user.id_direccion );
-        // await deletePersonaById( userLogin.id_persona );
-        // await deleteLoginById( parseInt(userID) );
+        await updateLogin( parseInt(userID), {
+            is_active: false
+        } );
 
         res.status(CODES_HTTP.NO_CONTENT).json();
     } catch (error) {
