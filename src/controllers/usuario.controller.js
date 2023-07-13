@@ -20,9 +20,10 @@ export const getAllUser = async ( req, res ) => {
             data: userLogins
         });
     } catch (error) {
+        
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
-            message: "A ocurrido un error:" + error
+            message: "Ha ocurrido un error:" + error
         });
     }
 
@@ -53,7 +54,6 @@ export const getOneUser = async ( req, res ) => {
 
 export const addUser = async ( req, res ) => {
     try {
-        
         const { nombre, apellido, telefono, correo, rol, usuario, password } = req.body;
         
         //se crea una direccion
@@ -101,7 +101,7 @@ export const addUser = async ( req, res ) => {
         console.log(error)
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
-            message: "A ocurrido un error: " + error
+            message: "Ha ocurrido un error: " + error
         })
     }
 }

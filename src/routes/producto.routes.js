@@ -1,13 +1,15 @@
 import { Router } from "express";
-import { getAllProducts, getOneProducts, addProducts, updateProducts, deleteProducts } from "../controllers/producto.controller.js";
+import { getAllProducts, getOneProducts, addProducts, updateProducts, deleteProducts } 
+from "../controllers/producto.controller.js";
+import { cleanerRequest, validationProduct } from "../middlewares/index.js";
 
 const router = Router();
 
 router.get( '/', getAllProducts );
-router.get( '/:productoID', getOneProducts );
-router.post( '/add', addProducts );
-router.put( '/update/:productoID', updateProducts );
-router.delete( '/delete/:productoID', deleteProducts );
+router.get( '/:productoID', [ validationProduct.noExistId ], getOneProducts );
+router.post( '/add', [ validationProduct.existName, cleanerRequest.product ] , addProducts );
+router.put( '/update/:productoID', [ validationProduct.noExistId, validationProduct.existName, cleanerRequest.product ], updateProducts );
+router.delete( '/delete/:productoID', [ validationProduct.noExistId ], deleteProducts );
 
 const productoRouter = router;
 

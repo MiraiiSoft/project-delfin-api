@@ -62,7 +62,7 @@ export const updateProducts = async ( req, res ) => {
         res.status(CODES_HTTP.OK).json({
             success: true,
             message: "Producto actualizado con exito",
-            data: actualizaProducto
+            data: actualizarProducto
         });
     } catch (error) {
         console.log("Error al actualizar producto: ".error)

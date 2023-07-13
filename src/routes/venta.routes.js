@@ -1,15 +1,15 @@
 import { Router } from "express";
-import {validationVenta} from '../middlewares/index.js'
 import { getAllVentas, getOneVenta, addVenta, updateVenta, deleteVenta, getOneVentaByLogin } from "../controllers/venta.controller.js";
+import { cleanerRequest, validationVenta } from "../middlewares/index.js";
 
 const router = Router();
 
 router.get( '/', getAllVentas );
-router.get( '/:ventaID', getOneVenta );
-router.get( '/login/:ventaID', getOneVentaByLogin );
-router.post( '/add',[validationVenta.validateVentaData], addVenta );
-router.put( '/update/:ventaID', updateVenta );
-router.delete('/delete/:ventaID',deleteVenta);
+router.get( '/:ventaID', [ validationVenta.noExistId ], getOneVenta );
+router.get( '/login/:ventaID', [ validationVenta.noExistId ], getOneVentaByLogin );
+router.post( '/add', [ validationVenta.existIdEnvio, validationVenta.existIdPago, cleanerRequest.venta ], addVenta );
+router.put( '/update/:ventaID', [ validationVenta.existIdEnvio, validationVenta.existIdPago, cleanerRequest.venta ], updateVenta );
+router.delete('/delete/:ventaID', [ validationVenta.noExistId ], deleteVenta);
 
 const ventaRouter = router;
 

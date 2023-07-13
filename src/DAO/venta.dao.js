@@ -21,7 +21,7 @@ export const getVentas = async () => {
   });
 
   const groupedVentas = detallesVentas.reduce((result, detalle) => {
-    const ventaId = detalle.id_venta;
+  const ventaId = detalle.id_venta;
 
     // Buscar si la venta ya está en el resultado
     const existingVenta = result.find((venta) => venta.id === ventaId);
