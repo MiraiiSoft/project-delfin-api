@@ -16,7 +16,7 @@ mercadopago.configure({
 // }
 export const createOrder = async ( req ) => {
     //buscar usuario que realiza la compra
-
+    
     const result = await mercadopago.preferences.create({
         items: req.items,
         payment_methods: {
