@@ -12,10 +12,7 @@ const options = {
         
     },
     apis: [
-        "src/routes/upload.routes.js",
-        "src/routes/auth.routes.js",
-        "src/routes/usuario.routes.js",
-        "src/routes/categoria.routes.js"
+        "src/routes/*.routes.js"
     ]
 };
 
