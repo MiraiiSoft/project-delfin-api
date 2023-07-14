@@ -13,8 +13,15 @@ function clean( dataType, req ){
     return clean;
 }
 
-export const auth = ( req, res, next ) => {
-    const dataType = [ "nombre", "apellido", "telefono", "id_direccion" ]
+export const authRegister = ( req, res, next ) => {
+    const dataType = [ "nombre", "apellido", "telefono", "correo", "usuario", "contraseña" ]
+    const dataClean = clean(dataType, req )
+    req.body = dataClean
+    next()
+}
+
+export const authLogin = ( req, res, next ) => {
+    const dataType = [ "user", "pass" ]
     const dataClean = clean(dataType, req )
     req.body = dataClean
     next()
@@ -56,7 +63,7 @@ export const envio = ( req, res, next ) => {
 }
 
 export const payment = ( req, res, next ) => {
-    const dataType = [ "tocken_pago", "monto" ]
+    const dataType = [ "payservice", "items", "products", "envio" ]
     const dataClean = clean(dataType, req )
     req.body = dataClean
     next()
@@ -85,7 +92,8 @@ export const createUser = ( req, res, next ) => {
 }
 
 export const updateUser = ( req, res, next ) => {
-    const dataType = [ "nombre", "apellido", "telefono", "correo",  "id_roll", "id_persona", "id_direccion", "usuario", "password" ]
+    const dataType = [ "nombre", "apellido", "id_persona", "id_roll", "telefono", "rol", "correo", 
+        "id_direccion", "usuario", "password", "is_verified" ]
     const dataClean = clean(dataType, req )
     req.body = dataClean
     next()
