@@ -14,3 +14,32 @@ router.delete( '/delete/:categoriaID', [ validationCategory.noExistId ], deleteC
 const categoriaRouter = router;
 
 export default categoriaRouter;
+
+/**
+ * @openapi
+ * /api/categoria:
+ *      get:
+ *          tags: 
+ *              - Get categories
+ *          parameters:
+ *              - in: header
+ *              name: categoria
+ *              required: true  
+ *          responses:
+ *              200:
+ *                  description: OK
+ *                  content:
+ *                      application/json:
+ *                  schema: 
+ *                     type: object
+ *                     properties:
+ *                          success:
+ *                              type: boolean
+ *                              example: true
+ *                          data:
+ *                              type: array
+ *                              items:
+ *                                  type: object
+ *                                  properties:
+ *           
+ */
