@@ -2,7 +2,7 @@ import express from "express"
 import morgan from "morgan"
 import { config } from 'dotenv';
 config();
-
+import cors from "cors";
 
 import uploadRouter from "./routes/upload.routes.js";
 import authRouter from "./routes/auth.routes.js";
@@ -17,6 +17,11 @@ import usuarioRouter from "./routes/usuario.routes.js";
 import ventaRouter from "./routes/venta.routes.js";
 import inventarioRouter from "./routes/inventario.routes.js";
 
+const corsOptions = {
+    exposedHeaders: ['token'],
+    origin: [ 'http://localhost:4200' ]
+};
+
 const app = express();
 
 app.set('port',process.env.PORT||3000)
@@ -24,7 +29,7 @@ app.set('port',process.env.PORT||3000)
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(morgan('dev'));
-
+app.use(cors(corsOptions))
 
 app.use( '/api/file', uploadRouter );
 app.use( '/api/auth', authRouter );
