@@ -1,10 +1,11 @@
 import { Router } from "express";
 import { register, login, confirmAccount } from "../controllers/auth.controller.js"
-import { cleanerRequest } from "../middlewares/index.js";
+import { cleanerRequest, validationUser } from "../middlewares/index.js";
 
 const router = Router();
 
-router.post( '/register', [ cleanerRequest.authRegister ], register );
+router.post( '/register', [ cleanerRequest.authRegister, validationUser.existUser, validationUser.existMail ],
+    register );
 router.post( '/login', [ cleanerRequest.authLogin ], login ); 
 router.get( '/confirm/:token', confirmAccount );
 
