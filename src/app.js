@@ -17,6 +17,7 @@ import usuarioRouter from "./routes/usuario.routes.js";
 import ventaRouter from "./routes/venta.routes.js";
 import inventarioRouter from "./routes/inventario.routes.js";
 
+
 const app = express();
 
 app.set('port',process.env.PORT||3000)
