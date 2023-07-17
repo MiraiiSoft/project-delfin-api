@@ -1,3 +1,4 @@
+import { createEnvio, deleteEnvioById, getEnvioById, getEnvios, updateEnvioById } from "../DAO/envio.dao.js";
 import { CODES_HTTP } from "../constants/global.js";
 import { getEnvios, getEnvioById,createEnvio,updateEnvio, deleteEnvioById } from "../DAO/envio.dao.js";
 
@@ -57,7 +58,7 @@ export const addEnvios = async ( req, res ) => {
 
 export const updateEnvios = async ( req, res ) => {
     try {
-        const actEnvio = await updateEnvio(parseInt(req.params.envioID),req.body)
+        const actEnvio = await updateEnvioById(parseInt(req.params.envioID), req.body)
         console.log("Envio actualizado con exito")
         res.status(CODES_HTTP.OK).json({
             success: true,

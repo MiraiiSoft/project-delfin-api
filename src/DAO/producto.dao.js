@@ -22,6 +22,16 @@ export async function getProductoById(id) {
   return producto;
 }
 
+export async function getProductoByBarCode(barCode) {
+  const product = await prisma.producto.findFirst({
+    where: {
+      codigo_barras: barCode
+    }
+  });
+  await prisma.$disconnect();
+  return product;
+}
+
 export async function createProducto(data) {
   const newProducto = await prisma.producto.create({
     data: {

@@ -20,9 +20,10 @@ export const getAllUser = async ( req, res ) => {
             data: userLogins
         });
     } catch (error) {
+        
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
-            message: "A ocurrido un error:" + error
+            message: "Ha ocurrido un error:" + error
         });
     }
 
@@ -53,7 +54,6 @@ export const getOneUser = async ( req, res ) => {
 
 export const addUser = async ( req, res ) => {
     try {
-        
         const { nombre, apellido, telefono, correo, rol, usuario, password } = req.body;
         
         //se crea una direccion
@@ -101,7 +101,7 @@ export const addUser = async ( req, res ) => {
         console.log(error)
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
-            message: "A ocurrido un error: " + error
+            message: "Ha ocurrido un error: " + error
         })
     }
 }
@@ -174,12 +174,9 @@ export const deleteUser = async ( req, res ) => {
     const { userID } = req.params;
     //cambiar el estado de la cuenta y no eliminarla totalmente
     try {
-        // const userLogin = await getLoginById( parseInt(userID) );
-        // const user = await getPersonaById( parseInt(userLogin.id_persona) );
-
-        // await deleteCiudadById( user.id_direccion );
-        // await deletePersonaById( userLogin.id_persona );
-        // await deleteLoginById( parseInt(userID) );
+        await updateLogin( parseInt(userID), {
+            is_active: false
+        } );
 
         res.status(CODES_HTTP.NO_CONTENT).json();
     } catch (error) {

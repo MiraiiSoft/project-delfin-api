@@ -50,3 +50,13 @@ export async function getCarritoById(id) {
   await prisma.$disconnect();
   return carritoById;
 }
+
+export async function getcarritoByIdLogin(id) {
+  const carrito = await prisma.carrito.findFirst({
+    where:{
+      id_login: id
+    }
+  });
+  await prisma.$disconnect();
+  return carrito;
+}

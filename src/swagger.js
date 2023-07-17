@@ -12,9 +12,7 @@ const options = {
         
     },
     apis: [
-        "src/routes/upload.routes.js",
-        "src/routes/auth.routes.js",
-        "src/routes/usuario.routes.js"
+        "src/routes/*.routes.js"
     ]
 };
 
@@ -22,7 +20,7 @@ const swaggerSpec = swaggerJSDoc(options);
 
 export const swaggerDocs = (app, port) => {
     app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
-
+-
     console.log(
         `📓 Version 1 Docs are available at http://localhost:${port}/api/docs`
     );
