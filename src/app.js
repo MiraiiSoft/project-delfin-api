@@ -17,6 +17,14 @@ import usuarioRouter from "./routes/usuario.routes.js";
 import ventaRouter from "./routes/venta.routes.js";
 import inventarioRouter from "./routes/inventario.routes.js";
 import adminRouter from './routes/admin.routes.js'
+<<<<<<< HEAD
+=======
+
+const corsOptions = {
+    exposedHeaders: ['token'],
+    origin: [ 'http://localhost:4200' ]
+};
+>>>>>>> 1f67d42dfcb80d4269e9f01383eca7cb30161fe4
 
 const app = express();
 

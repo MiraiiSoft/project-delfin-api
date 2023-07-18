@@ -1,13 +1,5 @@
+import { createEnvio, deleteEnvioById, getEnvioById, getEnvios, updateEnvioById } from "../DAO/envio.dao.js";
 import { CODES_HTTP } from "../constants/global.js";
-<<<<<<< HEAD
-import { getEnvios, getEnvioById, createEnvio, updateEnvioById, deleteEnvioById } from "../DAO/envio.dao.js";
-=======
-<<<<<<< HEAD
-
-=======
-import {getEnvios,getEnvioById,createEnvio,updateEnvio,deleteEnvioById} from "../DAO/envio.dao.js"
->>>>>>> 480a2207597a93f75fef42626579da507551e051
->>>>>>> 9c21ee21452eaa2f71bd850b77b26042134d7a00
 
 export const getAllEnvios = async ( req, res ) => {
     try {
