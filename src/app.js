@@ -16,12 +16,13 @@ import rolRouter from "./routes/rol.routes.js";
 import usuarioRouter from "./routes/usuario.routes.js";
 import ventaRouter from "./routes/venta.routes.js";
 import inventarioRouter from "./routes/inventario.routes.js";
+import adminRouter from './routes/admin.routes.js'
 
 const app = express();
 
 app.set('port',process.env.PORT||3000);
 app.set('view engine', 'ejs');
-
+app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(morgan('dev'));
@@ -39,5 +40,6 @@ app.use( '/api/rol', rolRouter );
 app.use( '/api/user', usuarioRouter );
 app.use( '/api/venta', ventaRouter );
 app.use('/api/inventario', inventarioRouter);
+app.use( '/',adminRouter)
 
 export default app;
