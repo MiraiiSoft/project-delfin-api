@@ -28,3 +28,45 @@ export const tokenValidation = async ( req, res, next ) => {
         });
     }
 }
+
+export const isAdmin = async ( req, res, next ) => {
+    const user = await getLoginById( req.userLogin );
+    
+    if( user.roll.roll.toLowerCase() == "admin" ){
+        next();
+        return;
+    }
+
+    res.status(CODES_HTTP.FORBIDDEN).json({
+        success: false,
+        message: "Requiere rol Admin"
+    })
+}
+
+export const isUsuario = async ( req, res, next ) => {
+    const user = await getLoginById( req.userLogin );
+    
+    if( user.roll.roll.toLowerCase() == "usuario" ){
+        next();
+        return;
+    }
+
+    res.status(CODES_HTTP.FORBIDDEN).json({
+        success: false,
+        message: "Requiere rol Usuario"
+    })
+}
+
+export const isInvitado = async ( req, res, next ) => {
+    const user = await getLoginById( req.userLogin );
+    
+    if( user.roll.roll.toLowerCase() == "invitado" ){
+        next();
+        return;
+    }
+
+    res.status(CODES_HTTP.FORBIDDEN).json({
+        success: false,
+        message: "Requiere rol Invitado"
+    })
+}

@@ -1,14 +1,22 @@
 import { Router } from "express";
 import { getAllRoles, getOneRol, addRol, updateRol, deleteRol } from "../controllers/rol.controller.js";
-import { cleanerRequest, validationRole } from "../middlewares/index.js";
+import { cleanerRequest, validationRole, authenticationJWT } from "../middlewares/index.js";
 
 const router = Router();
 
-router.get( '/', getAllRoles );
-router.get( '/:rolID', [ validationRole.noExistId ], getOneRol );
-router.post( '/add', [ validationRole.existName, cleanerRequest.roll ], addRol );
-router.put( '/update/:rolID', [ validationRole.noExistId, validationRole.existName, cleanerRequest.roll ], updateRol );
-router.delete( '/delete/:rolID', [ validationRole.noExistId ] ,deleteRol );
+router.get( '/', [ authenticationJWT.tokenValidation, authenticationJWT.isAdmin ], getAllRoles );
+
+router.get( '/:rolID', [ authenticationJWT.tokenValidation, authenticationJWT.isAdmin, 
+    validationRole.noExistId ], getOneRol );
+
+router.post( '/add', [ authenticationJWT.tokenValidation, authenticationJWT.isAdmin, 
+    validationRole.existName, cleanerRequest.roll ], addRol );
+
+router.put( '/update/:rolID', [ authenticationJWT.tokenValidation, authenticationJWT.isAdmin, 
+    validationRole.noExistId, validationRole.existName, cleanerRequest.roll ], updateRol );
+    
+router.delete( '/delete/:rolID', [ authenticationJWT.tokenValidation, authenticationJWT.isAdmin, 
+    validationRole.noExistId ] ,deleteRol );
 
 const rolRouter = router;
 
