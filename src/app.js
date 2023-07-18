@@ -16,17 +16,22 @@ import rolRouter from "./routes/rol.routes.js";
 import usuarioRouter from "./routes/usuario.routes.js";
 import ventaRouter from "./routes/venta.routes.js";
 import inventarioRouter from "./routes/inventario.routes.js";
+<<<<<<< HEAD
 import paisRouter from "./routes/pais.routes.js";
 
 const corsOptions = {
     exposedHeaders: ['token'],
     origin: [ 'http://localhost:4200' ]
 };
+=======
+import adminRouter from './routes/admin.routes.js'
+>>>>>>> 480a2207597a93f75fef42626579da507551e051
 
 const app = express();
 
-app.set('port',process.env.PORT||3000)
-
+app.set('port',process.env.PORT||3000);
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(morgan('dev'));
@@ -43,7 +48,12 @@ app.use( '/api/producto', productoRouter );
 app.use( '/api/rol', rolRouter );
 app.use( '/api/user', usuarioRouter );
 app.use( '/api/venta', ventaRouter );
+<<<<<<< HEAD
 app.use( '/api/inventario', inventarioRouter );
 app.use( '/api/pais', paisRouter );
+=======
+app.use('/api/inventario', inventarioRouter);
+app.use( '/',adminRouter)
+>>>>>>> 480a2207597a93f75fef42626579da507551e051
 
 export default app;
