@@ -12,6 +12,7 @@ export const getAllColor = async ( req, res ) => {
         });
     } catch (error) {
         console.log("Error al obtener colores: ".error)
+        
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
             message: "Error al obtener colores: "+ error
