@@ -2,7 +2,7 @@ import express from "express"
 import morgan from "morgan"
 import { config } from 'dotenv';
 config();
-
+import cors from "cors";
 
 import uploadRouter from "./routes/upload.routes.js";
 import authRouter from "./routes/auth.routes.js";

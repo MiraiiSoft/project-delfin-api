@@ -1,5 +1,5 @@
 import { createLogger, format, transports } from "winston";
-const logger = createLogger({
+const loggerPayment = createLogger({
     format: format.combine(
         format.simple(),
         format.timestamp(),
@@ -9,7 +9,7 @@ const logger = createLogger({
         new transports.File({
             maxsize: 5120000,
             maxFiles: 5,
-            filename: `src/logs/logs.log`
+            filename: `src/logs/logs_payment.log`
         }),
         new transports.Console({
             level: 'debug'
@@ -17,4 +17,4 @@ const logger = createLogger({
     ]
 });
 
-export default logger;
+export default loggerPayment;
