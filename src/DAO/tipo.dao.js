@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function getTipos() {
+export async function getAllTipos() {
   const tipos = await prisma.tipo.findMany();
   await prisma.$disconnect();
   return tipos;

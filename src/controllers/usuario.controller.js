@@ -4,12 +4,13 @@ import { getLoginById, getLogins, createLogin, updateLogin } from "../DAO/login.
 import { createDirecciones } from "../DAO/direccion.dao.js";
 import sendEmail from "../helpers/sendEmail.js";
 import { hashPass, comparePass } from "../helpers/hashPass.js";
+import loggerUsuario from "../utils/logger/logger.usuario.js";
 
 export const getAllUser = async ( req, res ) => {
     try {
 
         const userLogins = await getLogins();
-
+        loggerUsuario.info({message: "Petición Exitosa"})
         if( !userLogins ) return res.status(CODES_HTTP.NO_FOUND).json({
             success: false,
             message: "No se han encontrado cuentas registradas"
@@ -20,7 +21,7 @@ export const getAllUser = async ( req, res ) => {
             data: userLogins
         });
     } catch (error) {
-        
+        loggerUsuario.info({message: "Ha ocurrido un error:" + error})
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
             message: "Ha ocurrido un error:" + error
@@ -33,7 +34,7 @@ export const getOneUser = async ( req, res ) => {
     const { userID } = req.params;
     try {
         const userLogin = await getLoginById( parseInt(userID) );
-
+        loggerUsuario.info({message: "Petición Exitosa"})
         if( !userLogin ) return res.status(CODES_HTTP.NO_FOUND).json({
             success: false,
             message: "No se encontro la cuenta"
@@ -45,6 +46,7 @@ export const getOneUser = async ( req, res ) => {
         })
 
     } catch (error) {
+        loggerUsuario.info({message: "A ocurrido un error: " + error})
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
             message: "A ocurrido un error: " + error
@@ -98,6 +100,7 @@ export const addUser = async ( req, res ) => {
             message: "Registro exictoso"
         });
     } catch (error) {
+        loggerUsuario.info({message: "Ha ocurrido un error: " + error})
         console.log(error)
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
@@ -162,6 +165,7 @@ export const updateUser = async ( req, res ) => {
         })
 
     } catch (error) {
+        loggerUsuario.info({message: "Ha ocurrido un error: " + error})
         console.log("Error:", error)
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
@@ -174,12 +178,14 @@ export const deleteUser = async ( req, res ) => {
     const { userID } = req.params;
     //cambiar el estado de la cuenta y no eliminarla totalmente
     try {
+        loggerUsuario.info({message: "Usuario eliminado"})
         await updateLogin( parseInt(userID), {
             is_active: false
         } );
 
         res.status(CODES_HTTP.NO_CONTENT).json();
     } catch (error) {
+        loggerUsuario.info({message: "Ha ocurrido un error: " + error})
         console.log("error: ", error)
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,

@@ -6,7 +6,7 @@ import { createPago } from "../DAO/pago.dao.js";
 import { createVenta } from "../DAO/venta.dao.js";
 import { createDetalleVenta } from "../DAO/detalleVenta.dao.js";
 import { getcarritoByIdLogin } from "../DAO/carrito.dao.js";
-
+import loggerPayment from "../utils/logger/logger.payment.js";
 export const payment = async ( req, res ) => {
     const reqpayment = req.body;
 
@@ -73,6 +73,7 @@ export const payment = async ( req, res ) => {
             });
 
         } catch (error) {
+            loggerPayment.info({message: "Error al crear orden mercado pago:" + error})
             console.log("Error al crear orden mercado pago:", error);
             return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
                 success: false,
@@ -83,7 +84,7 @@ export const payment = async ( req, res ) => {
 
     res.status(CODES_HTTP.BAD_REQUEST).json({
         success: false,
-        message: "Servicio de pago no disponible"
+        message: "Servicio de pago no disponible",
     })
 
 }
