@@ -3,7 +3,7 @@ const prisma = new PrismaClient();
 
 export async function getPaises() {
         const paises = await prisma.pais.findMany()
-        console.log(error);
+        await prisma.$disconnect();
         return paises;
 }
 
@@ -17,10 +17,10 @@ export async function createPais(data){
         return newPais;
 }
 
-export async function getPaisByName(pais){
+export async function getPaisByName(namePais){
         const pais = await prisma.pais.findFirst({
             where:{
-                pais:pais
+                pais:namePais
             }
         });
         await prisma.$disconnect();

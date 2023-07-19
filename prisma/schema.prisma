@@ -18,7 +18,7 @@ model carrito {
 }
 
 model carrito_producto {
-  id_carrito_producto Int      @unique(map: "id_carrito_producto")
+  id_carrito_producto Int      @unique(map: "id_carrito_producto") @default(autoincrement())
   id_producto         Int
   id_carrito          Int
   cantidad_producto   Int?
@@ -60,8 +60,8 @@ model detalle_venta {
   id_carrito        Int
   id_login          Int
   num_factura       String?  @db.VarChar(100)
-  id_venta          Int
-  venta             venta    @relation(fields: [id_venta], references: [id_venta], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_1")
+  id_venta          Int?
+  venta             venta?   @relation(fields: [id_venta], references: [id_venta], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_1")
   producto          producto @relation(fields: [id_producto], references: [id_producto], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_3")
   carrito           carrito  @relation(fields: [id_carrito], references: [id_carrito], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_4")
   login             login    @relation(fields: [id_login], references: [id_login], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_5")
@@ -75,11 +75,11 @@ model detalle_venta {
 model direccion {
   id_direccion  Int       @id @default(autoincrement())
   codigo_postal String?   @db.VarChar(10)
-  calle         String?   @db.VarChar(45)
+  calle         String?   @db.VarChar(100)
   colonia       String?   @db.VarChar(45)
   num           String?   @db.VarChar(10)
   telefono      String?   @db.VarChar(15)
-  referencia    String?   @db.VarChar(55)
+  referencia    String?   @db.VarChar(200)
   id_ciudad     Int
   ciudad        ciudad    @relation(fields: [id_ciudad], references: [id_ciudad], onDelete: NoAction, onUpdate: NoAction, map: "direccion_ibfk_1")
   persona       persona[]
@@ -118,9 +118,9 @@ model login {
   usuario       String?         @db.VarChar(45)
   password      String?         @db.VarChar(150)
   is_verified   Boolean?        @default(false)
+  is_active     Boolean?        @default(true)
   id_persona    Int
   id_roll       Int
-  is_active     Boolean?        @default(true)
   carrito       carrito[]
   detalle_venta detalle_venta[]
   envio         envio[]
@@ -147,7 +147,7 @@ model pais {
 model persona {
   id_persona   Int       @id @default(autoincrement())
   nombre       String?   @db.VarChar(45)
-  apellido     String?   @db.VarChar(45)
+  apellido     String?   @db.VarChar(55)
   telefono     String?   @db.VarChar(15)
   id_direccion Int
   login        login[]
@@ -161,7 +161,7 @@ model producto {
   codigo_barras    String?            @db.VarChar(45)
   nombre           String?            @db.VarChar(200)
   marca            String?            @db.VarChar(45)
-  descripcion      String?            @db.VarChar(300)
+  descripcion      String?            @db.VarChar(500)
   imagen           Json
   compra           Decimal?           @db.Decimal(10, 0)
   precio_unitario  Decimal?           @db.Decimal(10, 0)
@@ -211,7 +211,6 @@ model venta {
 }
 
 model counter {
-  id         Int     @id @default(autoincrement())
-  id_counter String? @unique(map: "id_counter") @db.VarChar(255)
-  seq_value  Int?
+  id        String @id @db.VarChar(20)
+  seq_value Int?
 }

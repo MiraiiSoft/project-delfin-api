@@ -17,6 +17,16 @@ export async function getColorById(id) {
   return colorById;
 }
 
+export async function getColorByColor(colorName) {
+  const colorFound = await prisma.color.findFirst({
+    where: {
+      color: colorName,
+    },
+  });
+  await prisma.$disconnect();
+  return colorFound;
+}
+
 export async function createColor(data) {
   const newColor = await prisma.color.create({
     data: {

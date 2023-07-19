@@ -51,12 +51,12 @@ export async function deleteRolById(id) {
   return rolDeleted;
 }
 
-export async function getRolByNombre(nombre){
-  const rolNombre = await prisma.roll.findFirst({
+export async function getRolByName(name){
+  const rolName = await prisma.roll.findFirst({
     where:{
-      roll: nombre
+      roll: name
     }
   })
   await prisma.$disconnect();
-  return rolNombre;
+  return rolName;
 }

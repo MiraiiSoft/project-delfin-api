@@ -17,6 +17,16 @@ export async function getCategoriaById(id) {
   return categoria;
 }
 
+export async function getCategoriaByName(name) {
+  const categoria = await prisma.categoria.findFirst({
+    where: {
+      categoria: name
+    }
+  });
+  await prisma.$disconnect();
+  return categoria;
+}
+
 export async function createCategoria(data) {
   const newCategoria = await prisma.categoria.create({
     data: {
