@@ -1,11 +1,11 @@
-import { CODES_HTTP } from "../constants/global";
-import { eliminarColorById } from "../DAO/color.dao";
-import { getAllTipos, getTipoById, createTipo, updateTipo, deleteTipoById } from "../DAO/tipo.dao";
-import loggerTipo from "../utils/logger/logger.tipo";
+import { CODES_HTTP } from "../constants/global.js";
+import { getAllTipos, getTipoById, createTipo, updateTipo, deleteTipoById } from "../DAO/tipo.dao.js";
+import loggerTipo from "../utils/logger/logger.tipo.js";
 
 export const getTipos = async(req, res) =>{
     try {
         const todosTipos = await getAllTipos()
+        console.log("Peticion exitosa")
         loggerTipo.info({message: "Petición Exitosa"})
         res.status(CODES_HTTP.OK).json({
             success: true,
@@ -13,10 +13,11 @@ export const getTipos = async(req, res) =>{
             data: todosTipos
         });
     } catch (error) {
+        console.log("Error al obtener los tipos: ".error)
         loggerTipo.info({message: "Error al obetener Tipos: " + error})
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
-            message: "Error al obetener Colores: " + error
+            message: "Error al obetener Tipos: " + error
         });
     }
 }
@@ -41,11 +42,11 @@ export const getOneTipo = async (req, res) =>{
 
 export const addTipo = async(req, res) => {
     try {
-        const tipo = await createTipo(req.body)
+        const tipo = await createTipo (req.body)
         loggerTipo.info({message: "El tipo se agrego con exito"})
         res.status(CODES_HTTP.OK).json({
             success: true,
-            message: "El color fue agregado con exito",
+            message: "El tipo se agrego con exito",
             data: tipo
         });
     } catch (error) {
@@ -56,9 +57,9 @@ export const addTipo = async(req, res) => {
         });
     }
 }
-export const updateColor = async (req, res) => {
+export const updateTipoById = async (req, res) => {
     try {
-        const actualizarTipo = await updateTipo(parseInt(req.params.tipoID), req.body)
+        const actualizarTipo = await updateTipo (parseInt(req.params.tipoID), req.body)
         loggerTipo.info({message: "El tipo fue Actualizado con exito"})
         res.status(CODES_HTTP.OK).json({
             success: true,
@@ -79,7 +80,7 @@ export const deleteTipo = async(req, res) => {
         loggerTipo.info({message: "Tipo eliminado con exito"})
         res.status(CODES_HTTP.OK).json({
             success: true,
-            message: "El conol fue eliminado con exito",
+            message: "El tipo fue eliminado con exito",
             data: eliminarTipo
         });
     } catch (error) {
