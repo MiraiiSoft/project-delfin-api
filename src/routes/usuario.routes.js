@@ -56,7 +56,7 @@ export default usuarioRouter;
  *                   example: false
  *                 message:
  *                   type: string
- *                   example: A ocurrido un error
+ *                   example: Ha ocurrido un error
  * 
  * /api/user/{userID}:
  *   get:
@@ -96,7 +96,7 @@ export default usuarioRouter;
  *                   example: false
  *                 message:
  *                   type: string
- *                   example: A ocurrido un error
+ *                   example: Ha ocurrido un error
  * 
  * /api/user/add:
  *   post:
@@ -162,7 +162,7 @@ export default usuarioRouter;
  *                   example: false
  *                 message:
  *                   type: string
- *                   example: A ocurrido un error
+ *                   example: Ha ocurrido un error
  * 
  * /api/user/update/{userID}:
  *   put:
@@ -234,5 +234,5 @@ export default usuarioRouter;
  *                   example: false
  *                 message:
  *                   type: string
- *                   example: A ocurrido un error
+ *                   example: Ha ocurrido un error
  */
