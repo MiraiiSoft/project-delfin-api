@@ -95,3 +95,18 @@ export async function deleteProductoById(id) {
   await prisma.$disconnect();
   return productoDeleted;
 }
+
+export async function getProductoByNombre(nombre){
+  const productos = await prisma.producto.findMany({
+    include: {
+      color: true,
+      tipo: true,
+      categoria: true,
+    },
+    where: {
+      nombre: nombre,
+    },
+  });
+  await prisma.$disconnect();
+  return productos;
+}

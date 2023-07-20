@@ -24,4 +24,15 @@ Please make sure your database server is running at `192.168.4.78`:`3306`.
 [2023-07-19T17:38:11.553Z] info Peticion Exitosa
 [2023-07-19T17:38:23.985Z] info El color fue agregado con exito
 [2023-07-19T17:38:30.248Z] info Peticion Exitosa
+<<<<<<< HEAD
 [2023-07-19T20:08:27.497Z] info Peticion Exitosa
+=======
+[2023-07-20T02:03:22.823Z] info Error al obtener colores: PrismaClientInitializationError: 
+Invalid `prisma.color.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.78`:`3306`
+
+Please make sure your database server is running at `192.168.4.78`:`3306`.
+[2023-07-20T15:12:13.077Z] info Peticion Exitosa
+>>>>>>> 34688428f96fc305deb94c8ef15ce85641b145d4
