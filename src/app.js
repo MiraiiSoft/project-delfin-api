@@ -47,6 +47,8 @@ app.use( '/api/rol', rolRouter );
 app.use( '/api/user', usuarioRouter );
 app.use( '/api/venta', ventaRouter );
 app.use('/api/inventario', inventarioRouter);
+app.use('/api/tipo', tipoRouter);
+app.use('api/pais/', paisRouter);
 app.use( '/',adminRouter)
 
 export default app;

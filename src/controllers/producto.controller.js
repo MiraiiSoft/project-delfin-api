@@ -1,5 +1,6 @@
+import { parse } from "dotenv";
 import { CODES_HTTP } from "../constants/global.js"
-import { createProducto, deleteProductoById, getProductoById, getProductos, updateProductoById } from "../DAO/producto.dao.js"
+import { createProducto, deleteProductoById, getProductoById, getProductos, updateProductoById, getProductoByNombre } from "../DAO/producto.dao.js"
 import loggerProducto from "../utils/logger/logger.producto.js";
 
 export const getAllProducts = async ( req, res ) => {
@@ -22,25 +23,44 @@ export const getAllProducts = async ( req, res ) => {
     }   
 }
 
-export const getOneProducts = async ( req, res ) => {
-    try {
-        const producto = await getProductoById(parseInt(req.params.productoID));
-        console.log("Peticion Exitosa")
-        loggerProducto.info({message: "Petición Exitosa"})
-        res.status(CODES_HTTP.OK).json({
-            success: true,
-            message: "Peticion Exitosa",
-            data: producto
-        });
-    } catch (error) {
-        console.log("Error al obtener el producto: ".error)
-        loggerProducto.info({message: "Error al obtener el producto: "+ error})
-        return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
-            success:false,
-            message: "Error al obtener el producto: "+ error
-        });
+export const getOneProducts = async (req, res) => {
+  try {
+      const producto = await getProductoById(parseInt(req.params.productoID));
+    if (!producto) {
+      return res.status(CODES_HTT.INTERNAL_SERVER_ERROR).json({
+        success: false,
+        message: "Producto no encontrado",
+      });
     }
-}
+    const nombreProducto = producto.nombre; //obtengo nombre del producto que se busco por su ID
+    const productosMismoNombre = await getProductoByNombre(nombreProducto); //OBTENEMOS LOS PRODUCTOS CON EL MISMO NOMBRE DEL ID QUE SE BUSCO INCLUYENDO LOS COLORES
+
+    //CREAMOS UN OBJETO CON LOS COLORES 
+    const coloresUnicos = productosMismoNombre.reduce((colores, prod) => {
+      if (prod.color) {
+        colores[prod.color.id_color] = prod.color;
+      }
+      return colores;
+    }, {});
+    producto.color = coloresUnicos; //AGREGAMOS LOS COLORES AL PRODUCTO 
+    console.log("Peticion Exitosa");
+    loggerProducto.info({ message: "Petición Exitosa" });
+    res.status(CODES_HTTP.OK).json({
+      success: true,
+      message: "Peticion Exitosa",
+      data: producto,
+    });
+
+  } catch (error) {
+    console.log("Error al obtener el producto: " + error);
+    loggerProducto.info({ message: "Error al obtener el producto: " + error });
+
+    return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: "Error al obtener el producto: " + error,
+    });
+  }
+};
 
 export const addProducts = async ( req, res ) => {
     try {
