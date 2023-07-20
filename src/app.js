@@ -18,6 +18,7 @@ import ventaRouter from "./routes/venta.routes.js";
 import inventarioRouter from "./routes/inventario.routes.js";
 import adminRouter from './routes/admin.routes.js';
 import paisRouter from "./routes/pais.routes.js";
+import tipoRouter from "./routes/tipo.routes.js";
 
 const corsOptions = {
     exposedHeaders: ['token'],
@@ -26,7 +27,7 @@ const corsOptions = {
 
 const app = express();
 
-app.set('port',process.env.PORT||3000);
+app.set('port', process.env.PORT||3000);
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.json());
@@ -45,8 +46,9 @@ app.use( '/api/producto', productoRouter );
 app.use( '/api/rol', rolRouter );
 app.use( '/api/user', usuarioRouter );
 app.use( '/api/venta', ventaRouter );
-app.use( '/api/inventario', inventarioRouter);
-app.use( '/api/pais', paisRouter )
+app.use('/api/inventario', inventarioRouter);
+app.use( '/api/pais', paisRouter );
+app.use( '/api/tipo', tipoRouter);
 app.use( '/',adminRouter)
 
 export default app;

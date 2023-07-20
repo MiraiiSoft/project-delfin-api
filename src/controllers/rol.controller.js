@@ -1,10 +1,11 @@
 import { CODES_HTTP } from "../constants/global.js";
 import { createRol, deleteRolById, getRolById, getRoles, updateRolById } from "../DAO/roll.dao.js";
-
+import loggerRol from "../utils/logger/logger.rol.js";
 export const getAllRoles = async ( req, res ) => {
     try {
         const roles = await getRoles()
         console.log("Peticion exitosa")
+        loggerRol.info({message: "Petición Exitosa"})
         res.status(CODES_HTTP.OK).json({
             success: true,
             message: "Peticion exitosa:",
@@ -12,6 +13,7 @@ export const getAllRoles = async ( req, res ) => {
         });
     } catch (error) {
         console.log("Error al obtener los roles:", error)
+        loggerRol.info({message: "Error al obtener los roles: " + error})
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
             message: "Error al obtener los roles: " + error 
@@ -23,6 +25,7 @@ export const getOneRol = async ( req, res ) => {
     try {
         const oneRol = await getRolById(parseInt(req.params.rolID))
         console.log("Peticion exitosa")
+        loggerRol.info({message: "Petición Exitosa"})
         res.status(CODES_HTTP.OK).json({
             success: true,
             message: "Peticion exitosa:",
@@ -30,6 +33,7 @@ export const getOneRol = async ( req, res ) => {
         });
     } catch (error) {
         console.log("Error al obtener el rol:", error)
+        loggerRol.info({message: "Error al obtener el rol:" + error })
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
             message: "Error al obtener el rol:" + error 
@@ -41,6 +45,7 @@ export const addRol = async ( req, res ) => {
     try {
         const newRol = await createRol(req.body)
         console.log("El roll ha sido creado")
+        loggerRol.info({message: "El roll ha sido creado"})
         res.status(CODES_HTTP.CREATED).json({
             success: true,
             message: "El roll ha sido creado:",
@@ -48,6 +53,7 @@ export const addRol = async ( req, res ) => {
         });
     } catch (error) {
         console.log("Error al crear el rol:", error)
+        loggerRol.info({message: "Error al crear el rol:" + error })
         return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
             success: false,
             message: "Error al crear el rol:" + error 
@@ -60,6 +66,7 @@ export const updateRol = async ( req, res ) => {
         const rolID = parseInt(req.params.rolID)
         const updateRol = await updateRolById(rolID, req.body)
         console.log("El roll ha sido actualizado")
+        loggerRol.info({message: "El roll ha sido actualizado"})
         res.status(CODES_HTTP.OK).json({
             success: true,
             message: "El roll ha sido actualizado:",
@@ -67,6 +74,7 @@ export const updateRol = async ( req, res ) => {
         });
     } catch (error) {
         console.log("Error al actualizar el rol:", error)
+        loggerRol.info({message: "Error al actualizar el rol:" + error })
         return res.status(CODES_HTTP.NO_FOUND).json({
             success: false,
             message: "Error al actualizar el rol:" + error 
@@ -78,6 +86,7 @@ export const deleteRol = async ( req, res ) => {
     try {
         const deletedRol = await deleteRolById(parseInt(req.params.rolID))
         console.log("El roll ha sido borrado")
+        loggerRol.info({message: "El roll ha sido eliminado"})
         res.status(CODES_HTTP.OK).json({
             success: true,
             message: "El roll ha sido borrado:",
@@ -85,6 +94,7 @@ export const deleteRol = async ( req, res ) => {
         });
     } catch (error) {
         console.log("Error al eliminar el rol:", error)
+        loggerRol.info({message: "Error al eliminar el rol:" + error })
         return res.status(CODES_HTTP.NO_FOUND).json({
             success: false,
             message: "Error al eliminar el rol:" + error 

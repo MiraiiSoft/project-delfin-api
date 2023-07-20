@@ -1,7 +1,6 @@
 {
   "name": "project-delfin-api",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -24,10 +23,12 @@
     "morgan": "^1.10.0",
     "nodemailer": "^6.9.3",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^4.6.3"
+    "swagger-ui-express": "^4.6.3",
+    "winston": "^3.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22",
     "prisma": "^4.16.2"
-  }
+  },
+  "description": ""
 }
