@@ -16,6 +16,8 @@ import rolRouter from "./routes/rol.routes.js";
 import usuarioRouter from "./routes/usuario.routes.js";
 import ventaRouter from "./routes/venta.routes.js";
 import inventarioRouter from "./routes/inventario.routes.js";
+import direccionRouter from "./routes/direccion.routes.js";
+import ciudadRouter from "./routes/ciudad.routes.js";
 import adminRouter from './routes/admin.routes.js'
 
 const corsOptions = {
@@ -45,6 +47,8 @@ app.use( '/api/rol', rolRouter );
 app.use( '/api/user', usuarioRouter );
 app.use( '/api/venta', ventaRouter );
 app.use('/api/inventario', inventarioRouter);
+app.use('/api/direccion', direccionRouter);
+app.use('/api/ciudad', ciudadRouter);
 app.use( '/',adminRouter)
 
 export default app;

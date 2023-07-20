@@ -1,0 +1,11 @@
+[2023-07-20T17:06:55.590Z] info Error al obtener las Direcciones: PrismaClientInitializationError: 
+Invalid `prisma.direccion.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.78`:`3306`
+
+Please make sure your database server is running at `192.168.4.78`:`3306`.
+[2023-07-20T17:10:41.687Z] info Petición Exitosa
+[2023-07-20T17:18:47.335Z] info Petición Exitosa
+[2023-07-20T17:19:04.027Z] info Petición Exitosa
+[2023-07-20T17:19:21.621Z] info Petición Exitosa

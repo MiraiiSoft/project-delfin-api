@@ -1,6 +1,5 @@
 import { CODES_HTTP } from "../constants/global";
-import { eliminarColorById } from "../DAO/color.dao";
-import { getAllTipos, getTipoById, createTipo, updateTipo, deleteTipoById } from "../DAO/tipo.dao";
+import { getAllTipos, getTipoById, createTipo, updateTipo, deleteTipoById, updateTipoById } from "../DAO/tipo.dao";
 import loggerTipo from "../utils/logger/logger.tipo";
 
 export const getTipos = async(req, res) =>{
@@ -56,9 +55,9 @@ export const addTipo = async(req, res) => {
         });
     }
 }
-export const updateColor = async (req, res) => {
+export const updateTipo = async (req, res) => {
     try {
-        const actualizarTipo = await updateTipo(parseInt(req.params.tipoID), req.body)
+        const actualizarTipo = await updateTipoById(parseInt(req.params.tipoID), req.body)
         loggerTipo.info({message: "El tipo fue Actualizado con exito"})
         res.status(CODES_HTTP.OK).json({
             success: true,
