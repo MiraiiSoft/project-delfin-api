@@ -16,7 +16,8 @@ import rolRouter from "./routes/rol.routes.js";
 import usuarioRouter from "./routes/usuario.routes.js";
 import ventaRouter from "./routes/venta.routes.js";
 import inventarioRouter from "./routes/inventario.routes.js";
-import adminRouter from './routes/admin.routes.js'
+import adminRouter from './routes/admin.routes.js';
+import paisRouter from "./routes/pais.routes.js";
 
 const corsOptions = {
     exposedHeaders: ['token'],
@@ -44,7 +45,8 @@ app.use( '/api/producto', productoRouter );
 app.use( '/api/rol', rolRouter );
 app.use( '/api/user', usuarioRouter );
 app.use( '/api/venta', ventaRouter );
-app.use('/api/inventario', inventarioRouter);
+app.use( '/api/inventario', inventarioRouter);
+app.use( '/api/pais', paisRouter )
 app.use( '/',adminRouter)
 
 export default app;
