@@ -1,6 +1,6 @@
-import { CODES_HTTP } from "../constants/global";
-import { getAllTipos, getTipoById, createTipo, updateTipo, deleteTipoById, updateTipoById } from "../DAO/tipo.dao";
-import loggerTipo from "../utils/logger/logger.tipo";
+import { CODES_HTTP } from "../constants/global.js";
+import { getAllTipos, getTipoById, createTipo, deleteTipoById, updateTipoById } from "../DAO/tipo.dao.js";
+import loggerTipo from "../utils/logger/logger.tipo.js";
 
 export const getTipos = async(req, res) =>{
     try {
