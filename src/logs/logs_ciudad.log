@@ -1,0 +1,49 @@
+[2023-07-20T17:07:11.315Z] info Error al obtener las Ciudades
+[2023-07-20T17:07:55.324Z] info Error al obtener las Ciudades
+[2023-07-20T17:10:34.561Z] info PeticiónExitosa
+[2023-07-20T17:10:59.156Z] info Petición Exitosa
+[2023-07-20T17:11:06.668Z] info PeticiónExitosa
+[2023-07-20T17:12:03.960Z] info Error agregar la ciudad: PrismaClientInitializationError: 
+Invalid `prisma.ciudad.create()` invocation:
+
+
+Can't reach database server at `192.168.4.78`:`3306`
+
+Please make sure your database server is running at `192.168.4.78`:`3306`.
+[2023-07-20T17:14:37.825Z] info Error agregar la ciudad: PrismaClientKnownRequestError: 
+Invalid `prisma.ciudad.create()` invocation:
+
+
+Foreign key constraint failed on the field: `id_pais`
+[2023-07-20T17:14:51.523Z] info Error agregar la ciudad: PrismaClientKnownRequestError: 
+Invalid `prisma.ciudad.create()` invocation:
+
+
+Foreign key constraint failed on the field: `id_pais`
+[2023-07-20T17:15:17.030Z] info Error agregar la ciudad: PrismaClientKnownRequestError: 
+Invalid `prisma.ciudad.create()` invocation:
+
+
+Foreign key constraint failed on the field: `id_pais`
+[2023-07-20T17:15:32.336Z] info PeticiónExitosa
+[2023-07-20T17:16:06.773Z] info Error agregar la ciudad: PrismaClientKnownRequestError: 
+Invalid `prisma.ciudad.create()` invocation:
+
+
+Foreign key constraint failed on the field: `id_pais`
+[2023-07-20T17:17:19.276Z] info Error agregar la ciudad: PrismaClientKnownRequestError: 
+Invalid `prisma.ciudad.create()` invocation:
+
+
+Foreign key constraint failed on the field: `id_pais`
+[2023-07-20T17:17:25.994Z] info Error agregar la ciudad: PrismaClientKnownRequestError: 
+Invalid `prisma.ciudad.create()` invocation:
+
+
+Foreign key constraint failed on the field: `id_pais`
+[2023-07-20T17:17:55.970Z] info Error al actualizar la ciudad: ReferenceError: uupdatedCiudad is not defined
+[2023-07-20T17:18:29.362Z] info Error al eliminar la ciudad: PrismaClientKnownRequestError: 
+Invalid `prisma.ciudad.delete()` invocation:
+
+
+Foreign key constraint failed on the field: `id_ciudad`

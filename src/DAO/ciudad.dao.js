@@ -28,7 +28,7 @@ export async function getCiudadById(id) {
   return ciudad;
 }
 
-export async function updateCiudad(id, data) {
+export async function updateCiudadById(id, data) {
   const updatedCiudad = await prisma.ciudad.update({
     where: {
       id_ciudad: id,
@@ -39,10 +39,10 @@ export async function updateCiudad(id, data) {
     },
   });
   await prisma.$disconnect();
-  return updateCiudad;
+  return uupdatedCiudad;
 }
 
-export async function deleteCiudad(id) {
+export async function deleteCiudadById(id) {
   const ciudadDeleted = await prisma.ciudad.delete({
     where: {
       id_ciudad: id,

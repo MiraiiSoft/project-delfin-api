@@ -28,7 +28,7 @@ export async function createTipo(data) {
   return newTipo;
 }
 
-export async function updateTipo(id, data) {
+export async function updateTipoById(id, data) {
   const updatedTipo = await prisma.tipo.update({
     where: {
       id_tipo: id,
