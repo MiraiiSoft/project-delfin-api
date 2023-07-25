@@ -43,6 +43,14 @@ export async function deleteCarritoById(id) {
 
 export async function getCarritoById(id) {
   const carritoById = await prisma.carrito.findUnique({
+    include: {
+      carrito_producto: true,
+      detalle_venta: {
+        include: {
+          producto: true
+        }
+      }
+    },
     where: {
       id_carrito: id,
     },
