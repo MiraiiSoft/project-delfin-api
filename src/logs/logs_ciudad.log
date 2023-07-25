@@ -47,3 +47,6 @@ Invalid `prisma.ciudad.delete()` invocation:
 
 
 Foreign key constraint failed on the field: `id_ciudad`
+[2023-07-25T14:30:26.508Z] info PeticiónExitosa
+[2023-07-25T15:08:13.185Z] info PeticiónExitosa
+[2023-07-25T15:54:54.765Z] info Ciudad agregada con exito

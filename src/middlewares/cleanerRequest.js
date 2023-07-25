@@ -41,6 +41,13 @@ export const category = ( req, res, next ) => {
     next()
 }
 
+export const type = ( req, res, next ) => {
+    const dataType = [ "tipo" ]
+    const dataClean = clean(dataType, req )
+    req.body = dataClean
+    next()
+}
+
 export const color = ( req, res, next ) => {
     const dataType = [ "color", "hexa" ]
     const dataClean = clean(dataType, req )
@@ -57,6 +64,27 @@ export const detalleVenta = ( req, res, next ) => {
 
 export const envio = ( req, res, next ) => {
     const dataType = [ "id_login", "fecha_envio", "fecha_entrega", "fecha_recoleccion", "paqueteria", "status_envio" ]
+    const dataClean = clean(dataType, req )
+    req.body = dataClean
+    next()
+}
+
+export const adress = ( req, res, next ) => {
+    const dataType = [ "codigo_postal", "calle", "colonia", "numero", "telefono", "referencia", "id_ciudad" ]
+    const dataClean = clean(dataType, req )
+    req.body = dataClean
+    next()
+}
+
+export const city = ( req, res, next ) => {
+    const dataType = [ "ciudad", "id_pais" ]
+    const dataClean = clean(dataType, req )
+    req.body = dataClean
+    next()
+}
+
+export const country = ( req, res, next ) => {
+    const dataType = [ "pais" ]
     const dataClean = clean(dataType, req )
     req.body = dataClean
     next()

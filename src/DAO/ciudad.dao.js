@@ -28,6 +28,16 @@ export async function getCiudadById(id) {
   return ciudad;
 }
 
+export async function getCiudadByName(name) {
+  const ciudad = await prisma.ciudad.findFirst({
+    where: {
+      ciudad: name,
+    },
+  });
+  await prisma.$disconnect();
+  return ciudad;
+}
+
 export async function updateCiudadById(id, data) {
   const updatedCiudad = await prisma.ciudad.update({
     where: {
@@ -39,7 +49,7 @@ export async function updateCiudadById(id, data) {
     },
   });
   await prisma.$disconnect();
-  return uupdatedCiudad;
+  return updatedCiudad;
 }
 
 export async function deleteCiudadById(id) {

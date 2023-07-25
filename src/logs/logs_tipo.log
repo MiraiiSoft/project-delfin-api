@@ -95,3 +95,15 @@ An operation failed because it depends on one or more records that were required
 [2023-07-20T15:12:31.587Z] info Petición Exitosa
 [2023-07-20T15:14:27.503Z] info Petición Exitosa
 >>>>>>> 34688428f96fc305deb94c8ef15ce85641b145d4
+[2023-07-25T14:24:17.087Z] info Petición Exitosa
+[2023-07-25T14:24:19.290Z] info Petición Exitosa
+[2023-07-25T14:51:43.402Z] info Error al obetener Tipos: PrismaClientInitializationError: 
+Invalid `prisma.tipo.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.78`:`3306`
+
+Please make sure your database server is running at `192.168.4.78`:`3306`.
+[2023-07-25T14:51:54.739Z] info Petición Exitosa
+[2023-07-25T14:51:56.691Z] info Petición Exitosa
+[2023-07-25T14:55:46.001Z] info El tipo se agrego con exito
