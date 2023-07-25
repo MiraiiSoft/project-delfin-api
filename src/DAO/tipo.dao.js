@@ -18,6 +18,16 @@ export async function getTipoById(id) {
   return tipo;
 }
 
+export async function getTipoByName(name) {
+  const tipo = await prisma.tipo.findFirst({
+    where: {
+      tipo: name,
+    },
+  });
+  await prisma.$disconnect();
+  return tipo;
+}
+
 export async function createTipo(data) {
   const newTipo = await prisma.tipo.create({
     data: {
@@ -28,7 +38,7 @@ export async function createTipo(data) {
   return newTipo;
 }
 
-export async function updateTipo(id, data) {
+export async function updateTipoById(id, data) {
   const updatedTipo = await prisma.tipo.update({
     where: {
       id_tipo: id,

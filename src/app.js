@@ -18,6 +18,8 @@ import ventaRouter from "./routes/venta.routes.js";
 import inventarioRouter from "./routes/inventario.routes.js";
 import adminRouter from './routes/admin.routes.js';
 import paisRouter from "./routes/pais.routes.js";
+import ciudadRouter from "./routes/ciudad.routes.js"
+import direccionRouter from "./routes/direccion.routes.js";
 import tipoRouter from "./routes/tipo.routes.js";
 
 const corsOptions = {
@@ -48,6 +50,8 @@ app.use( '/api/user', usuarioRouter );
 app.use( '/api/venta', ventaRouter );
 app.use('/api/inventario', inventarioRouter);
 app.use( '/api/pais', paisRouter );
+app.use('/api/ciudad', ciudadRouter);
+app.use('/api/direccion', direccionRouter);
 app.use( '/api/tipo', tipoRouter);
 app.use( '/',adminRouter)
 

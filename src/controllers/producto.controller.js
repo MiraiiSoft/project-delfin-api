@@ -38,11 +38,12 @@ export const getOneProducts = async (req, res) => {
     //CREAMOS UN OBJETO CON LOS COLORES 
     const coloresUnicos = productosMismoNombre.reduce((colores, prod) => {
       if (prod.color) {
-        colores[prod.color.id_color] = prod.color;
+        colores.push(prod.color); //
       }
       return colores;
-    }, {});
-    producto.color = coloresUnicos; //AGREGAMOS LOS COLORES AL PRODUCTO 
+    }, []);
+
+    producto.color = coloresUnicos; //Asigno el arreglo de colores al producto
     console.log("Peticion Exitosa");
     loggerProducto.info({ message: "Petición Exitosa" });
     res.status(CODES_HTTP.OK).json({

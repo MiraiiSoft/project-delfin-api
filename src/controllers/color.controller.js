@@ -1,5 +1,5 @@
 import {CODES_HTTP} from "../constants/global.js"
-import { getColores, getColorById, createColor, updateColorById, eliminarColorById } from "../DAO/color.dao.js"
+import { getColores, getColorById, createColor, updateColorById, eliminarColorById, getColorByColor } from "../DAO/color.dao.js"
 import loggerColor from "../utils/logger/logger.color.js"
 
 export const getAllColor = async ( req, res ) => {
@@ -41,7 +41,23 @@ export const getOneColor = async ( req, res ) => {
         });
     }
 }
-
+export const getOneColorByName = async (req,res)=>{
+    try {
+        const colorByName = await getColorByColor(req.params.colorName)
+        loggerColor.info({message: "Petición Exitosa"})
+        res.status(CODES_HTTP.OK).json({
+            success: true,
+            message: "Petición Exitosa",
+            data: colorByName
+        });
+    } catch (error) {
+        loggerColor.info({message: "Error al obtener el Color: " + error})
+        return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success: false,
+            message: "Error al obtener el color" + error
+        });
+    }
+}
 export const addColor = async ( req, res ) => {
     try {
         const color = await createColor(req.body)

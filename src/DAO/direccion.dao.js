@@ -33,7 +33,7 @@ export async function getDireccionById(id) {
   return direccion;
 }
 
-export async function updateDireccion(id, data) {
+export async function updateDireccionById(id, data) {
   const updatedDireccion = await prisma.direccion.update({
     where: {
       id_direccion: id,

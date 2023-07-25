@@ -11,8 +11,12 @@ import * as validationVenta from "./Validations/venta.validation.js"
 import * as validationUser from "./Validations/usuario.validation.js"
 import * as validationDetalleVenta from "./Validations/detalle_venta.validation.js"
 import * as authenticationJWT from './authenticationJWT.js';
+import * as validationType from "./Validations/type.validation.js"
+import * as validationAddress from "./Validations/address.validation.js"
+import * as validationCity from "./Validations/city.validation.js"
+import * as validationCountry from "./Validations/country.validation.js"
 
 export { authenticationJWT, cleanerRequest, readRequest, validationFile, validationRole, validationCategory, validationProduct, 
-        validationColor, validationCarrito, validationEnvios, validationVenta, validationUser, 
-        validationDetalleVenta };
+        validationColor, validationCarrito, validationEnvios, validationVenta, validationUser, validationDetalleVenta, 
+        validationType, validationAddress, validationCity, validationCountry };
 

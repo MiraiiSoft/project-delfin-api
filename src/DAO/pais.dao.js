@@ -27,6 +27,16 @@ export async function getPaisByName(namePais){
         return pais;
 }
 
+export async function getPaisById(id) {
+    const pais = await prisma.pais.findUnique ({
+      where: {
+        id_pais: id,
+      },
+    });
+    await prisma.$disconnect();
+    return pais;
+  }
+
 export async function updatePais(id,data){
         const updatedPais = await prisma.pais.update({
             where:{
