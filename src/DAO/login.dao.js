@@ -14,6 +14,7 @@ export async function getLogins() {
 }
 
 export async function getLoginById(id) {
+  console.log(id)
   const login = await prisma.login.findUnique({
     where: {
       id_login: id,

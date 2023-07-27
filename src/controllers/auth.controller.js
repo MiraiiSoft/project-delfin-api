@@ -125,9 +125,12 @@ export const login = async ( req, res ) => {
 
     const token = generateToken( dataUser.id_login, "24h" );
 
+    delete dataUser.password;
+
     res.status(CODES_HTTP.OK).header('token', token).json({
         success: true,
-        message: "Inicio de sesion correcto"
+        message: "Inicio de sesion correcto",
+        data: dataUser
     });
 
 }

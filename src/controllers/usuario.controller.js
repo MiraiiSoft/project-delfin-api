@@ -31,27 +31,28 @@ export const getAllUser = async ( req, res ) => {
 }
 
 export const getOneUser = async ( req, res ) => {
-    const { userID } = req.params;
-    try {
-        const userLogin = await getLoginById( parseInt(userID) );
-        loggerUsuario.info({message: "Petición Exitosa"})
-        if( !userLogin ) return res.status(CODES_HTTP.NO_FOUND).json({
-            success: false,
-            message: "No se encontro la cuenta"
-        })
+    // const { userID } = req.params;
+    console.log(req.userLogin)
+    // try {
+    //     // const userLogin = await getLoginById( parseInt(req.userLogin) );
+    //     // if( !userLogin ) return res.status(CODES_HTTP.NO_FOUND).json({
+    //     //     success: false,
+    //     //     message: "No se encontro la cuenta"
+    //     // })
+        
+    //     res.status(CODES_HTTP.OK).json({
+    //         success: true,
+    //         data: "userLogin"
+    //     })
+    //     loggerUsuario.info({message: "Petición Exitosa"})
 
-        res.status(CODES_HTTP.OK).json({
-            success: true,
-            data: userLogin
-        })
-
-    } catch (error) {
-        loggerUsuario.info({message: "A ocurrido un error: " + error})
-        return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
-            success: false,
-            message: "A ocurrido un error: " + error
-        })
-    }
+    // } catch (error) {
+    //     loggerUsuario.info({message: "A ocurrido un error: " + error})
+    //     return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+    //         success: false,
+    //         message: "A ocurrido un error: " + error
+    //     })
+    // }
 }
 
 export const addUser = async ( req, res ) => {
