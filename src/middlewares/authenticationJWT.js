@@ -13,7 +13,7 @@ export const tokenValidation = async ( req, res, next ) => {
         const payload = verifyToken(token);
         req.userLogin = payload.message;
         
-        const userLogin = await getLoginById(payload.message);
+        const userLogin = await getLoginById( req.userLogin );
         if( !userLogin ) return res.status(CODES_HTTP.NO_FOUND).json({
             success: false,
             message: "No existe la cuenta"

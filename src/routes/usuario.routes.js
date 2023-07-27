@@ -1,12 +1,12 @@
 import { Router } from "express";
 import { getAllUser, getOneUser, addUser, updateUser, deleteUser } 
 from "../controllers/usuario.controller.js";
-import { cleanerRequest, validationUser } from "../middlewares/index.js";
+import { cleanerRequest, validationUser, authenticationJWT } from "../middlewares/index.js";
 
 const router = Router();
 
 router.get( '/', getAllUser );
-router.get( '/:userID', [ validationUser.noExistId ], getOneUser );
+router.get( '/perfil', [ authenticationJWT.tokenValidation ,validationUser.noExistId ], getOneUser );
 router.post( '/add', [ validationUser.existUser, validationUser.existMail, cleanerRequest.createUser ], addUser );
 router.put( '/update/:userID', [ validationUser.noExistId, validationUser.existUserUpdate, validationUser.existMailUpdate, validationUser.correctDataUpdate,
     cleanerRequest.updateUser ], updateUser );
@@ -58,7 +58,7 @@ export default usuarioRouter;
  *                   type: string
  *                   example: Ha ocurrido un error
  * 
- * /api/user/{userID}:
+ * /api/user/perfil:
  *   get:
  *     tags:
  *       - Usuario
