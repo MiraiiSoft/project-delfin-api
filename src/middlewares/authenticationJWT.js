@@ -24,7 +24,7 @@ export const tokenValidation = async ( req, res, next ) => {
     } catch (error) {
         res.status(CODES_HTTP.UNAUTHORIZED).json({
             success: false,
-            message: "Sin autorización"
+            message: "Sin autorización" + error
         });
     }
 }
