@@ -6,7 +6,7 @@ import { cleanerRequest, validationUser, authenticationJWT } from "../middleware
 const router = Router();
 
 router.get( '/', getAllUser );
-router.get( '/perfil', [ authenticationJWT.tokenValidation ,validationUser.noExistId ], getOneUser );
+router.get( '/perfil', [  authenticationJWT.tokenValidation ], getOneUser );
 router.post( '/add', [ validationUser.existUser, validationUser.existMail, cleanerRequest.createUser ], addUser );
 router.put( '/update/:userID', [ validationUser.noExistId, validationUser.existUserUpdate, validationUser.existMailUpdate, validationUser.correctDataUpdate,
     cleanerRequest.updateUser ], updateUser );
