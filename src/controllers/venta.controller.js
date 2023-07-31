@@ -33,7 +33,6 @@ export const getOneVenta = async (req, res) => {
       data: venta,
     });
   } catch (error) {
-    console.log(error);
     return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
       success: false,
       message: error,

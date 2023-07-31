@@ -2,7 +2,15 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export async function getDirecciones() {
-  const direcciones = await prisma.direccion.findMany();
+  const direcciones = await prisma.direccion.findMany({
+    include:{
+      ciudad:{
+        include:{
+          pais:true
+        }
+      }
+    }
+  });
   await prisma.$disconnect();
   return direcciones;
 }

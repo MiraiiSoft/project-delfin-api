@@ -5,7 +5,9 @@ const prisma = new PrismaClient();
 export async function getProductos() {
   const productos = await prisma.producto.findMany({
     include:{
-      inventario:true
+      inventario:true,
+      color:true,
+      tipo:true
     }
   });
   await prisma.$disconnect();
@@ -14,6 +16,11 @@ export async function getProductos() {
 
 export async function getProductoById(id) {
   const producto = await prisma.producto.findUnique({
+    include:{
+      inventario:true,
+      color:true,
+      tipo:true
+    },
     where: {
       id_producto: id,
     },
