@@ -24,7 +24,7 @@ import tipoRouter from "./routes/tipo.routes.js";
 
 const corsOptions = {
     exposedHeaders: ['token'],
-    origin: [ 'http://localhost:4200' ]
+    origin: '*'
 };
 
 const app = express();
