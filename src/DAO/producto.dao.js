@@ -17,7 +17,8 @@ export async function getProductoById(id) {
     include: {
       color: true,
       tipo: true,
-      categoria: true
+      categoria: true,
+      inventario: true
     },
     where: {
       id_producto: id,

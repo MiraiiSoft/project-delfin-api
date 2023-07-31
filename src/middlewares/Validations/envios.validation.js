@@ -2,7 +2,8 @@ import { getEnvioById } from "../../DAO/envio.dao.js";
 import { getLoginById } from "../../DAO/login.dao.js";
 import { CODES_HTTP } from "../../constants/global.js";
 
-export const existIdLogin = async ( req, res, next ) => {
+
+export const noExistIdLogin = async ( req, res, next ) => {
     const id_login = req.body.id_login
     const query = await getLoginById(id_login)
     

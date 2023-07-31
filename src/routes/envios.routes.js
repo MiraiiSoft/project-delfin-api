@@ -7,8 +7,8 @@ const router = Router();
 
 router.get( '/', getAllEnvios );
 router.get( '/:envioID', [ validationEnvios.noExistId ], getOneEnvios );
-router.post( '/add', [ validationEnvios.existIdLogin, cleanerRequest.envio ], addEnvios );
-router.put( '/update/:envioID', [ validationEnvios.existIdLogin, validationEnvios.noExistId, cleanerRequest.envio ], updateEnvios );
+router.post( '/add', [ validationEnvios.noExistIdLogin, cleanerRequest.envio ], addEnvios );
+router.put( '/update/:envioID', [ validationEnvios.noExistId, validationEnvios.noExistIdLogin, cleanerRequest.envio ], updateEnvios );
 router.delete( '/delete/:envioID', [ validationEnvios.noExistId ], deleteEnvios );
 
 const enviosRouter = router;
