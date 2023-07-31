@@ -145,7 +145,7 @@ export const confirmAccount = async ( req, res ) => {
             const err = verify.message;
             throw new Error(err);
         }
-
+        
         return await getLoginByEmail( verify.message )
             .then( async userLogin => {
                 if( !userLogin ) throw new Error('No se ha encontrado la cuenta');
@@ -170,7 +170,7 @@ export const confirmAccount = async ( req, res ) => {
             .catch( err => {
                 return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
                     success: false,
-                    message: err
+                    message: err.toString()
                 })
             })
     } catch (error) {
