@@ -33,7 +33,7 @@ export const register = async ( req, res ) => {
         });
         
         //buscar rol 
-        const rol = await getRolByNombre('Usuario');
+        const rol = await getRolByName('Usuario');
         
         //se guarda datos de login
         const login = await createLogin({
@@ -123,7 +123,7 @@ export const login = async ( req, res ) => {
         })
     }
 
-    const token = generateToken( dataUser.id_login, "24h" );
+    const token = generateToken( dataUser.id_login, '1d' );
 
     delete dataUser.password;
 
