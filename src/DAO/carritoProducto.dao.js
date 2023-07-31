@@ -9,6 +9,9 @@ export async function getCarritoProductos() {
 
 export async function getCarritoProductosById(id) {
   const carritoProductoById = await prisma.carrito_producto.findUnique({
+    include: {
+      producto: true
+    },
     where: {
       id_carrito_producto: id,
     },

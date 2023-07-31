@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function getTipos() {
+export async function getAllTipos() {
   const tipos = await prisma.tipo.findMany();
   await prisma.$disconnect();
   return tipos;
@@ -12,6 +12,16 @@ export async function getTipoById(id) {
   const tipo = await prisma.tipo.findUnique({
     where: {
       id_tipo: id,
+    },
+  });
+  await prisma.$disconnect();
+  return tipo;
+}
+
+export async function getTipoByName(name) {
+  const tipo = await prisma.tipo.findFirst({
+    where: {
+      tipo: name,
     },
   });
   await prisma.$disconnect();
@@ -28,7 +38,7 @@ export async function createTipo(data) {
   return newTipo;
 }
 
-export async function updateTipo(id, data) {
+export async function updateTipoById(id, data) {
   const updatedTipo = await prisma.tipo.update({
     where: {
       id_tipo: id,

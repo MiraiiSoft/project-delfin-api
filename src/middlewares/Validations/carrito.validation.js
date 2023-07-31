@@ -13,6 +13,18 @@ export const existName = async ( req, res, next ) => {
     next()
 }
 
+export const noExistName = async ( req, res, next ) => {
+    const id_login = req.body.id_login
+    const query = await getcarritoByIdLogin(id_login)
+    if ( !query )  
+        return res.status(CODES_HTTP.BAD_REQUEST).json({
+            success: false,
+            message: "No existe un carrito con id_login=" +id_login+ " en la DB"
+        })
+    
+    next()
+}
+
 export const noExistId = async ( req, res, next ) => {
     const id = parseInt(req.params.cartID)
     const query = await getCarritoById(id)

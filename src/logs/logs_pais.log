@@ -1,0 +1,13 @@
+[2023-07-25T14:32:01.186Z] info No se han encontrado paises
+[2023-07-25T15:59:12.161Z] info No se han encontrado paises
+[2023-07-25T16:23:37.084Z] info No se han encontrado paises
+[2023-07-25T16:26:44.949Z] info No se han encontrado paises
+[2023-07-25T16:37:15.184Z] info No se encontro el pais
+[2023-07-25T16:37:29.494Z] info A ocurrio un error:PrismaClientInitializationError: 
+Invalid `prisma.pais.findFirst()` invocation:
+
+
+Can't reach database server at `192.168.4.78`:`3306`
+
+Please make sure your database server is running at `192.168.4.78`:`3306`.
+[2023-07-25T17:52:23.497Z] info No se han encontrado paises

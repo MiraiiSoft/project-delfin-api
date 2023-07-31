@@ -28,7 +28,14 @@ export const authLogin = ( req, res, next ) => {
 }
 
 export const carrito = ( req, res, next ) => {
-    const dataType = [ "id_login" ]
+    const dataType = [ "id_login", "carrito_producto" ]
+    const dataClean = clean(dataType, req )
+    req.body = dataClean
+    next()
+}
+
+export const carritoProducto = ( req, res, next ) => {
+    const dataType = [ "id_producto", "carrito", "cantidad_producto" ]
     const dataClean = clean(dataType, req )
     req.body = dataClean
     next()
@@ -36,6 +43,13 @@ export const carrito = ( req, res, next ) => {
 
 export const category = ( req, res, next ) => {
     const dataType = [ "categoria" ]
+    const dataClean = clean(dataType, req )
+    req.body = dataClean
+    next()
+}
+
+export const type = ( req, res, next ) => {
+    const dataType = [ "tipo" ]
     const dataClean = clean(dataType, req )
     req.body = dataClean
     next()
@@ -57,6 +71,27 @@ export const detalleVenta = ( req, res, next ) => {
 
 export const envio = ( req, res, next ) => {
     const dataType = [ "id_login", "fecha_envio", "fecha_entrega", "fecha_recoleccion", "paqueteria", "status_envio" ]
+    const dataClean = clean(dataType, req )
+    req.body = dataClean
+    next()
+}
+
+export const adress = ( req, res, next ) => {
+    const dataType = [ "codigo_postal", "calle", "colonia", "numero", "telefono", "referencia", "id_ciudad" ]
+    const dataClean = clean(dataType, req )
+    req.body = dataClean
+    next()
+}
+
+export const city = ( req, res, next ) => {
+    const dataType = [ "ciudad", "id_pais" ]
+    const dataClean = clean(dataType, req )
+    req.body = dataClean
+    next()
+}
+
+export const country = ( req, res, next ) => {
+    const dataType = [ "pais" ]
     const dataClean = clean(dataType, req )
     req.body = dataClean
     next()

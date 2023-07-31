@@ -24,8 +24,8 @@ export async function updateCarritoById(id, data) {
       id_carrito: id,
     },
     data: {
-      id_login: data.id_login,
-    },
+      id_login: data.id_login
+    }
   });
   await prisma.$disconnect();
   return updateCarrito;
@@ -43,6 +43,19 @@ export async function deleteCarritoById(id) {
 
 export async function getCarritoById(id) {
   const carritoById = await prisma.carrito.findUnique({
+    include: {
+      carrito_producto: {
+        include: {
+          producto: {
+            include: {
+              tipo: true,
+              inventario: true,
+              color: true
+            }
+          }
+        }
+      }
+    },
     where: {
       id_carrito: id,
     },
