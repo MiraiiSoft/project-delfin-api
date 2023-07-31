@@ -1,6 +1,6 @@
-import express from "express"
-import morgan from "morgan"
-import { config } from 'dotenv';
+import express from "express";
+import morgan from "morgan";
+import { config } from "dotenv";
 config();
 import cors from "cors";
 
@@ -18,39 +18,42 @@ import ventaRouter from "./routes/venta.routes.js";
 import inventarioRouter from "./routes/inventario.routes.js";
 import paisRouter from "./routes/pais.routes.js";
 import adminRouter from "./routes/admin.routes.js";
+import ciudadRouter from "./routes/ciudad.routes.js";
+import direccionRouter from "./routes/direccion.routes.js";
+import tipoRouter from "./routes/tipo.routes.js";
 
 const corsOptions = {
-    exposedHeaders: ['token'],
-    origin: [ 'http://localhost:4200' ]
+  exposedHeaders: ["token"],
+  origin: ["http://localhost:4200"],
 };
 
 const app = express();
 
-app.set('port', process.env.PORT||3000);
-app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.set("port", process.env.PORT || 3000);
+app.set("view engine", "ejs");
+app.use(express.static("public"));
 app.use(express.json());
-app.use(express.urlencoded({extended:false}));
-app.use(morgan('dev'));
-app.use(cors(corsOptions))
+app.use(express.urlencoded({ extended: false }));
+app.use(morgan("dev"));
+app.use(cors(corsOptions));
 
-app.use( '/api/file', uploadRouter );
-app.use( '/api/auth', authRouter );
-app.use( '/api/shoppingcart', carritoRouter );
-app.use( '/api/categoria', categoriaRouter );
-app.use( '/api/color', colorRouter );
-app.use( '/api/envios', enviosRouter );
-app.use( '/api/payment', paymentRouter );
-app.use( '/api/producto', productoRouter );
-app.use( '/api/rol', rolRouter );
-app.use( '/api/user', usuarioRouter );
-app.use( '/api/venta', ventaRouter );
-app.use( '/api/inventario', inventarioRouter );
-app.use( '/api/pais', paisRouter );
-app.use('/adminPanel',adminRouter)
-app.use('/api/ciudad', ciudadRouter);
-app.use('/api/direccion', direccionRouter);
-app.use( '/api/tipo', tipoRouter);
-app.use( '/',adminRouter)
+app.use("/api/file", uploadRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/shoppingcart", carritoRouter);
+app.use("/api/categoria", categoriaRouter);
+app.use("/api/color", colorRouter);
+app.use("/api/envios", enviosRouter);
+app.use("/api/payment", paymentRouter);
+app.use("/api/producto", productoRouter);
+app.use("/api/rol", rolRouter);
+app.use("/api/user", usuarioRouter);
+app.use("/api/venta", ventaRouter);
+app.use("/api/inventario", inventarioRouter);
+app.use("/api/pais", paisRouter);
+app.use("/adminPanel", adminRouter);
+app.use("/api/ciudad", ciudadRouter);
+app.use("/api/direccion", direccionRouter);
+app.use("/api/tipo", tipoRouter);
+app.use("/", adminRouter);
 
 export default app;

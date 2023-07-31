@@ -16,18 +16,11 @@ export async function getProductos() {
 
 export async function getProductoById(id) {
   const producto = await prisma.producto.findUnique({
-<<<<<<< HEAD
-    include:{
-      inventario:true,
-      color:true,
-      tipo:true
-=======
     include: {
       color: true,
       tipo: true,
       categoria: true,
       inventario: true
->>>>>>> 85e3089c9e71ac12d85119a8418abdbc416d2742
     },
     where: {
       id_producto: id,

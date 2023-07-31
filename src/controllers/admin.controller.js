@@ -4,7 +4,7 @@ import { getVentaById, getVentas } from "../DAO/venta.dao.js";
 import { getCategorias } from "../DAO/categoria.dao.js";
 import { getRoles } from "../DAO/roll.dao.js";
 import { getColores } from "../DAO/color.dao.js";
-import { getTipos } from '../DAO/tipo.dao.js'
+import { getAllTipos } from '../DAO/tipo.dao.js'
 
 export const renderEjs = async (req, res) => {
   res.render("../src/views/index.ejs");
@@ -60,6 +60,6 @@ export const renderVentaCard = async (req, res) => {
 export const renderProductForm = async (req,res) => {
   const colores = await getColores();
   const categorias = await getCategorias();
-  const tipos = await getTipos();
+  const tipos = await getAllTipos();
   res.render("../src/views/forms/formProducto.ejs", { colores:colores,categorias:categorias,tipos:tipos});
 }
