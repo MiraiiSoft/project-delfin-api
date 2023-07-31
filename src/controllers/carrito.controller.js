@@ -1,5 +1,6 @@
 import { CODES_HTTP } from "../constants/global.js";
 import { createCarrito, deleteCarritoById, getCarritoById, getCarritos, updateCarritoById } from "../DAO/carrito.dao.js";
+import { updateCarritoProductos } from "../DAO/carritoProducto.dao.js";
 import loggerCarrito from "../utils/logger/logger.carrito.js";
 export const getAllCarritos = async ( req, res ) => {
     try {
@@ -61,23 +62,24 @@ export const addCarrito = async ( req, res ) => {
     }
 }
 
+//Update carrito-productos - Don`t carrito
 export const updateCarrito = async ( req, res ) => {
     try {
         const cartID = parseInt(req.params.cartID)
-        const updateCarrito = await updateCarritoById(cartID, req.body)
-        console.log("El carrito ha sido actualizado")
-        loggerCarrito.info({message: "El carrito ha sido actualizado"})
+        const updateCarritoProducto = await updateCarritoProductos(cartID, req.body)
+        console.log("El carrito-producto ha sido actualizado")
+        loggerCarrito.info({message: "El carrito-producto ha sido actualizado"})
         res.status(CODES_HTTP.OK).json({
             success: true,
-            message: "El carrito ha sido actualizado:",
-            data: updateCarrito
+            message: "El carrito-producto ha sido actualizado:",
+            data: updateCarritoProducto
         });
     } catch (error) {
-        console.log("Error al actualizar el carrito:", error)
-        loggerCarrito.info({message: "Error al actualizar el carrito"})
+        console.log("Error al actualizar el carrito-producto:", error)
+        loggerCarrito.info({message: "Error al actualizar el carrito-producto"})
         return res.status(CODES_HTTP.NO_FOUND).json({
             success: false,
-            message: "Error al actualizar el carrito:" + error 
+            message: "Error al actualizar el carrito-producto:" + error 
         });
     }
 }

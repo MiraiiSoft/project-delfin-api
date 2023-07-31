@@ -28,7 +28,14 @@ export const authLogin = ( req, res, next ) => {
 }
 
 export const carrito = ( req, res, next ) => {
-    const dataType = [ "id_login" ]
+    const dataType = [ "id_login", "carrito_producto" ]
+    const dataClean = clean(dataType, req )
+    req.body = dataClean
+    next()
+}
+
+export const carritoProducto = ( req, res, next ) => {
+    const dataType = [ "id_producto", "carrito", "cantidad_producto" ]
     const dataClean = clean(dataType, req )
     req.body = dataClean
     next()

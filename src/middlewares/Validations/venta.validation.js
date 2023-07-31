@@ -3,7 +3,7 @@ import { getPagoById } from "../../DAO/pago.dao.js";
 import { getVentaById } from "../../DAO/venta.dao.js";
 import { CODES_HTTP } from "../../constants/global.js";
 
-export const existIdEnvio = async ( req, res, next ) => {
+export const noExistIdEnvio = async ( req, res, next ) => {
     const id_envio = req.body.id_envio
     const query = await getEnvioById(id_envio)
     
@@ -16,7 +16,7 @@ export const existIdEnvio = async ( req, res, next ) => {
     next()
 }
 
-export const existIdPago = async ( req, res, next ) => {
+export const noExistIdPago = async ( req, res, next ) => {
     const id_pago = req.body.id_pago
     const query = await getPagoById(id_pago)
     

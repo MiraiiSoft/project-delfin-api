@@ -24,8 +24,8 @@ export async function updateCarritoById(id, data) {
       id_carrito: id,
     },
     data: {
-      id_login: data.id_login,
-    },
+      id_login: data.id_login
+    }
   });
   await prisma.$disconnect();
   return updateCarrito;

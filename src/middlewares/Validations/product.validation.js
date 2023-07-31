@@ -13,6 +13,18 @@ export const existName = async ( req, res, next ) => {
     next()
 }
 
+export const noExistName = async ( req, res, next ) => {
+    const barCode = req.body.codigo_barras
+    const query = await getProductoByBarCode(barCode)
+    if ( !query )  
+        return res.status(CODES_HTTP.BAD_REQUEST).json({
+            success: false,
+            message: "El producto con codigo de barras " +barCode+ " no esta registrado en la DB"
+        })
+    
+    next()
+}
+
 export const noExistId = async ( req, res, next ) => {
     const id = parseInt(req.params.productoID)
     const query = await getProductoById(id)
