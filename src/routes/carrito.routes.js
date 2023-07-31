@@ -7,7 +7,7 @@ const router = Router();
 router.get( '/', getAllCarritos );
 router.get('/:cartID', [ validationCarrito.noExistId ] , getOneCarrito);
 router.post( '/add', [ validationCarrito.existName, cleanerRequest.carrito ] ,addCarrito );
-router.put( '/update/:cartID', [ validationCarrito.noExistId, validationCarrito.noExistName, cleanerRequest.carrito ] ,updateCarrito );
+router.put( '/update/:cartID', updateCarrito );
 router.delete( '/delete/:cartID', [ validationCarrito.noExistId ] , deleteCarrito );
 
 const carritoRouter = router;
