@@ -1,6 +1,6 @@
-import express from "express"
-import morgan from "morgan"
-import { config } from 'dotenv';
+import express from "express";
+import morgan from "morgan";
+import { config } from "dotenv";
 config();
 import cors from "cors";
 
@@ -16,9 +16,9 @@ import rolRouter from "./routes/rol.routes.js";
 import usuarioRouter from "./routes/usuario.routes.js";
 import ventaRouter from "./routes/venta.routes.js";
 import inventarioRouter from "./routes/inventario.routes.js";
-import adminRouter from './routes/admin.routes.js';
 import paisRouter from "./routes/pais.routes.js";
-import ciudadRouter from "./routes/ciudad.routes.js"
+import adminRouter from "./routes/admin.routes.js";
+import ciudadRouter from "./routes/ciudad.routes.js";
 import direccionRouter from "./routes/direccion.routes.js";
 import tipoRouter from "./routes/tipo.routes.js";
 
@@ -54,22 +54,23 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(morgan('dev'));
 
-app.use( '/api/file', uploadRouter );
-app.use( '/api/auth', authRouter );
-app.use( '/api/shoppingcart', carritoRouter );
-app.use( '/api/categoria', categoriaRouter );
-app.use( '/api/color', colorRouter );
-app.use( '/api/envios', enviosRouter );
-app.use( '/api/payment', paymentRouter );
-app.use( '/api/producto', productoRouter );
-app.use( '/api/rol', rolRouter );
-app.use( '/api/user', usuarioRouter );
-app.use( '/api/venta', ventaRouter );
-app.use('/api/inventario', inventarioRouter);
-app.use( '/api/pais', paisRouter );
-app.use('/api/ciudad', ciudadRouter);
-app.use('/api/direccion', direccionRouter);
-app.use( '/api/tipo', tipoRouter);
-app.use( '/',adminRouter)
+app.use("/api/file", uploadRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/shoppingcart", carritoRouter);
+app.use("/api/categoria", categoriaRouter);
+app.use("/api/color", colorRouter);
+app.use("/api/envios", enviosRouter);
+app.use("/api/payment", paymentRouter);
+app.use("/api/producto", productoRouter);
+app.use("/api/rol", rolRouter);
+app.use("/api/user", usuarioRouter);
+app.use("/api/venta", ventaRouter);
+app.use("/api/inventario", inventarioRouter);
+app.use("/api/pais", paisRouter);
+app.use("/adminPanel", adminRouter);
+app.use("/api/ciudad", ciudadRouter);
+app.use("/api/direccion", direccionRouter);
+app.use("/api/tipo", tipoRouter);
+app.use("/", adminRouter);
 
 export default app;

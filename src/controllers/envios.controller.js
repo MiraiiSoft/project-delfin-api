@@ -1,6 +1,7 @@
 import { createEnvio, deleteEnvioById, getEnvioById, getEnvios, updateEnvioById } from "../DAO/envio.dao.js";
 import { CODES_HTTP } from "../constants/global.js";
 import loggerEnvios from "../utils/logger/logger.envios.js";
+
 export const getAllEnvios = async ( req, res ) => {
     try {
         const envios = await getEnvios()

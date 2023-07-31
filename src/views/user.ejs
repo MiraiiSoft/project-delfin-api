@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Panel Administrador</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!--Aqui va el sideBar-->
+      <div class="col-sm-1">
+        <div class="sidebar">
+          <div class="logo_details">
+              <i class="material-icons"></i>
+              <div class="logo_name">Admin</div>
+              <i class="bx bx-menu" id="btn"></i>
+          </div>
+          <ul class="nav-list">
+              <li>
+                  <i class="bx bx-search"></i>
+                  <input type="text" placeholder="Search...">
+                  <span class="tooltip">Search</span>
+              </li>
+              <li>
+                  <a href="http://localhost:3000/adminPanel/user">
+                      <i class="material-icons">person</i>
+                      <span class="link_name">Usuarios</span>
+                  </a>
+                  <span class="tooltip">Usuarios</span>
+              </li>
+              <li>
+                  <a href="http://localhost:3000/adminPanel/productos">
+                      <i class="material-icons">inventory_2</i>
+                      <span class="link_name">Productos</span>
+                  </a>
+                  <span class="tooltip">Productos</span>
+              </li>
+              <li>
+                  <a href="http://localhost:3000/adminPanel/ventas">
+                      <i class="material-icons">point_of_sale</i>
+                      <span class="link_name">Ventas</span>
+                  </a>
+                  <span class="tooltip">Ventas</span>
+              </li>
+              <li>
+                  <a href="http://localhost:3000/adminPanel/categorias">
+                      <i class="material-icons">category</i>
+                      <span class="link_name">Categorias</span>
+                  </a>
+                  <span class="tooltip">Categorias</span>
+              </li>
+              <li>
+                  <a href="http://localhost:3000/adminPanel/roles">
+                      <i class="material-icons">groups</i>
+                      <span class="link_name">Roles</span>
+                  </a>
+                  <span class="tooltip">Roles</span>
+              </li>
+              <li>
+                  <a href="http://localhost:3000/adminPanel/direcciones">
+                      <i class="material-icons">place</i>
+                      <span class="link_name">Direcciones</span>
+                  </a>
+                  <span class="tooltip">Direcciones</span>
+              </li>
+              <li>
+                  <a href="http://localhost:3000/adminPanel/colores">
+                      <i class="material-icons">palette</i>
+                      <span class="link_name">Colores</span>
+                  </a>
+                  <span class="tooltip">Colores</span>
+              </li>
+              <li class="profile">
+                  <div class="profile_details">
+                      <img src="profile.jpeg" alt="profile image">
+                      <div class="profile_content">
+                          <div class="name">Anna Jhon</div>
+                          <div class="designation">Admin</div>
+                      </div>
+                  </div>
+                  <i class="bx bx-log-out" id="log_out"></i>
+              </li>
+          </ul>
+      </div>
+      </div>
+      
+    <!--Aqui va la tabla-->
+      <div class="col-md-11 mt-4">
+        <% if (usuarios && usuarios.length > 0) { %>
+            <table class="table table-bordered table-striped">
+              <thead class="table-primary"> <!-- Fila de títulos con fondo azul -->
+                <tr>
+                  <th>ID Login</th>
+                  <th>Correo</th>
+                  <th>Usuario</th>
+                  <th>Verificado</th>
+                  <th>Activo</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Teléfono</th>
+                  <th>Rol</th>
+                  <th>Opciones</th>
+                </tr>
+              </thead>
+              <tbody> <!-- Cuerpo de la tabla con filas blancas -->
+                <% usuarios.forEach(function(item) { %>
+                  <tr>
+                    <td><%= item.id_login %></td>
+                    <td><%= item.correo %></td>
+                    <td><%= item.usuario %></td>
+                    <td class="text-center"><% if (item.is_verified) { %>
+                        <i class="material-icons text-success">check_circle</i>
+                      <% } else { %>
+                        <i class="material-icons text-danger">close</i>
+                      <% } %></td>
+                    <td class="text-center"><% if (item.is_active) { %>
+                        <i class="material-icons text-success">check_circle</i>
+                      <% } else { %>
+                        <i class="material-icons text-danger">close</i>
+                      <% } %></td>
+                    <td><%= item.persona.nombre %></td>
+                    <td><%= item.persona.apellido %></td>
+                    <td><%= item.persona.telefono %></td>
+                    <td><%= item.roll.roll %></td>
+                    <td class="text-center">
+                      <!-- Botones para las opciones -->
+                      <a href="http://localhost:3000/adminPanel/user/cardUser/<%= item.id_login %>"   class="btn btn-info"><i class="material-icons">visibility</i></a>
+                      <a href="#" class="btn btn-danger" onclick="deleteItem('<%= item.id_login %>')">
+                        <i class="material-icons">delete</i>
+                      </a>
+                      <a href="#" class="btn btn-warning"><i class="material-icons">edit</i></a>
+                    </td>
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          <% } else { %>
+            <p class="text-center">No hay datos disponibles.</p>
+          <% } %>
+        </div>
+      </body>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="/js/user.js"></script>
+
+      </html>

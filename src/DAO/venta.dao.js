@@ -25,7 +25,6 @@ export const getVentas = async () => {
 
     // Buscar si la venta ya está en el resultado
     const existingVenta = result.find((venta) => venta.id === ventaId);
-    console.log(existingVenta);
     if (existingVenta) {
       existingVenta.producto.push({
         ...detalle.producto,
@@ -77,7 +76,6 @@ export const getVentaById = async (id) => {
 
     // Buscar si la venta ya está en el resultado
     const existingVenta = result.find((venta) => venta.id === ventaId);
-    console.log(existingVenta);
     if (existingVenta) {
       existingVenta.producto.push({
         ...detalle.producto,

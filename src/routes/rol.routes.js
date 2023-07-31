@@ -4,13 +4,14 @@ import { cleanerRequest, validationRole, authenticationJWT } from "../middleware
 
 const router = Router();
 
-router.get( '/', [ authenticationJWT.tokenValidation, authenticationJWT.isAdmin ], getAllRoles );
+router.get( '/', getAllRoles );
 
-router.get( '/:rolID', [ authenticationJWT.tokenValidation, authenticationJWT.isAdmin, 
+router.get( '/:rolID', [ 
     validationRole.noExistId ], getOneRol );
 
 router.post( '/add', [ authenticationJWT.tokenValidation, authenticationJWT.isAdmin, 
     validationRole.existName, cleanerRequest.roll ], addRol );
+router.post( '/add', [ cleanerRequest.roll ], addRol );
 
 router.put( '/update/:rolID', [ authenticationJWT.tokenValidation, authenticationJWT.isAdmin, 
     validationRole.noExistId, validationRole.existName, cleanerRequest.roll ], updateRol );
