@@ -31,19 +31,20 @@ export const getAllUser = async ( req, res ) => {
 }
 
 export const getOneUser = async ( req, res ) => {
-    const { userID } = req.params;
+    // const { userID } = req.params;
+    
     try {
-        const userLogin = await getLoginById( parseInt(userID) );
-        loggerUsuario.info({message: "Petición Exitosa"})
+        const userLogin = await getLoginById( parseInt(req.userLogin) );
         if( !userLogin ) return res.status(CODES_HTTP.NO_FOUND).json({
             success: false,
             message: "No se encontro la cuenta"
         })
-
+        delete userLogin.password;
         res.status(CODES_HTTP.OK).json({
             success: true,
             data: userLogin
         })
+        loggerUsuario.info({message: "Petición Exitosa"})
 
     } catch (error) {
         loggerUsuario.info({message: "A ocurrido un error: " + error})

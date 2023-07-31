@@ -48,5 +48,9 @@ app.use( '/api/venta', ventaRouter );
 app.use( '/api/inventario', inventarioRouter );
 app.use( '/api/pais', paisRouter );
 app.use('/adminPanel',adminRouter)
+app.use('/api/ciudad', ciudadRouter);
+app.use('/api/direccion', direccionRouter);
+app.use( '/api/tipo', tipoRouter);
+app.use( '/',adminRouter)
 
 export default app;
