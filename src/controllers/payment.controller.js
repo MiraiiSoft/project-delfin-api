@@ -7,6 +7,7 @@ import { createVenta } from "../DAO/venta.dao.js";
 import { createDetalleVenta } from "../DAO/detalleVenta.dao.js";
 import { getcarritoByIdLogin } from "../DAO/carrito.dao.js";
 import loggerPayment from "../utils/logger/logger.payment.js";
+
 export const payment = async ( req, res ) => {
     const reqpayment = req.body;
 

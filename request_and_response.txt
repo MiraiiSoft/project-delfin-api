@@ -101,7 +101,6 @@ REQUEST
     "envio": {
         "paqueteria": ""
     }
-    
 }
 
 tablas a llenar
@@ -137,3 +136,5 @@ required
     id_login
     num_factura
     id_venta
+
+a

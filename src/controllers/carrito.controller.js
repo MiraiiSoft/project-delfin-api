@@ -1,5 +1,5 @@
 import { CODES_HTTP } from "../constants/global.js";
-import { createCarrito, deleteCarritoById, getCarritoById, getCarritos } from "../DAO/carrito.dao.js";
+import { createCarrito, deleteCarritoById, getCarritoById, getcarritoByIdLogin, getCarritos } from "../DAO/carrito.dao.js";
 import { createCarritoProductos, updateCarritoProductos } from "../DAO/carritoProducto.dao.js";
 import loggerCarrito from "../utils/logger/logger.carrito.js";
 
@@ -42,6 +42,28 @@ export const getOneCarrito = async ( req, res ) => {
             message: "Error al obtener el rol:" + error 
         });
     }
+}
+
+export const getOneCarritoByUser = async ( req, res ) => {
+    try {
+        const carrito = await getcarritoByIdLogin( parseInt(req.userLogin) );
+
+        if( !carrito ) return res.status(CODES_HTTP.NO_FOUND).json({
+            success: false,
+            message: "No se encontro carrito para este usuario"
+        });
+
+        res.status(CODES_HTTP.OK).json({
+            success: true,
+            data: carrito
+        });
+
+    } catch (error) {
+        return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success: false,
+            message: "A ocurrido un error: " + error
+        });
+    }
 }
 
 export const addCarrito = async ( req, res ) => {

@@ -5,7 +5,9 @@ const prisma = new PrismaClient();
 export async function getProductos() {
   const productos = await prisma.producto.findMany({
     include:{
-      inventario:true
+      inventario:true,
+      color:true,
+      tipo:true
     }
   });
   await prisma.$disconnect();

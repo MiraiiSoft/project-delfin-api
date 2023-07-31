@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Panel Administrador</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        .card-c {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card-c:hover {
+            transform: scale(1.01);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!--Side Bar y Titulo-->
+        <div class="row">
+            <!--Aqui va el sideBar-->
+            <div class="col-sm-1">
+                <div class="sidebar">
+                    <div class="logo_details">
+                        <i class="material-icons"></i>
+                        <div class="logo_name">Admin</div>
+                        <i class="bx bx-menu" id="btn"></i>
+                    </div>
+                    <ul class="nav-list">
+                        <li>
+                            <i class="bx bx-search"></i>
+                            <input type="text" placeholder="Search...">
+                            <span class="tooltip">Search</span>
+                        </li>
+                        <li>
+                            <a href="http://localhost:3000/adminPanel/user">
+                                <i class="material-icons">person</i>
+                                <span class="link_name">Usuarios</span>
+                            </a>
+                            <span class="tooltip">Usuarios</span>
+                        </li>
+                        <li>
+                            <a href="http://localhost:3000/adminPanel/productos">
+                                <i class="material-icons">inventory_2</i>
+                                <span class="link_name">Productos</span>
+                            </a>
+                            <span class="tooltip">Productos</span>
+                        </li>
+                        <li>
+                            <a href="http://localhost:3000/adminPanel/ventas">
+                                <i class="material-icons">point_of_sale</i>
+                                <span class="link_name">Ventas</span>
+                            </a>
+                            <span class="tooltip">Ventas</span>
+                        </li>
+                        <li>
+                            <a href="http://localhost:3000/adminPanel/categorias">
+                                <i class="material-icons">category</i>
+                                <span class="link_name">Categorias</span>
+                            </a>
+                            <span class="tooltip">Categorias</span>
+                        </li>
+                        <li>
+                            <a href="http://localhost:3000/adminPanel/roles">
+                                <i class="material-icons">groups</i>
+                                <span class="link_name">Roles</span>
+                            </a>
+                            <span class="tooltip">Roles</span>
+                        </li>
+                        <li>
+                            <a href="http://localhost:3000/adminPanel/direcciones">
+                                <i class="material-icons">place</i>
+                                <span class="link_name">Direcciones</span>
+                            </a>
+                            <span class="tooltip">Direcciones</span>
+                        </li>
+                        <li>
+                            <a href="http://localhost:3000/adminPanel/colores">
+                                <i class="material-icons">palette</i>
+                                <span class="link_name">Colores</span>
+                            </a>
+                            <span class="tooltip">Colores</span>
+                        </li>
+                        <li class="profile">
+                            <div class="profile_details">
+                                <img src="" alt="profile image">
+                                <div class="profile_content">
+                                    <div class="name">Anna Jhon</div>
+                                    <div class="designation">Admin</div>
+                                </div>
+                            </div>
+                            <i class="bx bx-log-out" id="log_out"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-4 ml-5">
+                <h1 class="text-primary text-center">Panel de Administrador</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Agregar el bloque de información del producto -->
+            <div class="col-md-11 mt-4 ml-auto">
+                <div class="card border-dark" style="border-radius: 20px;">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h2 class="mb-4">Información del Producto - <%= producto.nombre %>
+                            </h2>
+                            <div class="d-inline-flex align-items-center">
+                                <a href="http://localhost:3000/adminPanel/producto/formproducto"
+                                    class="btn btn-info mr-2"><i class="material-icons">add</i></a>
+                                <a href="#" class="btn btn-warning mr-2"><i class="material-icons">edit</i></a>
+                                <a href="#" class="btn btn-danger"><i class="material-icons">delete</i></a>
+                            </div>
+                        </div>
+
+                        <!-- Información general del producto -->
+                        <p class="card-text"><strong>ID de Producto:</strong>
+                            <%= producto.id_producto %>
+                        </p>
+                        <p class="card-text"><strong>Código de Barras:</strong>
+                            <%= producto.codigo_barras %>
+                        </p>
+                        <p class="card-text"><strong>Marca:</strong>
+                            <%= producto.marca %>
+                        </p>
+                        <p class="card-text"><strong>Descripción:</strong>
+                            <%= producto.descripcion %>
+                        </p>
+                        <img src="<%= producto.imagen.url[0] %>" alt="no se carga">
+                        <p class="card-text"><strong>Compra:</strong>
+                            <%= producto.compra %>
+                        </p>
+                        <p class="card-text"><strong>Precio Unitario:</strong>
+                            <%= producto.precio_unitario %>
+                        </p>
+                        <p class="card-text"><strong>Precio Mayoreo:</strong>
+                            <%= producto.precio_mayoreo %>
+                        </p>
+                        <p class="card-text"><strong>Precio Caja:</strong>
+                            <%= producto.precio_caja %>
+                        </p>
+                        <p class="card-text"><strong>Inicio Mayoreo:</strong>
+                            <%= producto.inicio_mayoreo %>
+                        </p>
+                        <p class="card-text"><strong>Inicio Caja:</strong>
+                            <%= producto.inicio_caja %>
+
+                                <!-- Información de color -->
+                                <div class="card card-c border-dark mt-4" style="border-radius: 20px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Color</h5>
+                                        <p class="card-text"><strong>ID de Color:</strong>
+                                            <%= producto.color.id_color %>
+                                        </p>
+                                        <p class="card-text"><strong>Color:</strong>
+                                            <%= producto.color.color %>
+                                        </p>
+                                        <p class="card-text"><strong>Hexa:</strong>
+                                            <%= producto.color.hexa %>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Información del tipo -->
+                                <div class="card card-c border-dark mt-4" style="border-radius: 20px;">
+                                    <div class="card-body border-dark">
+                                        <h5 class="card-title">Tipo</h5>
+                                        <p class="card-text"><strong>ID de Tipo:</strong>
+                                            <%= producto.tipo.id_tipo %>
+                                        </p>
+                                        <p class="card-text"><strong>Tipo:</strong>
+                                            <%= producto.tipo.tipo %>
+                                        </p>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="/js/script.js"></script>
+</body>
+
+</html>

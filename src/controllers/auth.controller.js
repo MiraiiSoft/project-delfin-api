@@ -33,7 +33,7 @@ export const register = async ( req, res ) => {
         });
         
         //buscar rol 
-        const rol = await getRolByNombre('Usuario');
+        const rol = await getRolByName('Usuario');
         
         //se guarda datos de login
         const login = await createLogin({
@@ -123,11 +123,14 @@ export const login = async ( req, res ) => {
         })
     }
 
-    const token = generateToken( dataUser.id_login, "24h" );
+    const token = generateToken( dataUser.id_login, '1d' );
+
+    delete dataUser.password;
 
     res.status(CODES_HTTP.OK).header('token', token).json({
         success: true,
-        message: "Inicio de sesion correcto"
+        message: "Inicio de sesion correcto",
+        data: dataUser
     });
 
 }
@@ -142,7 +145,7 @@ export const confirmAccount = async ( req, res ) => {
             const err = verify.message;
             throw new Error(err);
         }
-
+        
         return await getLoginByEmail( verify.message )
             .then( async userLogin => {
                 if( !userLogin ) throw new Error('No se ha encontrado la cuenta');
@@ -167,7 +170,7 @@ export const confirmAccount = async ( req, res ) => {
             .catch( err => {
                 return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
                     success: false,
-                    message: err
+                    message: err.toString()
                 })
             })
     } catch (error) {

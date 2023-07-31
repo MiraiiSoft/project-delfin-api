@@ -8,7 +8,6 @@ producto.addEventListener("click", function (event) {
     .then((responseData) => {
       if (responseData.success) {
         var productos = responseData.data;
-        console.log(productos);
         generateTableProductos(productos); // Pasar los datos completos a la función generateTable
       } else {
         console.error(
@@ -124,9 +123,59 @@ function generateTableProductos(productos) {
     });
 
     var viewLink = document.createElement("a");
-    viewLink.href = "/api/producto/" + producto.id_producto;
+    viewLink.href = "#";
     viewLink.innerHTML = '<i class="material-icons">visibility</i>';
     opcionesCell.appendChild(viewLink);
+
+    viewLink.addEventListener("click", function (event) {
+      event.preventDefault();
+      var productoid = producto.id_producto;
+      fetch("/api/producto/" + productoid)
+        .then((response) => response.json())
+        .then((responseData) => {
+          console.log(mostrarProducto);
+          mostrarProducto(responseData);
+        })
+        .catch((error) => {
+          console.log("error " + error);
+        });
+    });
+
+    function mostrarProducto(producto) {
+      var html = `
+        <div class="card" style="border: 1px solid #000; border-radius: 10px;">
+          <div class="card-header">
+            <h2>Información del producto ${producto.data.nombre}</h2>
+          </div>
+          <div class="card-body">
+            <p><strong>ID de Producto:</strong> ${producto.data.id_producto}</p>
+            <p><strong>Código de Barras:</strong> ${producto.data.codigo_barras}</p>
+            <p><strong>Nombre:</strong> ${producto.data.nombre}</p>
+            <p><strong>Marca:</strong> ${producto.data.marca}</p>
+            <p><strong>Descripción:</strong> ${producto.data.descripcion}</p>
+            <p><strong>Imagen:</strong> <img src="${producto.data.imagen.url}" alt="Imagen del producto" width="100"></p>
+            <p><strong>Compra:</strong> ${producto.data.compra}</p>
+            <p><strong>Precio Unitario:</strong> ${producto.data.precio_unitario}</p>
+            <p><strong>Precio al Mayoreo:</strong> ${producto.data.precio_mayoreo}</p>
+            <p><strong>Precio por Caja:</strong> ${producto.data.precio_caja}</p>
+            <p><strong>Inicio de Mayoreo:</strong> ${producto.data.inicio_mayoreo}</p>
+            <p><strong>Inicio de Caja:</strong> ${producto.data.inicio_caja}</p>
+            <p><strong>ID de Color:</strong> ${producto.data.id_color}</p>
+            <p><strong>ID de Categoría:</strong> ${producto.data.id_categoria}</p>
+            <p><strong>ID de Tipo:</strong> ${producto.data.id_tipo}</p>
+            <!-- Agrega aquí el resto de las propiedades del producto que desees mostrar -->
+          </div>
+          <div class="card-footer">
+        <p><strong>Color:</strong></p>
+        <div style="display: inline-block; width: 20px; height: 20px; background-color: ${producto.data.color.hexa}; border-radius: 50%;"></div>
+        <p style="display: inline-block; margin-left: 10px;">${producto.data.color.color}</p>
+      </div>
+    </div>
+      `;
+
+      document.getElementById("tableContainer").innerHTML = html;
+      document.getElementById("tableContainer").style.display = "block";
+    }
 
     row.appendChild(opcionesCell);
 

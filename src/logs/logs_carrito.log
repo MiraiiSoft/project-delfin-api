@@ -502,6 +502,7 @@
 [2023-07-31T14:37:43.402Z] info El carrito ha sido actualizado
 [2023-07-31T14:50:13.241Z] info El carrito-producto ha sido actualizado
 [2023-07-31T14:50:22.935Z] info El carrito-producto ha sido actualizado
+<<<<<<< HEAD
 [2023-07-31T14:56:49.607Z] info Petición Exitosa
 [2023-07-31T15:08:48.373Z] info El carrito-producto ha sido actualizado
 [2023-07-31T15:09:13.499Z] info Petición Exitosa
@@ -779,3 +780,44 @@
 [2023-07-31T21:45:54.396Z] info Error al agregar el carrito-producto
 [2023-07-31T21:55:43.838Z] info Error al agregar el carrito-producto
 [2023-07-31T22:01:31.692Z] info Error al agregar el carrito-producto
+=======
+[2023-07-31T17:47:39.420Z] info Petición Exitosa
+[2023-07-31T17:48:23.739Z] info Petición Exitosa
+[2023-07-31T17:51:15.389Z] info Petición Exitosa
+[2023-07-31T17:58:40.434Z] info Petición Exitosa
+[2023-07-31T17:59:02.493Z] info Petición Exitosa
+[2023-07-31T17:47:39.420Z] info Petición Exitosa
+[2023-07-31T17:48:23.739Z] info Petición Exitosa
+[2023-07-31T17:51:15.389Z] info Petición Exitosa
+[2023-07-31T17:58:40.434Z] info Petición Exitosa
+[2023-07-31T17:59:02.493Z] info Petición Exitosa
+[2023-07-31T18:37:29.401Z] info Petición Exitosa
+>>>>>>> 984d46f43710928e7e493c54a21553524e5fb088
+[2023-07-31T22:13:32.375Z] info Petición Exitosa
+[2023-07-31T22:15:54.706Z] info Petición Exitosa
+[2023-07-31T22:17:20.575Z] info El carrito-producto ha sido actualizado
+[2023-07-31T22:17:20.579Z] info El carrito-producto ha sido actualizado
+[2023-07-31T22:17:20.581Z] info El carrito-producto ha sido actualizado
+[2023-07-31T22:17:20.586Z] info El carrito-producto ha sido actualizado
+[2023-07-31T22:17:22.276Z] info Petición Exitosa
+[2023-07-31T22:32:52.477Z] info Error al agregar el carrito-producto
+[2023-07-31T22:32:56.374Z] info Error al agregar el carrito-producto
+[2023-07-31T22:33:39.439Z] info Error al agregar el carrito-producto
+[2023-07-31T22:37:20.434Z] info Error al agregar el carrito-producto
+[2023-07-31T22:37:59.497Z] info Error al agregar el carrito-producto
+[2023-07-31T22:39:05.882Z] info Error al agregar el carrito-producto
+[2023-07-31T22:40:05.128Z] info Error al agregar el carrito-producto
+[2023-07-31T22:41:23.346Z] info Error al agregar el carrito-producto
+[2023-07-31T22:55:02.338Z] info Error al agregar el carrito-producto
+[2023-07-31T23:13:33.193Z] info Petición Exitosa
+[2023-07-31T23:13:55.527Z] info El carrito-producto ha sido actualizado
+[2023-07-31T23:13:55.533Z] info El carrito-producto ha sido actualizado
+[2023-07-31T23:13:55.538Z] info El carrito-producto ha sido actualizado
+[2023-07-31T23:13:55.541Z] info El carrito-producto ha sido actualizado
+[2023-07-31T23:13:57.689Z] info Petición Exitosa
+[2023-07-31T23:14:09.065Z] info El carrito-producto ha sido actualizado
+[2023-07-31T23:14:09.066Z] info El carrito-producto ha sido actualizado
+[2023-07-31T23:14:09.069Z] info El carrito-producto ha sido actualizado
+[2023-07-31T23:14:09.071Z] info El carrito-producto ha sido actualizado
+[2023-07-31T23:14:11.260Z] info Petición Exitosa
+[2023-07-31T23:27:35.469Z] info Petición Exitosa
