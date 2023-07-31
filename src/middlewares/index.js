@@ -15,8 +15,9 @@ import * as validationType from "./Validations/type.validation.js"
 import * as validationAddress from "./Validations/address.validation.js"
 import * as validationCity from "./Validations/city.validation.js"
 import * as validationCountry from "./Validations/country.validation.js"
+import * as validationCarritoProducto from "./Validations/carrito_producto.validation.js"
 
 export { authenticationJWT, cleanerRequest, readRequest, validationFile, validationRole, validationCategory, validationProduct, 
         validationColor, validationCarrito, validationEnvios, validationVenta, validationUser, validationDetalleVenta, 
-        validationType, validationAddress, validationCity, validationCountry };
+        validationType, validationAddress, validationCity, validationCountry, validationCarritoProducto };
 

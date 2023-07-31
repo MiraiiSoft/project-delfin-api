@@ -67,19 +67,19 @@ export const updateCarrito = async ( req, res ) => {
     try {
         const cartID = parseInt(req.params.cartID)
         const updateCarritoProducto = await updateCarritoProductos(cartID, req.body)
-        console.log("El carrito ha sido actualizado")
-        loggerCarrito.info({message: "El carrito ha sido actualizado"})
+        console.log("El carrito-producto ha sido actualizado")
+        loggerCarrito.info({message: "El carrito-producto ha sido actualizado"})
         res.status(CODES_HTTP.OK).json({
             success: true,
-            message: "El carrito ha sido actualizado:",
+            message: "El carrito-producto ha sido actualizado:",
             data: updateCarritoProducto
         });
     } catch (error) {
-        console.log("Error al actualizar el carrito:", error)
-        loggerCarrito.info({message: "Error al actualizar el carrito"})
+        console.log("Error al actualizar el carrito-producto:", error)
+        loggerCarrito.info({message: "Error al actualizar el carrito-producto"})
         return res.status(CODES_HTTP.NO_FOUND).json({
             success: false,
-            message: "Error al actualizar el carrito:" + error 
+            message: "Error al actualizar el carrito-producto:" + error 
         });
     }
 }
