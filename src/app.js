@@ -53,6 +53,6 @@ app.use( '/api/pais', paisRouter );
 app.use('/api/ciudad', ciudadRouter);
 app.use('/api/direccion', direccionRouter);
 app.use( '/api/tipo', tipoRouter);
-app.use( '/', adminRouter)
+app.use( '/',adminRouter)
 
 export default app;
