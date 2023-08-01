@@ -238,7 +238,7 @@ CREATE TABLE carrito_producto (
   cantidad_producto INT NULL,
   FOREIGN KEY (id_producto) REFERENCES producto (id_producto),
   FOREIGN KEY (id_carrito) REFERENCES carrito (id_carrito),
-  UNIQUE (id_carrito_producto)
+  PRIMARY KEY (id_carrito_producto)
 );
 
 SET SQL_MODE=@OLD_SQL_MODE;
