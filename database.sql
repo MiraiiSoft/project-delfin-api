@@ -236,6 +236,7 @@ CREATE TABLE carrito_producto (
   id_producto INT NOT NULL,
   id_carrito INT NOT NULL,
   cantidad_producto INT NULL,
+  PRIMARY KEY (id_carrito_producto),
   FOREIGN KEY (id_producto) REFERENCES producto (id_producto),
   FOREIGN KEY (id_carrito) REFERENCES carrito (id_carrito),
   PRIMAR key (id_carrito_producto)

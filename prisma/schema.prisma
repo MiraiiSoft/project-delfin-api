@@ -1,0 +1,217 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model carrito {
+  id_carrito       Int                @id @default(autoincrement())
+  id_login         Int
+  login            login              @relation(fields: [id_login], references: [id_login], onDelete: NoAction, onUpdate: NoAction, map: "carrito_ibfk_1")
+  carrito_producto carrito_producto[]
+  detalle_venta    detalle_venta[]
+
+  @@index([id_login], map: "id_login")
+}
+
+model carrito_producto {
+  id_carrito_producto Int      @id @default(autoincrement())
+  id_producto         Int
+  id_carrito          Int
+  cantidad_producto   Int?
+  producto            producto @relation(fields: [id_producto], references: [id_producto], onDelete: NoAction, onUpdate: NoAction, map: "carrito_producto_ibfk_1")
+  carrito             carrito  @relation(fields: [id_carrito], references: [id_carrito], onDelete: NoAction, onUpdate: NoAction, map: "carrito_producto_ibfk_2")
+
+  @@index([id_carrito], map: "id_carrito")
+  @@index([id_producto], map: "id_producto")
+}
+
+model categoria {
+  id_categoria Int        @id @default(autoincrement())
+  categoria    String?    @db.VarChar(45)
+  producto     producto[]
+}
+
+model ciudad {
+  id_ciudad Int         @id @default(autoincrement())
+  ciudad    String?     @db.VarChar(45)
+  id_pais   Int
+  pais      pais        @relation(fields: [id_pais], references: [id_pais], onDelete: NoAction, onUpdate: NoAction, map: "ciudad_ibfk_1")
+  direccion direccion[]
+
+  @@index([id_pais], map: "id_pais")
+}
+
+model color {
+  id_color Int        @id @default(autoincrement())
+  color    String?    @db.VarChar(45)
+  hexa     String?    @db.VarChar(25)
+  producto producto[]
+}
+
+model counter {
+  id         Int     @id @default(autoincrement())
+  id_counter String? @unique(map: "id_counter") @db.VarChar(255)
+  seq_value  Int?
+}
+
+model detalle_venta {
+  id_detalle_venta  Int      @id @default(autoincrement())
+  cantidad_producto Int?
+  monto_total       Decimal? @db.Decimal(10, 0)
+  id_producto       Int
+  id_carrito        Int
+  id_login          Int
+  num_factura       String?  @db.VarChar(100)
+  id_venta          Int
+  venta             venta    @relation(fields: [id_venta], references: [id_venta], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_1")
+  producto          producto @relation(fields: [id_producto], references: [id_producto], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_2")
+  carrito           carrito  @relation(fields: [id_carrito], references: [id_carrito], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_3")
+  login             login    @relation(fields: [id_login], references: [id_login], onDelete: NoAction, onUpdate: NoAction, map: "detalle_venta_ibfk_4")
+
+  @@index([id_carrito], map: "id_carrito")
+  @@index([id_login], map: "id_login")
+  @@index([id_producto], map: "id_producto")
+  @@index([id_venta], map: "id_venta")
+}
+
+model direccion {
+  id_direccion  Int       @id @default(autoincrement())
+  codigo_postal String?   @db.VarChar(10)
+  calle         String?   @db.VarChar(45)
+  colonia       String?   @db.VarChar(45)
+  num           String?   @db.VarChar(10)
+  telefono      String?   @db.VarChar(15)
+  referencia    String?   @db.VarChar(55)
+  id_ciudad     Int
+  ciudad        ciudad    @relation(fields: [id_ciudad], references: [id_ciudad], onDelete: NoAction, onUpdate: NoAction, map: "direccion_ibfk_1")
+  persona       persona[]
+
+  @@index([id_ciudad], map: "id_ciudad")
+}
+
+model envio {
+  id_envio          Int       @id @default(autoincrement())
+  id_login          Int
+  fecha_envio       DateTime? @db.Date
+  fecha_entrega     DateTime? @db.Date
+  fecha_recoleccion DateTime? @db.Date
+  paqueteria        String?   @db.VarChar(45)
+  status_envio      String?   @db.VarChar(45)
+  login             login     @relation(fields: [id_login], references: [id_login], onDelete: NoAction, onUpdate: NoAction, map: "envio_ibfk_1")
+  venta             venta[]
+
+  @@index([id_login], map: "id_login")
+}
+
+model inventario {
+  id_inventario   Int      @id @default(autoincrement())
+  id_producto     Int
+  existencias     Int?
+  unidadesPaquete Int?
+  numPaquete      Int?
+  producto        producto @relation(fields: [id_producto], references: [id_producto], onDelete: NoAction, onUpdate: NoAction, map: "inventario_ibfk_1")
+
+  @@index([id_producto], map: "id_producto")
+}
+
+model login {
+  id_login      Int             @id @default(autoincrement())
+  correo        String          @db.VarChar(25)
+  usuario       String?         @db.VarChar(45)
+  password      String?         @db.VarChar(150)
+  is_verified   Boolean?        @default(false)
+  id_persona    Int
+  id_roll       Int
+  is_active     Boolean?        @default(true)
+  carrito       carrito[]
+  detalle_venta detalle_venta[]
+  envio         envio[]
+  persona       persona         @relation(fields: [id_persona], references: [id_persona], onDelete: NoAction, onUpdate: NoAction, map: "login_ibfk_1")
+  roll          roll            @relation(fields: [id_roll], references: [id_roll], onDelete: NoAction, onUpdate: NoAction, map: "login_ibfk_2")
+
+  @@index([id_persona], map: "id_persona")
+  @@index([id_roll], map: "id_roll")
+}
+
+model pago {
+  id_pago     Int      @id @default(autoincrement())
+  tocken_pago String?  @db.VarChar(45)
+  monto       Decimal? @db.Decimal(10, 0)
+  venta       venta[]
+}
+
+model pais {
+  id_pais Int      @id @default(autoincrement())
+  pais    String?  @db.VarChar(45)
+  ciudad  ciudad[]
+}
+
+model persona {
+  id_persona   Int       @id @default(autoincrement())
+  nombre       String?   @db.VarChar(45)
+  apellido     String?   @db.VarChar(45)
+  telefono     String?   @db.VarChar(15)
+  id_direccion Int
+  login        login[]
+  direccion    direccion @relation(fields: [id_direccion], references: [id_direccion], onDelete: NoAction, onUpdate: NoAction, map: "persona_ibfk_1")
+
+  @@index([id_direccion], map: "id_direccion")
+}
+
+model producto {
+  id_producto      Int                @id @default(autoincrement())
+  codigo_barras    String?            @db.VarChar(45)
+  nombre           String?            @db.VarChar(200)
+  marca            String?            @db.VarChar(45)
+  descripcion      String?            @db.VarChar(300)
+  imagen           Json
+  compra           Decimal?           @db.Decimal(10, 0)
+  precio_unitario  Decimal?           @db.Decimal(10, 0)
+  precio_mayoreo   Decimal?           @db.Decimal(10, 0)
+  precio_caja      Decimal?           @db.Decimal(10, 0)
+  inicio_mayoreo   Int?
+  inicio_caja      Int?
+  id_color         Int
+  id_categoria     Int
+  id_tipo          Int
+  carrito_producto carrito_producto[]
+  detalle_venta    detalle_venta[]
+  inventario       inventario[]
+  color            color              @relation(fields: [id_color], references: [id_color], onDelete: NoAction, onUpdate: NoAction, map: "producto_ibfk_1")
+  categoria        categoria          @relation(fields: [id_categoria], references: [id_categoria], onDelete: NoAction, onUpdate: NoAction, map: "producto_ibfk_2")
+  tipo             tipo               @relation(fields: [id_tipo], references: [id_tipo], onDelete: NoAction, onUpdate: NoAction, map: "producto_ibfk_3")
+
+  @@index([id_categoria], map: "id_categoria")
+  @@index([id_color], map: "id_color")
+  @@index([id_tipo], map: "id_tipo")
+}
+
+model roll {
+  id_roll Int     @id @default(autoincrement())
+  roll    String? @db.VarChar(45)
+  login   login[]
+}
+
+model tipo {
+  id_tipo  Int        @id @default(autoincrement())
+  tipo     String?    @db.VarChar(45)
+  producto producto[]
+}
+
+model venta {
+  id_venta      Int             @id @default(autoincrement())
+  fecha_venta   DateTime?       @db.Date
+  status_venta  String?         @db.VarChar(45)
+  id_envio      Int
+  id_pago       Int
+  detalle_venta detalle_venta[]
+  envio         envio           @relation(fields: [id_envio], references: [id_envio], onDelete: NoAction, onUpdate: NoAction, map: "venta_ibfk_1")
+  pago          pago            @relation(fields: [id_pago], references: [id_pago], onDelete: NoAction, onUpdate: NoAction, map: "venta_ibfk_2")
+
+  @@index([id_envio], map: "id_envio")
+  @@index([id_pago], map: "id_pago")
+}

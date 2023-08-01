@@ -3,52 +3,34 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export const getVentas = async () => {
-  const detallesVentas = await prisma.detalle_venta.findMany({
+  const detallesVentas = await prisma.venta.findMany({
     include: {
-      producto: true,
-      login: {
+      envio: true,
+      pago: true,
+      detalle_venta: {
         include: {
-          persona: true,
-        },
+          login: true,
+          producto: true
+        }
       },
-      venta: {
-        include: {
-          pago: true,
-          envio: true,
-        },
-      },
-    },
-  });
-
-  const groupedVentas = detallesVentas.reduce((result, detalle) => {
-  const ventaId = detalle.id_venta;
-
-    // Buscar si la venta ya está en el resultado
-    const existingVenta = result.find((venta) => venta.id === ventaId);
-    if (existingVenta) {
-      existingVenta.producto.push({
-        ...detalle.producto,
-        cantidad_producto: detalle.cantidad_producto,
-      });
-    } else {
-      // Crear una nueva venta con el producto
-      const nuevaVenta = {
-        id: ventaId,
-        venta: detalle.venta,
-        login: detalle.login,
-        producto: [
-          { ...detalle.producto, cantidad_producto: detalle.cantidad_producto },
-        ],
-        monto_total: detalle.monto_total,
-      };
-      result.push(nuevaVenta);
     }
-    return result;
-  }, []);
-
-  await prisma.$disconnect();
-  return groupedVentas;
-};
+  });
+  
+  const ventaMap = new Map();
+  
+  detallesVentas.forEach(venta => {
+    if (!ventaMap.has(venta.id_venta)) {
+      ventaMap.set(venta.id_venta, venta);
+    } else {
+      const existingVenta = ventaMap.get(venta.id_venta);
+      existingVenta.detalle_venta.push(...venta.detalle_venta);
+    }
+  });
+  
+  const deduplicatedDetallesVentas = Array.from(ventaMap.values());
+  
+  return deduplicatedDetallesVentas;
+  };
 
 export const getVentaById = async (id) => {
   const detallesVentas = await prisma.detalle_venta.findMany({
@@ -113,10 +95,7 @@ export const getVentaByIdLogin = async (id) => {
       login: true,
       producto: true,
       carrito: true,
-    },
-    where: {
-      id_login: id,
-    },
+    }
   });
 
   const groupedVentas = detallesVentas.reduce((result, detalle) => {
