@@ -35,7 +35,7 @@ export const carrito = ( req, res, next ) => {
 }
 
 export const carritoProducto = ( req, res, next ) => {
-    const dataType = [ "id_producto", "carrito", "cantidad_producto" ]
+    const dataType = [ "id_producto", "id_carrito", "cantidad_producto" ]
     const dataClean = clean(dataType, req )
     req.body = dataClean
     next()

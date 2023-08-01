@@ -25,7 +25,7 @@ export async function createCarritoProductos(data) {
     data: {
       id_producto: data.id_producto,
       id_carrito: data.id_carrito,
-      cantidad_producto: data.cantidad_producto,
+      cantidad_producto: data.cantidad_producto
     },
   });
   await prisma.$disconnect();

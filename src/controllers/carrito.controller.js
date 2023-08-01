@@ -1,7 +1,9 @@
 import { CODES_HTTP } from "../constants/global.js";
-import { createCarrito, deleteCarritoById, getCarritoById, getCarritos, getcarritoByIdLogin } from "../DAO/carrito.dao.js";
-import { updateCarritoProductos } from "../DAO/carritoProducto.dao.js";
+import { createCarrito, deleteCarritoById, getCarritoById, getcarritoByIdLogin, getCarritos } from "../DAO/carrito.dao.js";
+import { createCarritoProductos, deleteCarritoProductosById, updateCarritoProductos } from "../DAO/carritoProducto.dao.js";
 import loggerCarrito from "../utils/logger/logger.carrito.js";
+
+//Carrito
 export const getAllCarritos = async ( req, res ) => {
     try {
         const carritos = await getCarritos()
@@ -84,8 +86,28 @@ export const addCarrito = async ( req, res ) => {
     }
 }
 
-//Update carrito-productos - Don`t carrito
-export const updateCarrito = async ( req, res ) => {
+export const deleteCarrito = async ( req, res ) => {
+    try {
+        const deletedCarrito = await deleteCarritoById(parseInt(req.params.cartID))
+        console.log("El carrito ha sido borrado")
+        loggerCarrito.info({message: "El carrito ha sido borrado"})
+        res.status(CODES_HTTP.OK).json({
+            success: true,
+            message: "El carrito ha sido borrado:",
+            data: deletedCarrito
+        });
+    } catch (error) {
+        console.log("Error al eliminar el carrito:", error)
+        loggerCarrito.info({message: "Error al eliminar el carrito"})
+        return res.status(CODES_HTTP.NO_FOUND).json({
+            success: false,
+            message: "Error al eliminar el carrito:" + error 
+        });
+    }
+}
+
+//Carrito-productos - Don't carrito
+export const updateCarritoProducto = async ( req, res ) => {
     try {
         const cartID = parseInt(req.params.cartID)
         const updateCarritoProducto = await updateCarritoProductos(cartID, req.body)
@@ -106,22 +128,43 @@ export const updateCarrito = async ( req, res ) => {
     }
 }
 
-export const deleteCarrito = async ( req, res ) => {
+export const addProductToCart = async (req, res) => {
     try {
-        const deletedCarrito = await deleteCarritoById(parseInt(req.params.cartID))
-        console.log("El carrito ha sido borrado")
-        loggerCarrito.info({message: "El carrito ha sido borrado"})
+        const addProduct = await createCarritoProductos(req.body)
+        console.log("El carrito-producto ha sido agregado")
+        loggerCarrito.info({message: "El carrito-producto ha sido agregado"})
         res.status(CODES_HTTP.OK).json({
             success: true,
-            message: "El carrito ha sido borrado:",
-            data: deletedCarrito
+            message: "El carrito-producto ha sido agregado:",
+            data: addProduct
         });
-    } catch (error) {
-        console.log("Error al eliminar el carrito:", error)
-        loggerCarrito.info({message: "Error al eliminar el carrito"})
+    } catch(error) {
+        console.log("Error al agregar el carrito-producto:", error)
+        loggerCarrito.info({message: "Error al agregar el carrito-producto"})
         return res.status(CODES_HTTP.NO_FOUND).json({
             success: false,
-            message: "Error al eliminar el carrito:" + error 
+            message: "Error al agregar el carrito-producto:" + error 
         });
-    }
+    }
+}
+
+export const deleteProductOfCart = async( req, res ) => {
+    try {
+        const id = parseInt(req.params.cartProductID)
+        const deleteCartProduct = await deleteCarritoProductosById(id)
+        res.status(CODES_HTTP.OK).json({
+            success: true,
+            message: "El carrito-producto ha sido eliminado:",
+            data: deleteCartProduct
+        })
+        console.log("El carrito-producto ha sido agregado")
+        loggerCarrito.info({message: "El carrito-producto ha sido agregado"})
+    } catch(error) {
+        console.log("Error al agregar el carrito-producto:", error)
+        loggerCarrito.info({message: "Error al agregar el carrito-producto"})
+        return res.status(CODES_HTTP.NO_FOUND).json({
+            success: false,
+            message: "Error al eliminar el carrito-producto:" +error
+        })
+    }
 }
