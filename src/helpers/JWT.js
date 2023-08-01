@@ -13,7 +13,7 @@ export const verifyToken = ( token ) => {
         const payload = jwt.verify( token, process.env.TOKEN_SECRET || "tokentest" );
         return {
             success: true,
-            message: parseInt(payload.id)
+            message: payload.id
         }
     } catch (error) {
         return {

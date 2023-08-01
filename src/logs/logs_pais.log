@@ -11,3 +11,21 @@ Can't reach database server at `192.168.4.78`:`3306`
 
 Please make sure your database server is running at `192.168.4.78`:`3306`.
 [2023-07-25T17:52:23.497Z] info No se han encontrado paises
+[2023-07-31T21:27:04.109Z] info A ocurrido un error:PrismaClientInitializationError: 
+Invalid `prisma.pais.findMany()` invocation:
+
+
+Can't reach database server at `34.133.217.127`:`3306`
+
+Please make sure your database server is running at `34.133.217.127`:`3306`.
+[2023-07-31T21:45:41.587Z] info A ocurrido un error:PrismaClientInitializationError: 
+Invalid `prisma.pais.findMany()` invocation:
+
+
+Error querying the database: Unknown authentication plugin `sha256_password'.
+[2023-07-31T21:47:03.616Z] info A ocurrido un error:PrismaClientInitializationError: 
+Invalid `prisma.pais.findMany()` invocation:
+
+
+Error querying the database: Unknown authentication plugin `sha256_password'.
+[2023-07-31T21:51:46.552Z] info No se han encontrado paises

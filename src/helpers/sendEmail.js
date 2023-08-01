@@ -16,7 +16,7 @@ function sendEmail(email, title, body, generateToke = false) {
     //generar url con token
     if (generateToke === true) {
         const token = generateToken(email, "1h");
-        const urlConfirm = `${process.env.API_URL}/api/auth/confirm/${token}`;
+        const urlConfirm = `${process.env.CLIENT_URL}/auth/confirm/${token}`;
         body += `<a href="${urlConfirm}" target="_black">Confirmar</a> </p>`;
     }
 
