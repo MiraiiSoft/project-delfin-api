@@ -232,13 +232,13 @@ CREATE TABLE venta (
 -- Table `papelerialinea`.`carrito_producto`
 -- -----------------------------------------------------
 CREATE TABLE carrito_producto (
-  id_carrito_producto INT NOT NULL,
+  id_carrito_producto INT NOT NULL AUTO_INCREMENT,
   id_producto INT NOT NULL,
   id_carrito INT NOT NULL,
   cantidad_producto INT NULL,
   FOREIGN KEY (id_producto) REFERENCES producto (id_producto),
   FOREIGN KEY (id_carrito) REFERENCES carrito (id_carrito),
-  UNIQUE (id_carrito_producto)
+  PRIMAR key (id_carrito_producto)
 );
 
 SET SQL_MODE=@OLD_SQL_MODE;

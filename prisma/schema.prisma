@@ -18,7 +18,7 @@ model carrito {
 }
 
 model carrito_producto {
-  id_carrito_producto Int      @unique(map: "id_carrito_producto") @default(autoincrement())
+  id_carrito_producto Int      @unique(map: "id_carrito_producto") @id @default(autoincrement())
   id_producto         Int
   id_carrito          Int
   cantidad_producto   Int?
