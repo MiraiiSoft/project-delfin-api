@@ -502,6 +502,7 @@
 [2023-07-31T14:37:43.402Z] info El carrito ha sido actualizado
 [2023-07-31T14:50:13.241Z] info El carrito-producto ha sido actualizado
 [2023-07-31T14:50:22.935Z] info El carrito-producto ha sido actualizado
+<<<<<<< HEAD
 [2023-07-31T18:13:24.936Z] info Petición Exitosa
 [2023-07-31T18:13:28.943Z] info Petición Exitosa
 [2023-07-31T18:13:31.292Z] info Petición Exitosa
@@ -538,3 +539,16 @@
 [2023-07-31T18:34:40.882Z] info Petición Exitosa
 [2023-07-31T18:34:42.796Z] info Petición Exitosa
 [2023-07-31T18:40:04.777Z] info Petición Exitosa
+=======
+[2023-07-31T17:47:39.420Z] info Petición Exitosa
+[2023-07-31T17:48:23.739Z] info Petición Exitosa
+[2023-07-31T17:51:15.389Z] info Petición Exitosa
+[2023-07-31T17:58:40.434Z] info Petición Exitosa
+[2023-07-31T17:59:02.493Z] info Petición Exitosa
+[2023-07-31T17:47:39.420Z] info Petición Exitosa
+[2023-07-31T17:48:23.739Z] info Petición Exitosa
+[2023-07-31T17:51:15.389Z] info Petición Exitosa
+[2023-07-31T17:58:40.434Z] info Petición Exitosa
+[2023-07-31T17:59:02.493Z] info Petición Exitosa
+[2023-07-31T18:37:29.401Z] info Petición Exitosa
+>>>>>>> 984d46f43710928e7e493c54a21553524e5fb088

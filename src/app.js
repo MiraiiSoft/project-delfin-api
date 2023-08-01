@@ -23,19 +23,36 @@ import direccionRouter from "./routes/direccion.routes.js";
 import tipoRouter from "./routes/tipo.routes.js";
 
 const corsOptions = {
-  exposedHeaders: ["token"],
-  origin: ["http://localhost:4200"],
+    exposedHeaders: ['token']
 };
 
 const app = express();
 
-app.set("port", process.env.PORT || 3000);
-app.set("view engine", "ejs");
-app.use(express.static("public"));
+app.set('port', process.env.PORT||3000);
+app.set('view engine', 'ejs');
+app.use(cors(corsOptions))
+app.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
+app.use(express.static('public'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(morgan("dev"));
-app.use(cors(corsOptions));
+app.use(express.urlencoded({extended:false}));
+app.use(morgan('dev'));
 
 app.use("/api/file", uploadRouter);
 app.use("/api/auth", authRouter);
