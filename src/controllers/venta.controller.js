@@ -8,6 +8,8 @@ import {
 } from "../DAO/venta.dao.js";
 import { CODES_HTTP } from "../constants/global.js";
 import loggerVenta from "../utils/logger/logger.venta.js";
+
+
 export const getAllVentas = async (req, res) => {
   try {
     loggerVenta.info({message: "Petición exitosa"})

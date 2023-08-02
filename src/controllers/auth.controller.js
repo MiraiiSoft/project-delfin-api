@@ -6,7 +6,7 @@ import { getRolByName } from "../DAO/roll.dao.js";
 import { hashPass, comparePass } from "../helpers/hashPass.js";
 import { generateToken, verifyToken } from "../helpers/JWT.js";
 import sendEmail from "../helpers/sendEmail.js";
-import { createCarrito } from "../DAO/carrito.dao.js";
+import { createCarrito, getcarritoByIdLogin } from "../DAO/carrito.dao.js";
 
 export const register = async ( req, res ) => {
     try {
@@ -123,10 +123,33 @@ export const login = async ( req, res ) => {
         })
     }
 
+    try {
+        const carrito = await getcarritoByIdLogin( dataUser.id_login );
+        if( !carrito ) return res.status(CODES_HTTP.NO_FOUND).json({
+            success: false,
+            message: "Sin carrito"
+        })
+
+        dataUser.id_carrito = carrito.id_carrito;
+
+    } catch (error) {
+        return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success: false,
+            message: 'A ocurido un error:' + error
+        })
+    }
+
+    
     const token = generateToken( dataUser.id_login, '1d' );
-
+    
     delete dataUser.password;
-
+    
+    if( req.hostname == process.env.HOSTNAME ){
+        if( dataUser.roll.roll == 'Usuario' ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
+            success: false,
+            message: 'Sin autorizacion'
+        })
+    }
     res.status(CODES_HTTP.OK).header('token', token).json({
         success: true,
         message: "Inicio de sesion correcto",

@@ -65,7 +65,7 @@ INSERT INTO inventario (id_producto, existencias, unidadesPaquete, numPaquete) V
 
 -- Insertar datos en la tabla PERSONA
 INSERT INTO persona (nombre, apellido, telefono, id_direccion) VALUES
-  ('Alan', 'Cruz', '555-1234', 1);
+  ('Alan', 'Cruz', '555-1234', 1),
   ('María', 'López', '555-5678', 2),
   ('Carlos', 'González', '555-9876', 3);
 
@@ -77,21 +77,21 @@ INSERT INTO roll (roll) VALUES
 
 -- Insertar datos en la tabla LOGIN
 INSERT INTO login (correo, usuario, password, id_persona, id_roll) VALUES
-  ('juan@example.com', 'juan123', 'password1', 17, 1);
+  ('juan@example.com', 'juan123', 'password1', 1, 1),
   ('maria@example.com', 'maria456', 'password2', 2, 2),
   ('carlos@example.com', 'carlos789', 'password3', 3, 3);
-
+SELECT * FROM LOGIN;
 -- Insertar datos en la tabla CARRITO
 INSERT INTO carrito (id_login) VALUES
-  (1),
   (2),
-  (3);
+  (3),
+  (4);
 
 -- Insertar datos en la tabla CARRITO_PRODUCTO
-INSERT INTO carrito_producto (id_carrito_producto, id_producto, id_carrito, cantidad_producto) VALUES
-  (6, 1, 1, 2),
-  (7, 2, 2, 1),
-  (8, 3, 3, 3);
+INSERT INTO carrito_producto (id_producto, id_carrito, cantidad_producto) VALUES
+  (1, 1, 2),
+  (2, 2, 1),
+  (3, 3, 3);
 
 -- Insertar datos en la tabla COUNTER
 INSERT INTO counter (id,seq_value) VALUES
@@ -99,9 +99,9 @@ INSERT INTO counter (id,seq_value) VALUES
 
 -- Insertar datos en la tabla DETALLE_VENTA
 INSERT INTO detalle_venta (cantidad_producto, monto_total, id_producto, id_carrito, id_login, num_factura, id_venta) VALUES
-  (4, 16.00, 1, 1, 8, 1001, 24),
-  (7, 15.00, 2, 1, 8, 1002, 24),
-  (9, 67.50, 3, 1, 8, 1003, 24);
+  (4, 16.00, 1, 1, 8, 1001, 1),
+  (7, 15.00, 2, 1, 8, 1002, 1),
+  (9, 67.50, 3, 1, 8, 1003, 1);
 
 -- Insertar datos en la tabla ENVIO
 INSERT INTO envio (id_login, fecha_envio, fecha_entrega, fecha_recoleccion, paqueteria, status_envio) VALUES
@@ -137,7 +137,9 @@ SELECT * FROM venta;
 
 insert into counter (id_counter,seq_value) VALUES ('compraid',1);
 
-select * from detalle_venta where id_login =1;
+select * from detalle_venta where id_login =8;
+
+SELECT * FROM venta;
 
 
 
