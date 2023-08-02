@@ -8,7 +8,7 @@ const router = Router();
 router.get( '/', getAllUser );
 router.get( '/perfil', [  authenticationJWT.tokenValidation ], getOneUser );
 router.post( '/add', [ validationUser.existUser, validationUser.existMail, cleanerRequest.createUser ], addUser );
-router.put( '/update/:userID', [ validationUser.noExistId, validationUser.existUserUpdate, validationUser.existMailUpdate, validationUser.correctDataUpdate,
+router.put( '/update/:userID', [ authenticationJWT.tokenValidation, validationUser.noExistId, validationUser.existUserUpdate, validationUser.existMailUpdate, validationUser.correctDataUpdate,
     cleanerRequest.updateUser ], updateUser );
 router.delete( '/delete/:userID', [ validationUser.noExistId ], deleteUser );
 

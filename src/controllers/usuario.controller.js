@@ -125,7 +125,7 @@ export const updateUser = async ( req, res ) => {
     try {
         const userLogin = await getLoginById( parseInt(userID) );
 
-        if( correo != userLogin.correo ){
+        if( correo && correo != userLogin.correo ){
             is_verified = false;
 
             //enviar email de confirmacion
@@ -138,7 +138,7 @@ export const updateUser = async ( req, res ) => {
             });
         }
 
-        if( await comparePass(password, userLogin.password) === false ){
+        if( password && await comparePass(password, userLogin.password) === false ){
             await updateLogin( parseInt(userID), {
                 correo,
                 usuario,
