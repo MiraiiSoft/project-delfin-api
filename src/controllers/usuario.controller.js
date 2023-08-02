@@ -5,6 +5,7 @@ import { createDirecciones } from "../DAO/direccion.dao.js";
 import sendEmail from "../helpers/sendEmail.js";
 import { hashPass, comparePass } from "../helpers/hashPass.js";
 import loggerUsuario from "../utils/logger/logger.usuario.js";
+import { createCarrito } from "../DAO/carrito.dao.js";
 
 export const getAllUser = async ( req, res ) => {
     try {
@@ -85,6 +86,11 @@ export const addUser = async ( req, res ) => {
             password: await hashPass(password),
             id_persona: persona.id_persona,
             id_roll: rol,
+        });
+
+        //crear carrito para la persona registrada
+        await createCarrito({
+            id_login: login.id_login
         });
 
         //enviar email de confirmacion
