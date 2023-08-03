@@ -224,3 +224,5 @@ Inconsistent query result: Field venta is required to return data, got `null` in
 [2023-08-01T15:33:52.762Z] info Error al mostrar Ventas: ReferenceError: id is not defined
 [2023-08-01T15:34:04.086Z] info Petición exitosa
 [2023-08-01T15:34:26.568Z] info Petición exitosa
+[2023-08-03T17:52:07.220Z] info Petición exitosa
+[2023-08-03T17:52:33.022Z] info Petición exitosa

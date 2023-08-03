@@ -25,6 +25,7 @@ export async function createDirecciones(data) {
       telefono: data.telefono,
       referencia: data.referencia,
       id_ciudad: data.id_ciudad,
+      municipio: data.municipio
     },
   });
   await prisma.$disconnect();
@@ -54,6 +55,7 @@ export async function updateDireccionById(id, data) {
       telefono: data.telefono,
       referencia: data.referencia,
       id_ciudad: data.id_ciudad,
+      municipio: data.municipio
     },
   });
   await prisma.$disconnect();

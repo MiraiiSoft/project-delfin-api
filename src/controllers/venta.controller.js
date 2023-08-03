@@ -71,7 +71,6 @@ export const addVenta = async (req, res) => {
   }
 };
 
-
 export const getOneVentaByLogin = async (req, res) => {
   try {
     const ventaID = parseInt(req.params.ventaID); // Convertir el valor a un número entero

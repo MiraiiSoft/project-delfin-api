@@ -19,7 +19,15 @@ export async function getLoginById(id) {
       id_login: id,
     },
     include: {
-      persona: true,
+      persona: {
+        include: {
+          direccion: {
+            include: {
+              ciudad: true
+            }
+          }
+        }
+      },
       roll: true
     }
   });

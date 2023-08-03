@@ -21,6 +21,7 @@ import adminRouter from "./routes/admin.routes.js";
 import ciudadRouter from "./routes/ciudad.routes.js";
 import direccionRouter from "./routes/direccion.routes.js";
 import tipoRouter from "./routes/tipo.routes.js";
+import municipioRouter from "./routes/municipio.routes.js";
 
 const corsOptions = {
     exposedHeaders: ['token']
@@ -72,5 +73,6 @@ app.use("/api/ciudad", ciudadRouter);
 app.use("/api/direccion", direccionRouter);
 app.use("/api/tipo", tipoRouter);
 app.use("/", adminRouter);
+app.use("/api/municipio", municipioRouter);
 
 export default app;
