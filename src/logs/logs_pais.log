@@ -29,3 +29,8 @@ Invalid `prisma.pais.findMany()` invocation:
 
 Error querying the database: Unknown authentication plugin `sha256_password'.
 [2023-07-31T21:51:46.552Z] info No se han encontrado paises
+[2023-08-03T15:42:27.839Z] info No se han encontrado paises
+[2023-08-03T16:50:43.337Z] info No se han encontrado paises
+[2023-08-03T16:52:52.226Z] info No se han encontrado paises
+[2023-08-03T16:54:07.964Z] info No se han encontrado paises
+[2023-08-03T16:54:56.249Z] info No se han encontrado paises
