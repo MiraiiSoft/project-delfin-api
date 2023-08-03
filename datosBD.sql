@@ -142,7 +142,7 @@ insert into counter (id_counter,seq_value) VALUES ('compraid',1);
 
 select * from detalle_venta where id_login =8;
 
-SELECT * FROM venta;
+UPDATE USER 
 
 
 

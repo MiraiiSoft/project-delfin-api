@@ -82,7 +82,6 @@ model detalle_venta {
 model direccion {
   id_direccion  Int       @id @default(autoincrement())
   codigo_postal String?   @db.VarChar(10)
-  municipio     String?   @db.VarChar(20)
   calle         String?   @db.VarChar(45)
   colonia       String?   @db.VarChar(45)
   num           String?   @db.VarChar(10)
