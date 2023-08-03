@@ -17,12 +17,15 @@ export const test = async ( req, res, next ) => {
     const { id_producto, id_carrito, cantidad_producto } = req.body
     const query = await getCarritoById(id_carrito)
     var stop = false
+
     if ( query ) {
         query.carrito_producto.forEach(carrito_producto => {
             if( carrito_producto.id_producto === id_producto ) {
+
                 carrito_producto.cantidad_producto += cantidad_producto
                 updateCarritoProductos( carrito_producto.id_carrito_producto, carrito_producto)
                     .catch( e => ( e.BAD_REQUEST ))
+
                 stop = true
             }
         });
@@ -31,7 +34,8 @@ export const test = async ( req, res, next ) => {
     if (stop)
         return res.status(CODES_HTTP.OK).json({
             success: true,
-            message: "Se han agregado los productos a carrito-producto con id=" +id_carrito+ " correctamente"
+            message: "Se han agregado los productos a carrito-producto con id=" +id_carrito+ " correctamente",
+            data: null
         })
     
     next()

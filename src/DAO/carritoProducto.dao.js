@@ -38,6 +38,7 @@ export async function updateCarritoProductos(id, data) {
       id_carrito_producto: id,
     },
     data: {
+      id_carrito_producto: data.id_carrito_producto,
       id_producto: data.id_producto,
       id_carrito: data.id_carrito,
       cantidad_producto: data.cantidad_producto,
