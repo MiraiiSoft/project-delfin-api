@@ -1,10 +1,33 @@
 import { CODES_HTTP } from "../constants/global.js"
-import { getMunicipios, getMunicipioById, createMunicipio, updateMunicipioById, deleteMunicipioById } from "../DAO/municipio.dao.js";
+import { getMunicipios, getMunicipioById, createMunicipio, updateMunicipioById, deleteMunicipioById, getMunicipiosByIdCiudad } from "../DAO/municipio.dao.js";
 
 export const getAllMunicipios = async(req,res)=>{
     try {
         const municipios =  await getMunicipios();
 
+        if( !municipios ) return res.status(CODES_HTTP.NO_FOUND).json({
+            success: false,
+            message: "No se han encontrado municipios"
+        });
+
+        res.status(CODES_HTTP.OK).json({
+            success: true,
+            data: municipios
+        });
+
+    } catch (error) {
+        return res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success: false,
+            message: "Error al obtener los municipios: " + error
+        });
+    }
+}
+
+export const getAllMunicipiosByCiudad = async( req, res ) => {
+    const { ciudadID } = req.params;
+    try {
+        const municipios =  await getMunicipiosByIdCiudad( parseInt(ciudadID) );
+        
         if( !municipios ) return res.status(CODES_HTTP.NO_FOUND).json({
             success: false,
             message: "No se han encontrado municipios"

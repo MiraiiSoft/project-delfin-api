@@ -1,6 +1,6 @@
 import { CODES_HTTP } from "../constants/global.js"
 import loggerCiudad from "../utils/logger/logger.ciudad.js"
-import {getCiudades, createCiudad, getCiudadById, updateCiudadById, deleteCiudadById} from '../DAO/ciudad.dao.js'
+import {getCiudades, createCiudad, getCiudadById, updateCiudadById, deleteCiudadById, getAllCiudadesByIdPais} from '../DAO/ciudad.dao.js'
 
 export const getAllCiudades = async(req,res)=>{
     try {
@@ -19,6 +19,26 @@ export const getAllCiudades = async(req,res)=>{
         });
     }
 }
+
+export const getCiudadesByIdPais = async ( req, res ) => {
+    const { paisID } = req.params;
+    try {
+        const ciudades = await getAllCiudadesByIdPais( parseInt(paisID) );
+        loggerCiudad.info({message: "Petición Exitosa"})
+        res.status(CODES_HTTP.OK).json({
+            success: true,
+            message: "Peticion Exitosa",
+            data: ciudades
+        });
+    } catch (error) {
+        loggerCiudad.info({message: "errpr al obetener la ciudad" + error})
+        res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success: false,
+            message: "Error al obtener la ciudad: " +error
+        });
+    }
+}
+
 export const getOneCiudad = async(req, res) =>{
     try {
         const oneCiudad = await getCiudadById(parseInt(req.params.ciudadID))

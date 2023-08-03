@@ -61,3 +61,13 @@ export async function deleteCiudadById(id) {
   await prisma.$disconnect();
   return ciudadDeleted;
 }
+
+export async function getAllCiudadesByIdPais(id) {
+  const ciudades = await prisma.ciudad.findMany({
+    where: {
+      id_pais: id
+    }
+  });
+  await prisma.$disconnect();
+  return ciudades;
+}
