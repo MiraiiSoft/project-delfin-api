@@ -136,5 +136,3 @@ required
     id_login
     num_factura
     id_venta
-
-a
