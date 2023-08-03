@@ -11,7 +11,8 @@ INSERT INTO pais (pais) VALUES
 INSERT INTO ciudad (ciudad, id_pais) VALUES
   ('Ciudad de México', 1),
   ('Nueva York', 2),
-  ('Toronto', 3);
+  ('Toronto', 3),
+  ('Puebla', 1);
 
 -- Insertar datos en la tabla DIRECCION
 INSERT INTO direccion (codigo_postal, calle, colonia, num, telefono, referencia, id_ciudad) VALUES
@@ -115,6 +116,9 @@ INSERT INTO venta (fecha_venta, status_venta, id_envio, id_pago) VALUES
   ('2023-07-01', 'Completada', 1, 1),
   ('2023-07-02', 'Completada', 2, 2),
   ('2023-07-03', 'Completada', 3, 3);
+
+INSERT INTO municipio (municipio, id_ciudad) VALUES
+  ( 'Huauchinando', 4 );
 
 SELECT * FROM venta;
 

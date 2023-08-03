@@ -7,10 +7,17 @@ import { createVenta } from "../DAO/venta.dao.js";
 import { createDetalleVenta } from "../DAO/detalleVenta.dao.js";
 import { getcarritoByIdLogin } from "../DAO/carrito.dao.js";
 import loggerPayment from "../utils/logger/logger.payment.js";
+import { discountProduct } from "../DAO/producto.dao.js";
+import { getVentaById } from "../DAO/venta.dao.js";
+import {
+  PAYPAL_API,
+  PAYPAL_API_CLIENT,
+  PAYPAL_API_SECRET,
+} from "../services/paypal.js";
+import axios from "axios";
 
 export const payment = async (req, res) => {
   const reqpayment = req.body;
-
   if (reqpayment.payservice == "mercadopago") {
     try {
       //Llenar entidades para generar venta
@@ -80,7 +87,8 @@ export const payment = async (req, res) => {
         message: "Algo va mal:" + error,
       });
     }
-  } else if (reqpayment.payservice == "paypal") {
+  }
+  if (reqpayment.payservice == "paypal") {
     try {
       //Llenar entidades para generar venta
 
@@ -126,21 +134,58 @@ export const payment = async (req, res) => {
         });
       }
 
+      let totalMXN = 0;
+      reqpayment.items.forEach((item) => {
+        totalMXN += item.unit_price * item.quantity;
+      });
+
+
       const order = {
         intent: "CAPTURE",
         purchase_units: [
           {
             amount: {
               currency_code: "MXN",
-              value: "100.00",
+              value: totalMXN,
             },
           },
         ],
-        aplication_context: {
-            brand_name
-        }
+        application_context: {
+          brand_name: "mycompany.com",
+          landing_page: "NO_PREFERENCE",
+          user_action: "PAY_NOW",
+          return_url: `${process.env.API_URL}/api/payment/capture-order?saleId=${venta.id_venta}`,
+          cancel_url: `${process.env.CLIENT_URL}/site/cart/3`,
+        },
       };
-    } catch (error) {}
+      const params = new URLSearchParams();
+      params.append("grant_type", "client_credentials");
+
+      const {
+        data: { access_token },
+      } = await axios.post(`${PAYPAL_API}/v1/oauth2/token`, params, {
+        auth: {
+          username: PAYPAL_API_CLIENT,
+          password: PAYPAL_API_SECRET,
+        },
+      });
+
+      const response = await axios.post(
+        `${PAYPAL_API}/v2/checkout/orders`,
+        order,
+        {
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+          },
+        }
+      );
+      return res.status(CODES_HTTP.OK).json({
+        success: true,
+        message: response.data,
+      });
+    } catch (error) {
+        console.log(error);
+    }
   }
 
   res.status(CODES_HTTP.BAD_REQUEST).json({
@@ -148,5 +193,33 @@ export const payment = async (req, res) => {
     message: "Servicio de pago no disponible",
   });
 };
+
+export const captureOrder = async (req, res) => {
+  const { token , saleId} = req.query;
+  const venta = await getVentaById(parseInt(saleId));
+  console.log(venta);
+//   for (const product of venta.products) {
+//     await discountProduct(product.id_producto)
+//   }
+
+  try {
+    const response = await axios.post(
+      `${PAYPAL_API}/v2/checkout/orders/${token}/capture`,
+      {},
+      {
+        auth: {
+          username: PAYPAL_API_CLIENT,
+          password: PAYPAL_API_SECRET,
+        },
+      }
+    );
+
+    res.redirect("http://localhost:4200/site/user/compras");
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500).json({ message: "Internal Server error" });
+  }
+};
+export const cancelOrder = (req, res) => res.send("cancelada");
 
 export const recivedWebHookMercadoPago = async (req, res) => {};

@@ -12,7 +12,7 @@ function sendEmail(email, title, body, generateToke = false) {
             pass: `${process.env.EMAIL_PASS}`
         }
     });
-
+    
     //generar url con token
     if (generateToke === true) {
         const token = generateToken(email, "1h");

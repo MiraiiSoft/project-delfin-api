@@ -113,3 +113,20 @@ export async function getProductoByNombre(nombre){
   await prisma.$disconnect();
   return productos;
 }
+
+export async function discountProduct(cantidad_producto,id){
+  await prisma.inventario.update({
+    data:{
+      existencias: await prisma.inventario.findFirst({
+        select:{
+          existencias:true
+        },where:{
+          id_producto:id
+        }
+      })-cantidad_producto
+    },
+    where:{
+      id_producto:id
+    }
+  })
+}

@@ -3,11 +3,11 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema `papelerialinea`
+-- Schema `papelerialineav2`
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `papelerialinea`;
-CREATE SCHEMA IF NOT EXISTS `papelerialinea` DEFAULT CHARACTER SET utf8;
-USE `papelerialinea`;
+DROP SCHEMA IF EXISTS `papelerialineav2`;
+CREATE SCHEMA IF NOT EXISTS `papelerialineav2` DEFAULT CHARACTER SET utf8;
+USE `papelerialineav2`;
 
 -- -----------------------------------------------------
 -- Table `papelerialinea`.`color`
@@ -95,12 +95,21 @@ CREATE TABLE ciudad (
   PRIMARY KEY (id_ciudad)
 );
 
+CREATE TABLE municipio (
+  id_municipio INT NOT NULL AUTO_INCREMENT,
+  municipio VARCHAR(45) NULL,
+  id_ciudad INT NOT NULL,
+  foreign key (id_ciudad) references ciudad (id_ciudad),
+  PRIMARY KEY (id_municipio)
+);
+
 -- -----------------------------------------------------
 -- Table `papelerialinea`.`direccion`
 -- -----------------------------------------------------
 CREATE TABLE direccion (
   id_direccion INT NOT NULL AUTO_INCREMENT,
   codigo_postal VARCHAR(10) NULL,
+  municipio varchar (20) null,
   calle VARCHAR(45) NULL,
   colonia VARCHAR(45) NULL,
   num VARCHAR(10) NULL,
@@ -238,8 +247,7 @@ CREATE TABLE carrito_producto (
   cantidad_producto INT NULL,
   PRIMARY KEY (id_carrito_producto),
   FOREIGN KEY (id_producto) REFERENCES producto (id_producto),
-  FOREIGN KEY (id_carrito) REFERENCES carrito (id_carrito),
-  PRIMAR key (id_carrito_producto)
+  FOREIGN KEY (id_carrito) REFERENCES carrito (id_carrito)
 );
 
 SET SQL_MODE=@OLD_SQL_MODE;
