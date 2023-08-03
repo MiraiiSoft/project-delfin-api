@@ -13,12 +13,6 @@ INSERT INTO ciudad (ciudad, id_pais) VALUES
   ('Nueva York', 2),
   ('Toronto', 3);
 
--- Insertar datos en la tabla DIRECCION
-INSERT INTO direccion (codigo_postal, calle, colonia, num, telefono, referencia, id_ciudad) VALUES
-  ('12345', 'Calle Principal', 'Centro', '123', '555-1234', 'Cerca del parque', 1),
-  ('67890', 'Avenida Central', 'Zona Norte', '456', '555-5678', 'Frente al centro comercial', 2),
-  ('54321', 'Calle Secundaria', 'Zona Sur', '789', '555-9876', 'Detrás del hospital', 3);
-
 -- Insertar datos en la tabla COLOR
 INSERT INTO color (color, hexa) VALUES
   ('Rojo', '#FF0000'),
@@ -58,17 +52,27 @@ INSERT INTO inventario (id_producto, existencias, unidadesPaquete, numPaquete) V
   (2, 50, 5, 10),
   (3, 80, 8, 5);
 
+-- Insertar datos en la tabla ROLL
+INSERT INTO roll (roll) VALUES
+  ('Admin'),
+  ('Usuario'),
+  ('Invitado');
+
+
+-- Insertar datos en la tabla DIRECCION
+INSERT INTO direccion (codigo_postal, calle, colonia, num, telefono, referencia, id_ciudad) VALUES
+  ('12345', 'Calle Principal', 'Centro', '123', '555-1234', 'Cerca del parque', 1),
+  ('67890', 'Avenida Central', 'Zona Norte', '456', '555-5678', 'Frente al centro comercial', 2),
+  ('54321', 'Calle Secundaria', 'Zona Sur', '789', '555-9876', 'Detrás del hospital', 3);
+
+
 -- Insertar datos en la tabla PERSONA
 INSERT INTO persona (nombre, apellido, telefono, id_direccion) VALUES
   ('Alan', 'Cruz', '555-1234', 1),
   ('María', 'López', '555-5678', 2),
   ('Carlos', 'González', '555-9876', 3);
 
--- Insertar datos en la tabla ROLL
-INSERT INTO roll (roll) VALUES
-  ('Admin'),
-  ('Usuario'),
-  ('Invitado');
+  
 
 -- Insertar datos en la tabla LOGIN
 INSERT INTO login (correo, usuario, password, id_persona, id_roll) VALUES
