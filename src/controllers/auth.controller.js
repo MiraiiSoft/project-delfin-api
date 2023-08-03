@@ -144,12 +144,12 @@ export const login = async ( req, res ) => {
     
     delete dataUser.password;
     
-    if( req.hostname == process.env.HOSTNAME ){
-        if( dataUser.roll.roll == 'Usuario' ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
-            success: false,
-            message: 'Sin autorizacion'
-        })
-    }
+    // if( req.hostname == process.env.HOSTNAME ){
+    //     if( dataUser.roll.roll == 'Usuario' ) return res.status(CODES_HTTP.UNAUTHORIZED).json({
+    //         success: false,
+    //         message: 'Sin autorizacion'
+    //     })
+    // }
     res.status(CODES_HTTP.OK).header('token', token).json({
         success: true,
         message: "Inicio de sesion correcto",
