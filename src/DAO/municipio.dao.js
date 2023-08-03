@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-export async function getAllMunicipios() {
+export async function getMunicipios() {
     const municipios = await prisma.municipio.findMany({
         include: {
             ciudad: {
@@ -20,6 +20,13 @@ export async function getMunicipioById(id) {
       where: {
         id_municipio: id,
       },
+      include: {
+        ciudad: {
+            include: {
+                pais: true
+            }
+        }
+    }
     });
     await prisma.$disconnect();
     return municipio;

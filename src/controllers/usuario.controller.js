@@ -11,12 +11,12 @@ export const getAllUser = async ( req, res ) => {
     try {
 
         const userLogins = await getLogins();
-        loggerUsuario.info({message: "Petición Exitosa"})
         if( !userLogins ) return res.status(CODES_HTTP.NO_FOUND).json({
             success: false,
             message: "No se han encontrado cuentas registradas"
         });
-    
+        
+        loggerUsuario.info({message: "Petición Exitosa"})
         res.status(CODES_HTTP.OK).json({
             success: true,
             data: userLogins
