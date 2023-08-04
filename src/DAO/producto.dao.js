@@ -114,19 +114,31 @@ export async function getProductoByNombre(nombre){
   return productos;
 }
 
-export async function discountProduct(cantidad_producto,id){
+export async function discountProduct(cantidad_producto, id_producto) {
+  const inventario = await prisma.inventario.findFirst({
+    select: {
+      existencias: true,
+      id_inventario:true
+    },
+    where: {
+      id_producto: id_producto, 
+    },
+  });
+
+  if (!inventario) {
+    throw new Error(`No se encontró inventario para el producto con ID ${id_producto}`);
+  }
+  
+  const nuevasExistencias = inventario.existencias - cantidad_producto;
+  const ainventario = inventario.id_inventario;
   await prisma.inventario.update({
-    data:{
-      existencias: await prisma.inventario.findFirst({
-        select:{
-          existencias:true
-        },where:{
-          id_producto:id
-        }
-      })-cantidad_producto
+    data: {
+      existencias: nuevasExistencias,
     },
     where:{
-      id_producto:id
+      id_inventario : ainventario
     }
-  })
+  });
 }
+
+

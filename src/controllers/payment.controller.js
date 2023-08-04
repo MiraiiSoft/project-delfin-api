@@ -2,13 +2,14 @@ import { createOrder } from "../services/mercadopago.js";
 import { CODES_HTTP } from "../constants/global.js";
 import getNextSeqValue from "../helpers/getNextSequenceValue.js";
 import { createEnvio } from "../DAO/envio.dao.js";
-import { createPago } from "../DAO/pago.dao.js";
-import { createVenta } from "../DAO/venta.dao.js";
+import { createPago, setToken } from "../DAO/pago.dao.js";
+import { createVenta, setStatus } from "../DAO/venta.dao.js";
 import { createDetalleVenta } from "../DAO/detalleVenta.dao.js";
 import { getcarritoByIdLogin } from "../DAO/carrito.dao.js";
 import loggerPayment from "../utils/logger/logger.payment.js";
 import { discountProduct } from "../DAO/producto.dao.js";
 import { getVentaById } from "../DAO/venta.dao.js";
+import { setMonto } from "../DAO/detalleVenta.dao.js";
 import {
   PAYPAL_API,
   PAYPAL_API_CLIENT,
@@ -113,14 +114,17 @@ export const payment = async (req, res) => {
 
       //crear venta
       const venta = await createVenta({
-        status_venta: "pendiente",
+        status_venta: "Creada",
         id_envio: envio.id_envio,
         id_pago: pago.id_pago,
       });
 
       //buscar carrito
       const carrito = await getcarritoByIdLogin(req.userLogin);
-
+      let totalMXN = 0;
+      reqpayment.items.forEach((item) => {
+        totalMXN += item.unit_price * item.quantity;
+      });
       //crear detalle de venta
       for (let product of reqpayment.products) {
         await createDetalleVenta({
@@ -134,12 +138,7 @@ export const payment = async (req, res) => {
         });
       }
 
-      let totalMXN = 0;
-      reqpayment.items.forEach((item) => {
-        totalMXN += item.unit_price * item.quantity;
-      });
-
-
+      
       const order = {
         intent: "CAPTURE",
         purchase_units: [
@@ -184,7 +183,7 @@ export const payment = async (req, res) => {
         message: response.data,
       });
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
   }
 
@@ -195,12 +194,15 @@ export const payment = async (req, res) => {
 };
 
 export const captureOrder = async (req, res) => {
-  const { token , saleId} = req.query;
+  const { token, saleId } = req.query;
   const venta = await getVentaById(parseInt(saleId));
-  console.log(venta);
-//   for (const product of venta.products) {
-//     await discountProduct(product.id_producto)
-//   }
+
+  for (const producto of venta[0].producto) {
+    await discountProduct(producto.cantidad_producto, producto.id_producto);
+  }
+  
+
+  
 
   try {
     const response = await axios.post(
@@ -212,9 +214,11 @@ export const captureOrder = async (req, res) => {
           password: PAYPAL_API_SECRET,
         },
       }
-    );
-
-    res.redirect("http://localhost:4200/site/user/compras");
+    ); 
+    await setToken(parseInt(saleId),response.data.links[0].href)
+    await setStatus(parseInt(saleId))
+    console.log(process.env.CLIENT_URL);
+    res.redirect(`${process.env.CLIENT_URL}/site/user/compras`);
   } catch (error) {
     console.log(error.message);
     return res.status(500).json({ message: "Internal Server error" });
