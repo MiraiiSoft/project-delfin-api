@@ -74,7 +74,7 @@ export const addVenta = async (req, res) => {
 
 export const getOneVentaByLogin = async (req, res) => {
   try {
-    console.log(req.userLogin)
+    
     const venta = await getVentaByIdLogin(parseInt(req.userLogin));
     loggerVenta.info({message: "Venta Mostrada"})
     res.status(CODES_HTTP.OK).json({
