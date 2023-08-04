@@ -5,7 +5,7 @@ import { cleanerRequest, validationCarrito, validationCarritoProducto, authentic
 const router = Router();
 
 router.get( '/', getAllCarritos );
-router.get('/:cartID', [ validationCarrito.noExistId ] , getOneCarrito);
+router.get('/:cartID', [ authenticationJWT.tokenValidation, validationCarrito.noExistId ] , getOneCarrito);
 router.get( '/user/login', [ authenticationJWT.tokenValidation ], getOneCarritoByUser );
 router.post( '/add', [ validationCarrito.existName, cleanerRequest.carrito ] , addCarrito );
 router.delete( '/delete/:cartID', [ validationCarrito.noExistId ] , deleteCarrito );

@@ -1,4 +1,0 @@
-[2023-08-04T04:12:44.176Z] info Error al crear orden mercado pago:MercadoPagoError: mlauth: invalid token
-[2023-08-04T05:04:53.966Z] info Error al crear orden mercado pago:Error: Error al generar numero factura
-[2023-08-04T05:04:57.515Z] info Error al crear orden mercado pago:Error: Error al generar numero factura
-[2023-08-04T05:05:01.306Z] info Error al crear orden mercado pago:Error: Error al generar numero factura
