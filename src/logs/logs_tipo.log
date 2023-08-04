@@ -1,0 +1,117 @@
+<<<<<<< HEAD
+=======
+[2023-07-19T17:17:04.637Z] info Error al obetener Tipos: PrismaClientInitializationError: 
+Invalid `prisma.tipo.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.78`:`3306`
+
+Please make sure your database server is running at `192.168.4.78`:`3306`.
+[2023-07-19T17:17:23.788Z] info Error al obetener Tipos: PrismaClientInitializationError: 
+Invalid `prisma.tipo.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.78`:`3306`
+
+Please make sure your database server is running at `192.168.4.78`:`3306`.
+[2023-07-19T17:18:12.046Z] info Error al obetener Tipos: PrismaClientInitializationError: 
+Invalid `prisma.tipo.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.78`:`3306`
+
+Please make sure your database server is running at `192.168.4.78`:`3306`.
+[2023-07-19T17:23:28.011Z] info Error al obetener Tipos: PrismaClientInitializationError: 
+Invalid `prisma.tipo.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.78`:`3306`
+
+Please make sure your database server is running at `192.168.4.78`:`3306`.
+[2023-07-19T17:23:35.816Z] info Error al Obtener el Tipo: PrismaClientInitializationError: 
+Invalid `prisma.tipo.findUnique()` invocation:
+
+
+Can't reach database server at `192.168.4.78`:`3306`
+
+Please make sure your database server is running at `192.168.4.78`:`3306`.
+[2023-07-19T17:28:07.838Z] info Petición Exitosa
+[2023-07-19T17:28:24.889Z] info Petición Exitosa
+[2023-07-19T17:29:15.264Z] info El tipo se agrego con exito
+[2023-07-19T17:31:05.846Z] info El tipo fue Actualizado con exito
+[2023-07-19T17:31:30.877Z] info Error al eliminar tipo: Error: 
+Invalid `prisma.tipo.delete()` invocation:
+
+{
+  where: {
+    id_tipo: NaN
+             ~~~
+  }
+}
+
+Argument id_tipo: Got invalid value NaN on prisma.deleteOnetipo. Provided Float, expected Int.
+
+
+[2023-07-19T17:32:02.850Z] info Petición Exitosa
+[2023-07-19T17:32:43.698Z] info Error al eliminar tipo: Error: 
+Invalid `prisma.tipo.delete()` invocation:
+
+{
+  where: {
+    id_tipo: NaN
+             ~~~
+  }
+}
+
+Argument id_tipo: Got invalid value NaN on prisma.deleteOnetipo. Provided Float, expected Int.
+
+
+[2023-07-19T17:34:34.842Z] info Error al eliminar tipo: Error: 
+Invalid `prisma.tipo.delete()` invocation:
+
+{
+  where: {
+    id_tipo: NaN
+             ~~~
+  }
+}
+
+Argument id_tipo: Got invalid value NaN on prisma.deleteOnetipo. Provided Float, expected Int.
+
+
+[2023-07-19T17:37:00.859Z] info Tipo eliminado con exito
+[2023-07-19T17:37:22.773Z] info El tipo se agrego con exito
+[2023-07-19T17:37:32.812Z] info Error al eliminar tipo: PrismaClientKnownRequestError: 
+Invalid `prisma.tipo.delete()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+[2023-07-19T17:37:42.801Z] info Petición Exitosa
+[2023-07-19T17:39:00.324Z] info El tipo fue Actualizado con exito
+[2023-07-19T17:39:07.529Z] info Petición Exitosa
+[2023-07-19T17:39:34.499Z] info El tipo fue Actualizado con exito
+[2023-07-19T17:39:42.976Z] info Petición Exitosa
+<<<<<<< HEAD
+[2023-07-20T14:53:52.513Z] info Petición Exitosa
+=======
+[2023-07-20T15:12:31.587Z] info Petición Exitosa
+[2023-07-20T15:14:27.503Z] info Petición Exitosa
+>>>>>>> 34688428f96fc305deb94c8ef15ce85641b145d4
+[2023-07-25T14:24:17.087Z] info Petición Exitosa
+[2023-07-25T14:24:19.290Z] info Petición Exitosa
+[2023-07-25T14:51:43.402Z] info Error al obetener Tipos: PrismaClientInitializationError: 
+Invalid `prisma.tipo.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.78`:`3306`
+
+Please make sure your database server is running at `192.168.4.78`:`3306`.
+[2023-07-25T14:51:54.739Z] info Petición Exitosa
+[2023-07-25T14:51:56.691Z] info Petición Exitosa
+[2023-07-25T14:55:46.001Z] info El tipo se agrego con exito
+[2023-08-02T15:37:27.889Z] info Petición Exitosa
+[2023-08-02T15:37:50.644Z] info El tipo fue Actualizado con exito
+[2023-08-02T15:38:01.875Z] info El tipo fue Actualizado con exito
+[2023-08-02T15:38:14.414Z] info El tipo fue Actualizado con exito
+[2023-08-02T15:38:59.310Z] info Petición Exitosa
+>>>>>>> 28ab7f31d763a29227e8f4542f29d6859f81ae3f
