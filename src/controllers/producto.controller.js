@@ -1,6 +1,6 @@
 import { parse } from "dotenv";
 import { CODES_HTTP } from "../constants/global.js"
-import { createProducto, deleteProductoById, getProductoById, getProductos, updateProductoById, getProductoByNombre, getProductoByCategoria, getProductoByColor } from "../DAO/producto.dao.js"
+import { createProducto, deleteProductoById, getProductoById, getProductos, updateProductoById, getProductoByNombre, getProductoByCategoria, getProductoByColor, getMarcasDeProductos, getProductoByMarca } from "../DAO/producto.dao.js"
 import loggerProducto from "../utils/logger/logger.producto.js";
 
 export const getAllProducts = async ( req, res ) => {
@@ -126,10 +126,10 @@ export const deleteProducts = async ( req, res ) => {
 export const getProductosCategorias = async (req, res) => {
     try {
         const productosCategorias = await getProductoByCategoria(parseInt(req.params.categoriaProductoID));
-        console.log("Los productos fueron obtenidos exitosamente con esa categoría");
+        console.log("Productos que han sido adquiridos bajo esta categoria");
         res.status(CODES_HTTP.OK).json({
             success: true,
-            message: 'Los productos fueron obtenidos exitosamente con esa categoría',
+            message: 'Productos que han sido adquiridos bajo esta categoria',
             data: productosCategorias
         });
     } catch (error) {
@@ -144,10 +144,10 @@ export const getProductosCategorias = async (req, res) => {
 export const getProductosColores = async (req, res) => {
     try {
         const productosColores = await getProductoByColor(parseInt(req.params.colorProductoID));
-        console.log("Los productos fueron obtenidos exitosamente con ese color");
+        console.log("Productos que han sido adquiridos bajo este color");
         res.status(CODES_HTTP.OK).json({
             success: true,
-            message: 'Los productos fueron obtenidos exitosamente con ese color',
+            message: 'Productos que han sido adquiridos bajo este color',
             data: productosColores
         });
     } catch (error) {
@@ -158,3 +158,39 @@ export const getProductosColores = async (req, res) => {
         });
     }
 };
+
+export const getAllMarcasProductos = async (req, res) => {
+    try {
+        const marcas = await getMarcasDeProductos();
+        console.log("Las marcas fueron obtenidas exitosamente");
+        res.status(CODES_HTTP.OK).json({
+            success: true,
+            message: 'Las marcas fueron obtenidas exitosamente',
+            data: marcas
+        });
+    } catch (error) {
+        console.log("Error al tratar de obtener las marcas ", error)
+        res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success:false,
+            message:"Error al tratar de obtener las marcas "+ error
+        });
+    }
+}
+
+export const getProductosPorMarcas = async (req, res) => {
+    try {
+        const marcasProductos = await getProductoByMarca(req.params.marcaProducto);
+        console.log("Productos que han sido adquiridos bajo esta marca");
+        res.status(CODES_HTTP.OK).json({
+            success: true,
+            message: 'Productos que han sido adquiridos bajo esta marca',
+            data: marcasProductos
+        });
+    } catch (error) {
+        console.log("Error al tratar de obtener los productos bajo esa marca ", error)
+        res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success:false,
+            message:"Error al tratar de obtener los productos bajo esa marca "+ error
+        });
+    }
+}
