@@ -57,6 +57,10 @@ export const renderVentaCard = async (req, res) => {
   res.render("../src/views/cards/ventaCard.ejs", { venta: ventaObjeto });
 };
 
+export const renderDashbBoars = async (req,res) => {
+  res.render("../src/views/dashboard.ejs");
+}
+
 export const renderProductForm = async (req,res) => {
   const colores = await getColores();
   const categorias = await getCategorias();
