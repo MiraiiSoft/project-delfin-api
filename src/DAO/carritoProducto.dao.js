@@ -10,7 +10,7 @@ export async function getCarritoProductos() {
 export async function getCarritoProductosById(id) {
   const carritoProductoById = await prisma.carrito_producto.findUnique({
     include: {
-      producto: true
+      producto: true,
     },
     where: {
       id_carrito_producto: id,
@@ -25,7 +25,7 @@ export async function createCarritoProductos(data) {
     data: {
       id_producto: data.id_producto,
       id_carrito: data.id_carrito,
-      cantidad_producto: data.cantidad_producto
+      cantidad_producto: data.cantidad_producto,
     },
   });
   await prisma.$disconnect();
@@ -52,6 +52,32 @@ export async function deleteCarritoProductosById(id) {
   const deleteCarritoProdcuto = await prisma.carrito_producto.delete({
     where: {
       id_carrito_producto: id,
+    },
+  });
+  await prisma.$disconnect();
+  return deleteCarritoProdcuto;
+}
+
+export async function deleteCarritoProductosByIdAfterVenta(id_venta) {
+  const carrito = await prisma.detalle_venta.findFirst({
+    select: {
+      id_carrito: true,
+    },
+    where: {
+      id_venta: id_venta,
+    },
+  });
+  const carritoProducto = await prisma.carrito_producto.findFirst({
+    select: {
+      id_carrito_producto: true,
+    },
+    where: {
+      id_carrito: carrito.id_carrito,
+    },
+  });
+  const deleteCarritoProdcuto = await prisma.carrito_producto.delete({
+    where: {
+      id_carrito_producto: carritoProducto.id_carrito_producto,
     },
   });
   await prisma.$disconnect();

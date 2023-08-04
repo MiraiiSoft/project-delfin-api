@@ -16,6 +16,7 @@ import {
   PAYPAL_API_SECRET,
 } from "../services/paypal.js";
 import axios from "axios";
+import { deleteCarritoProductosByIdAfterVenta } from "../DAO/carritoProducto.dao.js";
 
 export const payment = async (req, res) => {
   const reqpayment = req.body;
@@ -183,9 +184,17 @@ export const payment = async (req, res) => {
           },
         }
       );
+
+
+      const dataResponse = {
+        payUrl: response.data.links[1].href,
+        data: response.data
+      };
+
+
       return res.status(CODES_HTTP.OK).json({
         success: true,
-        message: response.data,
+        data:dataResponse,
       });
     } catch (error) {
       console.log(error);
@@ -205,10 +214,7 @@ export const captureOrder = async (req, res) => {
   for (const producto of venta[0].producto) {
     await discountProduct(producto.cantidad_producto, producto.id_producto);
   }
-  
-
-  
-
+  await deleteCarritoProductosByIdAfterVenta(parseInt(saleId))
   try {
     const response = await axios.post(
       `${PAYPAL_API}/v2/checkout/orders/${token}/capture`,
@@ -222,7 +228,6 @@ export const captureOrder = async (req, res) => {
     ); 
     await setToken(parseInt(saleId),response.data.links[0].href)
     await setStatus(parseInt(saleId))
-    console.log(process.env.CLIENT_URL);
     res.redirect(`${process.env.CLIENT_URL}/site/user/compras`);
   } catch (error) {
     console.log(error.message);
