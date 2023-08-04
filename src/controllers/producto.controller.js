@@ -1,4 +1,3 @@
-import { parse } from "dotenv";
 import { CODES_HTTP } from "../constants/global.js"
 import { createProducto, deleteProductoById, getProductoById, getProductos, updateProductoById, getProductoByNombre, getProductoByCategoria, getProductoByColor } from "../DAO/producto.dao.js"
 import loggerProducto from "../utils/logger/logger.producto.js";

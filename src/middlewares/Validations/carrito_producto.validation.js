@@ -1,6 +1,7 @@
 import { getCarritoById } from "../../DAO/carrito.dao.js";
 import { getCarritoProductosById, updateCarritoProductos } from "../../DAO/carritoProducto.dao.js";
 import { CODES_HTTP } from "../../constants/global.js";
+import loggerCarrito from "../../utils/logger/logger.carrito.js";
 
 export const noExistId = async ( req, res, next ) => {
     const id = parseInt(req.params.cartID)
@@ -31,12 +32,14 @@ export const test = async ( req, res, next ) => {
         });
     }
 
-    if (existProduct)
+    if (existProduct) {
+        console.log('Se actualizaron los productos correctamente:')
         return res.status(CODES_HTTP.OK).json({
             success: true,
             message: "Se han agregado los productos a carrito-producto con id=" +id_carrito+ " correctamente",
             data: null
         })
-    
+    }
+
     next()
 }

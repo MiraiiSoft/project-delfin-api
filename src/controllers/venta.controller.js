@@ -71,7 +71,6 @@ export const addVenta = async (req, res) => {
   }
 };
 
-
 export const getOneVentaByLogin = async (req, res) => {
   try {
     
