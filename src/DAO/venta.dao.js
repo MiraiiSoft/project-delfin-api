@@ -97,13 +97,8 @@ export const getVentaByIdLogin = async (id) => {
       carrito: true,
     },
     where: {
-<<<<<<< HEAD
-      id_login: id,
-    },
-=======
       id_login: id
     }
->>>>>>> 139523cf8fcdc8c3715763613e555dad97f0fe95
   });
 
   const groupedVentas = detallesVentas.reduce((result, detalle) => {

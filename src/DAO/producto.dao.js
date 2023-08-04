@@ -114,23 +114,6 @@ export async function getProductoByNombre(nombre){
   return productos;
 }
 
-export async function discountProduct(cantidad_producto,id) {
-  await prisma.inventario.update({
-    data:{
-      existencias: await prisma.inventario.findFirst({
-        select:{
-          existencias:true
-        },where:{
-          id_producto:id
-        }
-      })-cantidad_producto
-    },
-    where:{
-      id_producto:id
-    }
-  })
-}
-
 export async function getProductoByCategoria(categoriaId){
   const productos = await prisma.producto.findMany({
     include:{
