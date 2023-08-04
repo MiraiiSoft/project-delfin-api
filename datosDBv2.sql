@@ -1,6 +1,6 @@
 -- Active: 1688701670449@@127.0.0.1@3306@papelerialinea
 -- Insertar datos en la tabla PAIS
-use papelerialinea;
+use papelerialineav2;
 SELECT * FROM venta;
 INSERT INTO pais (pais) VALUES
   ('México'),
@@ -13,6 +13,12 @@ INSERT INTO ciudad (ciudad, id_pais) VALUES
   ('Nueva York', 2),
   ('Toronto', 3),
   ('Puebla', 1);
+
+-- Insertar datos en la tabla DIRECCION
+INSERT INTO direccion (codigo_postal, calle, colonia, num, telefono, referencia, id_ciudad) VALUES
+  ('12345', 'Calle Principal', 'Centro', '123', '555-1234', 'Cerca del parque', 1),
+  ('67890', 'Avenida Central', 'Zona Norte', '456', '555-5678', 'Frente al centro comercial', 2),
+  ('54321', 'Calle Secundaria', 'Zona Sur', '789', '555-9876', 'Detrás del hospital', 3);
 
 -- Insertar datos en la tabla COLOR
 INSERT INTO color (color, hexa) VALUES
@@ -38,10 +44,6 @@ INSERT INTO producto (codigo_barras, nombre, marca, descripcion, imagen, compra,
   "https://www.officedepot.com.mx/medias/100084580.jpg-1200ftw?context=bWFzdGVyfHJvb3R8NDQxMjUyfGltYWdlL2pwZWd8aGUwL2hhMS8xMDgyMDQ5ODI1OTk5OC8xMDAwODQ1ODAuanBnXzEyMDBmdHd8N2IyZWFiODBmODFiZWM3OTM3OTY2NWE4YWE2MjY2MjRmODg5NDU4YmViZTY0MjkzZjFlMWI4ZTcyMzY5NjI1YQ",
   "https://m.media-amazon.com/images/I/51WFiZC1+VS._AC_SX679_.jpg"
 ]}', 5.00, 8.00, 6.50, 5.00, 10, 20, 2, 1, 1),
-('1234567890', 'Bolígrafo Azul', 'Marca A', 'Bolígrafo de tinta azul', '{"url": [
-  "https://www.officedepot.com.mx/medias/100084580.jpg-1200ftw?context=bWFzdGVyfHJvb3R8NDQxMjUyfGltYWdlL2pwZWd8aGUwL2hhMS8xMDgyMDQ5ODI1OTk5OC8xMDAwODQ1ODAuanBnXzEyMDBmdHd8N2IyZWFiODBmODFiZWM3OTM3OTY2NWE4YWE2MjY2MjRmODg5NDU4YmViZTY0MjkzZjFlMWI4ZTcyMzY5NjI1YQ",
-  "https://m.media-amazon.com/images/I/51WFiZC1+VS._AC_SX679_.jpg"
-]}', 5.00, 8.00, 6.50, 5.00, 10, 20, 2, 1, 1),
   ('9876543210', 'Libreta Grande', 'Marca B', 'Libreta de tapa dura', '{"url": [
   "https://www.officedepot.com.mx/medias/100084580.jpg-1200ftw?context=bWFzdGVyfHJvb3R8NDQxMjUyfGltYWdlL2pwZWd8aGUwL2hhMS8xMDgyMDQ5ODI1OTk5OC8xMDAwODQ1ODAuanBnXzEyMDBmdHd8N2IyZWFiODBmODFiZWM3OTM3OTY2NWE4YWE2MjY2MjRmODg5NDU4YmViZTY0MjkzZjFlMWI4ZTcyMzY5NjI1YQ",
   "https://m.media-amazon.com/images/I/51WFiZC1+VS._AC_SX679_.jpg"
@@ -51,26 +53,11 @@ INSERT INTO producto (codigo_barras, nombre, marca, descripcion, imagen, compra,
   "https://m.media-amazon.com/images/I/51WFiZC1+VS._AC_SX679_.jpg"
 ]}', 20.00, 25.00, 22.50, 20.00, 30, 40, 3, 3, 3);
 
-
 -- Insertar datos en la tabla INVENTARIO
 INSERT INTO inventario (id_producto, existencias, unidadesPaquete, numPaquete) VALUES
   (1, 100, 10, 5),
   (2, 50, 5, 10),
   (3, 80, 8, 5);
-
--- Insertar datos en la tabla ROLL
-INSERT INTO roll (roll) VALUES
-  ('Admin'),
-  ('Usuario'),
-  ('Invitado');
-
-
--- Insertar datos en la tabla DIRECCION
-INSERT INTO direccion (codigo_postal, calle, colonia, num, telefono, referencia, id_ciudad) VALUES
-  ('12345', 'Calle Principal', 'Centro', '123', '555-1234', 'Cerca del parque', 1),
-  ('67890', 'Avenida Central', 'Zona Norte', '456', '555-5678', 'Frente al centro comercial', 2),
-  ('54321', 'Calle Secundaria', 'Zona Sur', '789', '555-9876', 'Detrás del hospital', 3);
-
 
 -- Insertar datos en la tabla PERSONA
 INSERT INTO persona (nombre, apellido, telefono, id_direccion) VALUES
@@ -78,14 +65,18 @@ INSERT INTO persona (nombre, apellido, telefono, id_direccion) VALUES
   ('María', 'López', '555-5678', 2),
   ('Carlos', 'González', '555-9876', 3);
 
-  
+-- Insertar datos en la tabla ROLL
+INSERT INTO roll (roll) VALUES
+  ('Admin'),
+  ('Usuario'),
+  ('Invitado');
 
 -- Insertar datos en la tabla LOGIN
 INSERT INTO login (correo, usuario, password, id_persona, id_roll) VALUES
   ('juan@example.com', 'juan123', 'password1', 1, 1),
   ('maria@example.com', 'maria456', 'password2', 2, 2),
   ('carlos@example.com', 'carlos789', 'password3', 3, 3);
-SELECT * FROM LOGIN;
+
 -- Insertar datos en la tabla CARRITO
 INSERT INTO carrito (id_login) VALUES
   (2),
@@ -94,19 +85,13 @@ INSERT INTO carrito (id_login) VALUES
 
 -- Insertar datos en la tabla CARRITO_PRODUCTO
 INSERT INTO carrito_producto (id_producto, id_carrito, cantidad_producto) VALUES
-  (1, 1, 2),
-  (2, 2, 1),
-  (3, 3, 3);
+  (1, 4, 2),
+  (2, 5, 1),
+  (3, 6, 3);
 
 -- Insertar datos en la tabla COUNTER
-INSERT INTO counter (id,seq_value) VALUES
+INSERT INTO counter (id_counter,seq_value) VALUES
   ('compraid',1);
-
--- Insertar datos en la tabla DETALLE_VENTA
-INSERT INTO detalle_venta (cantidad_producto, monto_total, id_producto, id_carrito, id_login, num_factura, id_venta) VALUES
-  (4, 16.00, 1, 1, 8, 1001, 1),
-  (7, 15.00, 2, 1, 8, 1002, 1),
-  (9, 67.50, 3, 1, 8, 1003, 1);
 
 -- Insertar datos en la tabla ENVIO
 INSERT INTO envio (id_login, fecha_envio, fecha_entrega, fecha_recoleccion, paqueteria, status_envio) VALUES
@@ -125,6 +110,14 @@ INSERT INTO venta (fecha_venta, status_venta, id_envio, id_pago) VALUES
   ('2023-07-01', 'Completada', 1, 1),
   ('2023-07-02', 'Completada', 2, 2),
   ('2023-07-03', 'Completada', 3, 3);
+
+-- Insertar datos en la tabla DETALLE_VENTA
+INSERT INTO detalle_venta (cantidad_producto, monto_total, id_producto, id_carrito, id_login, num_factura, id_venta) VALUES
+  (4, 16.00, 1, 4, 4, 1001, 4),
+  (7, 15.00, 2, 4, 4, 1002, 4),
+  (9, 67.50, 3, 4, 4, 1003, 4);
+
+
 
 INSERT INTO municipio (municipio, id_ciudad) VALUES
   ( 'Huauchinando', 4 );
@@ -147,7 +140,7 @@ insert into counter (id_counter,seq_value) VALUES ('compraid',1);
 
 select * from detalle_venta where id_login =8;
 
-UPDATE USER 
+SELECT * FROM venta;
 
 
 
