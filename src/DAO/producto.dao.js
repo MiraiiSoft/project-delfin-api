@@ -113,3 +113,33 @@ export async function getProductoByNombre(nombre){
   await prisma.$disconnect();
   return productos;
 }
+
+export async function getProductoByCategoria(categoriaId){
+  const productos = await prisma.producto.findMany({
+    include:{
+      color: true,
+      tipo: true,
+      categoria:true
+    },
+    where: {
+      id_categoria: categoriaId
+    },
+  });
+  await prisma.$disconnect();
+  return productos;
+}
+
+export async function getProductoByColor(colorId){
+  const productos = await prisma.producto.findMany({
+    include:{
+      color: true,
+      tipo: true,
+      categoria:true
+    },
+    where: {
+      id_color: colorId
+    },
+  });
+  await prisma.$disconnect();
+  return productos;
+}

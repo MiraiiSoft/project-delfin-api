@@ -1,6 +1,6 @@
 import { parse } from "dotenv";
 import { CODES_HTTP } from "../constants/global.js"
-import { createProducto, deleteProductoById, getProductoById, getProductos, updateProductoById, getProductoByNombre } from "../DAO/producto.dao.js"
+import { createProducto, deleteProductoById, getProductoById, getProductos, updateProductoById, getProductoByNombre, getProductoByCategoria, getProductoByColor } from "../DAO/producto.dao.js"
 import loggerProducto from "../utils/logger/logger.producto.js";
 
 export const getAllProducts = async ( req, res ) => {
@@ -122,3 +122,39 @@ export const deleteProducts = async ( req, res ) => {
         });
     }
 }
+
+export const getProductosCategorias = async (req, res) => {
+    try {
+        const productosCategorias = await getProductoByCategoria(parseInt(req.params.categoriaProductoID));
+        console.log("Los productos fueron obtenidos exitosamente con esa categoría");
+        res.status(CODES_HTTP.OK).json({
+            success: true,
+            message: 'Los productos fueron obtenidos exitosamente con esa categoría',
+            data: productosCategorias
+        });
+    } catch (error) {
+        console.log("Error al tratar de obtener productos con esa categoria ", error)
+        res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success:false,
+            message:"Error al tratar de obtener productos con esa categoria "+ error
+        });
+    }
+};
+
+export const getProductosColores = async (req, res) => {
+    try {
+        const productosColores = await getProductoByColor(parseInt(req.params.colorProductoID));
+        console.log("Los productos fueron obtenidos exitosamente con ese color");
+        res.status(CODES_HTTP.OK).json({
+            success: true,
+            message: 'Los productos fueron obtenidos exitosamente con ese color',
+            data: productosColores
+        });
+    } catch (error) {
+        console.log("Error al tratar de obtener productos con ese color ", error)
+        res.status(CODES_HTTP.INTERNAL_SERVER_ERROR).json({
+            success:false,
+            message:"Error al tratar de obtener productos con ese color "+ error
+        });
+    }
+};

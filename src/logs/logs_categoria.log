@@ -188,3 +188,664 @@
 [2023-08-02T15:04:16.339Z] info Petición exitosa
 [2023-08-02T15:04:28.205Z] info Petición exitosa
 [2023-08-02T15:05:06.473Z] info Petición exitosa
+[2023-08-02T15:14:31.058Z] info Error al obtener las categorias: PrismaClientInitializationError: 
+Invalid `prisma.categoria.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.78`:`3306`
+
+Please make sure your database server is running at `192.168.4.78`:`3306`.
+[2023-08-02T15:15:07.280Z] info Petición exitosa
+[2023-08-02T15:26:26.326Z] info Petición exitosa
+[2023-08-02T15:29:46.995Z] info Error al obtener las categorias: PrismaClientInitializationError: 
+Invalid `prisma.categoria.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.66`:`3306`
+
+Please make sure your database server is running at `192.168.4.66`:`3306`.
+[2023-08-02T15:30:01.207Z] info Error al obtener las categorias: PrismaClientInitializationError: 
+Invalid `prisma.categoria.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.66`:`3306`
+
+Please make sure your database server is running at `192.168.4.66`:`3306`.
+[2023-08-02T15:30:38.044Z] info Petición exitosa
+[2023-08-02T15:30:43.103Z] info Petición exitosa
+[2023-08-02T15:31:58.514Z] info Petición exitosa
+[2023-08-02T15:34:16.370Z] info La categoria ha sido actualizada
+[2023-08-02T15:34:27.615Z] info La categoria ha sido actualizada
+[2023-08-02T15:34:38.435Z] info La categoria ha sido actualizada
+[2023-08-02T15:34:57.586Z] info La categoria ha sido creada
+[2023-08-02T15:35:03.891Z] info La categoria ha sido creada
+[2023-08-02T15:35:16.340Z] info La categoria ha sido creada
+[2023-08-02T15:35:21.372Z] info Petición exitosa
+[2023-08-02T16:52:08.666Z] info Petición exitosa
+[2023-08-02T16:52:28.769Z] info La categoria ha sido creada
+[2023-08-02T16:52:35.554Z] info Petición exitosa
+[2023-08-02T17:00:35.586Z] info Petición exitosa
+[2023-08-02T17:02:04.952Z] info Petición exitosa
+[2023-08-02T17:02:11.469Z] info Petición exitosa
+[2023-08-02T17:04:03.585Z] info Error al obtener las categorias: PrismaClientInitializationError: 
+Invalid `prisma.categoria.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.66`:`3306`
+
+Please make sure your database server is running at `192.168.4.66`:`3306`.
+[2023-08-02T17:04:40.333Z] info Error al obtener las categorias: PrismaClientInitializationError: 
+Invalid `prisma.categoria.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.66`:`3306`
+
+Please make sure your database server is running at `192.168.4.66`:`3306`.
+[2023-08-02T17:04:40.338Z] info Error al obtener las categorias: PrismaClientInitializationError: 
+Invalid `prisma.categoria.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.66`:`3306`
+
+Please make sure your database server is running at `192.168.4.66`:`3306`.
+[2023-08-02T17:22:17.106Z] info Petición exitosa
+[2023-08-02T17:27:08.895Z] info Petición exitosa
+[2023-08-02T17:27:34.326Z] info Petición exitosa
+[2023-08-02T17:27:46.059Z] info Petición exitosa
+[2023-08-02T17:31:55.950Z] info Petición exitosa
+[2023-08-02T17:31:58.652Z] info Petición exitosa
+[2023-08-02T17:32:02.145Z] info Petición exitosa
+[2023-08-02T17:32:08.229Z] info Petición exitosa
+[2023-08-02T17:32:10.900Z] info Petición exitosa
+[2023-08-02T17:32:14.349Z] info Petición exitosa
+[2023-08-02T17:32:22.538Z] info Petición exitosa
+[2023-08-02T17:32:26.989Z] info Petición exitosa
+[2023-08-02T17:32:32.128Z] info Petición exitosa
+[2023-08-02T17:34:08.691Z] info Petición exitosa
+[2023-08-02T17:34:25.867Z] info Petición exitosa
+[2023-08-02T17:34:28.956Z] info Petición exitosa
+[2023-08-02T17:46:02.184Z] info Petición exitosa
+[2023-08-02T17:46:33.521Z] info Petición exitosa
+[2023-08-02T17:48:00.135Z] info Error al obtener las categorias: PrismaClientInitializationError: 
+Invalid `prisma.categoria.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.66`:`3306`
+
+Please make sure your database server is running at `192.168.4.66`:`3306`.
+[2023-08-02T17:48:44.349Z] info Petición exitosa
+[2023-08-02T17:48:46.250Z] info Petición exitosa
+[2023-08-02T17:48:47.427Z] info Petición exitosa
+[2023-08-02T17:49:17.752Z] info Error al obtener las categorias: PrismaClientInitializationError: 
+Invalid `prisma.categoria.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.66`:`3306`
+
+Please make sure your database server is running at `192.168.4.66`:`3306`.
+[2023-08-02T17:49:33.537Z] info Error al obtener las categorias: PrismaClientInitializationError: 
+Invalid `prisma.categoria.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.66`:`3306`
+
+Please make sure your database server is running at `192.168.4.66`:`3306`.
+[2023-08-02T17:49:43.887Z] info Error al obtener las categorias: PrismaClientInitializationError: 
+Invalid `prisma.categoria.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.66`:`3306`
+
+Please make sure your database server is running at `192.168.4.66`:`3306`.
+[2023-08-02T17:49:54.020Z] info Error al obtener las categorias: PrismaClientInitializationError: 
+Invalid `prisma.categoria.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.66`:`3306`
+
+Please make sure your database server is running at `192.168.4.66`:`3306`.
+[2023-08-02T17:50:02.675Z] info Error al obtener las categorias: PrismaClientInitializationError: 
+Invalid `prisma.categoria.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.66`:`3306`
+
+Please make sure your database server is running at `192.168.4.66`:`3306`.
+[2023-08-02T18:03:16.404Z] info Petición exitosa
+[2023-08-02T18:03:35.174Z] info Petición exitosa
+[2023-08-02T18:06:41.713Z] info Petición exitosa
+[2023-08-02T18:06:49.334Z] info Petición exitosa
+[2023-08-02T18:06:52.835Z] info Petición exitosa
+[2023-08-02T18:07:21.779Z] info Petición exitosa
+[2023-08-02T18:07:34.038Z] info Petición exitosa
+[2023-08-02T18:07:38.103Z] info Petición exitosa
+[2023-08-02T18:07:41.088Z] info Petición exitosa
+[2023-08-02T18:10:33.868Z] info Petición exitosa
+[2023-08-02T18:10:35.654Z] info Petición exitosa
+[2023-08-02T18:10:46.944Z] info Petición exitosa
+[2023-08-02T18:10:56.228Z] info Petición exitosa
+[2023-08-02T18:11:02.498Z] info Petición exitosa
+[2023-08-02T18:11:30.021Z] info Petición exitosa
+[2023-08-02T18:11:45.335Z] info Petición exitosa
+[2023-08-02T18:11:50.877Z] info Petición exitosa
+[2023-08-02T18:12:08.854Z] info Petición exitosa
+[2023-08-02T18:12:24.222Z] info Petición exitosa
+[2023-08-02T18:15:26.695Z] info Petición exitosa
+[2023-08-02T18:22:53.745Z] info Petición exitosa
+[2023-08-02T18:23:05.273Z] info Petición exitosa
+[2023-08-02T18:31:07.214Z] info Petición exitosa
+[2023-08-02T18:31:12.761Z] info Petición exitosa
+[2023-08-02T18:31:49.827Z] info Petición exitosa
+[2023-08-02T18:34:36.688Z] info Petición exitosa
+[2023-08-02T18:34:45.280Z] info Petición exitosa
+[2023-08-02T18:35:23.123Z] info Petición exitosa
+[2023-08-02T18:35:25.452Z] info Petición exitosa
+[2023-08-02T18:35:54.250Z] info Petición exitosa
+[2023-08-02T18:36:04.157Z] info Petición exitosa
+[2023-08-02T18:36:43.289Z] info Petición exitosa
+[2023-08-02T18:39:34.501Z] info Petición exitosa
+[2023-08-02T18:39:38.405Z] info Petición exitosa
+[2023-08-02T18:39:47.130Z] info Petición exitosa
+[2023-08-02T18:40:04.950Z] info Petición exitosa
+[2023-08-02T18:40:17.993Z] info Petición exitosa
+[2023-08-02T18:40:23.743Z] info Petición exitosa
+[2023-08-02T18:41:44.393Z] info Petición exitosa
+[2023-08-02T18:42:09.583Z] info Petición exitosa
+[2023-08-02T18:42:27.873Z] info Petición exitosa
+[2023-08-02T18:42:50.849Z] info Petición exitosa
+[2023-08-02T18:45:34.122Z] info Petición exitosa
+[2023-08-02T18:45:38.865Z] info Petición exitosa
+[2023-08-02T18:45:50.323Z] info Petición exitosa
+[2023-08-02T18:45:58.012Z] info Petición exitosa
+[2023-08-02T18:46:07.264Z] info Petición exitosa
+[2023-08-02T18:54:26.697Z] info La categoria ha sido creada
+[2023-08-02T18:55:07.869Z] info Petición exitosa
+[2023-08-02T18:55:10.639Z] info Petición exitosa
+[2023-08-02T18:57:42.310Z] info Petición exitosa
+[2023-08-02T18:57:47.115Z] info Petición exitosa
+[2023-08-02T18:58:15.975Z] info Petición exitosa
+[2023-08-02T18:58:31.325Z] info Petición exitosa
+[2023-08-02T21:54:21.269Z] info Error al obtener las categorias: PrismaClientInitializationError: 
+Invalid `prisma.categoria.findMany()` invocation:
+
+
+Can't reach database server at `192.168.4.66`:`3306`
+
+Please make sure your database server is running at `192.168.4.66`:`3306`.
+[2023-08-02T22:06:26.456Z] info Error al obtener las categorias: PrismaClientInitializationError: 
+Invalid `prisma.categoria.findMany()` invocation:
+
+
+Database `papelerialinea` does not exist on the database server at `localhost:3306`.
+[2023-08-02T22:11:32.828Z] info Petición exitosa
+[2023-08-02T22:22:05.752Z] info Petición exitosa
+[2023-08-02T22:23:06.480Z] info Petición exitosa
+[2023-08-02T22:26:45.891Z] info Petición exitosa
+[2023-08-02T22:30:34.673Z] info Petición exitosa
+[2023-08-02T22:30:40.983Z] info Petición exitosa
+[2023-08-02T22:30:46.248Z] info Petición exitosa
+[2023-08-02T22:30:47.763Z] info Petición exitosa
+[2023-08-02T22:30:49.318Z] info Petición exitosa
+[2023-08-02T22:31:58.016Z] info Petición exitosa
+[2023-08-02T23:59:27.969Z] info Petición exitosa
+[2023-08-03T00:02:22.162Z] info Petición exitosa
+[2023-08-03T00:02:44.896Z] info Petición exitosa
+[2023-08-03T00:02:47.836Z] info Petición exitosa
+[2023-08-03T00:02:57.370Z] info Petición exitosa
+[2023-08-03T00:02:59.958Z] info Petición exitosa
+[2023-08-03T00:03:02.795Z] info Petición exitosa
+[2023-08-03T00:03:05.875Z] info Petición exitosa
+[2023-08-03T00:03:11.278Z] info Petición exitosa
+[2023-08-03T00:03:30.934Z] info Petición exitosa
+[2023-08-03T00:04:48.004Z] info Petición exitosa
+[2023-08-03T00:05:06.038Z] info Petición exitosa
+[2023-08-03T00:05:08.633Z] info Petición exitosa
+[2023-08-03T00:06:50.830Z] info Petición exitosa
+[2023-08-03T00:07:45.311Z] info Petición exitosa
+[2023-08-03T00:07:49.244Z] info Petición exitosa
+[2023-08-03T00:12:06.239Z] info Petición exitosa
+[2023-08-03T00:12:25.567Z] info Petición exitosa
+[2023-08-03T00:12:28.276Z] info Petición exitosa
+[2023-08-03T00:12:31.764Z] info Petición exitosa
+[2023-08-03T00:12:58.125Z] info Petición exitosa
+[2023-08-03T00:13:21.253Z] info Petición exitosa
+[2023-08-03T00:13:38.343Z] info Petición exitosa
+[2023-08-03T00:13:50.519Z] info Petición exitosa
+[2023-08-03T00:14:00.388Z] info Petición exitosa
+[2023-08-03T00:14:04.670Z] info Petición exitosa
+[2023-08-03T00:14:14.906Z] info Petición exitosa
+[2023-08-03T00:15:06.764Z] info Petición exitosa
+[2023-08-03T00:19:41.355Z] info Petición exitosa
+[2023-08-03T00:19:43.599Z] info Petición exitosa
+[2023-08-03T00:50:34.930Z] info Petición exitosa
+[2023-08-03T00:50:37.893Z] info Petición exitosa
+[2023-08-03T00:50:52.270Z] info Petición exitosa
+[2023-08-03T00:51:27.821Z] info Petición exitosa
+[2023-08-03T00:52:30.684Z] info Petición exitosa
+[2023-08-03T00:52:34.783Z] info Petición exitosa
+[2023-08-03T00:52:36.196Z] info Petición exitosa
+[2023-08-03T00:55:17.911Z] info Petición exitosa
+[2023-08-03T00:55:18.886Z] info Petición exitosa
+[2023-08-03T00:55:20.340Z] info Petición exitosa
+[2023-08-03T00:55:35.849Z] info Petición exitosa
+[2023-08-03T00:55:38.969Z] info Petición exitosa
+[2023-08-03T00:56:04.626Z] info Petición exitosa
+[2023-08-03T00:56:10.196Z] info Petición exitosa
+[2023-08-03T00:56:11.117Z] info Petición exitosa
+[2023-08-03T00:56:11.882Z] info Petición exitosa
+[2023-08-03T00:56:12.534Z] info Petición exitosa
+[2023-08-03T00:56:13.275Z] info Petición exitosa
+[2023-08-03T00:56:13.885Z] info Petición exitosa
+[2023-08-03T00:56:14.828Z] info Petición exitosa
+[2023-08-03T00:56:15.761Z] info Petición exitosa
+[2023-08-03T00:56:16.671Z] info Petición exitosa
+[2023-08-03T00:56:17.860Z] info Petición exitosa
+[2023-08-03T00:56:22.816Z] info Petición exitosa
+[2023-08-03T01:11:46.130Z] info Petición exitosa
+[2023-08-03T01:12:05.546Z] info Petición exitosa
+[2023-08-03T01:13:04.705Z] info Petición exitosa
+[2023-08-03T01:16:24.155Z] info Petición exitosa
+[2023-08-03T01:16:31.874Z] info Petición exitosa
+[2023-08-03T01:16:37.356Z] info Petición exitosa
+[2023-08-03T01:19:09.206Z] info Petición exitosa
+[2023-08-03T01:19:15.887Z] info Petición exitosa
+[2023-08-03T01:19:20.413Z] info Petición exitosa
+[2023-08-03T01:19:24.518Z] info Petición exitosa
+[2023-08-03T01:19:27.796Z] info Petición exitosa
+[2023-08-03T01:19:30.644Z] info Petición exitosa
+[2023-08-03T01:19:32.869Z] info Petición exitosa
+[2023-08-03T01:19:35.980Z] info Petición exitosa
+[2023-08-03T01:19:39.929Z] info Petición exitosa
+[2023-08-03T01:19:44.546Z] info Petición exitosa
+[2023-08-03T01:19:48.881Z] info Petición exitosa
+[2023-08-03T01:19:53.681Z] info Petición exitosa
+[2023-08-03T01:19:57.087Z] info Petición exitosa
+[2023-08-03T01:19:59.097Z] info Petición exitosa
+[2023-08-03T01:20:08.841Z] info Petición exitosa
+[2023-08-03T01:20:11.936Z] info Petición exitosa
+[2023-08-03T01:20:47.873Z] info Petición exitosa
+[2023-08-03T01:21:35.019Z] info Petición exitosa
+[2023-08-03T01:22:13.901Z] info Petición exitosa
+[2023-08-03T01:22:17.836Z] info Petición exitosa
+[2023-08-03T01:22:24.413Z] info Petición exitosa
+[2023-08-03T01:25:01.126Z] info Petición exitosa
+[2023-08-03T01:25:17.009Z] info Petición exitosa
+[2023-08-03T01:25:28.850Z] info Petición exitosa
+[2023-08-03T01:25:41.373Z] info Petición exitosa
+[2023-08-03T01:26:31.013Z] info Petición exitosa
+[2023-08-03T01:27:23.402Z] info Petición exitosa
+[2023-08-03T01:29:22.193Z] info Petición exitosa
+[2023-08-03T01:31:06.005Z] info Petición exitosa
+[2023-08-03T01:31:07.181Z] info Petición exitosa
+[2023-08-03T01:31:08.194Z] info Petición exitosa
+[2023-08-03T01:31:20.732Z] info Petición exitosa
+[2023-08-03T01:31:22.756Z] info Petición exitosa
+[2023-08-03T01:31:27.119Z] info Petición exitosa
+[2023-08-03T01:31:46.062Z] info Petición exitosa
+[2023-08-03T01:34:04.062Z] info Petición exitosa
+[2023-08-03T01:34:05.619Z] info Petición exitosa
+[2023-08-03T01:34:07.024Z] info Petición exitosa
+[2023-08-03T01:34:10.888Z] info Petición exitosa
+[2023-08-03T01:34:12.135Z] info Petición exitosa
+[2023-08-03T01:34:16.745Z] info Petición exitosa
+[2023-08-03T01:34:18.012Z] info Petición exitosa
+[2023-08-03T01:34:23.101Z] info Petición exitosa
+[2023-08-03T02:07:24.966Z] info Petición exitosa
+[2023-08-03T02:07:36.504Z] info Petición exitosa
+[2023-08-03T02:07:38.213Z] info Petición exitosa
+[2023-08-03T02:07:56.209Z] info Petición exitosa
+[2023-08-03T02:09:54.260Z] info Petición exitosa
+[2023-08-03T02:09:55.692Z] info Petición exitosa
+[2023-08-03T02:10:56.883Z] info Petición exitosa
+[2023-08-03T02:13:15.392Z] info Petición exitosa
+[2023-08-03T02:13:31.525Z] info Petición exitosa
+[2023-08-03T02:13:35.896Z] info Petición exitosa
+[2023-08-03T02:28:31.895Z] info Petición exitosa
+[2023-08-03T02:28:34.466Z] info Petición exitosa
+[2023-08-03T03:31:53.505Z] info Petición exitosa
+[2023-08-03T03:32:07.177Z] info Petición exitosa
+[2023-08-03T03:32:34.771Z] info Petición exitosa
+[2023-08-03T03:33:52.446Z] info Petición exitosa
+[2023-08-03T14:26:54.338Z] info Petición exitosa
+[2023-08-03T14:37:23.018Z] info Petición exitosa
+[2023-08-03T14:39:06.381Z] info Petición exitosa
+[2023-08-03T14:40:11.262Z] info Petición exitosa
+[2023-08-03T14:41:48.998Z] info Petición exitosa
+[2023-08-03T14:43:10.137Z] info Petición exitosa
+[2023-08-03T14:44:23.312Z] info Petición exitosa
+[2023-08-03T14:47:15.697Z] info Petición exitosa
+[2023-08-03T14:47:41.412Z] info Petición exitosa
+[2023-08-03T14:48:57.544Z] info Petición exitosa
+[2023-08-03T14:49:21.520Z] info Petición exitosa
+[2023-08-03T14:49:26.047Z] info Petición exitosa
+[2023-08-03T14:49:31.770Z] info Petición exitosa
+[2023-08-03T14:49:37.477Z] info Petición exitosa
+[2023-08-03T14:49:43.649Z] info Petición exitosa
+[2023-08-03T14:49:46.940Z] info Petición exitosa
+[2023-08-03T14:49:51.072Z] info Petición exitosa
+[2023-08-03T14:49:53.577Z] info Petición exitosa
+[2023-08-03T14:50:05.565Z] info Petición exitosa
+[2023-08-03T14:50:43.628Z] info Petición exitosa
+[2023-08-03T14:52:08.360Z] info Petición exitosa
+[2023-08-03T14:52:12.315Z] info Petición exitosa
+[2023-08-03T14:52:39.988Z] info Petición exitosa
+[2023-08-03T14:55:21.865Z] info Petición exitosa
+[2023-08-03T15:11:30.204Z] info Petición exitosa
+[2023-08-03T15:53:56.493Z] info Petición exitosa
+[2023-08-03T16:00:56.435Z] info Petición exitosa
+[2023-08-03T16:02:18.077Z] info Petición exitosa
+[2023-08-03T16:08:06.154Z] info Petición exitosa
+[2023-08-03T16:08:08.565Z] info Petición exitosa
+[2023-08-03T16:08:48.794Z] info Petición exitosa
+[2023-08-03T16:09:19.798Z] info Petición exitosa
+[2023-08-03T16:10:19.437Z] info Petición exitosa
+[2023-08-03T16:11:02.893Z] info Petición exitosa
+[2023-08-03T16:11:05.972Z] info Petición exitosa
+[2023-08-03T16:11:46.403Z] info Petición exitosa
+[2023-08-03T16:11:50.889Z] info Petición exitosa
+[2023-08-03T16:12:02.693Z] info Petición exitosa
+[2023-08-03T16:12:04.394Z] info Petición exitosa
+[2023-08-03T16:12:11.171Z] info Petición exitosa
+[2023-08-03T16:12:18.105Z] info Petición exitosa
+[2023-08-03T16:12:26.456Z] info Petición exitosa
+[2023-08-03T16:12:28.183Z] info Petición exitosa
+[2023-08-03T16:12:30.173Z] info Petición exitosa
+[2023-08-03T16:12:33.897Z] info Petición exitosa
+[2023-08-03T16:12:36.223Z] info Petición exitosa
+[2023-08-03T16:12:44.274Z] info Petición exitosa
+[2023-08-03T16:12:56.862Z] info Petición exitosa
+[2023-08-03T16:13:02.204Z] info Petición exitosa
+[2023-08-03T16:13:06.749Z] info Petición exitosa
+[2023-08-03T16:13:08.952Z] info Petición exitosa
+[2023-08-03T16:13:16.524Z] info Petición exitosa
+[2023-08-03T16:13:19.861Z] info Petición exitosa
+[2023-08-03T16:13:32.252Z] info Petición exitosa
+[2023-08-03T16:13:38.077Z] info Petición exitosa
+[2023-08-03T16:13:40.086Z] info Petición exitosa
+[2023-08-03T16:13:56.244Z] info Petición exitosa
+[2023-08-03T16:14:51.665Z] info Petición exitosa
+[2023-08-03T16:14:54.376Z] info Petición exitosa
+[2023-08-03T16:15:07.885Z] info Petición exitosa
+[2023-08-03T16:15:12.781Z] info Petición exitosa
+[2023-08-03T16:25:37.886Z] info Petición exitosa
+[2023-08-03T16:26:33.154Z] info Petición exitosa
+[2023-08-03T16:27:32.494Z] info Petición exitosa
+[2023-08-03T16:27:51.249Z] info Petición exitosa
+[2023-08-03T16:27:58.281Z] info Petición exitosa
+[2023-08-03T16:28:09.819Z] info Petición exitosa
+[2023-08-03T16:28:45.500Z] info Petición exitosa
+[2023-08-03T16:29:13.970Z] info Petición exitosa
+[2023-08-03T16:31:53.698Z] info Petición exitosa
+[2023-08-03T16:33:33.643Z] info Petición exitosa
+[2023-08-03T16:34:00.931Z] info Petición exitosa
+[2023-08-03T16:42:58.794Z] info Petición exitosa
+[2023-08-03T16:47:16.277Z] info Petición exitosa
+[2023-08-03T16:47:25.274Z] info Petición exitosa
+[2023-08-03T16:51:20.371Z] info Petición exitosa
+[2023-08-03T16:53:20.704Z] info Petición exitosa
+[2023-08-03T16:53:42.633Z] info Petición exitosa
+[2023-08-03T17:00:29.353Z] info Petición exitosa
+[2023-08-03T17:07:14.081Z] info Petición exitosa
+[2023-08-03T17:07:37.695Z] info Petición exitosa
+[2023-08-03T17:07:42.663Z] info Petición exitosa
+[2023-08-03T17:07:45.722Z] info Petición exitosa
+[2023-08-03T17:07:49.782Z] info Petición exitosa
+[2023-08-03T17:07:53.630Z] info Petición exitosa
+[2023-08-03T17:08:01.885Z] info Petición exitosa
+[2023-08-03T17:35:18.809Z] info Petición exitosa
+[2023-08-03T17:35:33.464Z] info Petición exitosa
+[2023-08-03T17:36:05.284Z] info Petición exitosa
+[2023-08-03T17:36:37.858Z] info Petición exitosa
+[2023-08-03T17:36:49.024Z] info Petición exitosa
+[2023-08-03T17:36:52.289Z] info Petición exitosa
+[2023-08-03T17:46:40.720Z] info Petición exitosa
+[2023-08-03T17:46:46.881Z] info Petición exitosa
+[2023-08-03T17:46:50.895Z] info Petición exitosa
+[2023-08-03T17:47:47.414Z] info Petición exitosa
+[2023-08-03T17:48:48.310Z] info Petición exitosa
+[2023-08-03T17:48:56.391Z] info Petición exitosa
+[2023-08-03T17:52:25.027Z] info Petición exitosa
+[2023-08-03T17:52:31.354Z] info Petición exitosa
+[2023-08-03T17:52:45.557Z] info Petición exitosa
+[2023-08-03T17:52:51.307Z] info Petición exitosa
+[2023-08-03T18:08:18.488Z] info Petición exitosa
+[2023-08-03T18:16:18.512Z] info Petición exitosa
+[2023-08-03T18:16:27.703Z] info Petición exitosa
+[2023-08-03T18:16:34.226Z] info Petición exitosa
+[2023-08-03T18:17:07.945Z] info Petición exitosa
+[2023-08-03T18:19:36.522Z] info Petición exitosa
+[2023-08-03T18:19:42.004Z] info Petición exitosa
+[2023-08-03T18:22:09.372Z] info Petición exitosa
+[2023-08-03T18:23:21.342Z] info Petición exitosa
+[2023-08-03T18:23:26.472Z] info Petición exitosa
+[2023-08-03T18:23:28.814Z] info Petición exitosa
+[2023-08-03T18:23:49.536Z] info Petición exitosa
+[2023-08-03T18:24:09.274Z] info Petición exitosa
+[2023-08-03T18:24:12.440Z] info Petición exitosa
+[2023-08-03T18:24:16.491Z] info Petición exitosa
+[2023-08-03T18:24:22.599Z] info Petición exitosa
+[2023-08-03T18:24:27.630Z] info Petición exitosa
+[2023-08-03T18:24:28.870Z] info Petición exitosa
+[2023-08-03T18:24:38.380Z] info Petición exitosa
+[2023-08-03T18:24:40.474Z] info Petición exitosa
+[2023-08-03T18:25:12.149Z] info Petición exitosa
+[2023-08-03T18:25:26.074Z] info Petición exitosa
+[2023-08-03T18:25:29.153Z] info Petición exitosa
+[2023-08-03T18:26:21.779Z] info Petición exitosa
+[2023-08-03T18:27:15.865Z] info Petición exitosa
+[2023-08-03T18:27:39.934Z] info Petición exitosa
+[2023-08-03T18:27:41.713Z] info Petición exitosa
+[2023-08-03T18:28:24.597Z] info Petición exitosa
+[2023-08-03T18:28:32.912Z] info Petición exitosa
+[2023-08-03T18:29:23.500Z] info Petición exitosa
+[2023-08-03T18:29:27.308Z] info Petición exitosa
+[2023-08-03T18:30:08.416Z] info Petición exitosa
+[2023-08-03T18:30:49.318Z] info Petición exitosa
+[2023-08-03T18:35:06.735Z] info Petición exitosa
+[2023-08-03T18:35:44.559Z] info Petición exitosa
+[2023-08-03T18:35:48.332Z] info Petición exitosa
+[2023-08-03T18:36:34.017Z] info Petición exitosa
+[2023-08-03T18:37:22.973Z] info Petición exitosa
+[2023-08-03T18:37:29.309Z] info Petición exitosa
+[2023-08-03T18:37:34.255Z] info Petición exitosa
+[2023-08-03T18:37:37.720Z] info Petición exitosa
+[2023-08-03T18:38:12.240Z] info Petición exitosa
+[2023-08-03T18:42:12.424Z] info Petición exitosa
+[2023-08-03T18:42:16.273Z] info Petición exitosa
+[2023-08-03T18:42:17.656Z] info Petición exitosa
+[2023-08-03T18:42:28.612Z] info Petición exitosa
+[2023-08-03T18:42:29.953Z] info Petición exitosa
+[2023-08-03T18:42:34.123Z] info Petición exitosa
+[2023-08-03T18:42:35.879Z] info Petición exitosa
+[2023-08-03T18:44:01.233Z] info Petición exitosa
+[2023-08-03T18:45:05.089Z] info Petición exitosa
+[2023-08-03T18:49:05.912Z] info Petición exitosa
+[2023-08-03T18:50:14.418Z] info Petición exitosa
+[2023-08-03T18:51:04.226Z] info Petición exitosa
+[2023-08-03T18:51:08.629Z] info Petición exitosa
+[2023-08-03T18:52:11.075Z] info Petición exitosa
+[2023-08-03T18:52:19.476Z] info Petición exitosa
+[2023-08-03T18:53:40.265Z] info Petición exitosa
+[2023-08-03T18:53:50.326Z] info Petición exitosa
+[2023-08-03T18:53:55.821Z] info Petición exitosa
+[2023-08-03T18:54:11.239Z] info Petición exitosa
+[2023-08-03T18:54:48.411Z] info Petición exitosa
+[2023-08-03T18:54:51.292Z] info Petición exitosa
+[2023-08-03T19:01:51.903Z] info Petición exitosa
+[2023-08-03T19:01:52.579Z] info Petición exitosa
+[2023-08-03T19:02:04.732Z] info Petición exitosa
+[2023-08-03T19:02:22.333Z] info Petición exitosa
+[2023-08-03T19:02:29.921Z] info Petición exitosa
+[2023-08-03T19:04:01.123Z] info Petición exitosa
+[2023-08-03T19:04:08.044Z] info Petición exitosa
+[2023-08-03T19:04:55.727Z] info Petición exitosa
+[2023-08-03T19:06:15.432Z] info Petición exitosa
+[2023-08-03T19:06:16.092Z] info Petición exitosa
+[2023-08-03T19:06:16.129Z] info Petición exitosa
+[2023-08-03T19:06:18.979Z] info Petición exitosa
+[2023-08-03T19:06:51.949Z] info Petición exitosa
+[2023-08-03T19:06:51.981Z] info Petición exitosa
+[2023-08-03T19:08:23.522Z] info Petición exitosa
+[2023-08-03T19:08:25.071Z] info Petición exitosa
+[2023-08-03T19:08:29.100Z] info Petición exitosa
+[2023-08-03T19:08:30.454Z] info Petición exitosa
+[2023-08-03T19:08:32.119Z] info Petición exitosa
+[2023-08-03T19:08:57.538Z] info Petición exitosa
+[2023-08-03T19:08:57.572Z] info Petición exitosa
+[2023-08-03T19:09:03.777Z] info Petición exitosa
+[2023-08-03T19:09:03.803Z] info Petición exitosa
+[2023-08-04T00:32:54.114Z] info Petición exitosa
+[2023-08-04T00:32:54.147Z] info Petición exitosa
+[2023-08-04T00:32:56.270Z] info Petición exitosa
+[2023-08-04T00:32:59.983Z] info Petición exitosa
+[2023-08-04T00:33:02.306Z] info Petición exitosa
+[2023-08-04T00:42:38.478Z] info Petición exitosa
+[2023-08-04T00:42:38.508Z] info Petición exitosa
+[2023-08-04T00:42:49.414Z] info Petición exitosa
+[2023-08-04T00:42:49.430Z] info Petición exitosa
+[2023-08-04T00:42:54.490Z] info Petición exitosa
+[2023-08-04T00:42:54.519Z] info Petición exitosa
+[2023-08-04T00:43:28.056Z] info Petición exitosa
+[2023-08-04T00:43:28.087Z] info Petición exitosa
+[2023-08-04T00:50:26.534Z] info Petición exitosa
+[2023-08-04T00:50:26.565Z] info Petición exitosa
+[2023-08-04T00:50:46.518Z] info Petición exitosa
+[2023-08-04T00:50:46.547Z] info Petición exitosa
+[2023-08-04T00:50:47.883Z] info Petición exitosa
+[2023-08-04T00:50:47.900Z] info Petición exitosa
+[2023-08-04T00:51:27.869Z] info Petición exitosa
+[2023-08-04T00:51:27.900Z] info Petición exitosa
+[2023-08-04T00:52:01.433Z] info Petición exitosa
+[2023-08-04T00:52:01.448Z] info Petición exitosa
+[2023-08-04T00:52:04.703Z] info Petición exitosa
+[2023-08-04T00:52:04.735Z] info Petición exitosa
+[2023-08-04T00:57:11.333Z] info Petición exitosa
+[2023-08-04T00:57:11.363Z] info Petición exitosa
+[2023-08-04T01:00:38.454Z] info Petición exitosa
+[2023-08-04T01:00:38.484Z] info Petición exitosa
+[2023-08-04T01:14:13.791Z] info Petición exitosa
+[2023-08-04T01:14:13.819Z] info Petición exitosa
+[2023-08-04T01:14:29.305Z] info Petición exitosa
+[2023-08-04T01:14:29.336Z] info Petición exitosa
+[2023-08-04T01:16:16.818Z] info Petición exitosa
+[2023-08-04T01:16:16.834Z] info Petición exitosa
+[2023-08-04T01:16:38.956Z] info Petición exitosa
+[2023-08-04T01:16:38.986Z] info Petición exitosa
+[2023-08-04T01:17:12.108Z] info Petición exitosa
+[2023-08-04T01:17:12.123Z] info Petición exitosa
+[2023-08-04T01:17:16.029Z] info Petición exitosa
+[2023-08-04T01:17:16.065Z] info Petición exitosa
+[2023-08-04T01:20:26.467Z] info Petición exitosa
+[2023-08-04T01:20:26.483Z] info Petición exitosa
+[2023-08-04T01:24:49.526Z] info Petición exitosa
+[2023-08-04T01:24:52.530Z] info Petición exitosa
+[2023-08-04T01:24:53.809Z] info Petición exitosa
+[2023-08-04T01:24:55.933Z] info Petición exitosa
+[2023-08-04T01:24:59.726Z] info Petición exitosa
+[2023-08-04T01:25:02.191Z] info Petición exitosa
+[2023-08-04T01:27:25.460Z] info Petición exitosa
+[2023-08-04T01:27:25.485Z] info Petición exitosa
+[2023-08-04T01:27:35.197Z] info Petición exitosa
+[2023-08-04T01:27:35.213Z] info Petición exitosa
+[2023-08-04T01:31:54.657Z] info Petición exitosa
+[2023-08-04T01:31:54.670Z] info Petición exitosa
+[2023-08-04T01:35:32.317Z] info Petición exitosa
+[2023-08-04T01:35:32.333Z] info Petición exitosa
+[2023-08-04T01:38:16.151Z] info Petición exitosa
+[2023-08-04T01:38:16.179Z] info Petición exitosa
+[2023-08-04T01:39:27.365Z] info Petición exitosa
+[2023-08-04T01:39:27.392Z] info Petición exitosa
+[2023-08-04T01:39:34.519Z] info Petición exitosa
+[2023-08-04T01:39:34.547Z] info Petición exitosa
+[2023-08-04T01:39:36.790Z] info Petición exitosa
+[2023-08-04T01:39:36.818Z] info Petición exitosa
+[2023-08-04T01:39:57.026Z] info Petición exitosa
+[2023-08-04T01:39:57.042Z] info Petición exitosa
+[2023-08-04T01:44:02.872Z] info Petición exitosa
+[2023-08-04T01:44:02.904Z] info Petición exitosa
+[2023-08-04T01:44:20.523Z] info Petición exitosa
+[2023-08-04T01:44:20.552Z] info Petición exitosa
+[2023-08-04T01:44:45.628Z] info Petición exitosa
+[2023-08-04T01:44:45.644Z] info Petición exitosa
+[2023-08-04T01:44:57.682Z] info Petición exitosa
+[2023-08-04T01:44:57.695Z] info Petición exitosa
+[2023-08-04T01:45:04.710Z] info Petición exitosa
+[2023-08-04T01:45:04.740Z] info Petición exitosa
+[2023-08-04T01:45:07.145Z] info Petición exitosa
+[2023-08-04T01:45:43.282Z] info Petición exitosa
+[2023-08-04T01:45:43.299Z] info Petición exitosa
+[2023-08-04T01:45:47.639Z] info Petición exitosa
+[2023-08-04T01:45:47.654Z] info Petición exitosa
+[2023-08-04T01:46:40.836Z] info Petición exitosa
+[2023-08-04T01:46:40.852Z] info Petición exitosa
+[2023-08-04T01:46:45.648Z] info Petición exitosa
+[2023-08-04T01:46:45.663Z] info Petición exitosa
+[2023-08-04T01:46:48.383Z] info Petición exitosa
+[2023-08-04T01:46:48.413Z] info Petición exitosa
+[2023-08-04T01:48:40.746Z] info Petición exitosa
+[2023-08-04T01:48:40.765Z] info Petición exitosa
+[2023-08-04T02:08:04.340Z] info Petición exitosa
+[2023-08-04T02:08:04.369Z] info Petición exitosa
+[2023-08-04T02:08:10.911Z] info Petición exitosa
+[2023-08-04T02:08:10.946Z] info Petición exitosa
+[2023-08-04T02:08:14.829Z] info Petición exitosa
+[2023-08-04T02:08:38.777Z] info Petición exitosa
+[2023-08-04T02:08:38.793Z] info Petición exitosa
+[2023-08-04T02:08:45.120Z] info Petición exitosa
+[2023-08-04T02:08:45.149Z] info Petición exitosa
+[2023-08-04T02:10:06.965Z] info Petición exitosa
+[2023-08-04T02:10:06.981Z] info Petición exitosa
+[2023-08-04T02:10:23.990Z] info Petición exitosa
+[2023-08-04T02:10:24.007Z] info Petición exitosa
+[2023-08-04T02:10:27.986Z] info Petición exitosa
+[2023-08-04T02:10:28.002Z] info Petición exitosa
+[2023-08-04T02:10:41.768Z] info Petición exitosa
+[2023-08-04T02:10:41.783Z] info Petición exitosa
+[2023-08-04T02:10:46.894Z] info Petición exitosa
+[2023-08-04T02:10:46.909Z] info Petición exitosa
+[2023-08-04T02:10:50.499Z] info Petición exitosa
+[2023-08-04T02:10:50.515Z] info Petición exitosa
+[2023-08-04T02:10:56.897Z] info Petición exitosa
+[2023-08-04T02:10:56.913Z] info Petición exitosa
+[2023-08-04T02:11:00.598Z] info Petición exitosa
+[2023-08-04T02:11:00.629Z] info Petición exitosa
+[2023-08-04T02:11:02.065Z] info Petición exitosa
+[2023-08-04T02:11:02.081Z] info Petición exitosa
+[2023-08-04T02:11:07.162Z] info Petición exitosa
+[2023-08-04T02:11:07.179Z] info Petición exitosa
+[2023-08-04T02:11:10.783Z] info Petición exitosa
+[2023-08-04T02:11:10.813Z] info Petición exitosa
+[2023-08-04T02:11:14.654Z] info Petición exitosa
+[2023-08-04T02:11:14.670Z] info Petición exitosa
+[2023-08-04T02:11:23.961Z] info Petición exitosa
+[2023-08-04T02:11:23.975Z] info Petición exitosa
+[2023-08-04T02:11:27.013Z] info Petición exitosa
+[2023-08-04T02:11:27.029Z] info Petición exitosa
+[2023-08-04T02:11:31.489Z] info Petición exitosa
+[2023-08-04T02:11:31.505Z] info Petición exitosa
+[2023-08-04T02:11:36.969Z] info Petición exitosa
+[2023-08-04T02:11:36.984Z] info Petición exitosa
+[2023-08-04T02:11:39.309Z] info Petición exitosa
+[2023-08-04T02:11:39.323Z] info Petición exitosa
+[2023-08-04T02:11:51.159Z] info Petición exitosa
+[2023-08-04T02:11:51.175Z] info Petición exitosa
+[2023-08-04T02:11:55.418Z] info Petición exitosa
+[2023-08-04T02:11:55.431Z] info Petición exitosa
+[2023-08-04T02:12:22.071Z] info Petición exitosa
+[2023-08-04T02:12:22.087Z] info Petición exitosa
+[2023-08-04T02:12:24.753Z] info Petición exitosa
+[2023-08-04T02:12:24.770Z] info Petición exitosa
+[2023-08-04T02:12:35.187Z] info Petición exitosa
+[2023-08-04T02:12:35.203Z] info Petición exitosa
+[2023-08-04T02:12:37.329Z] info Petición exitosa
+[2023-08-04T02:12:37.344Z] info Petición exitosa
+[2023-08-04T02:12:42.401Z] info Petición exitosa
+[2023-08-04T02:12:42.415Z] info Petición exitosa
+[2023-08-04T02:13:01.435Z] info Petición exitosa
+[2023-08-04T02:13:01.450Z] info Petición exitosa
+[2023-08-04T02:15:46.543Z] info Petición exitosa
+[2023-08-04T02:15:46.580Z] info Petición exitosa
+[2023-08-04T02:16:40.209Z] info Petición exitosa
+[2023-08-04T02:16:40.241Z] info Petición exitosa
+[2023-08-04T02:17:05.887Z] info Petición exitosa
+[2023-08-04T02:17:05.965Z] info Petición exitosa
