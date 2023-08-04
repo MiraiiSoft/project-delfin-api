@@ -95,6 +95,9 @@ export const getVentaByIdLogin = async (id) => {
       login: true,
       producto: true,
       carrito: true,
+    },
+    where: {
+      id_login: id
     }
   });
 
