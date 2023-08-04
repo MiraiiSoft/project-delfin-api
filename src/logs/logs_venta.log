@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2023-08-01T14:38:12.928Z] info Petición exitosa
 [2023-08-01T14:38:12.969Z] info Error al mostrar Ventas: PrismaClientUnknownRequestError: 
 Invalid `prisma.detalle_venta.findMany()` invocation:
@@ -294,3 +295,121 @@ Inconsistent query result: Field venta is required to return data, got `null` in
 [2023-08-03T23:17:31.807Z] info Venta Mostrada
 [2023-08-03T23:25:50.978Z] info Venta Mostrada
 [2023-08-03T23:29:36.969Z] info Venta Mostrada
+=======
+[2023-08-04T02:49:13.021Z] info Error al obtener la Venta: Error: 
+Invalid `prisma.detalle_venta.findMany()` invocation:
+
+{
+  include: {
+    venta: {
+      include: {
+        pago: true,
+        envio: true
+      }
+    },
+    login: {
+      include: {
+        persona: true
+      }
+    },
+    producto: true
+  },
+  where: {
+    id_venta: NaN
+              ~~~
+  }
+}
+
+Argument id_venta: Got invalid value NaN on prisma.findManydetalle_venta. Provided Float, expected IntFilter or Int:
+type IntFilter {
+  equals?: Int
+  in?: List<Int> | Int
+  notIn?: List<Int> | Int
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntFilter
+}
+type IntFilter {
+  equals?: Int
+  in?: List<Int> | Int
+  notIn?: List<Int> | Int
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntFilter
+}
+
+
+[2023-08-04T02:53:54.767Z] info Venta Mostrada
+[2023-08-04T03:06:29.002Z] info Venta Mostrada
+[2023-08-04T03:08:04.200Z] info Venta Mostrada
+[2023-08-04T03:10:00.434Z] info Venta Mostrada
+[2023-08-04T03:14:23.375Z] info Error al obtener la Venta: Error: 
+Invalid `prisma.detalle_venta.findMany()` invocation:
+
+{
+  include: {
+    venta: {
+      include: {
+        pago: true,
+        envio: true
+      }
+    },
+    login: {
+      include: {
+        persona: true
+      }
+    },
+    producto: true
+  },
+  where: {
+    id_venta: NaN
+              ~~~
+  }
+}
+
+Argument id_venta: Got invalid value NaN on prisma.findManydetalle_venta. Provided Float, expected IntFilter or Int:
+type IntFilter {
+  equals?: Int
+  in?: List<Int> | Int
+  notIn?: List<Int> | Int
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntFilter
+}
+type IntFilter {
+  equals?: Int
+  in?: List<Int> | Int
+  notIn?: List<Int> | Int
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntFilter
+}
+
+
+[2023-08-04T03:18:06.185Z] info Venta Mostrada
+[2023-08-04T03:18:31.902Z] info Venta Mostrada
+[2023-08-04T03:19:35.989Z] info Venta Mostrada
+[2023-08-04T03:20:16.158Z] info Venta Mostrada
+[2023-08-04T03:20:21.084Z] info Venta Mostrada
+[2023-08-04T03:26:39.700Z] info Venta Mostrada
+[2023-08-04T03:27:17.747Z] info Venta Mostrada
+[2023-08-04T03:28:03.400Z] info Venta Mostrada
+[2023-08-04T03:36:37.301Z] info Venta Mostrada
+[2023-08-04T03:37:04.689Z] info Venta Mostrada
+[2023-08-04T03:37:59.120Z] info Venta Mostrada
+[2023-08-04T03:39:07.270Z] info Venta Mostrada
+[2023-08-04T03:39:25.589Z] info Venta Mostrada
+[2023-08-04T03:39:48.273Z] info Venta Mostrada
+[2023-08-04T03:41:08.807Z] info Venta Mostrada
+[2023-08-04T03:41:30.428Z] info Venta Mostrada
+[2023-08-04T03:42:05.534Z] info Venta Mostrada
+[2023-08-04T03:42:50.598Z] info Venta Mostrada
+>>>>>>> 139523cf8fcdc8c3715763613e555dad97f0fe95
