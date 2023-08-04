@@ -18,7 +18,7 @@ export const test = async ( req, res, next ) => {
     const { id_producto, id_carrito, cantidad_producto } = req.body
     const query = await getCarritoById(id_carrito)
     var existProduct = false
-
+    
     if ( query ) {
         query.carrito_producto.forEach(carrito_producto => {
             if( carrito_producto.id_producto === id_producto ) {
