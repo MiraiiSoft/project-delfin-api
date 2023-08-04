@@ -143,3 +143,4 @@ export async function getProductoByColor(colorId){
   await prisma.$disconnect();
   return productos;
 }
+
