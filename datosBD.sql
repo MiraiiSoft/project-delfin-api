@@ -38,6 +38,10 @@ INSERT INTO producto (codigo_barras, nombre, marca, descripcion, imagen, compra,
   "https://www.officedepot.com.mx/medias/100084580.jpg-1200ftw?context=bWFzdGVyfHJvb3R8NDQxMjUyfGltYWdlL2pwZWd8aGUwL2hhMS8xMDgyMDQ5ODI1OTk5OC8xMDAwODQ1ODAuanBnXzEyMDBmdHd8N2IyZWFiODBmODFiZWM3OTM3OTY2NWE4YWE2MjY2MjRmODg5NDU4YmViZTY0MjkzZjFlMWI4ZTcyMzY5NjI1YQ",
   "https://m.media-amazon.com/images/I/51WFiZC1+VS._AC_SX679_.jpg"
 ]}', 5.00, 8.00, 6.50, 5.00, 10, 20, 2, 1, 1),
+('1234567890', 'Bolígrafo Azul', 'Marca A', 'Bolígrafo de tinta azul', '{"url": [
+  "https://www.officedepot.com.mx/medias/100084580.jpg-1200ftw?context=bWFzdGVyfHJvb3R8NDQxMjUyfGltYWdlL2pwZWd8aGUwL2hhMS8xMDgyMDQ5ODI1OTk5OC8xMDAwODQ1ODAuanBnXzEyMDBmdHd8N2IyZWFiODBmODFiZWM3OTM3OTY2NWE4YWE2MjY2MjRmODg5NDU4YmViZTY0MjkzZjFlMWI4ZTcyMzY5NjI1YQ",
+  "https://m.media-amazon.com/images/I/51WFiZC1+VS._AC_SX679_.jpg"
+]}', 5.00, 8.00, 6.50, 5.00, 10, 20, 2, 1, 1),
   ('9876543210', 'Libreta Grande', 'Marca B', 'Libreta de tapa dura', '{"url": [
   "https://www.officedepot.com.mx/medias/100084580.jpg-1200ftw?context=bWFzdGVyfHJvb3R8NDQxMjUyfGltYWdlL2pwZWd8aGUwL2hhMS8xMDgyMDQ5ODI1OTk5OC8xMDAwODQ1ODAuanBnXzEyMDBmdHd8N2IyZWFiODBmODFiZWM3OTM3OTY2NWE4YWE2MjY2MjRmODg5NDU4YmViZTY0MjkzZjFlMWI4ZTcyMzY5NjI1YQ",
   "https://m.media-amazon.com/images/I/51WFiZC1+VS._AC_SX679_.jpg"
@@ -46,6 +50,7 @@ INSERT INTO producto (codigo_barras, nombre, marca, descripcion, imagen, compra,
   "https://www.officedepot.com.mx/medias/100084580.jpg-1200ftw?context=bWFzdGVyfHJvb3R8NDQxMjUyfGltYWdlL2pwZWd8aGUwL2hhMS8xMDgyMDQ5ODI1OTk5OC8xMDAwODQ1ODAuanBnXzEyMDBmdHd8N2IyZWFiODBmODFiZWM3OTM3OTY2NWE4YWE2MjY2MjRmODg5NDU4YmViZTY0MjkzZjFlMWI4ZTcyMzY5NjI1YQ",
   "https://m.media-amazon.com/images/I/51WFiZC1+VS._AC_SX679_.jpg"
 ]}', 20.00, 25.00, 22.50, 20.00, 30, 40, 3, 3, 3);
+
 
 -- Insertar datos en la tabla INVENTARIO
 INSERT INTO inventario (id_producto, existencias, unidadesPaquete, numPaquete) VALUES
