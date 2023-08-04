@@ -15,6 +15,16 @@ export async function getMunicipios() {
     return municipios;
 }
 
+export async function getMunicipiosByIdCiudad(id) {
+  const municipios = await prisma.municipio.findMany({
+    where: {
+      id_ciudad: id
+    }
+  });
+  await prisma.$disconnect();
+  return municipios;
+}
+
 export async function getMunicipioById(id) {
     const municipio = await prisma.municipio.findUnique({
       where: {

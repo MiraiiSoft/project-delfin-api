@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2023-07-19T15:40:38.783Z] info Petición Exitosa
 [2023-07-20T14:44:46.187Z] info Petición Exitosa
 [2023-07-20T15:00:54.513Z] info Petición Exitosa
@@ -135,3 +136,26 @@ Please make sure your database server is running at `192.168.4.78`:`3306`.
 [2023-08-03T22:42:29.925Z] info Petición Exitosa
 [2023-08-03T23:00:14.379Z] info Petición Exitosa
 [2023-08-04T14:14:09.215Z] info Petición Exitosa
+=======
+[2023-08-04T02:53:47.505Z] info Petición Exitosa
+[2023-08-04T03:06:00.455Z] info Petición Exitosa
+[2023-08-04T03:06:23.549Z] info Petición Exitosa
+[2023-08-04T03:20:50.221Z] info Petición Exitosa
+[2023-08-04T03:20:59.681Z] info Petición Exitosa
+[2023-08-04T03:23:13.545Z] info Petición Exitosa
+[2023-08-04T03:23:43.589Z] info Petición Exitosa
+[2023-08-04T03:24:23.229Z] info Petición Exitosa
+[2023-08-04T03:26:43.858Z] info Petición Exitosa
+[2023-08-04T03:27:13.654Z] info Petición Exitosa
+[2023-08-04T03:41:14.993Z] info Petición Exitosa
+[2023-08-04T03:41:25.382Z] info Petición Exitosa
+[2023-08-04T03:41:53.532Z] info Petición Exitosa
+[2023-08-04T03:42:01.894Z] info Petición Exitosa
+[2023-08-04T03:42:12.196Z] info Petición Exitosa
+[2023-08-04T03:42:44.171Z] info Petición Exitosa
+[2023-08-04T03:46:59.624Z] info Petición Exitosa
+[2023-08-04T03:47:03.732Z] info Petición Exitosa
+[2023-08-04T03:59:26.768Z] info Petición Exitosa
+[2023-08-04T03:59:49.318Z] info Petición Exitosa
+>>>>>>> 139523cf8fcdc8c3715763613e555dad97f0fe95
+[2023-08-04T15:07:32.582Z] info Petición Exitosa

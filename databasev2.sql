@@ -45,7 +45,7 @@ CREATE TABLE producto (
   codigo_barras VARCHAR(45) NULL,
   nombre VARCHAR(200) NULL,
   marca VARCHAR(45) NULL,
-  descripcion VARCHAR(300) NULL,
+  descripcion VARCHAR(500) NULL,
   imagen JSON NOT NULL,
   compra DECIMAL(10) NULL,
   precio_unitario DECIMAL(10) NULL,
@@ -114,7 +114,7 @@ CREATE TABLE direccion (
   colonia VARCHAR(45) NULL,
   num VARCHAR(10) NULL,
   telefono VARCHAR(15) NULL,
-  referencia VARCHAR(55) NULL,
+  referencia VARCHAR(250) NULL,
   id_ciudad INT NOT NULL,
   foreign key (id_ciudad) references ciudad (id_ciudad),
   PRIMARY KEY (id_direccion)

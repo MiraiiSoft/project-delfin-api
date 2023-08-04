@@ -1,5 +1,1 @@
-[2023-08-02T16:32:02.780Z] info Error al crear orden mercado pago:Error: Error al generar numero factura
-[2023-08-02T16:32:55.175Z] info Error al crear orden mercado pago:Error: Error al generar numero factura
-[2023-08-02T18:17:59.778Z] info Error al crear orden con PayPal: Error: Response Status : 400
-[2023-08-02T18:18:48.056Z] info Error al crear orden con PayPal: Error: Response Status : 400
-[2023-08-02T18:22:02.091Z] info Error al crear orden con PayPal: Error: Response Status : 400
+[2023-08-04T04:12:44.176Z] info Error al crear orden mercado pago:MercadoPagoError: mlauth: invalid token

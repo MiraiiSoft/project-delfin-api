@@ -74,9 +74,14 @@ export const payment = async (req, res) => {
       //crear orden mercado pago
       const result = await createOrder(payment);
 
+      const dataResponse = {
+        payUrl: result.body.init_point,
+        data: result.body
+      };
+
       return res.status(CODES_HTTP.OK).json({
         success: true,
-        message: result.body,
+        data: dataResponse,
       });
     } catch (error) {
       loggerPayment.info({
