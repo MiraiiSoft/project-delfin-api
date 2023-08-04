@@ -34,6 +34,7 @@ export const test = async ( req, res, next ) => {
 
     if (existProduct) {
         console.log('Se actualizaron los productos correctamente:')
+        loggerCarrito.info({message: "Se actualizaron los productos correctamente:"})
         return res.status(CODES_HTTP.OK).json({
             success: true,
             message: "Se han agregado los productos a carrito-producto con id=" +id_carrito+ " correctamente",
