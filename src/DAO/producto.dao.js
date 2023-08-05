@@ -172,3 +172,31 @@ export async function discountProduct(cantidad_producto, id_producto) {
 }
 
 
+
+export async function getMarcasDeProductos() {
+  const marcas = await prisma.producto.findMany({
+    select: {
+      marca: true,
+    },
+  });
+  
+  const marcasUnicas = [...new Set(marcas.map((producto) => producto.marca))];
+
+  await prisma.$disconnect();
+  return marcasUnicas;
+}
+
+export async function getProductoByMarca(marca){
+  const productos = await prisma.producto.findMany({
+    include: {
+      color: true,
+      tipo: true,
+      categoria: true,
+    },
+    where: {
+      marca: marca,
+    },
+  });
+  await prisma.$disconnect();
+  return productos;
+}
