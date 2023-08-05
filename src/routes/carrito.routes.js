@@ -11,7 +11,7 @@ router.post( '/add', [ validationCarrito.existName, cleanerRequest.carrito ] , a
 router.delete( '/delete/:cartID', [ validationCarrito.noExistId ] , deleteCarrito );
 
 router.put( '/update/:cartID', [ validationCarritoProducto.noExistId ], updateCarritoProducto );
-router.post( '/add/product/', [ validationCarritoProducto.test, cleanerRequest.carritoProducto ], addProductToCart )
+router.post( '/add/product', [ validationCarritoProducto.test, cleanerRequest.carritoProducto ], addProductToCart )
 router.delete( '/delete/product/:cartProductID', deleteProductOfCart )
 
 const carritoRouter = router;
