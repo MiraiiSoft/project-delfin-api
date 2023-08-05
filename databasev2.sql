@@ -218,7 +218,7 @@ CREATE TABLE envio (
 -- -----------------------------------------------------
 CREATE TABLE pago (
   id_pago INT NOT NULL AUTO_INCREMENT,
-  tocken_pago VARCHAR(45) NULL,
+  tocken_pago VARCHAR(150) NULL,
   monto DECIMAL(10) NULL,
   PRIMARY KEY (id_pago)
 );
