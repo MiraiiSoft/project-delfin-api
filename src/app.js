@@ -2,8 +2,8 @@ import express from "express";
 import morgan from "morgan";
 import { config } from "dotenv";
 config();
+import bodyParser from 'body-parser'; // Importa body-parser-esm en lugar de body-parser
 import cors from "cors";
-
 import uploadRouter from "./routes/upload.routes.js";
 import authRouter from "./routes/auth.routes.js";
 import carritoRouter from "./routes/carrito.routes.js";
@@ -28,7 +28,8 @@ const corsOptions = {
 };
 
 const app = express();
-
+app.use(bodyParser.json({ limit: '30mb' })); 
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 app.set('port', process.env.PORT||3000);
 app.set('view engine', 'ejs');
 app.use(cors(corsOptions))

@@ -7,6 +7,21 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        .preview-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .preview-image {
+            max-width: 150px;
+            max-height: 150px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -89,61 +104,63 @@
                 </div>
             </div>
 
-            <!--Aqui va la tabla-->
+            <!--Aqui va el formulario-->
             <div class="col-md-11 mt-4">
                 <h2>Nuevo Producto</h2>
                 <form id="formularioProducto">
                     <div class="form-group">
                         <label for="codigo_barras">Código de barras:</label>
-                        <input type="text" class="form-control" id="codigo_barras" name="codigo_barras" required>
+                        <input type="text" class="form-control" id="codigo_barras" name="codigo_barras">
                     </div>
                     <div class="form-group">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
                     </div>
                     <div class="form-group">
                         <label for="marca">Marca:</label>
-                        <input type="text" class="form-control" id="marca" name="marca" required>
+                        <input type="text" class="form-control" id="marca" name="marca">
                     </div>
                     <div class="form-group">
                         <label for="descripcion">Descripción:</label>
-                        <textarea class="form-control" id="descripcion" name="descripcion" required></textarea>
+                        <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="imagen">Imagen:</label>
-                        <input type="text" class="form-control" id="imagen" name="imagen" required>
+                        <label for="imagenes">Imágenes:</label>
+                        <input type="file" class="form-control-file" id="imagenes" name="imagenes[]" multiple>
                     </div>
+                    <div class="preview-container mt-3"></div>
+
                     <div class="form-group">
                         <label for="compra">Precio de compra:</label>
-                        <input type="number" class="form-control" id="compra" name="compra" required>
+                        <input type="number" class="form-control" id="compra" name="compra">
                     </div>
                     <div class="form-group">
                         <label for="precio_unitario">Precio unitario:</label>
-                        <input type="number" class="form-control" id="precio_unitario" name="precio_unitario" required>
+                        <input type="number" class="form-control" id="precio_unitario" name="precio_unitario">
                     </div>
                     <div class="form-group">
                         <label for="precio_mayoreo">Precio al por mayor:</label>
-                        <input type="number" class="form-control" id="precio_mayoreo" name="precio_mayoreo" required>
+                        <input type="number" class="form-control" id="precio_mayoreo" name="precio_mayoreo">
                     </div>
                     <div class="form-group">
                         <label for="precio_caja">Precio de la caja:</label>
-                        <input type="number" class="form-control" id="precio_caja" name="precio_caja" required>
+                        <input type="number" class="form-control" id="precio_caja" name="precio_caja">
                     </div>
                     <div class="form-group">
                         <label for="inicio_mayoreo">Inicio del precio al por mayor:</label>
-                        <input type="number" class="form-control" id="inicio_mayoreo" name="inicio_mayoreo" required>
+                        <input type="number" class="form-control" id="inicio_mayoreo" name="inicio_mayoreo">
                     </div>
                     <div class="form-group">
                         <label for="inicio_caja">Inicio del precio de la caja:</label>
-                        <input type="number" class="form-control" id="inicio_caja" name="inicio_caja" required>
+                        <input type="number" class="form-control" id="inicio_caja" name="inicio_caja">
                     </div>
                     <!-- Campo select para colores -->
                     <div class="form-group">
                         <label for="id_color">Color:</label>
-                        <select class="form-control" id="id_color" name="id_color" required>
+                        <select class="form-control" id="id_color" name="id_color">
                             <option value="" disabled selected>Seleccionar un color</option>
                             <% colores.forEach(color=> { %>
-                                <option value="<%= color.id %>">
+                                <option value="<%= color.id_color %>">
                                     <%= color.color %>
                                 </option>
                                 <% }); %>
@@ -153,10 +170,10 @@
                     <!-- Campo select para categorías -->
                     <div class="form-group">
                         <label for="id_categoria">Categoría:</label>
-                        <select class="form-control" id="id_categoria" name="id_categoria" required>
+                        <select class="form-control" id="id_categoria" name="id_categoria">
                             <option value="" disabled selected>Seleccionar una categoría</option>
                             <% categorias.forEach(categoria=> { %>
-                                <option value="<%= categoria.id %>">
+                                <option value="<%= categoria.id_categoria %>">
                                     <%= categoria.categoria %>
                                 </option>
                                 <% }); %>
@@ -166,14 +183,30 @@
                     <!-- Campo select para tipos -->
                     <div class="form-group">
                         <label for="id_tipo">Tipo:</label>
-                        <select class="form-control" id="id_tipo" name="id_tipo" required>
+                        <select class="form-control" id="id_tipo" name="id_tipo">
                             <option value="" disabled selected>Seleccionar un tipo</option>
                             <% tipos.forEach(tipo=> { %>
-                                <option value="<%= tipo.id %>">
+                                <option value="<%= tipo.id_tipo %>">
                                     <%= tipo.tipo %>
                                 </option>
                                 <% }); %>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="existencias">Existencias:</label>
+                        <input type="number" class="form-control" id="existencias" name="existencias">
+                    </div>
+
+                    <!-- Campo de Unidades por Paquete -->
+                    <div class="form-group">
+                        <label for="unidades_paquete">Unidades por Paquete:</label>
+                        <input type="number" class="form-control" id="unidades_paquete" name="unidades_paquete">
+                    </div>
+
+                    <!-- Campo de Número de Paquete -->
+                    <div class="form-group">
+                        <label for="numero_paquete">Número de Paquete:</label>
+                        <input type="number" class="form-control" id="numero_paquete" name="numero_paquete">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Guardar Producto</button>
@@ -187,12 +220,172 @@
 
     <!-- Scripts -->
     <script src="/js/script.js"></script>
-    <script src="/js/ventas.js"></script>
-    <script src="/js/producto.js"></script>
-    <script src="/js/categoria.js"></script>
-    <script src="/js/rol.js"></script>
-    <script src="/js/envio.js"></script>
-    <script src="/js/color.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('imagenes').addEventListener('change', function (event) {
+            const previewContainer = document.querySelector('.preview-container');
+            const files = event.target.files;
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function () {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = reader.result;
+                    imgElement.classList.add('preview-image');
+                    previewContainer.appendChild(imgElement);
+                };
+
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById('formularioProducto').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const inputElement = document.getElementById('imagenes');
+            const files = inputElement.files;
+
+            const imagesArray = [];
+
+            function readFileAsBase64(file, callback) {
+                const reader = new FileReader();
+                reader.onloadend = function () {
+                    callback('data:' + file.type + ';base64,' + reader.result.split(',')[1]);
+                };
+                reader.readAsDataURL(file);
+            }
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                readFileAsBase64(file, function (base64String) {
+                    imagesArray.push({
+                        nombre: file.name,
+                        base64: base64String
+                    });
+
+                    if (imagesArray.length === files.length) {
+                        const dataToSend = {
+                            nombreCarpeta: 'pruebas',
+                            imgs: imagesArray
+                        };
+
+                        // Realizar la petición al endpoint utilizando fetch
+                        fetch('http://localhost:3000/api/file/upload-img', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(dataToSend)
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                miFuncionConRespuesta(data);
+                            })
+                            .catch(error => {
+                                console.error('Error en la petición:', error);
+                            });
+                    }
+                });
+            }
+        });
+        function miFuncionConRespuesta(data) {
+            const url = data.data.map(item => item.url);
+            const urlObject = { url };
+
+            // Obtener los demás datos del formulario
+            const codigo_barras = document.getElementById('codigo_barras').value;
+            const nombre = document.getElementById('nombre').value;
+            const marca = document.getElementById('marca').value;
+            const descripcion = document.getElementById('descripcion').value;
+            const compra = parseFloat(document.getElementById('compra').value);
+            const precio_unitario = parseFloat(document.getElementById('precio_unitario').value);
+            const precio_mayoreo = parseFloat(document.getElementById('precio_mayoreo').value);
+            const precio_caja = parseFloat(document.getElementById('precio_caja').value);
+            const inicio_mayoreo = parseInt(document.getElementById('inicio_mayoreo').value);
+            const inicio_caja = parseInt(document.getElementById('inicio_caja').value);
+            const id_color = parseInt(document.getElementById('id_color').value);
+            const id_categoria = parseInt(document.getElementById('id_categoria').value);
+            const id_tipo = parseInt(document.getElementById('id_tipo').value);
+
+            // Crear el objeto JSON con todos los datos del formulario
+            const formData = {
+                codigo_barras,
+                nombre,
+                marca,
+                descripcion,
+                imagen: urlObject,
+                compra,
+                precio_unitario,
+                precio_mayoreo,
+                precio_caja,
+                inicio_mayoreo,
+                inicio_caja,
+                id_color,
+                id_categoria,
+                id_tipo
+            };
+
+            fetch('http://localhost:3000/api/producto/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    idProductoObtenido = data.data.id_producto;
+
+                    console.log("id_producto obtenido:", idProductoObtenido);
+
+                    const existencias = parseInt(document.getElementById('existencias').value);
+                    const unidadesPaquete = parseInt(document.getElementById('unidades_paquete').value);
+                    const numPaquete = parseInt(document.getElementById('numero_paquete').value);
+                    const formDataInventario = {
+                        id_producto: idProductoObtenido,
+                        existencias,
+                        unidades_paquete: unidadesPaquete,
+                        num_paquete: numPaquete,
+                    };
+
+                    fetch('http://localhost:3000/api/inventario/add', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formDataInventario)
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            Swal.fire({
+                                title: 'Producto registrado',
+                                icon: 'success',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        })
+                        .catch(error => {
+                            Swal.fire({
+                                title: 'Error al agregar inventario',
+                                text: 'Ha ocurrido un error al agregar el inventario del producto.',
+                                icon: 'error'
+                            });
+                        });
+                })
+                .catch(error => {
+                    Swal.fire({
+                    title: 'Error al agregar el producto',
+                    text: 'Ha ocurrido un error al agregar el producto.',
+                    icon: 'error'
+                });
+                });
+        };
+    </script>
+
 </body>
 
 </html>

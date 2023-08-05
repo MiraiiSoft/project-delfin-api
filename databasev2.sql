@@ -147,7 +147,7 @@ CREATE TABLE roll (
 -- -----------------------------------------------------
 CREATE TABLE login (
   id_login INT NOT NULL AUTO_INCREMENT,
-  correo varchar(25) NOT NULL,
+  correo varchar(100) NOT NULL,
   usuario VARCHAR(45) NULL,
   password VARCHAR(150) NULL,
   is_verified BOOLEAN DEFAULT FALSE,
