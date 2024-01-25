@@ -108,7 +108,26 @@ export const product = ( req, res, next ) => {
     const dataType = [ "codigo_barras", "nombre", "marca", "descripcion", "imagen", "compra", "precio_unitario", "precio_mayoreo", "precio_caja", 
                         "inicio_mayoreo", "inicio_caja", "id_color", "id_categoria", "id_tipo" ]
     const dataClean = clean(dataType, req )
-    req.body = dataClean
+    const {  codigo_barras, nombre, marca, descripcion, imagen, compra, precio_unitario, precio_mayoreo, precio_caja, 
+    inicio_mayoreo, inicio_caja, id_color, id_categoria, id_tipo } = dataClean;
+    req.body = {
+        codigo_barras,
+        nombre,
+        marca,
+        descripcion,
+        imagen: {
+            url: [imagen]
+        },
+        compra: parseInt(compra),
+        precio_unitario: parseInt(precio_unitario),
+        precio_mayoreo: parseInt(precio_mayoreo),
+        precio_caja: parseInt(precio_caja),
+        inicio_mayoreo: parseInt(inicio_mayoreo),
+        inicio_caja: parseInt(inicio_caja),
+        id_color: parseInt(id_color),
+        id_categoria: parseInt(id_categoria),
+        id_tipo: parseInt(id_tipo)
+    }
     next()
 }
 

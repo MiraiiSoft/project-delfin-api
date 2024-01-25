@@ -88,3 +88,504 @@ Please make sure your database server is running at `192.168.4.78`:`3306`.
 [2023-07-20T17:42:00.070Z] info Petición Exitosa
 [2023-07-20T17:46:32.634Z] info Petición Exitosa
 [2023-08-01T02:19:08.731Z] info Petición Exitosa
+[2024-01-25T19:43:31.131Z] info Error al agregar producto Error: 
+Invalid `prisma.producto.create()` invocation:
+
+{
+  data: {
+    codigo_barras: 'aaaa',
+    nombre: 'lápiz',
+    marca: 'mongol',
+    descripcion: 'acá descripción',
+    imagen: 'https://carulla.vtexassets.com/arquivos/ids/10260360/lapiz-mongol-no-2-hb-x-12-uds.jpg?v=638084011628000000',
+    compra: '3',
+    precio_unitario: '3',
+    precio_mayoreo: '2',
+    precio_caja: '20',
+    inicio_mayoreo: '240',
+                    ~~~~~
+    inicio_caja: '20',
+                 ~~~~
+    id_color: '',
+    ~~~~~~~~
+    id_categoria: '',
+    ~~~~~~~~~~~~
+    id_tipo: '',
+    ~~~~~~~
++   color: {
++     create?: colorCreateWithoutProductoInput | colorUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: colorCreateOrConnectWithoutProductoInput,
++     connect?: colorWhereUniqueInput
++   },
++   categoria: {
++     create?: categoriaCreateWithoutProductoInput | categoriaUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: categoriaCreateOrConnectWithoutProductoInput,
++     connect?: categoriaWhereUniqueInput
++   },
++   tipo: {
++     create?: tipoCreateWithoutProductoInput | tipoUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: tipoCreateOrConnectWithoutProductoInput,
++     connect?: tipoWhereUniqueInput
++   },
+?   carrito_producto?: {
+?     create?: carrito_productoCreateWithoutProductoInput | carrito_productoCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: carrito_productoCreateOrConnectWithoutProductoInput | carrito_productoCreateOrConnectWithoutProductoInput,
+?     createMany?: carrito_productoCreateManyProductoInputEnvelope,
+?     connect?: carrito_productoWhereUniqueInput | carrito_productoWhereUniqueInput
+?   },
+?   detalle_venta?: {
+?     create?: detalle_ventaCreateWithoutProductoInput | detalle_ventaCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: detalle_ventaCreateOrConnectWithoutProductoInput | detalle_ventaCreateOrConnectWithoutProductoInput,
+?     createMany?: detalle_ventaCreateManyProductoInputEnvelope,
+?     connect?: detalle_ventaWhereUniqueInput | detalle_ventaWhereUniqueInput
+?   },
+?   inventario?: {
+?     create?: inventarioCreateWithoutProductoInput | inventarioCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: inventarioCreateOrConnectWithoutProductoInput | inventarioCreateOrConnectWithoutProductoInput,
+?     createMany?: inventarioCreateManyProductoInputEnvelope,
+?     connect?: inventarioWhereUniqueInput | inventarioWhereUniqueInput
+?   }
+  }
+}
+
+Argument inicio_mayoreo: Got invalid value '240' on prisma.createOneproducto. Provided String, expected Int or Null.
+Argument inicio_caja: Got invalid value '20' on prisma.createOneproducto. Provided String, expected Int or Null.
+Unknown arg `id_color` in data.id_color for type productoCreateInput. Did you mean `color`?
+Unknown arg `id_categoria` in data.id_categoria for type productoCreateInput. Did you mean `categoria`?
+Unknown arg `id_tipo` in data.id_tipo for type productoCreateInput. Did you mean `tipo`?
+Argument color for data.color is missing.
+Argument categoria for data.categoria is missing.
+Argument tipo for data.tipo is missing.
+
+Note: Lines with + are required, lines with ? are optional.
+
+[2024-01-25T19:44:27.528Z] info Error al agregar producto Error: 
+Invalid `prisma.producto.create()` invocation:
+
+{
+  data: {
+    codigo_barras: 'aaaa',
+    nombre: 'lápiz',
+    marca: 'mongol',
+    descripcion: 'acá descripción',
+    imagen: 'https://carulla.vtexassets.com/arquivos/ids/10260360/lapiz-mongol-no-2-hb-x-12-uds.jpg?v=638084011628000000',
+    compra: '3',
+    precio_unitario: '3',
+    precio_mayoreo: '2',
+    precio_caja: '20',
+    inicio_mayoreo: '240',
+                    ~~~~~
+    inicio_caja: '20',
+                 ~~~~
+    id_color: '',
+    ~~~~~~~~
+    id_categoria: '',
+    ~~~~~~~~~~~~
+    id_tipo: '',
+    ~~~~~~~
++   color: {
++     create?: colorCreateWithoutProductoInput | colorUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: colorCreateOrConnectWithoutProductoInput,
++     connect?: colorWhereUniqueInput
++   },
++   categoria: {
++     create?: categoriaCreateWithoutProductoInput | categoriaUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: categoriaCreateOrConnectWithoutProductoInput,
++     connect?: categoriaWhereUniqueInput
++   },
++   tipo: {
++     create?: tipoCreateWithoutProductoInput | tipoUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: tipoCreateOrConnectWithoutProductoInput,
++     connect?: tipoWhereUniqueInput
++   },
+?   carrito_producto?: {
+?     create?: carrito_productoCreateWithoutProductoInput | carrito_productoCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: carrito_productoCreateOrConnectWithoutProductoInput | carrito_productoCreateOrConnectWithoutProductoInput,
+?     createMany?: carrito_productoCreateManyProductoInputEnvelope,
+?     connect?: carrito_productoWhereUniqueInput | carrito_productoWhereUniqueInput
+?   },
+?   detalle_venta?: {
+?     create?: detalle_ventaCreateWithoutProductoInput | detalle_ventaCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: detalle_ventaCreateOrConnectWithoutProductoInput | detalle_ventaCreateOrConnectWithoutProductoInput,
+?     createMany?: detalle_ventaCreateManyProductoInputEnvelope,
+?     connect?: detalle_ventaWhereUniqueInput | detalle_ventaWhereUniqueInput
+?   },
+?   inventario?: {
+?     create?: inventarioCreateWithoutProductoInput | inventarioCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: inventarioCreateOrConnectWithoutProductoInput | inventarioCreateOrConnectWithoutProductoInput,
+?     createMany?: inventarioCreateManyProductoInputEnvelope,
+?     connect?: inventarioWhereUniqueInput | inventarioWhereUniqueInput
+?   }
+  }
+}
+
+Argument inicio_mayoreo: Got invalid value '240' on prisma.createOneproducto. Provided String, expected Int or Null.
+Argument inicio_caja: Got invalid value '20' on prisma.createOneproducto. Provided String, expected Int or Null.
+Unknown arg `id_color` in data.id_color for type productoCreateInput. Did you mean `color`?
+Unknown arg `id_categoria` in data.id_categoria for type productoCreateInput. Did you mean `categoria`?
+Unknown arg `id_tipo` in data.id_tipo for type productoCreateInput. Did you mean `tipo`?
+Argument color for data.color is missing.
+Argument categoria for data.categoria is missing.
+Argument tipo for data.tipo is missing.
+
+Note: Lines with + are required, lines with ? are optional.
+
+[2024-01-25T20:04:50.860Z] info Error al agregar producto Error: 
+Invalid `prisma.producto.create()` invocation:
+
+{
+  data: {
+    codigo_barras: 'aaaa',
+    nombre: 'lápiz',
+    marca: 'mongol',
+    descripcion: 'aca',
+    imagen: 'https://carulla.vtexassets.com/arquivos/ids/10260360/lapiz-mongol-no-2-hb-x-12-uds.jpg?v=638084011628000000',
+    compra: '3',
+    precio_unitario: '3',
+    precio_mayoreo: '3',
+    precio_caja: '20',
+    inicio_mayoreo: '240',
+                    ~~~~~
+    inicio_caja: '20',
+                 ~~~~
+    id_color: '',
+    ~~~~~~~~
+    id_categoria: '',
+    ~~~~~~~~~~~~
+    id_tipo: '',
+    ~~~~~~~
++   color: {
++     create?: colorCreateWithoutProductoInput | colorUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: colorCreateOrConnectWithoutProductoInput,
++     connect?: colorWhereUniqueInput
++   },
++   categoria: {
++     create?: categoriaCreateWithoutProductoInput | categoriaUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: categoriaCreateOrConnectWithoutProductoInput,
++     connect?: categoriaWhereUniqueInput
++   },
++   tipo: {
++     create?: tipoCreateWithoutProductoInput | tipoUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: tipoCreateOrConnectWithoutProductoInput,
++     connect?: tipoWhereUniqueInput
++   },
+?   carrito_producto?: {
+?     create?: carrito_productoCreateWithoutProductoInput | carrito_productoCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: carrito_productoCreateOrConnectWithoutProductoInput | carrito_productoCreateOrConnectWithoutProductoInput,
+?     createMany?: carrito_productoCreateManyProductoInputEnvelope,
+?     connect?: carrito_productoWhereUniqueInput | carrito_productoWhereUniqueInput
+?   },
+?   detalle_venta?: {
+?     create?: detalle_ventaCreateWithoutProductoInput | detalle_ventaCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: detalle_ventaCreateOrConnectWithoutProductoInput | detalle_ventaCreateOrConnectWithoutProductoInput,
+?     createMany?: detalle_ventaCreateManyProductoInputEnvelope,
+?     connect?: detalle_ventaWhereUniqueInput | detalle_ventaWhereUniqueInput
+?   },
+?   inventario?: {
+?     create?: inventarioCreateWithoutProductoInput | inventarioCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: inventarioCreateOrConnectWithoutProductoInput | inventarioCreateOrConnectWithoutProductoInput,
+?     createMany?: inventarioCreateManyProductoInputEnvelope,
+?     connect?: inventarioWhereUniqueInput | inventarioWhereUniqueInput
+?   }
+  }
+}
+
+Argument inicio_mayoreo: Got invalid value '240' on prisma.createOneproducto. Provided String, expected Int or Null.
+Argument inicio_caja: Got invalid value '20' on prisma.createOneproducto. Provided String, expected Int or Null.
+Unknown arg `id_color` in data.id_color for type productoCreateInput. Did you mean `color`?
+Unknown arg `id_categoria` in data.id_categoria for type productoCreateInput. Did you mean `categoria`?
+Unknown arg `id_tipo` in data.id_tipo for type productoCreateInput. Did you mean `tipo`?
+Argument color for data.color is missing.
+Argument categoria for data.categoria is missing.
+Argument tipo for data.tipo is missing.
+
+Note: Lines with + are required, lines with ? are optional.
+
+[2024-01-25T20:06:39.877Z] info Error al agregar producto Error: 
+Invalid `prisma.producto.create()` invocation:
+
+{
+  data: {
+    codigo_barras: 'aaaa',
+    nombre: 'lápiz',
+    marca: 'mongol',
+    descripcion: 'aca',
+    imagen: 'https://carulla.vtexassets.com/arquivos/ids/10260360/lapiz-mongol-no-2-hb-x-12-uds.jpg?v=638084011628000000',
+    compra: '3',
+    precio_unitario: '3',
+    precio_mayoreo: '3',
+    precio_caja: '20',
+    inicio_mayoreo: '240',
+                    ~~~~~
+    inicio_caja: '20',
+                 ~~~~
+    id_color: '',
+    ~~~~~~~~
+    id_categoria: '',
+    ~~~~~~~~~~~~
+    id_tipo: '',
+    ~~~~~~~
++   color: {
++     create?: colorCreateWithoutProductoInput | colorUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: colorCreateOrConnectWithoutProductoInput,
++     connect?: colorWhereUniqueInput
++   },
++   categoria: {
++     create?: categoriaCreateWithoutProductoInput | categoriaUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: categoriaCreateOrConnectWithoutProductoInput,
++     connect?: categoriaWhereUniqueInput
++   },
++   tipo: {
++     create?: tipoCreateWithoutProductoInput | tipoUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: tipoCreateOrConnectWithoutProductoInput,
++     connect?: tipoWhereUniqueInput
++   },
+?   carrito_producto?: {
+?     create?: carrito_productoCreateWithoutProductoInput | carrito_productoCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: carrito_productoCreateOrConnectWithoutProductoInput | carrito_productoCreateOrConnectWithoutProductoInput,
+?     createMany?: carrito_productoCreateManyProductoInputEnvelope,
+?     connect?: carrito_productoWhereUniqueInput | carrito_productoWhereUniqueInput
+?   },
+?   detalle_venta?: {
+?     create?: detalle_ventaCreateWithoutProductoInput | detalle_ventaCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: detalle_ventaCreateOrConnectWithoutProductoInput | detalle_ventaCreateOrConnectWithoutProductoInput,
+?     createMany?: detalle_ventaCreateManyProductoInputEnvelope,
+?     connect?: detalle_ventaWhereUniqueInput | detalle_ventaWhereUniqueInput
+?   },
+?   inventario?: {
+?     create?: inventarioCreateWithoutProductoInput | inventarioCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: inventarioCreateOrConnectWithoutProductoInput | inventarioCreateOrConnectWithoutProductoInput,
+?     createMany?: inventarioCreateManyProductoInputEnvelope,
+?     connect?: inventarioWhereUniqueInput | inventarioWhereUniqueInput
+?   }
+  }
+}
+
+Argument inicio_mayoreo: Got invalid value '240' on prisma.createOneproducto. Provided String, expected Int or Null.
+Argument inicio_caja: Got invalid value '20' on prisma.createOneproducto. Provided String, expected Int or Null.
+Unknown arg `id_color` in data.id_color for type productoCreateInput. Did you mean `color`?
+Unknown arg `id_categoria` in data.id_categoria for type productoCreateInput. Did you mean `categoria`?
+Unknown arg `id_tipo` in data.id_tipo for type productoCreateInput. Did you mean `tipo`?
+Argument color for data.color is missing.
+Argument categoria for data.categoria is missing.
+Argument tipo for data.tipo is missing.
+
+Note: Lines with + are required, lines with ? are optional.
+
+[2024-01-25T20:07:17.877Z] info Error al agregar producto Error: 
+Invalid `prisma.producto.create()` invocation:
+
+{
+  data: {
+    codigo_barras: 'aaaa',
+    nombre: 'lápiz',
+    marca: 'mongol',
+    descripcion: 'aaa',
+    imagen: 'https://carulla.vtexassets.com/arquivos/ids/10260360/lapiz-mongol-no-2-hb-x-12-uds.jpg?v=638084011628000000',
+    compra: '3',
+    precio_unitario: '3',
+    precio_mayoreo: '2',
+    precio_caja: '23',
+    inicio_mayoreo: '2',
+                    ~~~
+    inicio_caja: '2',
+                 ~~~
+    id_color: '',
+    ~~~~~~~~
+    id_categoria: '',
+    ~~~~~~~~~~~~
+    id_tipo: 'Lápiz grafito',
+    ~~~~~~~
++   color: {
++     create?: colorCreateWithoutProductoInput | colorUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: colorCreateOrConnectWithoutProductoInput,
++     connect?: colorWhereUniqueInput
++   },
++   categoria: {
++     create?: categoriaCreateWithoutProductoInput | categoriaUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: categoriaCreateOrConnectWithoutProductoInput,
++     connect?: categoriaWhereUniqueInput
++   },
++   tipo: {
++     create?: tipoCreateWithoutProductoInput | tipoUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: tipoCreateOrConnectWithoutProductoInput,
++     connect?: tipoWhereUniqueInput
++   },
+?   carrito_producto?: {
+?     create?: carrito_productoCreateWithoutProductoInput | carrito_productoCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: carrito_productoCreateOrConnectWithoutProductoInput | carrito_productoCreateOrConnectWithoutProductoInput,
+?     createMany?: carrito_productoCreateManyProductoInputEnvelope,
+?     connect?: carrito_productoWhereUniqueInput | carrito_productoWhereUniqueInput
+?   },
+?   detalle_venta?: {
+?     create?: detalle_ventaCreateWithoutProductoInput | detalle_ventaCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: detalle_ventaCreateOrConnectWithoutProductoInput | detalle_ventaCreateOrConnectWithoutProductoInput,
+?     createMany?: detalle_ventaCreateManyProductoInputEnvelope,
+?     connect?: detalle_ventaWhereUniqueInput | detalle_ventaWhereUniqueInput
+?   },
+?   inventario?: {
+?     create?: inventarioCreateWithoutProductoInput | inventarioCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: inventarioCreateOrConnectWithoutProductoInput | inventarioCreateOrConnectWithoutProductoInput,
+?     createMany?: inventarioCreateManyProductoInputEnvelope,
+?     connect?: inventarioWhereUniqueInput | inventarioWhereUniqueInput
+?   }
+  }
+}
+
+Argument inicio_mayoreo: Got invalid value '2' on prisma.createOneproducto. Provided String, expected Int or Null.
+Argument inicio_caja: Got invalid value '2' on prisma.createOneproducto. Provided String, expected Int or Null.
+Unknown arg `id_color` in data.id_color for type productoCreateInput. Did you mean `color`?
+Unknown arg `id_categoria` in data.id_categoria for type productoCreateInput. Did you mean `categoria`?
+Unknown arg `id_tipo` in data.id_tipo for type productoCreateInput. Did you mean `tipo`?
+Argument color for data.color is missing.
+Argument categoria for data.categoria is missing.
+Argument tipo for data.tipo is missing.
+
+Note: Lines with + are required, lines with ? are optional.
+
+[2024-01-25T20:12:18.234Z] info Error al agregar producto Error: 
+Invalid `prisma.producto.create()` invocation:
+
+{
+  data: {
+    codigo_barras: 'aaaa',
+    nombre: 'lápiz',
+    marca: 'mongol',
+    descripcion: 'aaa',
+    imagen: 'https://carulla.vtexassets.com/arquivos/ids/10260360/lapiz-mongol-no-2-hb-x-12-uds.jpg?v=638084011628000000',
+    compra: '2',
+    precio_unitario: '2',
+    precio_mayoreo: '2',
+    precio_caja: '2',
+    inicio_mayoreo: '2',
+                    ~~~
+    inicio_caja: '2',
+                 ~~~
+    id_color: '',
+    ~~~~~~~~
+    id_categoria: '',
+    ~~~~~~~~~~~~
+    id_tipo: '',
+    ~~~~~~~
++   color: {
++     create?: colorCreateWithoutProductoInput | colorUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: colorCreateOrConnectWithoutProductoInput,
++     connect?: colorWhereUniqueInput
++   },
++   categoria: {
++     create?: categoriaCreateWithoutProductoInput | categoriaUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: categoriaCreateOrConnectWithoutProductoInput,
++     connect?: categoriaWhereUniqueInput
++   },
++   tipo: {
++     create?: tipoCreateWithoutProductoInput | tipoUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: tipoCreateOrConnectWithoutProductoInput,
++     connect?: tipoWhereUniqueInput
++   },
+?   carrito_producto?: {
+?     create?: carrito_productoCreateWithoutProductoInput | carrito_productoCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: carrito_productoCreateOrConnectWithoutProductoInput | carrito_productoCreateOrConnectWithoutProductoInput,
+?     createMany?: carrito_productoCreateManyProductoInputEnvelope,
+?     connect?: carrito_productoWhereUniqueInput | carrito_productoWhereUniqueInput
+?   },
+?   detalle_venta?: {
+?     create?: detalle_ventaCreateWithoutProductoInput | detalle_ventaCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: detalle_ventaCreateOrConnectWithoutProductoInput | detalle_ventaCreateOrConnectWithoutProductoInput,
+?     createMany?: detalle_ventaCreateManyProductoInputEnvelope,
+?     connect?: detalle_ventaWhereUniqueInput | detalle_ventaWhereUniqueInput
+?   },
+?   inventario?: {
+?     create?: inventarioCreateWithoutProductoInput | inventarioCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: inventarioCreateOrConnectWithoutProductoInput | inventarioCreateOrConnectWithoutProductoInput,
+?     createMany?: inventarioCreateManyProductoInputEnvelope,
+?     connect?: inventarioWhereUniqueInput | inventarioWhereUniqueInput
+?   }
+  }
+}
+
+Argument inicio_mayoreo: Got invalid value '2' on prisma.createOneproducto. Provided String, expected Int or Null.
+Argument inicio_caja: Got invalid value '2' on prisma.createOneproducto. Provided String, expected Int or Null.
+Unknown arg `id_color` in data.id_color for type productoCreateInput. Did you mean `color`?
+Unknown arg `id_categoria` in data.id_categoria for type productoCreateInput. Did you mean `categoria`?
+Unknown arg `id_tipo` in data.id_tipo for type productoCreateInput. Did you mean `tipo`?
+Argument color for data.color is missing.
+Argument categoria for data.categoria is missing.
+Argument tipo for data.tipo is missing.
+
+Note: Lines with + are required, lines with ? are optional.
+
+[2024-01-25T20:14:50.866Z] info Error al agregar producto Error: 
+Invalid `prisma.producto.create()` invocation:
+
+{
+  data: {
+    codigo_barras: 'aaaa',
+    nombre: 'lápiz',
+    marca: 'mongol',
+    descripcion: 'aca',
+    imagen: 'https://carulla.vtexassets.com/arquivos/ids/10260360/lapiz-mongol-no-2-hb-x-12-uds.jpg?v=638084011628000000',
+    compra: '2',
+    precio_unitario: '2',
+    precio_mayoreo: '2',
+    precio_caja: '2',
+    inicio_mayoreo: '2',
+                    ~~~
+    inicio_caja: '2',
+                 ~~~
+    id_color: '1',
+    ~~~~~~~~
+    id_categoria: '1',
+    ~~~~~~~~~~~~
+    id_tipo: '1',
+    ~~~~~~~
++   color: {
++     create?: colorCreateWithoutProductoInput | colorUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: colorCreateOrConnectWithoutProductoInput,
++     connect?: colorWhereUniqueInput
++   },
++   categoria: {
++     create?: categoriaCreateWithoutProductoInput | categoriaUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: categoriaCreateOrConnectWithoutProductoInput,
++     connect?: categoriaWhereUniqueInput
++   },
++   tipo: {
++     create?: tipoCreateWithoutProductoInput | tipoUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: tipoCreateOrConnectWithoutProductoInput,
++     connect?: tipoWhereUniqueInput
++   },
+?   carrito_producto?: {
+?     create?: carrito_productoCreateWithoutProductoInput | carrito_productoCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: carrito_productoCreateOrConnectWithoutProductoInput | carrito_productoCreateOrConnectWithoutProductoInput,
+?     createMany?: carrito_productoCreateManyProductoInputEnvelope,
+?     connect?: carrito_productoWhereUniqueInput | carrito_productoWhereUniqueInput
+?   },
+?   detalle_venta?: {
+?     create?: detalle_ventaCreateWithoutProductoInput | detalle_ventaCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: detalle_ventaCreateOrConnectWithoutProductoInput | detalle_ventaCreateOrConnectWithoutProductoInput,
+?     createMany?: detalle_ventaCreateManyProductoInputEnvelope,
+?     connect?: detalle_ventaWhereUniqueInput | detalle_ventaWhereUniqueInput
+?   },
+?   inventario?: {
+?     create?: inventarioCreateWithoutProductoInput | inventarioCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: inventarioCreateOrConnectWithoutProductoInput | inventarioCreateOrConnectWithoutProductoInput,
+?     createMany?: inventarioCreateManyProductoInputEnvelope,
+?     connect?: inventarioWhereUniqueInput | inventarioWhereUniqueInput
+?   }
+  }
+}
+
+Argument inicio_mayoreo: Got invalid value '2' on prisma.createOneproducto. Provided String, expected Int or Null.
+Argument inicio_caja: Got invalid value '2' on prisma.createOneproducto. Provided String, expected Int or Null.
+Unknown arg `id_color` in data.id_color for type productoCreateInput. Did you mean `color`?
+Unknown arg `id_categoria` in data.id_categoria for type productoCreateInput. Did you mean `categoria`?
+Unknown arg `id_tipo` in data.id_tipo for type productoCreateInput. Did you mean `tipo`?
+Argument color for data.color is missing.
+Argument categoria for data.categoria is missing.
+Argument tipo for data.tipo is missing.
+
+Note: Lines with + are required, lines with ? are optional.
+
+[2024-01-25T20:26:13.825Z] info El producto fue agregado con exito
+[2024-01-25T22:50:55.587Z] info El producto fue agregado con exito
+[2024-01-25T22:55:32.954Z] info El producto fue agregado con exito
+[2024-01-25T22:56:56.673Z] info El producto fue agregado con exito

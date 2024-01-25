@@ -7,6 +7,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -90,7 +91,7 @@
             </div>
 
             <!--Aqui va la tabla-->
-            <div class="col-md-11 mt-4">
+            <div class="col-md-11 mt-4 mb-5">
                 <h2>Nuevo Producto</h2>
                 <form id="formularioProducto">
                     <div class="form-group">
@@ -143,7 +144,8 @@
                         <select class="form-control" id="id_color" name="id_color" required>
                             <option value="" disabled selected>Seleccionar un color</option>
                             <% colores.forEach(color=> { %>
-                                <option value="<%= color.id %>">
+                                
+                                <option value="<%= color.id_color %>">
                                     <%= color.color %>
                                 </option>
                                 <% }); %>
@@ -156,7 +158,7 @@
                         <select class="form-control" id="id_categoria" name="id_categoria" required>
                             <option value="" disabled selected>Seleccionar una categoría</option>
                             <% categorias.forEach(categoria=> { %>
-                                <option value="<%= categoria.id %>">
+                                <option value="<%= categoria.id_categoria %>">
                                     <%= categoria.categoria %>
                                 </option>
                                 <% }); %>
@@ -167,31 +169,51 @@
                     <div class="form-group">
                         <label for="id_tipo">Tipo:</label>
                         <select class="form-control" id="id_tipo" name="id_tipo" required>
-                            <option value="" disabled selected>Seleccionar un tipo</option>
-                            <% tipos.forEach(tipo=> { %>
-                                <option value="<%= tipo.id %>">
-                                    <%= tipo.tipo %>
-                                </option>
+                            <option value="" selected>Seleccionar un tipo</option>
+                            <% if (tipos && tipos.length) { %>
+                                <% tipos.forEach(tipo => { %>
+                                    <option value="<%- tipo.id_tipo %>">
+                                        <%- tipo.tipo %>
+                                    </option>
                                 <% }); %>
+                            <% } %>
                         </select>
                     </div>
+                    
 
-                    <button type="submit" class="btn btn-primary">Guardar Producto</button>
+                    <button type="button" class="btn btn-primary" onclick="saveProduct()">Guardar Producto</button>
                 </form>
             </div>
         </div>
     </div>
 
-
-
+    <!--Modal-->
+    <div class="modal" id="responseModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideModal()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p class="modal-body__message">Message</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideModal()">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="/js/script.js"></script>
-    <script src="/js/ventas.js"></script>
+    <!-- <script src="/js/ventas.js"></script> -->
     <script src="/js/producto.js"></script>
     <script src="/js/categoria.js"></script>
-    <script src="/js/rol.js"></script>
-    <script src="/js/envio.js"></script>
+    <!-- <script src="/js/rol.js"></script>
+    <script src="/js/envio.js"></script> -->
     <script src="/js/color.js"></script>
 </body>
 

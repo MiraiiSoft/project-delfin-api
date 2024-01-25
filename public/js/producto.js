@@ -182,3 +182,48 @@ function generateTableProductos(productos) {
     tbody.appendChild(row);
   });
 }
+
+function hideModal() {
+  $("#responseModal").hide();
+}
+
+function saveProduct() {
+  const form = document.getElementById("formularioProducto");
+
+  const formData = new FormData(form);
+  const jsonData = {};
+  formData.forEach((value, key) => {
+    jsonData[key] = value;
+  });
+
+  fetch("http://localhost:3000/api/producto/add", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(jsonData),
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.success) {
+        modal("Enhorabuena", res.message);
+        form.reset();
+      } else {
+        modal("Algo va mal", res.message);
+      }
+    })
+    .catch((err) => {
+      modal("Algo a ocurrido", err.message);
+    });
+}
+
+function modal(title, message) {
+  $("#responseModal").show();
+
+  const modalElement = document.getElementById("responseModal");
+  const titleModal = modalElement.querySelector(".modal-title");
+  titleModal.innerText = title;
+
+  const bodyMessage = modalElement.querySelector(".modal-body__message");
+  bodyMessage.innerText = message;
+}

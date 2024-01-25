@@ -12,7 +12,7 @@ router.get('/colores',renderColores)
 router.get('/user/cardUser/:id',renderUserCard)
 router.get('/productos/productCard/:id',renderProductCard)
 router.get('/ventas/ventaCard/:id',renderVentaCard)
-router.get('/producto/formProducto',renderProductForm)
+router.get('/productos/formProducto',renderProductForm)
 
 const adminRouter = router;
 
