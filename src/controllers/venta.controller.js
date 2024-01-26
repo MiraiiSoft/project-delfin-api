@@ -74,7 +74,8 @@ export const addVenta = async (req, res) => {
 
 export const getOneVentaByLogin = async (req, res) => {
   try {
-    const ventaID = parseInt(req.params.ventaID); // Convertir el valor a un número entero
+    const ventaID = parseInt(req.userLogin); // Convertir el valor a un número entero
+    console.log(ventaID)
     const venta = await getVentaByIdLogin(ventaID);
     loggerVenta.info({message: "Venta Mostrada"})
     res.status(CODES_HTTP.OK).json({

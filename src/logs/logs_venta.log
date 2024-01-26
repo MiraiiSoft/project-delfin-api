@@ -224,3 +224,135 @@ Inconsistent query result: Field venta is required to return data, got `null` in
 [2023-08-01T15:33:52.762Z] info Error al mostrar Ventas: ReferenceError: id is not defined
 [2023-08-01T15:34:04.086Z] info Petición exitosa
 [2023-08-01T15:34:26.568Z] info Petición exitosa
+[2024-01-26T21:23:47.553Z] info Error al mostrar venta: Error: 
+Invalid `prisma.detalle_venta.findMany()` invocation:
+
+{
+  include: {
+    venta: {
+      include: {
+        pago: true,
+        envio: true
+      }
+    },
+    login: true,
+    producto: true,
+    carrito: true
+  },
+  where: {
+    id_login: NaN
+              ~~~
+  }
+}
+
+Argument id_login: Got invalid value NaN on prisma.findManydetalle_venta. Provided Float, expected IntFilter or Int:
+type IntFilter {
+  equals?: Int
+  in?: List<Int> | Int
+  notIn?: List<Int> | Int
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntFilter
+}
+type IntFilter {
+  equals?: Int
+  in?: List<Int> | Int
+  notIn?: List<Int> | Int
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntFilter
+}
+
+
+[2024-01-26T21:24:44.089Z] info Error al mostrar venta: Error: 
+Invalid `prisma.detalle_venta.findMany()` invocation:
+
+{
+  include: {
+    venta: {
+      include: {
+        pago: true,
+        envio: true
+      }
+    },
+    login: true,
+    producto: true,
+    carrito: true
+  },
+  where: {
+    id_login: NaN
+              ~~~
+  }
+}
+
+Argument id_login: Got invalid value NaN on prisma.findManydetalle_venta. Provided Float, expected IntFilter or Int:
+type IntFilter {
+  equals?: Int
+  in?: List<Int> | Int
+  notIn?: List<Int> | Int
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntFilter
+}
+type IntFilter {
+  equals?: Int
+  in?: List<Int> | Int
+  notIn?: List<Int> | Int
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntFilter
+}
+
+
+[2024-01-26T21:25:32.568Z] info Error al mostrar venta: Error: 
+Invalid `prisma.detalle_venta.findMany()` invocation:
+
+{
+  include: {
+    venta: {
+      include: {
+        pago: true,
+        envio: true
+      }
+    },
+    login: true,
+    producto: true,
+    carrito: true
+  },
+  where: {
+    id_login: NaN
+              ~~~
+  }
+}
+
+Argument id_login: Got invalid value NaN on prisma.findManydetalle_venta. Provided Float, expected IntFilter or Int:
+type IntFilter {
+  equals?: Int
+  in?: List<Int> | Int
+  notIn?: List<Int> | Int
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntFilter
+}
+type IntFilter {
+  equals?: Int
+  in?: List<Int> | Int
+  notIn?: List<Int> | Int
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntFilter
+}
+
+

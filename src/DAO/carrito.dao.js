@@ -68,6 +68,9 @@ export async function getcarritoByIdLogin(id) {
   const carrito = await prisma.carrito.findFirst({
     where:{
       id_login: id
+    },
+    include: {
+      carrito_producto: true
     }
   });
   await prisma.$disconnect();
