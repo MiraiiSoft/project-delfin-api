@@ -135,9 +135,8 @@ export const deleteProducts = async ( req, res ) => {
     try {
         const { productoID } = req.params;
         const inventory = await getInventarioByIdProduct(parseInt(productoID))
-        console.log(inventory)
-        // await deleteInventarioById(inventory.id_inventario)
-        // const eliminarProducto = await deleteProductoById(parseInt(productoID))
+        await deleteInventarioById(inventory.id_inventario)
+        const eliminarProducto = await deleteProductoById(parseInt(productoID))
         console.log("El producto fue eliminado con exito")
         loggerProducto.info({message: "El producto fue eliminado con exito"})
         res.status(CODES_HTTP.OK).json({

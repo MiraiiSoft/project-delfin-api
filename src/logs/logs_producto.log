@@ -1130,3 +1130,7 @@ Note: Lines with + are required, lines with ? are optional.
 [2024-01-26T19:39:43.725Z] info El producto fue actualizado con exito
 [2024-01-26T19:44:11.159Z] info Petición Exitosa
 [2024-01-26T19:44:16.061Z] info El producto fue actualizado con exito
+[2024-01-26T19:50:20.385Z] info El producto fue agregado con exito
+[2024-01-26T19:50:32.918Z] info El producto fue eliminado con exito
+[2024-01-26T19:50:32.921Z] info Error al eliminar producto ReferenceError: eliminarProducto is not defined
+[2024-01-26T19:51:30.156Z] info El producto fue eliminado con exito
