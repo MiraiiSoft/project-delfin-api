@@ -13,6 +13,7 @@ router.get('/user/cardUser/:id',renderUserCard)
 router.get('/productos/productCard/:id',renderProductCard)
 router.get('/ventas/ventaCard/:id',renderVentaCard)
 router.get('/productos/formProducto',renderProductForm)
+router.get('/productos/editar/:id', renderProductForm)
 
 const adminRouter = router;
 

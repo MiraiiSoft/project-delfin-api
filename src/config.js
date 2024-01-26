@@ -10,3 +10,7 @@ export const firebaseConfig = {
     appId: process.env.firebaseAppId || "",
     measurementId: process.env.firebaseMeasurementId || ""
 }
+
+export const glob = {
+    apiUrl: process.env.API_URL || ""
+}

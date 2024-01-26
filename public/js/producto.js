@@ -1,9 +1,56 @@
-var producto = document.getElementById("getProductos");
+const apiURL = "http://localhost:3000";
+const pathname = location.pathname;
+const idProduct = pathname.split("/").pop();
 
+if (pathname.includes("editar")) {
+  fetch(`${apiURL}/api/producto/${idProduct}`)
+    .then((res) => res.json())
+    .then((res) => {
+      if(res.success){
+        const { data } = res;
+        const codigoBarras = document.getElementById("codigo_barras")
+        const nombre = document.getElementById("nombre")
+        const marca = document.getElementById("marca")
+        const descripcion = document.getElementById("descripcion")
+        const imagen = document.getElementById("imagen")
+        const compra = document.getElementById("compra")
+        const precio_unitario = document.getElementById("precio_unitario")
+        const precio_mayoreo = document.getElementById("precio_mayoreo")
+        const precio_caja = document.getElementById("precio_caja")
+        const inicio_mayoreo = document.getElementById("inicio_mayoreo")
+        const inicio_caja = document.getElementById("inicio_caja")
+        const id_color = document.getElementById("id_color")
+        const id_categoria = document.getElementById("id_categoria")
+        const id_tipo = document.getElementById("id_tipo")
+
+        codigoBarras.value = data.codigo_barras
+        nombre.value = data.nombre
+        marca.value = data.marca
+        descripcion.value = data.descripcion
+        imagen.value = data.imagen.url[0]
+        compra.value = data.compra
+        precio_unitario.value = data.precio_unitario
+        precio_mayoreo.value = data.precio_mayoreo
+        precio_caja.value = data.precio_caja
+        inicio_mayoreo.value = data.inicio_mayoreo
+        inicio_caja.value = data.inicio_caja
+        id_color.value = data.id_color
+        id_categoria.value = data.id_categoria
+        id_tipo.value = data.id_tipo
+      }else{
+        modal("Algo va mal", res.message)
+      }
+    })
+    .catch(err => {
+      modal("Algo a ocurrido", `${err}`)
+    })
+}
+
+var producto = document.getElementById("getProductos");
 producto.addEventListener("click", function (event) {
   event.preventDefault();
 
-  fetch("http://localhost:3000/api/producto")
+  fetch(`${apiURL}/api/producto`)
     .then((response) => response.json())
     .then((responseData) => {
       if (responseData.success) {
@@ -133,7 +180,7 @@ function generateTableProductos(productos) {
       fetch("/api/producto/" + productoid)
         .then((response) => response.json())
         .then((responseData) => {
-          console.log(mostrarProducto);
+          
           mostrarProducto(responseData);
         })
         .catch((error) => {
@@ -187,6 +234,14 @@ function hideModal() {
   $("#responseModal").hide();
 }
 
+function saveOrUpdate(){
+  if(pathname.includes("editar")){
+    updateProduct()
+  }else{
+    saveProduct()
+  }
+}
+
 function saveProduct() {
   const form = document.getElementById("formularioProducto");
 
@@ -196,7 +251,7 @@ function saveProduct() {
     jsonData[key] = value;
   });
 
-  fetch("http://localhost:3000/api/producto/add", {
+  fetch(`${apiURL}/api/producto/add`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -213,7 +268,40 @@ function saveProduct() {
       }
     })
     .catch((err) => {
-      modal("Algo a ocurrido", err.message);
+      modal("Algo a ocurrido", `${err}`);
+    });
+}
+
+function updateProduct() {
+  const form = document.getElementById("formularioProducto");
+
+  const formData = new FormData(form);
+  const jsonData = {};
+  formData.forEach((value, key) => {
+    jsonData[key] = value;
+  });
+
+  fetch(`${apiURL}/api/producto/update/${idProduct}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(jsonData),
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.success) {
+        modal("Enhorabuena", res.message);
+
+        setTimeout(() => {
+          location.replace(`${apiURL}/adminPanel/productos`)
+        },1000)
+      } else {
+        modal("Algo va mal", res.message);
+      }
+    })
+    .catch((err) => {
+      modal("Algo a ocurrido", `${err}`);
     });
 }
 
@@ -226,4 +314,36 @@ function modal(title, message) {
 
   const bodyMessage = modalElement.querySelector(".modal-body__message");
   bodyMessage.innerText = message;
+}
+
+function deleteItem(itemID, redirect = null) {
+  fetch(`${apiURL}/api/producto/delete/${itemID}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.success) {
+        
+        if(redirect !== null){
+          location.replace(`${apiURL}/${redirect}`)
+        }else{
+          modal("Eliminado", res.message);
+          reload()
+        }
+      } else {
+        modal("Algo va mal", res.message);
+      }
+    })
+    .catch((err) => {
+      modal("Algo a ocurrido", `${err}`);
+    });
+}
+
+function reload(){
+  setTimeout(() => {
+    location.reload()
+  }, 1000)
 }

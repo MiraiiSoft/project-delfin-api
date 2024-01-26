@@ -589,3 +589,75 @@ Note: Lines with + are required, lines with ? are optional.
 [2024-01-25T22:50:55.587Z] info El producto fue agregado con exito
 [2024-01-25T22:55:32.954Z] info El producto fue agregado con exito
 [2024-01-25T22:56:56.673Z] info El producto fue agregado con exito
+[2024-01-26T15:41:00.539Z] info El producto fue eliminado con exito
+[2024-01-26T15:41:19.427Z] info El producto fue eliminado con exito
+[2024-01-26T15:43:07.922Z] info El producto fue agregado con exito
+[2024-01-26T16:00:36.614Z] info Petición Exitosa
+[2024-01-26T16:18:11.646Z] info Petición Exitosa
+[2024-01-26T16:18:47.699Z] info Petición Exitosa
+[2024-01-26T16:22:34.532Z] info Petición Exitosa
+[2024-01-26T16:23:20.365Z] info Petición Exitosa
+[2024-01-26T16:27:38.122Z] info Petición Exitosa
+[2024-01-26T16:27:43.390Z] info El producto fue actualizado con exito
+[2024-01-26T16:30:59.320Z] info Petición Exitosa
+[2024-01-26T16:31:05.710Z] info El producto fue actualizado con exito
+[2024-01-26T16:31:52.974Z] info El producto fue eliminado con exito
+[2024-01-26T16:36:02.994Z] info El producto fue agregado con exito
+[2024-01-26T16:36:13.755Z] info El producto fue eliminado con exito
+[2024-01-26T16:37:22.467Z] info Error al agregar producto Error: 
+Invalid `prisma.producto.create()` invocation:
+
+{
+  data: {
+    codigo_barras: 'aaaccc',
+    nombre: 'lápiz',
+    marca: 'mongol',
+    descripcion: 'aca',
+    imagen: {
+      url: [
+        'https://carulla.vtexassets.com/arquivos/ids/10260360/lapiz-mongol-no-2-hb-x-12-uds.jpg?v=638084011628000000'
+      ]
+    },
+    compra: 4,
+    precio_unitario: 5,
+    precio_mayoreo: 5,
+    precio_caja: 5,
+    inicio_mayoreo: 5,
+    inicio_caja: 5,
+    id_color: 1,
+    id_categoria: 1,
+    id_tipo: NaN
+             ~~~
+  }
+}
+
+Argument id_tipo: Got invalid value NaN on prisma.createOneproducto. Provided Float, expected Int.
+
+
+[2024-01-26T16:37:28.493Z] info El producto fue agregado con exito
+[2024-01-26T16:37:41.462Z] info El producto fue eliminado con exito
+[2024-01-26T16:37:49.990Z] info Petición Exitosa
+[2024-01-26T16:37:54.656Z] info El producto fue actualizado con exito
+[2024-01-26T16:38:49.717Z] info Petición Exitosa
+[2024-01-26T16:38:54.052Z] info El producto fue actualizado con exito
+[2024-01-26T16:38:59.835Z] info Petición Exitosa
+[2024-01-26T16:39:04.606Z] info El producto fue actualizado con exito
+[2024-01-26T16:46:30.150Z] info Petición Exitosa
+[2024-01-26T16:47:16.569Z] info El producto fue agregado con exito
+[2024-01-26T16:47:51.791Z] info Petición Exitosa
+[2024-01-26T16:47:56.505Z] info El producto fue actualizado con exito
+[2024-01-26T16:49:01.354Z] info El producto fue eliminado con exito
+[2024-01-26T16:50:38.460Z] info El producto fue agregado con exito
+[2024-01-26T16:50:46.123Z] info El producto fue eliminado con exito
+[2024-01-26T16:54:52.608Z] info El producto fue eliminado con exito
+[2024-01-26T16:55:17.593Z] info El producto fue agregado con exito
+[2024-01-26T16:55:33.897Z] info El producto fue agregado con exito
+[2024-01-26T16:55:58.850Z] info El producto fue eliminado con exito
+[2024-01-26T16:57:04.871Z] info El producto fue eliminado con exito
+[2024-01-26T16:58:26.234Z] info El producto fue agregado con exito
+[2024-01-26T16:58:32.372Z] info El producto fue eliminado con exito
+[2024-01-26T16:58:44.025Z] info El producto fue eliminado con exito
+[2024-01-26T16:59:05.080Z] info El producto fue agregado con exito
+[2024-01-26T16:59:29.677Z] info El producto fue agregado con exito
+[2024-01-26T16:59:34.682Z] info Petición Exitosa
+[2024-01-26T16:59:40.472Z] info Petición Exitosa

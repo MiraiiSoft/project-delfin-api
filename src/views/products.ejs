@@ -161,11 +161,11 @@
                                             class="btn btn-info">
                                             <i class="material-icons">visibility</i>
                                         </a>
-                                        <a href="#" class="btn btn-danger"
+                                        <a class="btn btn-danger"
                                             onclick="deleteItem('<%= producto.id_producto %>')">
                                             <i class="material-icons">delete</i>
                                         </a>
-                                        <a href="#" class="btn btn-warning">
+                                        <a href="http://localhost:3000/adminPanel/productos/editar/<%- producto.id_producto %>" class="btn btn-warning">
                                             <i class="material-icons">edit</i>
                                         </a>
                                     </td>
@@ -176,10 +176,30 @@
                     <% } else { %>
                         <p class="text-center">No hay datos disponibles.</p>
                         <% } %>
+        </div>
+
+            <!--Modal-->
+    <div class="modal" id="responseModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideModal()">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
+            <div class="modal-body">
+              <p class="modal-body__message">Message</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideModal()">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/js/user.js"></script>
-
+<script src="/js/producto.js"></script>
 </html>
