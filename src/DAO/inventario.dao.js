@@ -18,6 +18,16 @@ export async function getInventarioById(id) {
   return inventario;
 }
 
+export async function getInventarioByIdProduct(id) {
+  const inventario = await prisma.inventario.findFirst({
+    where: {
+      id_producto: id
+    },
+  });
+  await prisma.$disconnect();
+  return inventario;
+}
+
 export async function createInventario(data) {
   const newInventario = await prisma.inventario.create({
     data: {

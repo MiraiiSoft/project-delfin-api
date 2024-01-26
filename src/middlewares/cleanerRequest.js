@@ -106,10 +106,10 @@ export const payment = ( req, res, next ) => {
 
 export const product = ( req, res, next ) => {
     const dataType = [ "codigo_barras", "nombre", "marca", "descripcion", "imagen", "compra", "precio_unitario", "precio_mayoreo", "precio_caja", 
-                        "inicio_mayoreo", "inicio_caja", "id_color", "id_categoria", "id_tipo" ]
+                        "inicio_mayoreo", "inicio_caja", "id_color", "id_categoria", "id_tipo", "existencias", "unidadesPaquete", "numPaquete" ]
     const dataClean = clean(dataType, req )
     const {  codigo_barras, nombre, marca, descripcion, imagen, compra, precio_unitario, precio_mayoreo, precio_caja, 
-    inicio_mayoreo, inicio_caja, id_color, id_categoria, id_tipo } = dataClean;
+    inicio_mayoreo, inicio_caja, id_color, id_categoria, id_tipo, existencias, unidadesPaquete, numPaquete } = dataClean;
     req.body = {
         codigo_barras,
         nombre,
@@ -126,7 +126,10 @@ export const product = ( req, res, next ) => {
         inicio_caja: parseInt(inicio_caja),
         id_color: parseInt(id_color),
         id_categoria: parseInt(id_categoria),
-        id_tipo: parseInt(id_tipo)
+        id_tipo: parseInt(id_tipo),
+        existencias: parseInt(existencias),
+        unidadesPaquete: parseInt(unidadesPaquete),
+        numPaquete: parseInt(numPaquete)  
     }
     next()
 }

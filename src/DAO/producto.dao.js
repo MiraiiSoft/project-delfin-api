@@ -83,6 +83,7 @@ export async function updateProductoById(id, data) {
       id_color: data.id_color,
       id_categoria: data.id_categoria,
       id_tipo: data.id_tipo,
+      updatedAt: data.updatedAt
     },
   });
   await prisma.$disconnect();

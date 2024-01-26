@@ -661,3 +661,472 @@ Argument id_tipo: Got invalid value NaN on prisma.createOneproducto. Provided Fl
 [2024-01-26T16:59:29.677Z] info El producto fue agregado con exito
 [2024-01-26T16:59:34.682Z] info Petición Exitosa
 [2024-01-26T16:59:40.472Z] info Petición Exitosa
+[2024-01-26T17:26:11.876Z] info El producto fue agregado con exito
+[2024-01-26T17:26:57.376Z] info Petición Exitosa
+[2024-01-26T17:32:36.498Z] info Petición Exitosa
+[2024-01-26T17:34:28.338Z] info Error al eliminar producto PrismaClientKnownRequestError: 
+Invalid `prisma.producto.delete()` invocation:
+
+
+Foreign key constraint failed on the field: `id_producto`
+[2024-01-26T17:34:35.537Z] info El producto fue eliminado con exito
+[2024-01-26T17:34:37.521Z] info El producto fue eliminado con exito
+[2024-01-26T17:34:39.536Z] info Error al eliminar producto PrismaClientKnownRequestError: 
+Invalid `prisma.producto.delete()` invocation:
+
+
+Foreign key constraint failed on the field: `id_producto`
+[2024-01-26T17:37:40.505Z] info Error al eliminar producto Error: 
+Invalid `prisma.inventario.findUnique()` invocation:
+
+{
+  where: {
+    id_producto: '15'
+    ~~~~~~~~~~~
+  }
+}
+
+Unknown arg `id_producto` in where.id_producto for type inventarioWhereUniqueInput. Did you mean `id_inventario`? Available args:
+type inventarioWhereUniqueInput {
+  id_inventario?: Int
+}
+
+
+[2024-01-26T17:39:00.698Z] info Error al eliminar producto Error: 
+Invalid `prisma.inventario.findUnique()` invocation:
+
+{
+  where: {
+    id_producto: '15'
+    ~~~~~~~~~~~
+  }
+}
+
+Unknown arg `id_producto` in where.id_producto for type inventarioWhereUniqueInput. Did you mean `id_inventario`? Available args:
+type inventarioWhereUniqueInput {
+  id_inventario?: Int
+}
+
+
+[2024-01-26T17:39:37.341Z] info Error al eliminar producto Error: 
+Invalid `prisma.inventario.findUnique()` invocation:
+
+{
+  where: {
+    id_producto: '15'
+    ~~~~~~~~~~~
+  }
+}
+
+Unknown arg `id_producto` in where.id_producto for type inventarioWhereUniqueInput. Did you mean `id_inventario`? Available args:
+type inventarioWhereUniqueInput {
+  id_inventario?: Int
+}
+
+
+[2024-01-26T17:40:10.272Z] info Error al eliminar producto Error: 
+Invalid `prisma.inventario.findUnique()` invocation:
+
+{
+  where: {
+    id_producto: '15'
+    ~~~~~~~~~~~
+  }
+}
+
+Unknown arg `id_producto` in where.id_producto for type inventarioWhereUniqueInput. Did you mean `id_inventario`? Available args:
+type inventarioWhereUniqueInput {
+  id_inventario?: Int
+}
+
+
+[2024-01-26T17:41:16.479Z] info Error al eliminar producto Error: 
+Invalid `prisma.inventario.findUnique()` invocation:
+
+{
+  where: {
+    id_producto: '15'
+    ~~~~~~~~~~~
+  }
+}
+
+Unknown arg `id_producto` in where.id_producto for type inventarioWhereUniqueInput. Did you mean `id_inventario`? Available args:
+type inventarioWhereUniqueInput {
+  id_inventario?: Int
+}
+
+
+[2024-01-26T17:41:56.705Z] info Error al eliminar producto Error: 
+Invalid `prisma.inventario.findUnique()` invocation:
+
+{
+  where: {
+    id_producto: 15
+    ~~~~~~~~~~~
+  }
+}
+
+Unknown arg `id_producto` in where.id_producto for type inventarioWhereUniqueInput. Did you mean `id_inventario`? Available args:
+type inventarioWhereUniqueInput {
+  id_inventario?: Int
+}
+
+
+[2024-01-26T19:12:22.296Z] info Error al eliminar producto Error: 
+Invalid `prisma.inventario.findUnique()` invocation:
+
+{
+  where: {
+    id_producto: 15
+    ~~~~~~~~~~~
+  }
+}
+
+Unknown arg `id_producto` in where.id_producto for type inventarioWhereUniqueInput. Did you mean `id_inventario`? Available args:
+type inventarioWhereUniqueInput {
+  id_inventario?: Int
+}
+
+
+[2024-01-26T19:12:50.773Z] info Error al eliminar producto Error: 
+Invalid `prisma.inventario.findUnique()` invocation:
+
+{
+  where: {
+    id_producto: 15
+    ~~~~~~~~~~~
+  }
+}
+
+Unknown arg `id_producto` in where.id_producto for type inventarioWhereUniqueInput. Did you mean `id_inventario`? Available args:
+type inventarioWhereUniqueInput {
+  id_inventario?: Int
+}
+
+
+[2024-01-26T19:14:12.457Z] info Error al eliminar producto Error: 
+Invalid `prisma.inventario.findUnique()` invocation:
+
+{
+  where: {
+    id_producto: 15
+    ~~~~~~~~~~~
+  }
+}
+
+Unknown arg `id_producto` in where.id_producto for type inventarioWhereUniqueInput. Did you mean `id_inventario`? Available args:
+type inventarioWhereUniqueInput {
+  id_inventario?: Int
+}
+
+
+[2024-01-26T19:14:47.948Z] info Error al eliminar producto Error: 
+Invalid `prisma.inventario.findUnique()` invocation:
+
+{
+  where: {
+    id_producto: 15
+    ~~~~~~~~~~~
+  }
+}
+
+Unknown arg `id_producto` in where.id_producto for type inventarioWhereUniqueInput. Did you mean `id_inventario`? Available args:
+type inventarioWhereUniqueInput {
+  id_inventario?: Int
+}
+
+
+[2024-01-26T19:15:30.540Z] info Error al eliminar producto Error: 
+Invalid `prisma.inventario.findUnique()` invocation:
+
+{
+  where: {
+    id_producto: 15
+    ~~~~~~~~~~~
+  }
+}
+
+Unknown arg `id_producto` in where.id_producto for type inventarioWhereUniqueInput. Did you mean `id_inventario`? Available args:
+type inventarioWhereUniqueInput {
+  id_inventario?: Int
+}
+
+
+[2024-01-26T19:24:32.944Z] info Error al agregar producto Error: 
+Invalid `prisma.producto.create()` invocation:
+
+{
+  data: {
+    codigo_barras: 'bbb',
+    nombre: 'lápiz',
+    marca: 'mongol',
+    descripcion: 'aca',
+    imagen: {
+      url: [
+        'https://carulla.vtexassets.com/arquivos/ids/10260360/lapiz-mongol-no-2-hb-x-12-uds.jpg?v=638084011628000000'
+      ]
+    },
+    compra: 4,
+    precio_unitario: 4,
+    precio_mayoreo: 4,
+    precio_caja: 4,
+    inicio_mayoreo: 4,
+    inicio_caja: 4,
+    id_color: 1,
+    id_categoria: 1,
+    id_tipo: 1,
++   updatedAt: DateTime,
+?   id_producto?: Int,
+?   carrito_producto?: {
+?     create?: carrito_productoCreateWithoutProductoInput | carrito_productoCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: carrito_productoCreateOrConnectWithoutProductoInput | carrito_productoCreateOrConnectWithoutProductoInput,
+?     createMany?: carrito_productoCreateManyProductoInputEnvelope,
+?     connect?: carrito_productoWhereUniqueInput | carrito_productoWhereUniqueInput
+?   },
+?   detalle_venta?: {
+?     create?: detalle_ventaCreateWithoutProductoInput | detalle_ventaCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: detalle_ventaCreateOrConnectWithoutProductoInput | detalle_ventaCreateOrConnectWithoutProductoInput,
+?     createMany?: detalle_ventaCreateManyProductoInputEnvelope,
+?     connect?: detalle_ventaWhereUniqueInput | detalle_ventaWhereUniqueInput
+?   },
+?   inventario?: {
+?     create?: inventarioCreateWithoutProductoInput | inventarioCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: inventarioCreateOrConnectWithoutProductoInput | inventarioCreateOrConnectWithoutProductoInput,
+?     createMany?: inventarioCreateManyProductoInputEnvelope,
+?     connect?: inventarioWhereUniqueInput | inventarioWhereUniqueInput
+?   }
+  }
+}
+
+Argument updatedAt for data.updatedAt is missing.
+
+Note: Lines with + are required, lines with ? are optional.
+
+[2024-01-26T19:26:29.414Z] info Error al agregar producto Error: 
+Invalid `prisma.producto.create()` invocation:
+
+{
+  data: {
+    codigo_barras: 'bbb',
+    nombre: 'lápiz',
+    marca: 'mongol',
+    descripcion: 'aca',
+    imagen: {
+      url: [
+        'https://carulla.vtexassets.com/arquivos/ids/10260360/lapiz-mongol-no-2-hb-x-12-uds.jpg?v=638084011628000000'
+      ]
+    },
+    compra: 4,
+    precio_unitario: 4,
+    precio_mayoreo: 4,
+    precio_caja: 4,
+    inicio_mayoreo: 4,
+    inicio_caja: 4,
+    id_color: 1,
+    id_categoria: 1,
+    id_tipo: 1,
++   updatedAt: DateTime,
+?   id_producto?: Int,
+?   carrito_producto?: {
+?     create?: carrito_productoCreateWithoutProductoInput | carrito_productoCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: carrito_productoCreateOrConnectWithoutProductoInput | carrito_productoCreateOrConnectWithoutProductoInput,
+?     createMany?: carrito_productoCreateManyProductoInputEnvelope,
+?     connect?: carrito_productoWhereUniqueInput | carrito_productoWhereUniqueInput
+?   },
+?   detalle_venta?: {
+?     create?: detalle_ventaCreateWithoutProductoInput | detalle_ventaCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: detalle_ventaCreateOrConnectWithoutProductoInput | detalle_ventaCreateOrConnectWithoutProductoInput,
+?     createMany?: detalle_ventaCreateManyProductoInputEnvelope,
+?     connect?: detalle_ventaWhereUniqueInput | detalle_ventaWhereUniqueInput
+?   },
+?   inventario?: {
+?     create?: inventarioCreateWithoutProductoInput | inventarioCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: inventarioCreateOrConnectWithoutProductoInput | inventarioCreateOrConnectWithoutProductoInput,
+?     createMany?: inventarioCreateManyProductoInputEnvelope,
+?     connect?: inventarioWhereUniqueInput | inventarioWhereUniqueInput
+?   }
+  }
+}
+
+Argument updatedAt for data.updatedAt is missing.
+
+Note: Lines with + are required, lines with ? are optional.
+
+[2024-01-26T19:32:27.531Z] info Error al agregar producto Error: 
+Invalid `prisma.producto.create()` invocation:
+
+{
+  data: {
+    codigo_barras: 'bbb',
+    nombre: 'lápiz',
+    marca: 'mongol',
+    descripcion: 'aca',
+    imagen: {
+      url: [
+        'https://carulla.vtexassets.com/arquivos/ids/10260360/lapiz-mongol-no-2-hb-x-12-uds.jpg?v=638084011628000000'
+      ]
+    },
+    compra: 4,
+    precio_unitario: 4,
+    precio_mayoreo: 4,
+    precio_caja: 4,
+    inicio_mayoreo: 4,
+    inicio_caja: 4,
+    id_color: 1,
+    id_categoria: 1,
+    id_tipo: 1,
++   updatedAt: DateTime,
+?   id_producto?: Int,
+?   carrito_producto?: {
+?     create?: carrito_productoCreateWithoutProductoInput | carrito_productoCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: carrito_productoCreateOrConnectWithoutProductoInput | carrito_productoCreateOrConnectWithoutProductoInput,
+?     createMany?: carrito_productoCreateManyProductoInputEnvelope,
+?     connect?: carrito_productoWhereUniqueInput | carrito_productoWhereUniqueInput
+?   },
+?   detalle_venta?: {
+?     create?: detalle_ventaCreateWithoutProductoInput | detalle_ventaCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: detalle_ventaCreateOrConnectWithoutProductoInput | detalle_ventaCreateOrConnectWithoutProductoInput,
+?     createMany?: detalle_ventaCreateManyProductoInputEnvelope,
+?     connect?: detalle_ventaWhereUniqueInput | detalle_ventaWhereUniqueInput
+?   },
+?   inventario?: {
+?     create?: inventarioCreateWithoutProductoInput | inventarioCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: inventarioCreateOrConnectWithoutProductoInput | inventarioCreateOrConnectWithoutProductoInput,
+?     createMany?: inventarioCreateManyProductoInputEnvelope,
+?     connect?: inventarioWhereUniqueInput | inventarioWhereUniqueInput
+?   }
+  }
+}
+
+Argument updatedAt for data.updatedAt is missing.
+
+Note: Lines with + are required, lines with ? are optional.
+
+[2024-01-26T19:32:54.009Z] info Error al agregar producto Error: 
+Invalid `prisma.producto.create()` invocation:
+
+{
+  data: {
+    codigo_barras: 'aaaa',
+    nombre: 'lápiz',
+    marca: 'mongol',
+    descripcion: 'aca',
+    imagen: {
+      url: [
+        'https://carulla.vtexassets.com/arquivos/ids/10260360/lapiz-mongol-no-2-hb-x-12-uds.jpg?v=638084011628000000'
+      ]
+    },
+    compra: 4,
+    precio_unitario: 4,
+    precio_mayoreo: 4,
+    precio_caja: 4,
+    inicio_mayoreo: 4,
+    inicio_caja: 4,
+    id_color: NaN,
+    ~~~~~~~~
+    id_categoria: NaN,
+    ~~~~~~~~~~~~
+    id_tipo: NaN,
+    ~~~~~~~
++   updatedAt: DateTime,
++   color: {
++     create?: colorCreateWithoutProductoInput | colorUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: colorCreateOrConnectWithoutProductoInput,
++     connect?: colorWhereUniqueInput
++   },
++   categoria: {
++     create?: categoriaCreateWithoutProductoInput | categoriaUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: categoriaCreateOrConnectWithoutProductoInput,
++     connect?: categoriaWhereUniqueInput
++   },
++   tipo: {
++     create?: tipoCreateWithoutProductoInput | tipoUncheckedCreateWithoutProductoInput,
++     connectOrCreate?: tipoCreateOrConnectWithoutProductoInput,
++     connect?: tipoWhereUniqueInput
++   },
+?   carrito_producto?: {
+?     create?: carrito_productoCreateWithoutProductoInput | carrito_productoCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: carrito_productoCreateOrConnectWithoutProductoInput | carrito_productoCreateOrConnectWithoutProductoInput,
+?     createMany?: carrito_productoCreateManyProductoInputEnvelope,
+?     connect?: carrito_productoWhereUniqueInput | carrito_productoWhereUniqueInput
+?   },
+?   detalle_venta?: {
+?     create?: detalle_ventaCreateWithoutProductoInput | detalle_ventaCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: detalle_ventaCreateOrConnectWithoutProductoInput | detalle_ventaCreateOrConnectWithoutProductoInput,
+?     createMany?: detalle_ventaCreateManyProductoInputEnvelope,
+?     connect?: detalle_ventaWhereUniqueInput | detalle_ventaWhereUniqueInput
+?   },
+?   inventario?: {
+?     create?: inventarioCreateWithoutProductoInput | inventarioCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: inventarioCreateOrConnectWithoutProductoInput | inventarioCreateOrConnectWithoutProductoInput,
+?     createMany?: inventarioCreateManyProductoInputEnvelope,
+?     connect?: inventarioWhereUniqueInput | inventarioWhereUniqueInput
+?   }
+  }
+}
+
+Unknown arg `id_color` in data.id_color for type productoCreateInput. Did you mean `color`?
+Unknown arg `id_categoria` in data.id_categoria for type productoCreateInput. Did you mean `categoria`?
+Unknown arg `id_tipo` in data.id_tipo for type productoCreateInput. Did you mean `tipo`?
+Argument updatedAt for data.updatedAt is missing.
+Argument color for data.color is missing.
+Argument categoria for data.categoria is missing.
+Argument tipo for data.tipo is missing.
+
+Note: Lines with + are required, lines with ? are optional.
+
+[2024-01-26T19:33:12.439Z] info Error al agregar producto Error: 
+Invalid `prisma.producto.create()` invocation:
+
+{
+  data: {
+    codigo_barras: 'aaaa',
+    nombre: 'lápiz',
+    marca: 'mongol',
+    descripcion: 'aca',
+    imagen: {
+      url: [
+        'https://carulla.vtexassets.com/arquivos/ids/10260360/lapiz-mongol-no-2-hb-x-12-uds.jpg?v=638084011628000000'
+      ]
+    },
+    compra: 4,
+    precio_unitario: 4,
+    precio_mayoreo: 4,
+    precio_caja: 4,
+    inicio_mayoreo: 4,
+    inicio_caja: 4,
+    id_color: 1,
+    id_categoria: 1,
+    id_tipo: 1,
++   updatedAt: DateTime,
+?   id_producto?: Int,
+?   carrito_producto?: {
+?     create?: carrito_productoCreateWithoutProductoInput | carrito_productoCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput | carrito_productoUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: carrito_productoCreateOrConnectWithoutProductoInput | carrito_productoCreateOrConnectWithoutProductoInput,
+?     createMany?: carrito_productoCreateManyProductoInputEnvelope,
+?     connect?: carrito_productoWhereUniqueInput | carrito_productoWhereUniqueInput
+?   },
+?   detalle_venta?: {
+?     create?: detalle_ventaCreateWithoutProductoInput | detalle_ventaCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput | detalle_ventaUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: detalle_ventaCreateOrConnectWithoutProductoInput | detalle_ventaCreateOrConnectWithoutProductoInput,
+?     createMany?: detalle_ventaCreateManyProductoInputEnvelope,
+?     connect?: detalle_ventaWhereUniqueInput | detalle_ventaWhereUniqueInput
+?   },
+?   inventario?: {
+?     create?: inventarioCreateWithoutProductoInput | inventarioCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput | inventarioUncheckedCreateWithoutProductoInput,
+?     connectOrCreate?: inventarioCreateOrConnectWithoutProductoInput | inventarioCreateOrConnectWithoutProductoInput,
+?     createMany?: inventarioCreateManyProductoInputEnvelope,
+?     connect?: inventarioWhereUniqueInput | inventarioWhereUniqueInput
+?   }
+  }
+}
+
+Argument updatedAt for data.updatedAt is missing.
+
+Note: Lines with + are required, lines with ? are optional.
+
+[2024-01-26T19:37:06.874Z] info El producto fue agregado con exito
+[2024-01-26T19:39:06.825Z] info Petición Exitosa
+[2024-01-26T19:39:43.725Z] info El producto fue actualizado con exito
+[2024-01-26T19:44:11.159Z] info Petición Exitosa
+[2024-01-26T19:44:16.061Z] info El producto fue actualizado con exito

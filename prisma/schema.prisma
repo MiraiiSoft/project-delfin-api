@@ -178,6 +178,8 @@ model producto {
   id_color         Int
   id_categoria     Int
   id_tipo          Int
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @default(now())
   carrito_producto carrito_producto[]
   detalle_venta    detalle_venta[]
   inventario       inventario[]

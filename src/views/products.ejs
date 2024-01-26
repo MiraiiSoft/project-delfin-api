@@ -128,6 +128,7 @@
                                 <th>Compra</th>
                                 <th>Precio Unitario</th>
                                 <th>ID Color</th>
+                                <th>Modificado</th>
                                 <th>Opciones</th>
                             </tr>
                         </thead>
@@ -154,6 +155,9 @@
                                     </td>
                                     <td>
                                         <%= producto.color.color %>
+                                    </td>
+                                    <td>
+                                        <time datetime="<%- producto.updatedAt %>"><%- producto.updatedAt %></time>
                                     </td>
                                     <td class="text-center">
                                         <!-- Botones para las opciones -->

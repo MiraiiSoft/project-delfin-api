@@ -2,6 +2,7 @@ import { parse } from "dotenv";
 import { CODES_HTTP } from "../constants/global.js"
 import { createProducto, deleteProductoById, getProductoById, getProductos, updateProductoById, getProductoByNombre } from "../DAO/producto.dao.js"
 import loggerProducto from "../utils/logger/logger.producto.js";
+import { createInventario, deleteInventarioById, getInventarioByIdProduct } from "../DAO/inventario.dao.js";
 
 export const getAllProducts = async ( req, res ) => {
     try {
@@ -65,7 +66,31 @@ export const getOneProducts = async (req, res) => {
 
 export const addProducts = async ( req, res ) => {
     try {
-        const agregaProducto = await createProducto (req.body);
+        const {  codigo_barras, nombre, marca, descripcion, imagen, compra, precio_unitario, precio_mayoreo, precio_caja, 
+            inicio_mayoreo, inicio_caja, id_color, id_categoria, id_tipo, existencias, unidadesPaquete, numPaquete } = req.body
+
+        const agregaProducto = await createProducto ({
+            codigo_barras, 
+            nombre, marca, 
+            descripcion, 
+            imagen, 
+            compra, 
+            precio_unitario, 
+            precio_mayoreo, 
+            precio_caja, 
+            inicio_mayoreo, 
+            inicio_caja, 
+            id_color, 
+            id_categoria, 
+            id_tipo
+        });
+
+        await createInventario({
+            id_producto: agregaProducto.id_producto,
+            existencias,
+            unidadesPaquete,
+            numPaquete
+        })
         console.log("El producto fue agregado con exito")
         loggerProducto.info({message: "El producto fue agregado con exito"})
         res.status(CODES_HTTP.OK).json({
@@ -85,7 +110,10 @@ export const addProducts = async ( req, res ) => {
 
 export const updateProducts = async ( req, res ) => {
     try {
-        const actualizarProducto = await updateProductoById(parseInt(req.params.productoID), req.body)
+        const actualizarProducto = await updateProductoById(parseInt(req.params.productoID), {
+            ...req.body,
+            updatedAt: new Date()
+        })
         console.log("El producto fue actualizado con exito")
         loggerProducto.info({message:"El producto fue actualizado con exito" })
         res.status(CODES_HTTP.OK).json({
@@ -105,7 +133,11 @@ export const updateProducts = async ( req, res ) => {
 
 export const deleteProducts = async ( req, res ) => {
     try {
-        const eliminarProducto = await deleteProductoById(parseInt(req.params.productoID))
+        const { productoID } = req.params;
+        const inventory = await getInventarioByIdProduct(parseInt(productoID))
+        console.log(inventory)
+        // await deleteInventarioById(inventory.id_inventario)
+        // const eliminarProducto = await deleteProductoById(parseInt(productoID))
         console.log("El producto fue eliminado con exito")
         loggerProducto.info({message: "El producto fue eliminado con exito"})
         res.status(CODES_HTTP.OK).json({

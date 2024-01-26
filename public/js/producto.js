@@ -19,6 +19,9 @@ if (pathname.includes("editar")) {
         const precio_caja = document.getElementById("precio_caja")
         const inicio_mayoreo = document.getElementById("inicio_mayoreo")
         const inicio_caja = document.getElementById("inicio_caja")
+        const existencias = document.getElementById("existencias")
+        const unidadesPaquete = document.getElementById("unidadesPaquete")
+        const numPaquete = document.getElementById("numPaquete")
         const id_color = document.getElementById("id_color")
         const id_categoria = document.getElementById("id_categoria")
         const id_tipo = document.getElementById("id_tipo")
@@ -34,6 +37,9 @@ if (pathname.includes("editar")) {
         precio_caja.value = data.precio_caja
         inicio_mayoreo.value = data.inicio_mayoreo
         inicio_caja.value = data.inicio_caja
+        existencias.value = data.inventario[0].existencias
+        unidadesPaquete.value = data.inventario[0].unidadesPaquete
+        numPaquete.value = data.inventario[0].numPaquete
         id_color.value = data.id_color
         id_categoria.value = data.id_categoria
         id_tipo.value = data.id_tipo
