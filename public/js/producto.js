@@ -1,6 +1,7 @@
 const apiURL = "http://localhost:3000";
 const pathname = location.pathname;
 const idProduct = pathname.split("/").pop();
+const arrayImages = []
 
 if (pathname.includes("editar")) {
   fetch(`${apiURL}/api/producto/${idProduct}`)
@@ -240,15 +241,21 @@ function hideModal() {
   $("#responseModal").hide();
 }
 
-function saveOrUpdate(){
+async function saveOrUpdate(){
   if(pathname.includes("editar")){
     updateProduct()
   }else{
-    saveProduct()
+    try {
+      const res = await uploadImages()
+      saveProduct(res.data)
+      
+    } catch (error) {
+      modal("Algo va mal", `${error}`)
+    }
   }
 }
 
-function saveProduct() {
+function saveProduct(dataImages) {
   const form = document.getElementById("formularioProducto");
 
   const formData = new FormData(form);
@@ -256,7 +263,15 @@ function saveProduct() {
   formData.forEach((value, key) => {
     jsonData[key] = value;
   });
-
+  
+  const urlsImages = [] 
+  dataImages.forEach( (value) => {
+    urlsImages.push(value.url)
+  })
+  jsonData.imagen = {
+    url: urlsImages
+  }
+  
   fetch(`${apiURL}/api/producto/add`, {
     method: "POST",
     headers: {
@@ -309,6 +324,49 @@ function updateProduct() {
     .catch((err) => {
       modal("Algo a ocurrido", `${err}`);
     });
+}
+
+function prepareImages(event){
+  const archives = event.files
+  const productName = document.getElementById("nombre").value || "product"
+
+  for(let i = 0; i < archives.length; i++){
+    const reader = new FileReader();
+    reader.readAsDataURL(archives[i])
+
+    reader.onloadend = () => {
+      arrayImages.push({
+        nombre: productName,
+        base64: reader.result
+      })
+    }
+  }
+  
+}
+
+async function uploadImages(){
+  const data = {
+    nombreCarpeta: "images",
+    imgs: arrayImages
+  }
+
+  try {
+    
+    const response = await fetch(`${apiURL}/api/file/upload-img`,{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    const res = await response.json()
+    if(!res.success) throw new Error(`Error ${res.message}`)
+
+    return res
+  } catch (error) {
+    throw error
+  }
+  
 }
 
 function modal(title, message) {

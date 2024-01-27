@@ -1,14 +1,13 @@
--- Active: 1688480905548@@34.133.217.127@3306@papelerialinea
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema `papelerialinea`
+-- Schema `papelerialineav2`
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `papelerialinea`;
-CREATE SCHEMA IF NOT EXISTS `papelerialinea` DEFAULT CHARACTER SET utf8;
-USE `papelerialinea`;
+DROP SCHEMA IF EXISTS `papelerialineav2`;
+CREATE SCHEMA IF NOT EXISTS `papelerialineav2` DEFAULT CHARACTER SET utf8;
+USE `papelerialineav2`;
 
 -- -----------------------------------------------------
 -- Table `papelerialinea`.`color`
@@ -46,7 +45,7 @@ CREATE TABLE producto (
   codigo_barras VARCHAR(45) NULL,
   nombre VARCHAR(200) NULL,
   marca VARCHAR(45) NULL,
-  descripcion VARCHAR(300) NULL,
+  descripcion VARCHAR(500) NULL,
   imagen JSON NOT NULL,
   compra DECIMAL(10) NULL,
   precio_unitario DECIMAL(10) NULL,
@@ -96,17 +95,26 @@ CREATE TABLE ciudad (
   PRIMARY KEY (id_ciudad)
 );
 
+CREATE TABLE municipio (
+  id_municipio INT NOT NULL AUTO_INCREMENT,
+  municipio VARCHAR(45) NULL,
+  id_ciudad INT NOT NULL,
+  foreign key (id_ciudad) references ciudad (id_ciudad),
+  PRIMARY KEY (id_municipio)
+);
+
 -- -----------------------------------------------------
 -- Table `papelerialinea`.`direccion`
 -- -----------------------------------------------------
 CREATE TABLE direccion (
   id_direccion INT NOT NULL AUTO_INCREMENT,
   codigo_postal VARCHAR(10) NULL,
+  municipio varchar (20) null,
   calle VARCHAR(45) NULL,
   colonia VARCHAR(45) NULL,
   num VARCHAR(10) NULL,
   telefono VARCHAR(15) NULL,
-  referencia VARCHAR(55) NULL,
+  referencia VARCHAR(250) NULL,
   id_ciudad INT NOT NULL,
   foreign key (id_ciudad) references ciudad (id_ciudad),
   PRIMARY KEY (id_direccion)
@@ -139,7 +147,7 @@ CREATE TABLE roll (
 -- -----------------------------------------------------
 CREATE TABLE login (
   id_login INT NOT NULL AUTO_INCREMENT,
-  correo varchar(25) NOT NULL,
+  correo varchar(100) NOT NULL,
   usuario VARCHAR(45) NULL,
   password VARCHAR(150) NULL,
   is_verified BOOLEAN DEFAULT FALSE,
@@ -210,7 +218,7 @@ CREATE TABLE envio (
 -- -----------------------------------------------------
 CREATE TABLE pago (
   id_pago INT NOT NULL AUTO_INCREMENT,
-  tocken_pago VARCHAR(45) NULL,
+  tocken_pago VARCHAR(150) NULL,
   monto DECIMAL(10) NULL,
   PRIMARY KEY (id_pago)
 );
@@ -239,8 +247,7 @@ CREATE TABLE carrito_producto (
   cantidad_producto INT NULL,
   PRIMARY KEY (id_carrito_producto),
   FOREIGN KEY (id_producto) REFERENCES producto (id_producto),
-  FOREIGN KEY (id_carrito) REFERENCES carrito (id_carrito),
-  PRIMAR key (id_carrito_producto)
+  FOREIGN KEY (id_carrito) REFERENCES carrito (id_carrito)
 );
 
 SET SQL_MODE=@OLD_SQL_MODE;

@@ -115,9 +115,7 @@ export const product = ( req, res, next ) => {
         nombre,
         marca,
         descripcion,
-        imagen: {
-            url: [imagen]
-        },
+        imagen,
         compra: parseInt(compra),
         precio_unitario: parseInt(precio_unitario),
         precio_mayoreo: parseInt(precio_mayoreo),

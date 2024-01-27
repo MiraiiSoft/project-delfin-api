@@ -52,3 +52,23 @@ export async function deletePagoById(id) {
   await prisma.$disconnect();
   return pagoDeleted;
 }
+
+
+export async function setToken(id,token) {
+  const venta = await prisma.venta.findFirst({
+    select:{
+      id_pago:true
+    },
+    where:{
+      id_venta:id
+    }
+  })
+  const idPago = venta.id_pago
+  await prisma.pago.update({
+    data:{
+      tocken_pago:token
+    },where:{
+      id_pago:idPago
+    }
+  })
+}

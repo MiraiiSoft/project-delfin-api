@@ -61,3 +61,24 @@ export async function deleteDetalleVenta (id){
   await prisma.$disconnect()
   return detalleVentaDeleted;
 }
+
+
+export async function setMonto (monto,id){
+  const detVenta = await prisma.detalle_venta.findFirst({
+    select:{
+      id_detalle_venta:true
+    },
+    where:{
+      venta:id
+    }
+  })
+  const idVenta = detVenta.id_detalle_venta;
+  await prisma.detalle_venta.update({
+    data:{
+      monto_total:monto
+    },
+    where:{
+      id_detalle_venta:idVenta
+    }
+  })
+}

@@ -21,7 +21,7 @@ export const register = async ( req, res ) => {
             num: "",
             telefono,
             referencia: "",
-            id_ciudad: 1
+            id_ciudad: 2
         });
 
         //se guarda una persona

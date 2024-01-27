@@ -8,6 +8,21 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .preview-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .preview-image {
+            max-width: 150px;
+            max-height: 150px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -96,47 +111,50 @@
                 <form id="formularioProducto">
                     <div class="form-group">
                         <label for="codigo_barras">Código de barras:</label>
-                        <input type="text" class="form-control" id="codigo_barras" name="codigo_barras" required>
+                        <input type="text" class="form-control" id="codigo_barras" name="codigo_barras">
                     </div>
                     <div class="form-group">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
                     </div>
                     <div class="form-group">
                         <label for="marca">Marca:</label>
-                        <input type="text" class="form-control" id="marca" name="marca" required>
+                        <input type="text" class="form-control" id="marca" name="marca">
                     </div>
                     <div class="form-group">
                         <label for="descripcion">Descripción:</label>
-                        <textarea class="form-control" id="descripcion" name="descripcion" required></textarea>
+                        <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="imagen">Imagen:</label>
-                        <input type="text" class="form-control" id="imagen" name="imagen" required>
+                        <label for="imagenes">Imágenes:</label>
+                        <input type="file" class="form-control-file" id="imagen" name="imagen" multiple accept=".jpg .jpeg .png .webp"
+                            onchange="prepareImages(this)">
                     </div>
+                    <div class="preview-container mt-3"></div>
+
                     <div class="form-group">
                         <label for="compra">Precio de compra:</label>
-                        <input type="number" class="form-control" id="compra" name="compra" required>
+                        <input type="number" class="form-control" id="compra" name="compra">
                     </div>
                     <div class="form-group">
                         <label for="precio_unitario">Precio unitario:</label>
-                        <input type="number" class="form-control" id="precio_unitario" name="precio_unitario" required>
+                        <input type="number" class="form-control" id="precio_unitario" name="precio_unitario">
                     </div>
                     <div class="form-group">
                         <label for="precio_mayoreo">Precio al por mayor:</label>
-                        <input type="number" class="form-control" id="precio_mayoreo" name="precio_mayoreo" required>
+                        <input type="number" class="form-control" id="precio_mayoreo" name="precio_mayoreo">
                     </div>
                     <div class="form-group">
                         <label for="precio_caja">Precio de la caja:</label>
-                        <input type="number" class="form-control" id="precio_caja" name="precio_caja" required>
+                        <input type="number" class="form-control" id="precio_caja" name="precio_caja">
                     </div>
                     <div class="form-group">
                         <label for="inicio_mayoreo">Inicio del precio al por mayor:</label>
-                        <input type="number" class="form-control" id="inicio_mayoreo" name="inicio_mayoreo" required>
+                        <input type="number" class="form-control" id="inicio_mayoreo" name="inicio_mayoreo">
                     </div>
                     <div class="form-group">
                         <label for="inicio_caja">Inicio del precio de la caja:</label>
-                        <input type="number" class="form-control" id="inicio_caja" name="inicio_caja" required>
+                        <input type="number" class="form-control" id="inicio_caja" name="inicio_caja">
                     </div>
 
                     <div class="form-group">
@@ -157,7 +175,7 @@
                     <!-- Campo select para colores -->
                     <div class="form-group">
                         <label for="id_color">Color:</label>
-                        <select class="form-control" id="id_color" name="id_color" required>
+                        <select class="form-control" id="id_color" name="id_color">
                             <option value="" disabled selected>Seleccionar un color</option>
                             <% colores.forEach(color=> { %>
                                 
@@ -171,7 +189,7 @@
                     <!-- Campo select para categorías -->
                     <div class="form-group">
                         <label for="id_categoria">Categoría:</label>
-                        <select class="form-control" id="id_categoria" name="id_categoria" required>
+                        <select class="form-control" id="id_categoria" name="id_categoria">
                             <option value="" disabled selected>Seleccionar una categoría</option>
                             <% categorias.forEach(categoria=> { %>
                                 <option value="<%= categoria.id_categoria %>">
@@ -233,7 +251,7 @@
     <script src="/js/categoria.js"></script>
     <!-- <script src="/js/rol.js"></script>
     <script src="/js/envio.js"></script> -->
-    <script src="/js/color.js"></script>
+    <!-- <script src="/js/color.js"></script> -->
 </body>
 
 </html>

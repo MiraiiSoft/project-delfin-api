@@ -16,11 +16,15 @@ export const existUser = async ( req, res, next ) => {
 
 export const existUserUpdate = async ( req, res, next ) => {
     const user = req.body.usuario
-    const query = await getLoginByUser(user)
-    const userID = parseInt(req.params.userID)
-    const { id_login } = query
 
-    if ( query && userID !== id_login )
+    if( user == undefined ) {
+        return next()
+    }
+
+    const query = await getLoginByUser(user)
+
+
+    if ( query )
         return res.status(CODES_HTTP.BAD_REQUEST).json({
             success: false,
             message: "Ya existe una cuenta con el usuaro=" +user+ " en la DB"
@@ -31,6 +35,9 @@ export const existUserUpdate = async ( req, res, next ) => {
 
 export const existMail = async ( req, res, next ) => {
     const correo = req.body.correo
+
+    if( correo == undefined ) next()
+
     const query = await getLoginByEmail(correo)
     
     if ( query )  
@@ -44,11 +51,12 @@ export const existMail = async ( req, res, next ) => {
 
 export const existMailUpdate = async ( req, res, next ) => {
     const correo = req.body.correo
-    const query = await getLoginByEmail(correo)
-    const userID = parseInt(req.params.userID)
-    const { id_login } = query
 
-    if ( query && userID !== id_login )  
+    if( correo == undefined ) return next()
+
+    const query = await getLoginByEmail(correo)
+
+    if ( query )  
         return res.status(CODES_HTTP.BAD_REQUEST).json({
             success: false,
             message: "Ya existe una cuenta con el correo=" +correo+ " en la DB"

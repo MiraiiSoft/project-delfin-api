@@ -5,17 +5,18 @@ import { createDirecciones } from "../DAO/direccion.dao.js";
 import sendEmail from "../helpers/sendEmail.js";
 import { hashPass, comparePass } from "../helpers/hashPass.js";
 import loggerUsuario from "../utils/logger/logger.usuario.js";
+import { createCarrito } from "../DAO/carrito.dao.js";
 
 export const getAllUser = async ( req, res ) => {
     try {
 
         const userLogins = await getLogins();
-        loggerUsuario.info({message: "Petición Exitosa"})
         if( !userLogins ) return res.status(CODES_HTTP.NO_FOUND).json({
             success: false,
             message: "No se han encontrado cuentas registradas"
         });
-    
+        
+        loggerUsuario.info({message: "Petición Exitosa"})
         res.status(CODES_HTTP.OK).json({
             success: true,
             data: userLogins
@@ -87,6 +88,11 @@ export const addUser = async ( req, res ) => {
             id_roll: rol,
         });
 
+        //crear carrito para la persona registrada
+        await createCarrito({
+            id_login: login.id_login
+        });
+
         //enviar email de confirmacion
         const body = "<p>Confirma la creacion de tu cuenta. Tiene 1 hora para poder confirmar.";
         const resSendMail = await sendEmail( login.correo, "Confirmacion cuenta", body, true );
@@ -119,7 +125,7 @@ export const updateUser = async ( req, res ) => {
     try {
         const userLogin = await getLoginById( parseInt(userID) );
 
-        if( correo != userLogin.correo ){
+        if( correo && correo != userLogin.correo ){
             is_verified = false;
 
             //enviar email de confirmacion
@@ -132,7 +138,7 @@ export const updateUser = async ( req, res ) => {
             });
         }
 
-        if( await comparePass(password, userLogin.password) === false ){
+        if( password && await comparePass(password, userLogin.password) === false ){
             await updateLogin( parseInt(userID), {
                 correo,
                 usuario,

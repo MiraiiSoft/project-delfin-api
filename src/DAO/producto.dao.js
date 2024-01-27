@@ -114,3 +114,90 @@ export async function getProductoByNombre(nombre){
   await prisma.$disconnect();
   return productos;
 }
+
+export async function getProductoByCategoria(categoriaId){
+  const productos = await prisma.producto.findMany({
+    include:{
+      color: true,
+      tipo: true,
+      categoria:true
+    },
+    where: {
+      id_categoria: categoriaId
+    },
+  });
+  await prisma.$disconnect();
+  return productos;
+}
+
+export async function getProductoByColor(colorId) {
+  const productos = await prisma.producto.findMany({
+    include:{
+      color: true,
+      tipo: true,
+      categoria:true
+    },
+    where: {
+      id_color: colorId
+    },
+  });
+  await prisma.$disconnect();
+  return productos;
+}
+
+export async function discountProduct(cantidad_producto, id_producto) {
+  const inventario = await prisma.inventario.findFirst({
+    select: {
+      existencias: true,
+      id_inventario:true
+    },
+    where: {
+      id_producto: id_producto, 
+    },
+  });
+
+  if (!inventario) {
+    throw new Error(`No se encontró inventario para el producto con ID ${id_producto}`);
+  }
+  
+  const nuevasExistencias = inventario.existencias - cantidad_producto;
+  const ainventario = inventario.id_inventario;
+  await prisma.inventario.update({
+    data: {
+      existencias: nuevasExistencias,
+    },
+    where:{
+      id_inventario : ainventario
+    }
+  });
+}
+
+
+
+export async function getMarcasDeProductos() {
+  const marcas = await prisma.producto.findMany({
+    select: {
+      marca: true,
+    },
+  });
+  
+  const marcasUnicas = [...new Set(marcas.map((producto) => producto.marca))];
+
+  await prisma.$disconnect();
+  return marcasUnicas;
+}
+
+export async function getProductoByMarca(marca){
+  const productos = await prisma.producto.findMany({
+    include: {
+      color: true,
+      tipo: true,
+      categoria: true,
+    },
+    where: {
+      marca: marca,
+    },
+  });
+  await prisma.$disconnect();
+  return productos;
+}

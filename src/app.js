@@ -2,8 +2,8 @@ import express from "express";
 import morgan from "morgan";
 import { config } from "dotenv";
 config();
+import bodyParser from 'body-parser'; // Importa body-parser-esm en lugar de body-parser
 import cors from "cors";
-
 import uploadRouter from "./routes/upload.routes.js";
 import authRouter from "./routes/auth.routes.js";
 import carritoRouter from "./routes/carrito.routes.js";
@@ -21,13 +21,15 @@ import adminRouter from "./routes/admin.routes.js";
 import ciudadRouter from "./routes/ciudad.routes.js";
 import direccionRouter from "./routes/direccion.routes.js";
 import tipoRouter from "./routes/tipo.routes.js";
+import municipioRouter from "./routes/municipio.routes.js";
 
 const corsOptions = {
     exposedHeaders: ['token']
 };
 
 const app = express();
-
+app.use(bodyParser.json({ limit: '30mb' })); 
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 app.set('port', process.env.PORT||3000);
 app.set('view engine', 'ejs');
 app.use(cors(corsOptions))
@@ -72,5 +74,6 @@ app.use("/api/ciudad", ciudadRouter);
 app.use("/api/direccion", direccionRouter);
 app.use("/api/tipo", tipoRouter);
 app.use("/", adminRouter);
+app.use("/api/municipio", municipioRouter);
 
 export default app;

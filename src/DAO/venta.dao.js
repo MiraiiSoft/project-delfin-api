@@ -132,14 +132,17 @@ export const getVentaByIdLogin = async (id) => {
 };
 
 export async function createVenta(data) {
+  const fechaActual = new Date();
+
   const newVenta = await prisma.venta.create({
     data: {
-      fecha_venta: data.fecha_venta,
+      fecha_venta: fechaActual, 
       status_venta: data.status_venta,
       id_envio: data.id_envio,
       id_pago: data.id_pago,
     },
   });
+
   await prisma.$disconnect();
   return newVenta;
 }
@@ -169,4 +172,15 @@ export async function deleteVentaById(id) {
   });
   await prisma.$disconnect();
   return ventaDeleted;
+}
+
+export async function setStatus(id){
+  await prisma.venta.update({
+    data:{
+      status_venta:"Completada"
+    },
+    where:{
+      id_venta:id
+    }
+  })
 }

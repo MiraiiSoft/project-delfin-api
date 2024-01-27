@@ -41,6 +41,7 @@ model ciudad {
   id_pais   Int
   pais      pais        @relation(fields: [id_pais], references: [id_pais], onDelete: NoAction, onUpdate: NoAction, map: "ciudad_ibfk_1")
   direccion direccion[]
+  municipio municipio[]
 
   @@index([id_pais], map: "id_pais")
 }
@@ -135,6 +136,15 @@ model login {
 
   @@index([id_persona], map: "id_persona")
   @@index([id_roll], map: "id_roll")
+}
+
+model municipio {
+  id_municipio Int     @id @default(autoincrement())
+  municipio    String? @db.VarChar(45)
+  id_ciudad    Int
+  ciudad       ciudad  @relation(fields: [id_ciudad], references: [id_ciudad], onDelete: NoAction, onUpdate: NoAction, map: "municipio_ibfk_1")
+
+  @@index([id_ciudad], map: "id_ciudad")
 }
 
 model pago {
