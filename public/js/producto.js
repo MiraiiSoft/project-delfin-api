@@ -2,6 +2,9 @@ const apiURL = "http://localhost:3000";
 const pathname = location.pathname;
 const idProduct = pathname.split("/").pop();
 const arrayImages = []
+const urlRemoteImages = {
+  url: []
+}
 
 if (pathname.includes("editar")) {
   fetch(`${apiURL}/api/producto/${idProduct}`)
@@ -13,7 +16,6 @@ if (pathname.includes("editar")) {
         const nombre = document.getElementById("nombre")
         const marca = document.getElementById("marca")
         const descripcion = document.getElementById("descripcion")
-        const imagen = document.getElementById("imagen")
         const compra = document.getElementById("compra")
         const precio_unitario = document.getElementById("precio_unitario")
         const precio_mayoreo = document.getElementById("precio_mayoreo")
@@ -31,7 +33,6 @@ if (pathname.includes("editar")) {
         nombre.value = data.nombre
         marca.value = data.marca
         descripcion.value = data.descripcion
-        imagen.value = data.imagen.url[0]
         compra.value = data.compra
         precio_unitario.value = data.precio_unitario
         precio_mayoreo.value = data.precio_mayoreo
@@ -44,6 +45,8 @@ if (pathname.includes("editar")) {
         id_color.value = data.id_color
         id_categoria.value = data.id_categoria
         id_tipo.value = data.id_tipo
+
+        urlRemoteImages.url = data.imagen.url
       }else{
         modal("Algo va mal", res.message)
       }
@@ -243,7 +246,16 @@ function hideModal() {
 
 async function saveOrUpdate(){
   if(pathname.includes("editar")){
-    updateProduct()
+    if(arrayImages.length != 0){
+      try {
+        const res = await uploadImages()
+        updateProduct(res.data)
+      } catch (error) {
+        modal("Algo va mal", `${error}`)
+      }
+    }else{
+      updateProduct()
+    }
   }else{
     try {
       const res = await uploadImages()
@@ -293,7 +305,7 @@ function saveProduct(dataImages) {
     });
 }
 
-function updateProduct() {
+function updateProduct(dataImages = null) {
   const form = document.getElementById("formularioProducto");
 
   const formData = new FormData(form);
@@ -301,6 +313,17 @@ function updateProduct() {
   formData.forEach((value, key) => {
     jsonData[key] = value;
   });
+
+  if(dataImages != null){
+    dataImages.forEach( (value) => {
+      urlRemoteImages.url.push(value.url)
+    })
+
+    jsonData.imagen = urlRemoteImages
+
+  }else{
+    jsonData.imagen = urlRemoteImages
+  }
 
   fetch(`${apiURL}/api/producto/update/${idProduct}`, {
     method: "PUT",
@@ -316,7 +339,7 @@ function updateProduct() {
 
         setTimeout(() => {
           location.replace(`${apiURL}/adminPanel/productos`)
-        },1000)
+        },1500)
       } else {
         modal("Algo va mal", res.message);
       }
