@@ -287,17 +287,21 @@ async function updateVenta(idVenta, dataPayment, status){
 
       await updateEnvioById(venta.id_envio, {
         fecha_envio: fechaActual,
+        fecha_entrega: fechaActual,
         fecha_recoleccion: fechaRecoleccion
       })
     }else{
       const fechaActual = new Date()
       const fechaEnvio = new Date(fechaActual)
       fechaEnvio.setDate(fechaActual.getDate() + 3)
+      const fechaEntrega = new Date(fechaActual)
+      fechaEntrega.setDate(fechaActual.getDate() + 4)
       const fechaRecoleccion = new Date(fechaActual);
       fechaRecoleccion.setDate(fechaActual.getDate() + 8)
       
       await updateEnvioById(venta.id_envio, {
         fecha_envio: fechaEnvio,
+        fecha_entrega: fechaEntrega,
         fecha_recoleccion: fechaRecoleccion
       })
     }
