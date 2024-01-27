@@ -81,9 +81,6 @@ export async function getcarritoByIdLogin(id) {
     },
     where:{
       id_login: id
-    },
-    include: {
-      carrito_producto: true
     }
   });
   await prisma.$disconnect();

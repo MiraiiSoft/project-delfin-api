@@ -1,7 +1,7 @@
 import { CODES_HTTP } from "../constants/global.js"
 import { createProducto, deleteProductoById, getProductoById, getProductos, updateProductoById, getProductoByNombre, getProductoByCategoria, getProductoByColor, getMarcasDeProductos, getProductoByMarca } from "../DAO/producto.dao.js"
 import loggerProducto from "../utils/logger/logger.producto.js";
-import { createInventario, deleteInventarioById, getInventarioByIdProduct } from "../DAO/inventario.dao.js";
+import { createInventario, deleteInventarioById, getInventarioByIdProduct, updateInventarioById } from "../DAO/inventario.dao.js";
 
 export const getAllProducts = async ( req, res ) => {
     try {
@@ -109,10 +109,33 @@ export const addProducts = async ( req, res ) => {
 
 export const updateProducts = async ( req, res ) => {
     try {
+        const {  codigo_barras, nombre, marca, descripcion, imagen, compra, precio_unitario, precio_mayoreo, precio_caja, 
+            inicio_mayoreo, inicio_caja, id_color, id_categoria, id_tipo, existencias, unidadesPaquete, numPaquete } = req.body
+
         const actualizarProducto = await updateProductoById(parseInt(req.params.productoID), {
-            ...req.body,
+            codigo_barras, 
+            nombre, marca, 
+            descripcion, 
+            imagen, 
+            compra, 
+            precio_unitario, 
+            precio_mayoreo, 
+            precio_caja, 
+            inicio_mayoreo, 
+            inicio_caja, 
+            id_color, 
+            id_categoria, 
+            id_tipo,
             updatedAt: new Date()
         })
+
+        const inventory = await getInventarioByIdProduct(actualizarProducto.id_producto);
+        await updateInventarioById(inventory.id_inventario, {
+            existencias,
+            unidadesPaquete,
+            numPaquete
+        })
+
         console.log("El producto fue actualizado con exito")
         loggerProducto.info({message:"El producto fue actualizado con exito" })
         res.status(CODES_HTTP.OK).json({

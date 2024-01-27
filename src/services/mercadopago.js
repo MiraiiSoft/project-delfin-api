@@ -23,6 +23,14 @@ export const createOrder = async (req) => {
 
 // Función para obtener información sobre un pago
 export const findPayment = async (id) => {
-    const data = await mercadopago.payment.findById(id);
-    return data.response;
+    try {
+        const data = await mercadopago.payment.findById(id);
+        return data.response;
+        
+    } catch (error) {
+        return {
+            success: false,
+            message: error
+        }
+    }
 };

@@ -58,6 +58,15 @@ export async function deleteCarritoProductosById(id) {
   return deleteCarritoProdcuto;
 }
 
+export async function deleteCarritoProductosByIdCarrito(id){
+  const deleteCarrito = await prisma.carrito_producto.deleteMany({
+    where: {
+      id_carrito: id
+    }
+  })
+  await prisma.$disconnect()
+  return deleteCarrito;
+}
 export async function deleteCarritoProductosByIdAfterVenta(id_venta) {
   const carrito = await prisma.detalle_venta.findFirst({
     select: {

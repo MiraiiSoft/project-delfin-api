@@ -9,3 +9,10 @@ export const CODES_HTTP = {
     CONFLICT: 409,
     INTERNAL_SERVER_ERROR: 500
 }
+
+export const PAYMENT_STATUS = {
+    APPROVED: "approved",
+    REJECTED: "rejected",
+    IN_PROCESS: "in_process",
+    PENDING: "pending"
+}

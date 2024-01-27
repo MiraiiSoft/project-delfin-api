@@ -30,7 +30,17 @@ export const getVentas = async () => {
   const deduplicatedDetallesVentas = Array.from(ventaMap.values());
   
   return deduplicatedDetallesVentas;
-  };
+};
+
+export const getVentaByIdShort = async (id) => {
+  const venta = await prisma.venta.findUnique({
+    where: {
+      id_venta: id
+    }
+  })
+  await prisma.$disconnect()
+  return venta
+}
 
 export const getVentaById = async (id) => {
   const detallesVentas = await prisma.detalle_venta.findMany({

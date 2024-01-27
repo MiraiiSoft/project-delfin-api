@@ -17,6 +17,19 @@ export async function getDetalleVentaById(id) {
   return venta;
 }
 
+export async function getDetalleVentaByIdVenta(id) {
+  const venta = await prisma.detalle_venta.findMany({
+    where: {
+      id_venta: id
+    },
+    include: {
+      carrito: true
+    }
+  });
+  await prisma.$disconnect();
+  return venta;
+}
+
 export async function createDetalleVenta(data) {
   const newDetalleVenta = await prisma.detalle_venta.create({
     data: {
