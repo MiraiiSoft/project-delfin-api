@@ -8,6 +8,7 @@ venta.addEventListener("click", function (event) {
     .then((responseData) => {
       if (responseData.success) {
         var ventas = responseData.data;
+        
         generateTableVentas(ventas); // Pasar los datos completos a la función generateTable
       } else {
         console.error(
@@ -24,7 +25,7 @@ venta.addEventListener("click", function (event) {
 function generateTableVentas(ventas) {
   var tableContainer = document.getElementById("tableContainer");
   tableContainer.innerHTML = "";
-
+  
   var table = document.createElement("table");
   table.classList.add("table");
   tableContainer.appendChild(table);
@@ -176,4 +177,14 @@ function formatDate(isoDate) {
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const year = date.getFullYear();
   return `${day}-${month}-${year}`;
+}
+
+function filtro(){
+  const dateStart = document.getElementById("dateStart")
+  const dateEnd = document.getElementById("dateEnd")
+  location.search = `dateStart=${dateStart.value}&dateEnd=${dateEnd.value}`
+}
+
+function cleanFilter(){
+  location.search = ""
 }

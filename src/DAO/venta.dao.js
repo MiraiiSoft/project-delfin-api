@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import moment from "moment";
 
 const prisma = new PrismaClient();
 
@@ -13,6 +14,42 @@ export const getVentas = async () => {
           producto: true
         }
       },
+    }
+  });
+  
+  const ventaMap = new Map();
+  
+  detallesVentas.forEach(venta => {
+    if (!ventaMap.has(venta.id_venta)) {
+      ventaMap.set(venta.id_venta, venta);
+    } else {
+      const existingVenta = ventaMap.get(venta.id_venta);
+      existingVenta.detalle_venta.push(...venta.detalle_venta);
+    }
+  });
+  
+  const deduplicatedDetallesVentas = Array.from(ventaMap.values());
+  
+  return deduplicatedDetallesVentas;
+};
+
+export const getVentasByDate = async (dateStart, dateEnd) => {
+  const detallesVentas = await prisma.venta.findMany({
+    include: {
+      envio: true,
+      pago: true,
+      detalle_venta: {
+        include: {
+          login: true,
+          producto: true
+        }
+      },
+    },
+    where: {
+      fecha_venta: {
+        gte: moment(dateStart).toDate(),
+        lte: moment(dateEnd).toDate()
+      }
     }
   });
   

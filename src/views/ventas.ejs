@@ -28,6 +28,12 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
+        .filter{
+            display: flex;
+            align-items: flex-end;
+            gap: 2rem;
+        }
     </style>
 </head>
 
@@ -113,6 +119,26 @@
 
             <!--Aqui va la tabla-->
             <div class="col-md-11 mt-4">
+                <div class="filter mb-2">
+                    <div>
+                        <p>Fecha inicio</p>
+                        <input type="date" id="dateStart">
+                    </div>
+
+                    <div>
+                        <p>Fecha final</p>
+                        <input type="date" id="dateEnd">
+                    </div>
+
+                    <button class="btn btn-primary mb-2" onclick="filtro()">
+                        Filtrar
+                    </button>
+
+                    <button class="btn btn-primary mb-2" onclick="cleanFilter()">
+                        Limpiar
+                    </button>
+                </div>
+
                 <table class="table table-bordered table-striped">
                     <thead class="table-primary">
                         <tr>
@@ -140,7 +166,7 @@
                                 </td> <!-- Accessing 'usuario' from the first 'detalle_venta' object's 'login' -->
                                 <td class="product-col">
                                     <% item.detalle_venta.forEach(function(detalle) { %>
-                                        +<%= detalle.producto.nombre %><br>
+                                        <%= detalle.producto.nombre %><br>
                                             <% }); %>
                                 </td>
                                 <td>
@@ -158,10 +184,10 @@
                                         class="btn btn-info">
                                         <i class="material-icons">visibility</i>
                                     </a>
-                                    <a href="#" class="btn btn-danger"
+                                    <!-- <a href="#" class="btn btn-danger"
                                         onclick="deleteItem('<%= item.detalle_venta[0].login.id_login %>')">
                                         <i class="material-icons">delete</i>
-                                    </a>
+                                    </a> -->
                                     <a href="#" class="btn btn-warning">
                                         <i class="material-icons">edit</i>
                                     </a>

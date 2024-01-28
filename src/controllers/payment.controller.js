@@ -16,6 +16,8 @@ import {
 } from "../services/paypal.js";
 import axios from "axios";
 import { deleteCarritoProductosByIdAfterVenta, deleteCarritoProductosByIdCarrito } from "../DAO/carritoProducto.dao.js";
+import sendEmail from "../helpers/sendEmail.js";
+import { glob } from "../config.js";
 
 export const payment = async (req, res) => {
   const reqpayment = req.body;
@@ -275,46 +277,57 @@ async function updateVenta(idVenta, dataPayment, status){
     const detalleVenta = await getDetalleVentaByIdVenta(parseInt(idVenta));
     const venta = await getVentaByIdShort(parseInt(idVenta))
     
-    await updatePago(venta.id_pago, {
-      tocken_pago: dataPayment.id.toString(),
-      monto: dataPayment.transaction_amount
-    })
-    
-    if(detalleVenta.length <= 5 ){
-      const fechaActual = new Date()
-      const fechaRecoleccion = new Date(fechaActual);
-      fechaRecoleccion.setDate(fechaActual.getDate() + 5)
-
-      await updateEnvioById(venta.id_envio, {
-        fecha_envio: fechaActual,
-        fecha_entrega: fechaActual,
-        fecha_recoleccion: fechaRecoleccion
+    if(venta.status_venta == "pendiente"){
+  
+      await updatePago(venta.id_pago, {
+        tocken_pago: dataPayment.id.toString(),
+        monto: dataPayment.transaction_amount
       })
-    }else{
-      const fechaActual = new Date()
-      const fechaEnvio = new Date(fechaActual)
-      fechaEnvio.setDate(fechaActual.getDate() + 3)
-      const fechaEntrega = new Date(fechaActual)
-      fechaEntrega.setDate(fechaActual.getDate() + 4)
-      const fechaRecoleccion = new Date(fechaActual);
-      fechaRecoleccion.setDate(fechaActual.getDate() + 8)
       
-      await updateEnvioById(venta.id_envio, {
-        fecha_envio: fechaEnvio,
-        fecha_entrega: fechaEntrega,
-        fecha_recoleccion: fechaRecoleccion
+      if(detalleVenta.length <= 5 ){
+        const fechaActual = new Date()
+        const fechaRecoleccion = new Date(fechaActual);
+        fechaRecoleccion.setDate(fechaActual.getDate() + 5)
+  
+        await updateEnvioById(venta.id_envio, {
+          fecha_envio: fechaActual,
+          fecha_entrega: fechaActual,
+          fecha_recoleccion: fechaRecoleccion
+        })
+      }else{
+        const fechaActual = new Date()
+        const fechaEnvio = new Date(fechaActual)
+        fechaEnvio.setDate(fechaActual.getDate() + 3)
+        const fechaEntrega = new Date(fechaActual)
+        fechaEntrega.setDate(fechaActual.getDate() + 4)
+        const fechaRecoleccion = new Date(fechaActual);
+        fechaRecoleccion.setDate(fechaActual.getDate() + 8)
+        
+        await updateEnvioById(venta.id_envio, {
+          fecha_envio: fechaEnvio,
+          fecha_entrega: fechaEntrega,
+          fecha_recoleccion: fechaRecoleccion
+        })
+      }
+  
+      await actualizarVenta(parseInt(idVenta), {
+        fecha_venta: new Date(),
+        status_venta: status
       })
+  
+      for(const product of detalleVenta){
+        await discountProduct(product.cantidad_producto, product.id_producto)
+        
+        const productNextDiscount = await getProductoById(product.id_producto)
+        if(productNextDiscount.inventario[0].existencias <= 5){
+          await sendEmail(glob.emailAlerts, "Baja cantidad de existencias", 
+          `Las existencias del producto ${productNextDiscount.nombre} son de 5 o menos`)
+          
+        }
+      }
+      await deleteCarritoProductosByIdCarrito(detalleVenta[0].id_carrito);
     }
 
-    await actualizarVenta(parseInt(idVenta), {
-      fecha_venta: new Date(),
-      status_venta: status
-    })
-
-    for(const product of detalleVenta){
-      await discountProduct(product.cantidad_producto, product.id_producto)
-    }
-    await deleteCarritoProductosByIdCarrito(detalleVenta[0].id_carrito);
 
   } catch (error) {
     console.log(error)

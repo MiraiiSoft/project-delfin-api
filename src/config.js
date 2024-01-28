@@ -12,5 +12,6 @@ export const firebaseConfig = {
 }
 
 export const glob = {
-    apiUrl: process.env.API_URL || ""
+    apiUrl: process.env.API_URL || "",
+    emailAlerts: process.env.EMAIL_ALERTS || ""
 }

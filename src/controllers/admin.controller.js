@@ -1,6 +1,6 @@
 import { getLoginById, getLogins } from "../DAO/login.dao.js";
 import { getProductoById, getProductos } from "../DAO/producto.dao.js";
-import { getVentaById, getVentas } from "../DAO/venta.dao.js";
+import { getVentaById, getVentas, getVentasByDate } from "../DAO/venta.dao.js";
 import { getCategorias } from "../DAO/categoria.dao.js";
 import { getRoles } from "../DAO/roll.dao.js";
 import { getColores } from "../DAO/color.dao.js";
@@ -34,7 +34,15 @@ export const renderProducts = async (req, res) => {
 
 export const renderVentas = async (req, res) => {
   try {
-    const ventas = await getVentas();
+    const { dateStart, dateEnd } = req.query;
+    let ventas;
+
+    if(dateStart && dateEnd){
+      ventas = await getVentasByDate(dateStart, dateEnd)
+    }else{
+      ventas = await getVentas();
+    }
+    
     res.render("../src/views/ventas.ejs", { ventas });
   } catch (error) {
     console.log("Hubo un error:", error);
